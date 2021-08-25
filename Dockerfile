@@ -1,8 +1,5 @@
 FROM node:16.0.0-alpine as builder
 
-RUN apk update && \
-    apk add --no-cache git
-
 WORKDIR /usr/src/app
 
 COPY package*.json ./
