@@ -10,10 +10,10 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.20.0-alpine
+FROM nginx:1.20.0
 
-RUN apk update && \
-    apk add --no-cache curl
+RUN apt update && \
+    apt install curl -y
 
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
