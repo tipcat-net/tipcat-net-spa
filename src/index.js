@@ -1,18 +1,24 @@
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app';
+import reportWebVitals from './reportWebVitals';
 
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
-import { Provider } from "react-redux";
-import { basicReduxStore } from "./reduxStore";
+import { PublicClientApplication } from "@azure/msal-browser";
+import { MsalProvider } from "@azure/msal-react";
+import { msalConfig } from "./authConfig";
+
+const msalInstance = new PublicClientApplication(msalConfig);
 
 ReactDOM.render(
-  <Provider store={basicReduxStore}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
+  <React.StrictMode>
+    <MsalProvider instance={msalInstance}>
+      <App/>
+    </MsalProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-registerServiceWorker();
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

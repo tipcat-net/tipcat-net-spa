@@ -1,0 +1,1 @@
+REACT_APP_AUTH_CONFIG_CLIENT_SECRET - used to get a token
