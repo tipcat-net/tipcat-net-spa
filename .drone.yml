@@ -36,7 +36,7 @@ steps:
   settings:
     mode: upgrade
     chart: ./Helm
-    release: api
+    release: spa
     values_files: ["Helm/values_dev.yaml"]
     namespace: dev
     skip_tls_verify: true
