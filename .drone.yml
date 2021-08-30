@@ -14,6 +14,8 @@ steps:
 - name: Build docker image & push to repository
   image: plugins/docker
   environment:
+    REACT_APP_AUTH_CONFIG_CLIENT_SECRET:
+      from_secret: DEV_AUTH_CLIENT_SECRET  
     GITHUB_TOKEN:
       from_secret: GITHUB_PASSWORD
   settings:
@@ -30,6 +32,7 @@ steps:
       from_secret: GITHUB_PASSWORD
     build_args_from_env:
       - GITHUB_TOKEN
+      - REACT_APP_AUTH_CONFIG_CLIENT_SECRET
 
 - name: Deploy
   image: pelotech/drone-helm3
