@@ -1,6 +1,6 @@
 export const msalConfig = {
   auth: {
-    clientId: "9d3e7cb9-41d4-482d-8eea-0af59dfd1ffc",
+    clientId: "bad4279b-90bd-4b43-ac13-29e968fd96ba",
     authority: "https://tipcatnet.b2clogin.com/tipcatnet.onmicrosoft.com/B2C_1_SignInSignUp",
     redirectUri: "/",
     knownAuthorities: ["tipcatnet.b2clogin.com"],
