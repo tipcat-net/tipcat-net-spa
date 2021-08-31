@@ -1,6 +1,7 @@
+console.log(process.env);
 export const msalConfig = {
   auth: {
-    clientId: "bad4279b-90bd-4b43-ac13-29e968fd96ba",
+    clientId: process.env.REACT_APP_AUTH_CONFIG_CLIENT_ID,
     authority: "https://tipcatnet.b2clogin.com/tipcatnet.onmicrosoft.com/B2C_1_SignInSignUp",
     redirectUri: "/",
     knownAuthorities: ["tipcatnet.b2clogin.com"],
@@ -20,8 +21,8 @@ export const loginRequest = {
 
 export const protectedResources = {
   apiTest: {
-      endpoint: "https://api-dev.tipcat.net/api/tests",
-      scopes: ["https://tipcatnet.onmicrosoft.com/d11d6132-3f7f-45ae-91a0-a7085602e9fb/access_as_service_provider"],
+    endpoint: "https://api-dev.tipcat.net/api/tests",
+    scopes: ["https://tipcatnet.onmicrosoft.com/d11d6132-3f7f-45ae-91a0-a7085602e9fb/access_as_service_provider"],
   },
 }
 
