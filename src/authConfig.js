@@ -1,4 +1,3 @@
-console.log(process.env);
 export const msalConfig = {
   auth: {
     clientId: process.env.REACT_APP_AUTH_CONFIG_CLIENT_ID,
@@ -22,6 +21,10 @@ export const loginRequest = {
 export const protectedResources = {
   apiTest: {
     endpoint: "https://api-dev.tipcat.net/api/tests",
+    scopes: ["https://tipcatnet.onmicrosoft.com/d11d6132-3f7f-45ae-91a0-a7085602e9fb/access_as_service_provider"],
+  },
+  membersCurrent : {
+    endpoint: "https://api-dev.tipcat.net/api/members/current",
     scopes: ["https://tipcatnet.onmicrosoft.com/d11d6132-3f7f-45ae-91a0-a7085602e9fb/access_as_service_provider"],
   },
 }

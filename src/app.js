@@ -1,20 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 import Header from './components/header';
-import { ApiTest } from './pages';
+import { ApiTest, Home } from './pages';
+
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route path="/"
-              render={() => <h2>Welcome to Tipcat</h2>}
-              exact />
-        <Route path="/api-test" component={ApiTest} />
-      </Switch>
-    </Router>
+    <Provider store={ store }>
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/"
+                component={Home}
+                exact />
+          <Route path="/api-test" component={ApiTest} />
+        </Switch>
+      </Router>
+    </Provider>
   );
 }
 
