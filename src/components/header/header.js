@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignInButton from './../sign-in-button';
+import SignOutButton from './../sign-out-button'
 
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
@@ -16,6 +17,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/api-test/">ApiTest</Link>
+          </li>
+          <li>
+            <SignOutButton />
           </li>
         </AuthenticatedTemplate>
         <UnauthenticatedTemplate>
