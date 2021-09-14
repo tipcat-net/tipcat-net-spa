@@ -1,6 +1,6 @@
 kind: pipeline
 type: kubernetes
-name: Test
+name: PR
 
 trigger:
   branch:
@@ -8,7 +8,7 @@ trigger:
   event:
     include:
       - pull_request
-
+steps:
 - name: discord-pr
   pull: always
   image: appleboy/drone-discord
@@ -19,10 +19,6 @@ trigger:
       from_secret: DISCORD_WEBHOOK_PR_ID
     webhook_token:
       from_secret: DISCORD_WEBHOOK_PR_TOKEN  
-
-
-
-
 ---
 kind: pipeline
 type: kubernetes
