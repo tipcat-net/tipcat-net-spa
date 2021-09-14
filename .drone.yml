@@ -1,3 +1,28 @@
+kind: pipeline
+type: kubernetes
+name: Test
+
+trigger:
+  branch:
+    - master
+  event:
+    include:
+      - pull_request
+
+- name: discord-pr
+  pull: always
+  image: appleboy/drone-discord
+  settings:
+    avatar_url: https://png.pngitem.com/pimgs/s/88-881443_pink-line-art-head-white-cat-face-clipart.png
+    message: "{{#success build.status}} ✅ Build #{{build.number}}\n`{{ build.event }}` of `{{repo.name}}` succeeded.\n Commit by {{commit.author}} on `{{commit.branch}}`:\n``` {{commit.message}} ```\n{{ build.link }} {{else}} ❌ Build #{{build.number}}\n`{{ build.event }}` of `{{repo.name}}` failed.\n Commit by {{commit.author}} on `{{commit.branch}}`:\n``` {{commit.message}} ```\n{{ build.link }} {{/success}}"
+    webhook_id:
+      from_secret: DISCORD_WEBHOOK_PR_ID
+    webhook_token:
+      from_secret: DISCORD_WEBHOOK_PR_TOKEN  
+
+
+
+
 ---
 kind: pipeline
 type: kubernetes
