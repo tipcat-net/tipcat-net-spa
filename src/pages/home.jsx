@@ -5,7 +5,9 @@ import { InteractionType } from "@azure/msal-browser";
 
 import { loginRequest, protectedResources } from "../authConfig";
 
-import Member from '../components/member';
+import { MemberForm } from '../components/member/form';
+import { AccountForm } from '../components/accounts/form';
+import Steps from '../components/steps';
 
 const HomeContent = React.memo(() => {
   const { instance, accounts, inProgress } = useMsal();
@@ -18,15 +20,19 @@ const HomeContent = React.memo(() => {
         scopes: protectedResources.membersCurrent.scopes,
         account: account
       }).then((response) => {
-        setAccessToken(response.accessToken);
         localStorage.setItem("token", response.accessToken);
+        setAccessToken(response.accessToken);
       }).catch((error) => {
         console.log('HOME ERROR', error);
       });
     }
   }, [account, inProgress, instance, accessToken]);
 
-  return accessToken? <Member /> : null
+  return accessToken? (
+    <>
+      <Steps steps={[<MemberForm />, <AccountForm />]}/>
+    </>
+    ) : null
 });
 
 export const Home = React.memo(() => {

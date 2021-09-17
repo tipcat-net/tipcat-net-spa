@@ -7,4 +7,6 @@ export const fetchers = {
   //members
   getMember: () => axios.get('/api/members/current'),
   getMamberUsingPOST: () => axios.post('/api/members/current'),
+  //Accounts
+  addAccount: (data) => axios.post('/api/accounts', data),
 };

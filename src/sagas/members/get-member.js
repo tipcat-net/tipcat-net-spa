@@ -12,11 +12,11 @@ export default function* getMemberRequest() {
     const response = yield call(fetchers.getMember);
     yield put(getMemberFinish(response));
   } catch (error) {
-    if(error.response.data.status === 404) {
+    if(error.response && error.response.data.status === 404) {
       const response = yield call(fetchers.getMamberUsingPOST);
       yield put(getMemberFinish(response));
     } else {
-      yield put(getMemberError(error.response.data));
+      yield put(getMemberError(error));
     }
   }
 }
