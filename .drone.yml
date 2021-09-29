@@ -9,6 +9,15 @@ trigger:
     include:
       - pull_request
 steps:
+
+- name: code-analysis
+  image: aosapps/drone-sonar-plugin
+  settings:
+    sonar_host:
+      from_secret: sonar_host
+    sonar_token:
+      from_secret: sonar_token
+      
 - name: discord-pr
   pull: always
   image: appleboy/drone-discord
