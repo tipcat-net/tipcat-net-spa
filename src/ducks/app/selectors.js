@@ -1,0 +1,1 @@
+export const selectSignUpLoading = (state) => state.app.loading.signUp;

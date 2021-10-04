@@ -1,0 +1,30 @@
+.btn {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 18px;/* or 106% */
+  display: inline-block;
+  letter-spacing: 0.05em;
+  color: #BDBDBD;
+  background: #E5E5E5;
+  border-radius: 20px;
+  border: none;
+  padding: 11px 23px;
+  
+  &Primary {
+    color: #FFFFFF;
+    background: #6FCF97;
+  }
+
+  &Transparent {
+    background: transparent;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+  }
+}

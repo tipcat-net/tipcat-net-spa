@@ -1,0 +1,60 @@
+.register {
+  padding: 0 20px;
+
+  &Logo {
+    margin: 30px 43px;
+    text-align: center;
+  }
+
+  &Title {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+    /* or 88% */
+    text-align: center;
+    color: #BDBDBD;
+  }
+
+  &UnderTitle {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    /* identical to box height, or 129% */
+    text-align: center;
+    color: #4F4F4F;
+    margin-bottom: 50px;
+  }
+}
+
+.registerAction {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &ButtonWrap {
+    flex: 0 0 120px;
+    width: 0 0 120px;
+    max-width: 120px;
+  }
+}
+
+.registerPoints {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+
+  button {
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    background: #E0E0E0;
+    background: #6FCF97;
+    border-radius: 50%;
+    border: none;
+  }
+}

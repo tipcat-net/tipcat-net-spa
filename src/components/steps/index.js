@@ -1,5 +1,7 @@
 import React, { useState }  from 'react';
 
+import { Button } from '../ui/Button';
+
 import './steps.css';
 
 const Steps = ({steps}) => {
@@ -10,12 +12,10 @@ const Steps = ({steps}) => {
   }
 
   const next = () => {
-    console.log('next')
     setCurrentStep(currentStep + 1);
   };
 
   const prev = () => {
-    console.log('prev')
     setCurrentStep(currentStep - 1);
   };
 
@@ -28,8 +28,8 @@ const Steps = ({steps}) => {
         {steps[currentStep]}
       </div>
       <div className="steps-action">
-        { currentStep > 0 ? <button onClick={prev}>Prev</button> : null }
-        { currentStep < steps.length - 1 ? <button onClick={next}>Next</button> : null }
+        { currentStep > 0 ? <Button onClick={prev}>Prev</Button> : null }
+        { currentStep < steps.length - 1 ? <Button onClick={next}>Next</Button> : null }
       </div>
     </div>
   )

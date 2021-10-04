@@ -1,7 +1,9 @@
-import ApiTest from './api-test';
-import Home from './home';
+import Home from './Home';
+import Auth from './Auth';
+import Registration from './Registration';
 
 export {
-  ApiTest,
-  Home
+  Home,
+  Auth,
+  Registration
 };

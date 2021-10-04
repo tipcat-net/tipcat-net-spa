@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getMember } from './../../../ducks/members/actions';
-import { selectMembers, selectMembersLoading } from './../../../ducks/members/selectors';
+import { getMember, updateMember } from '../../../ducks/member/actions';
+import { selectMember, selectMemberLoading } from '../../../ducks/member/selectors';
 
 import Spinner from './../../spinner';
 
 import { Formik, Form } from 'formik';
-import { Input } from './../../form/input/'
+import { FormInput } from './../../form/form-input/'
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -20,8 +20,8 @@ const initialValues = schema.cast({});
 
 export const MemberForm = () => {
   const put = useDispatch();
-  const member = useSelector(selectMembers);
-  const loading = useSelector(selectMembersLoading);
+  const member = useSelector(selectMember);
+  const loading = useSelector(selectMemberLoading);
 
   useEffect(() => {
     put(getMember());
@@ -35,12 +35,11 @@ export const MemberForm = () => {
     <Formik
       initialValues={{...initialValues, ...member}}
       validationSchema={schema}
-      // onSubmit={(values, { setSubmitting }) => {
-      //   setTimeout(() => {
-      //     alert(JSON.stringify(values, null, 2));
-      //     setSubmitting(false);
-      //   }, 400);
-      // }}
+      onSubmit={(values) => {
+        if (member) {
+          put(updateMember(values));
+        }
+      }}
     >
       {
         ({
@@ -54,7 +53,7 @@ export const MemberForm = () => {
         }) => {
           return (
             <Form>
-              <Input
+              <FormInput
                 label="firstName"
                 name="firstName"
                 type="text"
@@ -62,7 +61,7 @@ export const MemberForm = () => {
                 onBlur={handleBlur}
                 value={values.firstName}
               />
-              <Input
+              <FormInput
                 label="lastName"
                 name="lastName"
                 type="text"
@@ -70,7 +69,7 @@ export const MemberForm = () => {
                 onBlur={handleBlur}
                 value={values.lastName}
               />
-              <Input
+              <FormInput
                 label="Email"
                 name="email"
                 type="email"

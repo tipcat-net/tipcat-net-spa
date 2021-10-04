@@ -3,17 +3,31 @@ import {
   takeEvery,
 } from 'redux-saga/effects';
 
-import { MembersActionTypes } from '../ducks/members/action-types';
-import { AccountsActionTypes } from '../ducks/accounts/action-types';
+// SignUp
+import { AppActionTypes } from '../ducks/app/action-types';
+import signUpRequest from './app/sign-up';
 
-import getMemberRequest from './members/get-member';
-import addAccountRequest from './accounts/add-account';
+// Member
+import { MemberActionTypes } from '../ducks/member/action-types';
+import getMemberRequest from './member/get-member';
+import updateMemberRequest from './member/update-member';
+
+// Accounts
+import { AccountActionTypes } from '../ducks/account/action-types';
+import addAccountRequest from './account/add-account';
+import getAccountRequest from './account/get-account';
+import updateAccountRequest from './account/update-account';
 
 export default function* sagas() {
   yield all([
+      // SignUp
+      takeEvery(AppActionTypes.SIGN_UP_START, signUpRequest),
       // Member
-      takeEvery(MembersActionTypes.GET_MEMBER_START, getMemberRequest),
+      takeEvery(MemberActionTypes.GET_MEMBER_START, getMemberRequest),
+      takeEvery(MemberActionTypes.UPDATE_MEMBER_START, updateMemberRequest),
       // Accounts
-      takeEvery(AccountsActionTypes.ADD_ACCOUNT_START, addAccountRequest),
+      takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
+      takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
+      takeEvery(AccountActionTypes.UPDATE_ACCOUNT_START, updateAccountRequest),
   ]);
 }
