@@ -4,6 +4,7 @@ import { useMsal } from "@azure/msal-react";
 function handleLogout(instance) {
   instance.logoutPopup()
     .then(res => {
+      localStorage.removeItem('token');
       console.log(res);
     })
     .catch(e => {

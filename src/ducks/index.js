@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { membersReducer } from './members/reducer';
+import { appReducer } from './app/reducer';
+import { memberReducer } from './member/reducer';
+import { accountReducer } from './account/reducer';
 
 export const rootReducer = () => combineReducers({
-  members: membersReducer,
+  app: appReducer,
+  member: memberReducer,
+  account: accountReducer,
 });
