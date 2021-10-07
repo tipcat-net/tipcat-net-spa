@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMember, updateMember } from '../../../ducks/member/actions';
 import { selectMember, selectMemberLoading } from '../../../ducks/member/selectors';
 
+import { Button } from '../../ui/Button';
+
 import Spinner from './../../spinner';
 
 import { Formik, Form } from 'formik';
@@ -77,9 +79,9 @@ export const MemberForm = () => {
                 onBlur={handleBlur}
                 value={values.email}
               />
-              <button type="submit" disabled={isSubmitting}>
+              <Button primary type="submit" disabled={isSubmitting}>
                 Submit
-              </button>
+              </Button>
             </Form>
           )
         }

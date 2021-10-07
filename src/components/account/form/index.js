@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectMember } from '../../../ducks/member/selectors';
@@ -6,6 +6,8 @@ import { getMember } from '../../../ducks/member/actions';
 
 import { addAccount, getAccount, updateAccount } from '../../../ducks/account/actions';
 import { selectAccount, selectAccountLoading } from '../../../ducks/account/selectors';
+
+import { Button } from '../../ui/Button';
 
 import Spinner from './../../spinner'
 
@@ -107,9 +109,9 @@ export const AccountForm = () => {
             onBlur={handleBlur}
             value={values.phone}
           />
-          <button type="submit" disabled={isSubmitting}>
+          <Button primary type="submit" disabled={isSubmitting}>
             Submit
-          </button>
+          </Button>
         </Form>
       )}
     </Formik>

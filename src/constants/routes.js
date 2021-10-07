@@ -3,12 +3,12 @@ export const ROUTES = {
         path: '/',
         exact: true,
         private: true,
-        title: 'Главная',
+        title: 'Home',
     },
     AUTH: {
         path: '/auth',
         exact: true,
-        title: 'Авторизация',
+        title: 'Authorization',
     },
     LOGOUT: {
         path: '/logout',
@@ -23,25 +23,20 @@ export const ROUTES = {
     REGISTRATION: {
         path: '/registration',
         exact: true,
-        title: 'Регистрация',
+        title: 'Registration',
     },
     PROFILE: {
         path: '/profile',
         exact: true,
         private: true,
-        title: 'Профиль',
+        title: 'Profile',
     },
     GETACCOUNT: {
         path: '/get-account',
         exact: true,
         private: true,
         title: 'GetAccount',
-    },
-    PAY: {
-        path: '/:memberCode/pay',
-        exact: true,
-        title: 'memberCode/pay',
-    },
+    }
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

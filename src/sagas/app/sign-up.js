@@ -9,12 +9,10 @@ import {
 
 export default function* signUpRequest({ payload }) {
   try {
-    console.log('signUpRequest', payload);
     yield call(fetchers.updateMember, payload.member);
     yield call(fetchers.addAccount, payload.account);
     yield put(signUpFinish());
   } catch (error) {
-    console.log(error.response);
     yield put(signUpError(error));
   }
 }

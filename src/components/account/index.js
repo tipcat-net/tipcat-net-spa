@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectMember } from '../../ducks/member/selectors';
 
+import { getMember } from '../../ducks/member/actions';
 import { getAccount } from '../../ducks/account/actions';
 import { selectAccount, selectAccountLoading } from '../../ducks/account/selectors';
 
@@ -15,8 +16,12 @@ export const Account = () => {
   const loading = useSelector(selectAccountLoading);
 
   useEffect(() => {
-    put(getAccount(member.accountId));
-  }, []);
+    if(member) {
+      put(getAccount(member.accountId));
+    } else {
+      put(getMember());
+    }
+  }, [member]);
 
   if(loading) {
     <Spinner />
