@@ -21,9 +21,6 @@ const Steps = ({steps}) => {
 
   return (
     <div className="steps">
-      <div className="steps-header">
-        step {currentStep + 1}
-      </div>
       <div className="steps-content">
         {steps[currentStep]}
       </div>

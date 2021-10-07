@@ -5,7 +5,7 @@ import style from './styles.module.scss';
 export const Input = ({ className, error, ...Allprops }) => {
   const addClass = className ? className : null;
   const classError = error ? style.error : null;
-  console.log(Allprops);
+  
   return (
     <input
       className={ cn(style.input, classError, addClass) }

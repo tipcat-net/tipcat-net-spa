@@ -54,26 +54,12 @@ export const Registration = () => {
 
   const next = () => {
     if (validateStep.member) {
-      console.log('validateStep.member', validateStep.member)
       setCurrentStep('account');
     }
   };
 
   const onSubmit = (values) => {
-    console.log('register', values);
     put(signUp(values));
-  }
-
-  const steps = {
-    member: {
-      key: 'member',
-      title: 'Hallo!',
-      underTitle: 'Introduce youreself',
-    },
-    account: {
-      key: 'account',
-      underTitle: 'Introduce your company',
-    }
   }
 
   if(loading || !member) {
@@ -97,8 +83,6 @@ export const Registration = () => {
             handleSubmit,
             isSubmitting,
           }) => {
-            console.log('errors', errors);
-
             errors.member ? validateStep.member = false : validateStep.member = true;
             errors.account ? validateStep.account = false : validateStep.account = true;
 

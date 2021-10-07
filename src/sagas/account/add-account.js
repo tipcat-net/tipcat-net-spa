@@ -10,7 +10,7 @@ import {
 export default function* addAccountRequest({ payload }) {
   try {
     const response = yield call(fetchers.addAccount, payload);
-    console.log(response);
+
     yield put(addAccountFinish(response));
   } catch (error) {
     yield put(addAccountError({ ...error.response, ...error.request }));
