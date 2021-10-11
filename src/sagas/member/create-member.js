@@ -3,20 +3,15 @@ import { put, call } from 'redux-saga/effects';
 import { fetchers } from '../../api';
 
 import {
-  getMemberFinish,
-  getMemberError,
+  createMemberFinish,
+  createMemberError,
 } from '../../ducks/member/actions';
 
-export default function* getMemberRequest() {
+export default function* createMemberRequest() {
   try {
-    const response = yield call(fetchers.getMember);
-    yield put(getMemberFinish(response));
+    const response = yield call(fetchers.createMember);
+    yield put(createMemberFinish(response));
   } catch (error) {
-    if(error.response && error.response.data.status === 404) {
-      const response = yield call(fetchers.createMember);
-      yield put(getMemberFinish(response));
-    } else {
-      yield put(getMemberError(error));
-    }
+    yield put(createMemberError(error));
   }
 }

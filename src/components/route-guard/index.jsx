@@ -3,6 +3,37 @@ import { Route, Redirect } from "react-router-dom";
 
 import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMember } from "../../ducks/member/selectors";
+import { getMember } from "../../ducks/member/actions";
+
+import { ROUTES } from "../../constants/routes";
+
+const CheckMember = ({ Component, ...props }) => {
+  const put = useDispatch();
+  const member = useSelector(selectMember);
+  const checkRegistrationPage = props.path === ROUTES.REGISTRATION.path;
+  
+  useEffect(() => {
+    put(getMember());
+  }, []);
+  
+  if ((member && member.accountId) || (checkRegistrationPage && member && !member.accountId)) {
+    return (
+      <Route { ...props } render={routeProps => (
+        <Component {...routeProps} />
+      ) }/>
+    )
+  } else if (member && !member.accountId) {
+    return (
+      <Redirect
+        to={ ROUTES.REGISTRATION.path }
+      />
+    );
+  }
+
+  return null;
+}
 
 export const RouteGuard = ({ Component, ...props }) => {
 
@@ -21,9 +52,7 @@ export const RouteGuard = ({ Component, ...props }) => {
       {
         isAuthorized
           ?
-            <Route {...props} render={routeProps => (
-              <Component {...routeProps} />
-            ) }/>
+            <CheckMember { ...props } Component={ Component }/>
           : !isAuthorized && inProgress === InteractionStatus.None ?
             <Redirect
               to={{
