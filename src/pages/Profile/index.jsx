@@ -1,6 +1,6 @@
 import { MemberForm } from './../../components/member/form';
 import { AccountForm } from '../../components/account/form';
-import { Layout } from './../../components/ui/layout';
+import { Layout } from '../../components/ui/Layout';
 import Steps from './../../components/steps';
 
 export const Profile = () => {

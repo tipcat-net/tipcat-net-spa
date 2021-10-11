@@ -1,33 +1,33 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
 import { useMsal } from "@azure/msal-react";
-import { InteractionStatus } from "@azure/msal-browser";
 import { loginRequest } from './../../authConfig';
+import { Button } from "../../components/ui/Button";
+import { Header } from './../../components/header';
+
+import style from './styles.module.scss';
 
 export const Auth = () => {
-  const { inProgress, instance } = useMsal();
+  const { instance } = useMsal();
   const currentAccount = instance.getActiveAccount();
 
-  useEffect(() => {
-    if(!currentAccount && inProgress === InteractionStatus.None) {
-      instance.loginRedirect(loginRequest);
-    }
-  }, [instance, inProgress, currentAccount])
+  if (currentAccount) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+        }}
+      />
+    )
+  }
 
   return (
-    <>
-      {
-        currentAccount
-          ?
-            <Redirect
-              to={{
-                pathname: "/",
-              }}
-            />
-          :
-            null
-      }
-    </>
+    <div className={ style.auth }>
+      <Header logo/>
+      <div className={ style.authContainer }>
+        <Button onClick={ () => instance.loginRedirect(loginRequest) } primary>Sign in</Button>
+      </div>
+    </div>
   )
 };
 
