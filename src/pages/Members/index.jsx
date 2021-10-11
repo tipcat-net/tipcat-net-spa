@@ -1,4 +1,4 @@
-import { Layout } from '../../components/ui/layout';
+import { Layout } from '../../components/ui/Layout';
 import { MembersItem } from '../../components/members/members-item';
 
 export const Members = () => {

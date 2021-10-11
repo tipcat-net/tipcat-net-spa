@@ -1,4 +1,4 @@
-import { Layout } from '../components/ui/layout';
+import { Layout } from '../components/ui/Layout';
 import Account from '../components/account';
 
 export const GetAccount = () => {

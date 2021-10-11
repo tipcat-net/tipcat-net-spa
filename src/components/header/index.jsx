@@ -7,16 +7,27 @@ import { Button } from '../../components/ui/Button';
 
 import SignInButton from '../sign-in-button';
 import SignOutButton from '../sign-out-button'
+import LogoGrey from './../../assets/logo_grey.svg';
 
 import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
-import './header.css';
+import style from './styles.module.scss';
 
-export const Header = () => {
+export const Header = ({ logo }) => {
+  if (logo) {
+    return (
+      <header className={ style.header }>
+        <div className={ style.headerLogo }>
+          <img src={ LogoGrey } alt="TipCat" className={ style.headerLogo } />
+        </div>
+      </header>
+    );
+  }
+
   return (
-    <header>
-      <ul>
-        <AuthenticatedTemplate>
+    <header className={ style.header }>
+      <AuthenticatedTemplate>
+        <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -29,13 +40,8 @@ export const Header = () => {
           <li>
             <SignOutButton />
           </li>
-        </AuthenticatedTemplate>
-        <UnauthenticatedTemplate>
-          <li>
-            <SignInButton />
-          </li>
-        </UnauthenticatedTemplate>
       </ul>
+      </AuthenticatedTemplate>
     </header>
     // <header>
     //   <Button transparent><Arrow /></Button>
