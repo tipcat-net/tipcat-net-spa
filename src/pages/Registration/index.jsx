@@ -7,6 +7,9 @@ import { ErrorRequired } from "../../components/register/error-required";
 import { getMember } from './../../ducks/member/actions';
 import { selectMember, selectMemberLoading } from './../../ducks/member/selectors';
 
+import { ROUTES } from "../../constants/routes";
+import { Redirect } from "react-router-dom";
+
 import { signUp } from './../../ducks/app/actions';
 
 import style from './styles.module.scss';
@@ -27,7 +30,7 @@ const schema = yup.object().shape({
     address: yup.string().required('Required').default(''),
     commercialName: yup.string().required('Required').default(''),
     email: yup.string().required('Required').email().default(''),
-    //name: yup.string().required('Required').default(''),
+    name: yup.string().required('Required').default(''),
     phone: yup.string().required('Required').default(''),
   }),
 });
@@ -39,23 +42,25 @@ export const Registration = () => {
   const member = useSelector(selectMember);
   const loading = useSelector(selectMemberLoading);
   const [ currentStep, setCurrentStep ] = useState('member');
-  const [ validateStep, setValidateStep ] = useState({
-    member: false,
-    account: false
-  });
 
   useEffect(() => {
     put(getMember());
   }, []);
+
+  if (member && member.accountId) {
+    return (
+      <Redirect
+        to={ ROUTES.HOME.path }
+      />
+    )
+  }
 
   const back = () => {
     setCurrentStep('member');
   };
 
   const next = () => {
-    if (validateStep.member) {
-      setCurrentStep('account');
-    }
+    setCurrentStep('account');
   };
 
   const onSubmit = (values) => {
@@ -83,8 +88,6 @@ export const Registration = () => {
             handleSubmit,
             isSubmitting,
           }) => {
-            errors.member ? validateStep.member = false : validateStep.member = true;
-            errors.account ? validateStep.account = false : validateStep.account = true;
 
             return (
               <Form>
@@ -140,6 +143,12 @@ export const Registration = () => {
                         value={values.account.email}
                       />
                       <FormInput
+                        label="Name"
+                        name="account.name"
+                        type="text"
+                        value={values.account.name}
+                      />
+                      <FormInput
                         label="Comapany phone"
                         name="account.phone"
                         type="text"
@@ -155,11 +164,11 @@ export const Registration = () => {
                     { currentStep === "account" ? <Button onClick={ back }>Back</Button> : null }
                   </div>
                   <div className={ style.registerPoints }>
-                    <button onClick={ back }></button>
-                    <button onClick={ next }></button>
+                    <button type="button" className={ currentStep === "member" ? style.registerPointsActive : null } onClick={ back }></button>
+                    <button type="button" className={ currentStep === "account" ? style.registerPointsActive : null } onClick={ next }></button>
                   </div>
                   <div className={ style.registerActionButtonWrap }>
-                    { currentStep === "member" ? <Button onClick={ next } primary>Next</Button> : <Button type="submit" primary>Register</Button> }
+                    { currentStep === "member" ? <Button type="button" onClick={ !errors.member ? next : null } primary>Next</Button> : <Button type="submit" primary>Register</Button> }
                   </div>
                 </div>
               </Form>

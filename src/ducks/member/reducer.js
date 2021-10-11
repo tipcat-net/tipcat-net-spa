@@ -37,6 +37,7 @@ export function memberReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        data: action.response.data,
       };
     case MemberActionTypes.CREATE_MEMBER_ERROR:
       return {

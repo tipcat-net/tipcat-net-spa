@@ -9,8 +9,9 @@ import {
 
 export default function* signUpRequest({ payload }) {
   try {
-    yield call(fetchers.updateMember, payload.member);
-    yield call(fetchers.addAccount, payload.account);
+    const response = yield call(fetchers.addAccount, payload.account);
+
+    yield call(fetchers.updateMember, { ...payload.member, accountId: response.data.id });
     yield put(signUpFinish());
   } catch (error) {
     yield put(signUpError(error));
