@@ -19,7 +19,6 @@ const CheckMember = ({ Component, ...props }) => {
   }, []);
   
   if ((member && member.accountId) || (checkRegistrationPage && member && !member.accountId)) {
-    console.log('(member && member.accountId) || (checkRegistrationPage && member && !member.accountId)', (member && member.accountId) || (checkRegistrationPage && member && !member.accountId));
     return (
       <Route { ...props } render={routeProps => (
         <Component {...routeProps} />
