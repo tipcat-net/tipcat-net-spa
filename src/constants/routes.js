@@ -31,12 +31,6 @@ export const ROUTES = {
         private: true,
         title: 'Profile',
     },
-    GETACCOUNT: {
-        path: '/get-account',
-        exact: true,
-        private: true,
-        title: 'GetAccount',
-    }
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

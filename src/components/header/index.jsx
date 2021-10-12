@@ -35,9 +35,6 @@ export const Header = ({ logo }) => {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/get-account/">GetAccount</Link>
-          </li>
-          <li>
             <SignOutButton />
           </li>
       </ul>
