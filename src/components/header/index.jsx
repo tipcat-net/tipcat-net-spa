@@ -27,11 +27,11 @@ export const Header = ({ logo }) => {
   return (
     <header className={ style.header }>
       <div className={ style.headerContainer }>
-        <Button transparent><Arrow /></Button>
-        <Button transparent onClick={ onMenuToggle }><Burger /></Button>
+        <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtn } /></Button>
+        <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger /></Button>
         <h1 className={ style.headerTitle }>Members</h1>
-        <Button transparent><Loupe /></Button>
-        <Button transparent ><Person /></Button>
+        <Button clear className={ style.headerBtn }><Loupe /></Button>
+        <Button clear className={ style.headerBtn }><Person /></Button>
       </div>
       <Menu open={ menuOpen } onClose={ onMenuToggle } />
     </header>
