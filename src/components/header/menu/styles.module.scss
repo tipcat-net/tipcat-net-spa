@@ -1,0 +1,33 @@
+.menuWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: all .3s ease;
+  background: #fff;
+
+  &Open {
+    transform: translateX(0);
+  }
+}
+.menu {
+  list-style: none;
+
+  li {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 18px;
+    /* identical to box height, or 106% */
+    color: #5F5F5F;
+    margin: 10px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { Button } from '../../ui/Button';
+import { Actions } from '../../ui/Icons';
 import style from './styles.module.scss';
 
 export const MembersItem = () => {
@@ -10,7 +12,11 @@ export const MembersItem = () => {
         <div className={ style.membersItemName }>Nicholas Angel</div>
         <div className={ style.membersItemPermissions }>senior waiter</div>
       </div>
-      <div className={ style.membersItemAction }></div>
+      <div className={ style.membersItemActions }>
+        <Button transparent className={ style.membersItemActionsBtn }>
+          <Actions />
+        </Button>
+      </div>
     </div>
   )
 }

@@ -28,4 +28,11 @@
     align-items: center;
     border-radius: 0;
   }
+
+  &Clear {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+  }
 }
