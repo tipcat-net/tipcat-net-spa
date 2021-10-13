@@ -1,8 +1,10 @@
 import Header from "../../header";
 
+import style from './styles.module.scss';
+
 export const Layout = ({ children }) => (
-  <div>
+  <div className={ style.layout }>
     <Header />
-    <div>{ children }</div>
+    <div className={ style.layoutContent }>{ children }</div>
   </div>
 );

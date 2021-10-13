@@ -23,8 +23,14 @@ const getToken = async (request) => {
 export const fetchers = {
   // SignUp
   
-
   // Members
+  getMembers: async ({ accountId }) => {
+    console.log('accountId', accountId);
+    const accessToken = await getToken(loginRequest);
+    return axios.get(`/api/accounts/${accountId}/members`, { headers: {"Authorization" : `Bearer ${accessToken}`} });
+  },
+
+  // Member
   getMember: async () => {
     const accessToken = await getToken(loginRequest);
     return axios.get('/api/members/current', { headers: {"Authorization" : `Bearer ${accessToken}`} });

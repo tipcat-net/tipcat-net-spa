@@ -3,7 +3,7 @@
     &Header {
       display: flex;
       padding: 5px 15px;
-      background: #F2F2F2;
+      background: rgba(196, 196, 196, 0.1);
       border: 1px solid #FFFFFF;
 
       &Image {
@@ -56,8 +56,12 @@
       display: none;
     }
 
-    &Active &HeaderArrowIcon {
-      transform: rotateZ(-180deg);
+    &Active &Header {
+      background: #F2F2F2;
+
+      &ArrowIcon {
+        transform: rotateZ(-180deg);
+      }
     }
 
     &Active &Content {

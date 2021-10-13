@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 
 import { MembersActions } from '../members-actions';
@@ -6,9 +6,16 @@ import { MembersUnit } from '../members-unit';
 import { MembersItem } from '../members-item';
 
 import style from './styles.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMembers } from '../../../ducks/members/actions';
+import { selectMembers } from '../../../ducks/members/selectors';
+import { selectMember } from '../../../ducks/member/selectors';
 
 export const MembersTabs = () => {
   const [currentTab, setCurrentTab] = useState('all');
+  const put = useDispatch();
+  const member = useSelector(selectMember);
+  const members = useSelector(selectMembers);
 
   const membersUnit = [
     {
