@@ -1,13 +1,11 @@
 import { Layout } from '../../components/ui/Layout';
-import { MembersItem } from '../../components/members/members-item';
+import { MembersTabs } from '../../components/members/members-tabs';
 
 export const Members = () => {
 
   return (
     <Layout>
-      <MembersItem />
-      <MembersItem />
-      <MembersItem />
+      <MembersTabs />
     </Layout>
   )
 }

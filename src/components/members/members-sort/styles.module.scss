@@ -1,0 +1,64 @@
+.members {
+  &Sort {
+    position: relative;
+    display: flex;
+
+    &Selected {
+      display: flex;
+      align-items: center;
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 18px;
+      /* or 120% */
+      letter-spacing: 0.05em;
+      color: #828282;
+    }
+
+    &List {
+      position: absolute;
+      top: 100%;
+      right: -10px;
+      width: 100vw;
+      padding: 20px 40px 10px;
+      list-style: none;
+      background: rgba(242, 242, 242, 0.9);
+      visibility: hidden;
+      opacity: 0;
+
+      &Visible {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &Item {
+        display: flex;
+        justify-content: flex-end;
+
+        &Btn {
+          display: flex;
+          align-items: center;
+          font-family: 'SF Pro Display';
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 18px;
+          /* or 120% */
+          letter-spacing: 0.05em;
+          color: #5F5F5F;
+
+        }
+
+        &Active &Btn {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}

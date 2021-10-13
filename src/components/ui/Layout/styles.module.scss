@@ -1,0 +1,8 @@
+.layout {
+  height: 100vh;
+
+  &Content {
+    height: calc(100% - 60px);
+    overflow: auto;
+  }
+}

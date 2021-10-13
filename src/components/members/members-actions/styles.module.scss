@@ -1,0 +1,40 @@
+.members {
+  &Actions {
+    position: relative;
+    display: flex;
+    padding: 20px 10px 5px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+    &Item {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+      display: flex;
+
+      &:last-child {
+        justify-content: flex-end;
+      }
+    }
+
+    &Add {
+      display: flex;
+      align-items: center;
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 18px;
+      /* or 120% */
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.05em;
+      color: #AFAFAF;
+    }
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}

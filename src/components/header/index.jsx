@@ -1,19 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Person } from '../../components/ui/Icons/';
-import { Loupe } from '../../components/ui/Icons/';
-import { Arrow } from '../../components/ui/Icons/';
+import React, { useState } from 'react';
+import { Person, Loupe, Arrow, Burger } from '../../components/ui/Icons/';
 import { Button } from '../../components/ui/Button';
+import { Menu } from './menu';
 
-import SignInButton from '../sign-in-button';
-import SignOutButton from '../sign-out-button'
 import LogoGrey from './../../assets/logo_grey.svg';
-
-import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
 
 import style from './styles.module.scss';
 
 export const Header = ({ logo }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const onMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  }
+
   if (logo) {
     return (
       <header className={ style.header }>
@@ -26,26 +26,15 @@ export const Header = ({ logo }) => {
 
   return (
     <header className={ style.header }>
-      <AuthenticatedTemplate>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <SignOutButton />
-          </li>
-      </ul>
-      </AuthenticatedTemplate>
+      <div className={ style.headerContainer }>
+        <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtn } /></Button>
+        <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger /></Button>
+        <h1 className={ style.headerTitle }>Members</h1>
+        <Button clear className={ style.headerBtn }><Loupe /></Button>
+        <Button clear className={ style.headerBtn }><Person /></Button>
+      </div>
+      <Menu open={ menuOpen } onClose={ onMenuToggle } />
     </header>
-    // <header>
-    //   <Button transparent><Arrow /></Button>
-    //   <h1 className="">Members</h1>
-    //   <Button transparent><Loupe /></Button>
-    //   <Button transparent ><Person /></Button>
-    // </header>
   );
 };
 

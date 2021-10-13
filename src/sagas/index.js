@@ -13,6 +13,10 @@ import getMemberRequest from './member/get-member';
 import createMemberRequest from './member/create-member';
 import updateMemberRequest from './member/update-member';
 
+// Members
+import { MembersActionTypes } from '../ducks/members/action-types';
+import getMembersRequest from './members/get-members';
+
 // Accounts
 import { AccountActionTypes } from '../ducks/account/action-types';
 import addAccountRequest from './account/add-account';
@@ -24,6 +28,8 @@ export default function* sagas() {
       // SignUp
       takeEvery(AppActionTypes.SIGN_UP_START, signUpRequest),
       takeEvery(AppActionTypes.SIGN_UP_FINISH, getMemberRequest),
+      // Members
+      takeEvery(MembersActionTypes.GET_MEMBERS_START, getMembersRequest),
       // Member
       takeEvery(MemberActionTypes.GET_MEMBER_START, getMemberRequest),
       takeEvery(MemberActionTypes.CREATE_MEMBER_START, createMemberRequest),
