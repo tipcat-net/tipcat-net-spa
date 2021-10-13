@@ -25,11 +25,11 @@ export const ROUTES = {
         exact: true,
         title: 'Registration',
     },
-    PROFILE: {
-        path: '/profile',
+    MEMBER_PROFILE: {
+        path: '/member/',
         exact: true,
         private: true,
-        title: 'Profile',
+        title: 'Member profile',
     },
 };
 

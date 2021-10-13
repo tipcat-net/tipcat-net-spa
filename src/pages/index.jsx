@@ -8,7 +8,7 @@ import { Auth } from './Auth';
 import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
-import Profile from './Profile';
+import MemberProfile from './MemberProfile';
 
 export const Pages = () => {
   return (
@@ -16,7 +16,7 @@ export const Pages = () => {
       <RouteGuard { ...ROUTES.HOME } Component={ Home } />
       <RouteGuard { ...ROUTES.MEMBERS } Component={ Members } />
       <RouteGuard { ...ROUTES.REGISTRATION } Component={ Registration } />
-      <RouteGuard { ...ROUTES.PROFILE } Component={ Profile } />
+      <RouteGuard { ...ROUTES.MEMBER_PROFILE } Component={ MemberProfile } />
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>
