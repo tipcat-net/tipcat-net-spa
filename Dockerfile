@@ -1,5 +1,8 @@
 FROM node:16.0.0-alpine as builder
 
+RUN apk update && \
+    apk add --no-cache git
+    
 ARG REACT_APP_AUTH_CONFIG_CLIENT_SECRET
 ARG REACT_APP_AUTH_CONFIG_CLIENT_ID
 
