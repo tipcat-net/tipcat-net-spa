@@ -1,6 +1,8 @@
+@import "../../styles/variables.scss";
+
 .pageNotFound {
   height: 100%;
-  background: #4F4F4F;
+  background: $pageNotFound_bg;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -20,7 +22,7 @@
       font-size: 80px;
       line-height: 95px;
       text-align: center;
-      color: #BDBDBD;
+      color: $pageNotFoundInfoNumber;
 
       img {
         margin: 0 10px;
@@ -33,7 +35,7 @@
       font-size: 25px;
       line-height: 22px;
       text-align: center;
-      color: #BDBDBD;
+      color: $pageNotFoundInfoTitle;
     }
 
     &Text {
@@ -43,7 +45,7 @@
       font-size: 17px;
       line-height: 18px;
       text-align: center;
-      color: #BDBDBD;
+      color: $pageNotFoundInfoText;
     }
   }
 
