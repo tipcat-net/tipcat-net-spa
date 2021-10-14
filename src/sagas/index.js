@@ -23,6 +23,11 @@ import addAccountRequest from './account/add-account';
 import getAccountRequest from './account/get-account';
 import updateAccountRequest from './account/update-account';
 
+// Facility
+import { FacilityActionTypes } from '../ducks/facility/action-types';
+import getFacilityRequest from './facility/get-facility';
+import getFacilitySlimRequest from './facility/get-facility-slim';
+
 export default function* sagas() {
   yield all([
       // SignUp
@@ -38,5 +43,8 @@ export default function* sagas() {
       takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
       takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
       takeEvery(AccountActionTypes.UPDATE_ACCOUNT_START, updateAccountRequest),
+      // Facility
+      takeEvery(FacilityActionTypes.GET_FACILITY_START, getFacilityRequest),
+      takeEvery(FacilityActionTypes.GET_FACILITY_SLIM_START, getFacilitySlimRequest),
   ]);
 }
