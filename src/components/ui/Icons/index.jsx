@@ -1,17 +1,23 @@
 import cn from 'classnames';
 
-import arrow from './svg/arrow.svg';
-import loupe from './svg/loupe.svg';
-import person from './svg/person.svg';
-import burger from './svg/burger.svg';
-import actions from './svg/actions.svg';
-import add from './svg/add.svg';
-import arrowDown from './svg/arrow_down.svg';
-import clock from './svg/clock.svg';
-import max from './svg/max.svg';
-import min from './svg/min.svg';
-import position from './svg/position.svg';
-import status from './svg/status.svg';
+import { ReactComponent as ActionsSvg } from './svg/actions.svg';
+import { ReactComponent as AddSvg } from './svg/add.svg';
+import { ReactComponent as ArrowDownSvg } from './svg/arrow_down.svg';
+import { ReactComponent as ArrowSvg } from './svg/arrow.svg';
+
+import { ReactComponent as BurgerSvg } from './svg/burger.svg';
+
+import { ReactComponent as ClockSvg } from './svg/clock.svg';
+
+import { ReactComponent as LoupeSvg } from './svg/loupe.svg';
+
+import { ReactComponent as MaxSvg } from './svg/max.svg';
+import { ReactComponent as MinSvg } from './svg/min.svg';
+
+import { ReactComponent as PersonSvg } from './svg/person.svg';
+import { ReactComponent as PositionSvg } from './svg/position.svg';
+
+import { ReactComponent as StatusSvg } from './svg/status.svg';
 
 import './styles.scss';
 
@@ -21,15 +27,21 @@ export const Icon = ({ className, children }) => {
   )
 }
 
-export const Arrow = (props) => <Icon { ...props }><img src={ arrow } alt=""/></Icon>
-export const Loupe = (props) => <Icon { ...props }><img src={ loupe } alt=""/></Icon>
-export const Person = (props) => <Icon { ...props }><img src={ person } alt=""/></Icon>
-export const Burger = (props) => <Icon { ...props }><img src={ burger } alt=""/></Icon>
-export const Actions = (props) => <Icon { ...props }><img src={ actions } alt=""/></Icon>
-export const Add = (props) => <Icon { ...props }><img src={ add } alt=""/></Icon>
-export const ArrowDown = (props) => <Icon { ...props }><img src={ arrowDown } alt=""/></Icon>
-export const Clock = (props) => <Icon { ...props }><img src={ clock } alt=""/></Icon>
-export const Max = (props) => <Icon { ...props }><img src={ max } alt=""/></Icon>
-export const Min = (props) => <Icon { ...props }><img src={ min } alt=""/></Icon>
-export const Position = (props) => <Icon { ...props }><img src={ position } alt=""/></Icon>
-export const Status = (props) => <Icon { ...props }><img src={ status } alt=""/></Icon>
+export const Actions = (props) => <Icon { ...props }><ActionsSvg /></Icon>
+export const Add = (props) => <Icon { ...props }><AddSvg /></Icon>
+export const ArrowDown = (props) => <Icon { ...props }><ArrowDownSvg /></Icon>
+export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>
+
+export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>
+
+export const Clock = (props) => <Icon { ...props }><ClockSvg /></Icon>
+
+export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>
+
+export const Max = (props) => <Icon { ...props }><MaxSvg /></Icon>
+export const Min = (props) => <Icon { ...props }><MinSvg /></Icon>
+
+export const Person = (props) => <Icon { ...props }><PersonSvg /></Icon>
+export const Position = (props) => <Icon { ...props }><PositionSvg /></Icon>
+
+export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>
