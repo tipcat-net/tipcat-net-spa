@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  font-family: 'SF Pro Display';
+  font-family: $base;
   font-style: normal;
   font-weight: normal;
 }

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { PublicClientApplication, EventType } from "@azure/msal-browser";
 import { msalConfig } from "./authConfig";
 
-import './styles/index.css';
+import './styles/main.scss';
 
 export const msalInstance = new PublicClientApplication(msalConfig);
 
