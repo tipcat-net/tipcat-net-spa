@@ -11,7 +11,8 @@ ENV REACT_APP_AUTH_CONFIG_CLIENT_ID=$REACT_APP_AUTH_CONFIG_CLIENT_ID
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-    
+
+RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*      
 RUN npm install 
 
 COPY . .
