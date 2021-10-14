@@ -24,7 +24,7 @@
     align-items: center;
 
     &Icon {
-      fill: $header_icon;
+      fill: $headerBtnIcon;
     }
   }
 
@@ -34,6 +34,6 @@
     font-size: 21px;
     line-height: 22px;
     text-align: center;
-    color: $header_title;
+    color: $headerTitle;
   }
 }
