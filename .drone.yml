@@ -28,6 +28,8 @@ steps:
       from_secret: DISCORD_WEBHOOK_PR_ID
     webhook_token:
       from_secret: DISCORD_WEBHOOK_PR_TOKEN  
+  when:
+    status: [success, failure]
 ---
 kind: pipeline
 type: kubernetes
