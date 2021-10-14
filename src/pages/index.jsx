@@ -9,6 +9,7 @@ import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
 import MemberProfile from './MemberProfile';
+import PageNotFound from './PageNotFound';
 
 export const Pages = () => {
   return (
@@ -20,6 +21,7 @@ export const Pages = () => {
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>
+      <Route component={ PageNotFound } />
     </Switch>
   )
 }

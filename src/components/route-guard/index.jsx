@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectMember } from "../../ducks/member/selectors";
 import { getMember } from "../../ducks/member/actions";
 
+import PageNotFound from "../../pages/PageNotFound";
 import { ROUTES } from "../../constants/routes";
 
 const CheckMember = ({ Component, ...props }) => {
@@ -19,6 +20,8 @@ const CheckMember = ({ Component, ...props }) => {
   }, []);
   
   if ((member && member.accountId) || (checkRegistrationPage && member && !member.accountId)) {
+    if (!Component) return <PageNotFound />;
+
     return (
       <Route { ...props } render={routeProps => (
         <Component {...routeProps} />
