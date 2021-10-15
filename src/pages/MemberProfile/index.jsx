@@ -1,3 +1,4 @@
+import { EditProfile } from '../../components/profile/edit';
 import { Avatar } from '../../components/avatar';
 import { QrCode } from '../../components/qr-code';
 import { Layout } from '../../components/ui/Layout';
@@ -13,6 +14,7 @@ export const MemberProfile = () => {
   return (
     <Layout>
       <div className={ style.memberProfile }>
+        <EditProfile />
         <div className={ style.memberProfileAvatar }>
           <Avatar size='big' />
         </div>

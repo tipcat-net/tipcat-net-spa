@@ -1,0 +1,27 @@
+@import "../../../styles/variables.scss";
+
+.editProfile {
+  position: relative;
+  background: $editProfile_bg;
+  padding: 20px 20px 15px 15px;
+
+  &Title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: $editProfileTitle_font;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+    color: $editProfileTitle;
+  }
+
+  &Label {
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 0.05em;
+    color: $editProfileLabel;
+  }
+}
