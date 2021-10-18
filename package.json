@@ -4,6 +4,7 @@
   "description": "tipcat-net-spa",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "1.8.0",
     "@azure/msal-browser": "2.16.1",
     "@azure/msal-react": "1.0.1",
     "@testing-library/jest-dom": "5.11.4",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "clean": "rimraf build",
-    "start": "HTTPS=true PORT=5000 react-scripts start",
+    "start": "HTTPS=true PORT=5001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

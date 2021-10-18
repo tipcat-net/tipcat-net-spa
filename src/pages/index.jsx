@@ -1,6 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 
-import { RouteGuard } from './../components/route-guard';
+import ProtectedRoute from './../auth/protected-route';
 
 import { ROUTES } from './../constants/routes';
 
@@ -14,10 +14,10 @@ import PageNotFound from './PageNotFound';
 export const Pages = () => {
   return (
     <Switch>
-      <RouteGuard { ...ROUTES.HOME } Component={ Home } />
-      <RouteGuard { ...ROUTES.MEMBERS } Component={ Members } />
-      <RouteGuard { ...ROUTES.REGISTRATION } Component={ Registration } />
-      <RouteGuard { ...ROUTES.MEMBER_PROFILE } Component={ MemberProfile } />
+      <ProtectedRoute { ...ROUTES.HOME } component={ Home } />
+      <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
+      <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
+      <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>
