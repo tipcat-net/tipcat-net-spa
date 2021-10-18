@@ -26,7 +26,7 @@ export const ROUTES = {
         title: 'Registration',
     },
     MEMBER_PROFILE: {
-        path: '/member/',
+        path: '/member',
         exact: true,
         private: true,
         title: 'Member profile',

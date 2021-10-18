@@ -6,18 +6,18 @@ import { msalInstance } from "../index";
 axios.defaults.baseURL = 'https://api-dev.tipcat.net';
 
 const getToken = async (request) => {
-  const account = msalInstance.getActiveAccount();
+  // const account = msalInstance.getActiveAccount();
 
-  if (!account) {
-      throw Error("No active account! Verify a user has been signed in and setActiveAccount has been called.");
-  }
+  // if (!account) {
+  //     throw Error("No active account! Verify a user has been signed in and setActiveAccount has been called.");
+  // }
 
-  const response = await msalInstance.acquireTokenSilent({
-      account: account,
-      ...request
-  });
+  // const response = await msalInstance.acquireTokenSilent({
+  //     account: account,
+  //     ...request
+  // });
 
-  return response.accessToken;
+  // return response.accessToken;
 }
 
 export const fetchers = {
