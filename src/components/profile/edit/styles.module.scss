@@ -2,14 +2,13 @@
 
 .editProfile {
   position: relative;
-  background: $editProfile_bg;
   padding: 20px 20px 15px 15px;
 
   &Title {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-family: $editProfileTitle_font;
+    height: 40px;
     font-size: 14px;
     line-height: 15px;
     display: flex;

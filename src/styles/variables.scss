@@ -1,10 +1,24 @@
-$base: 'SF Pro Display', sans-serif;
+$base: 'Open Sans', sans-serif;
 
 // header
 $header_bg: #2A6274;
 $header_shadow: rgba(0, 0, 0, 0.3);
 $headerBtnIcon: #FFFFFF;
 $headerTitle: #FFFFFF;
+
+// label
+$label: #828282;
+
+// input
+$input: #4F4F4F;
+$input_bg: #FFFFFF;
+$input_border: #E0E0E0;
+
+$input_error_shadow: rgba(235, 87, 87, 0.3);
+$input_error_border: #EB5757;
+
+// uploadFile
+$uploadFileButton: #F2F2F2;
 
 // avatar
 $avatar_bg: #8FD7E7;
@@ -16,8 +30,12 @@ $pageNotFoundInfoNumber: #BDBDBD;
 $pageNotFoundInfoTitle: #BDBDBD;
 $pageNotFoundInfoText: #BDBDBD;
 
+// memberProfile
+$memberProfileStatus: #BDBDBD;
+$memberProfileBtnEdit: #828282;
+
 // editProfile
-$editProfile_bg: rgba(242, 242, 242, 0.9);
 $editProfileTitle: #BDBDBD;
-$editProfileTitle_font: 'Open Sans';
 $editProfileLabel: #4F4F4F;
+
+$substrateContent_bg: rgba(242, 242, 242, 0.9)

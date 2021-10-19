@@ -1,4 +1,41 @@
+@import "../../styles/variables.scss";
+
 .memberProfile {
+  &Top {
+    padding: 8px 8px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &Status {
+    display: flex;
+    font-size: 17px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: $memberProfileStatus;
+
+    &:before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+      display: block;
+      background: #31DC79;
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+    }
+  }
+  &BtnEdit {
+    position: relative;
+    color: $memberProfileBtnEdit;
+
+    &Icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
   &Avatar {
     margin-top: 35px;
     display: flex;

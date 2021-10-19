@@ -11,4 +11,15 @@ export const Input = ({ className, error, ...Allprops }) => {
       className={ cn(style.input, classError, addClass) }
       {...Allprops}  />
   )
+}
+
+export const TextArea = ({ className, error, ...Allprops }) => {
+  const addClass = className ? className : null;
+  const classError = error ? style.error : null;
+  
+  return (
+    <textarea
+      className={ cn(style.textarea, classError, addClass) }
+      {...Allprops}  />
+  )
 } 

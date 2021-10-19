@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.substrate {
+  position: relative;
+  width: 100%;
+
+  &Content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    background-color: $substrateContent_bg;
+  }
+
+  &Visible &Content {
+    display: block;
+  }
+}
