@@ -66,7 +66,6 @@ steps:
     cache_from:
       - ghcr.io/tipcat-net/tipcat-net-spa:${DRONE_BRANCH}-DEV
     force_tag: true
-    use_cache: true
     username:
       from_secret: GITHUB_LOGIN
     password:
