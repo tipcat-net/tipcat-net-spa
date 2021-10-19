@@ -62,6 +62,9 @@ steps:
     tags:
       - ${DRONE_COMMIT_SHA:0:7}-DEV
       - ${DRONE_COMMIT_BRANCH}
+    cache_from:
+      - ghcr.io/tipcat-net/tipcat-net-spa:${DRONE_COMMIT_SHA:0:7}-DEV
+      - ghcr.io/tipcat-net/tipcat-net-spa:${DRONE_COMMIT_BRANCH}
     force_tag: true
     use_cache: true
     username:
