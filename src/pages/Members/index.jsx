@@ -4,7 +4,7 @@ import { MembersTabs } from '../../components/members/members-tabs';
 export const Members = () => {
 
   return (
-    <Layout>
+    <Layout title='Members'>
       <MembersTabs />
     </Layout>
   )

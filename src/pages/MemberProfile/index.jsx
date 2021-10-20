@@ -24,7 +24,7 @@ export const MemberProfile = () => {
   }
 
   return (
-    <Layout>
+    <Layout title='Member profile'>
       <div className={ style.memberProfile }>
         <Substrate visible={ visibleSubstrate }>
           <EditProfile />
