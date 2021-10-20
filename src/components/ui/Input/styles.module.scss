@@ -1,21 +1,22 @@
-.input {
-  background: #F2F2F2;
-  border-radius: 2px;
-  border: 1px solid #F2F2F2;
-  font-family: 'SF Pro Display';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
-  /* identical to box height, or 120% */
-  color: #5F5F5F;
-  text-align: center;
-  letter-spacing: 0.05em;
-  padding: 10px;
+@import './../../../styles/variables.scss';
+
+.input, textarea {
+  font-size: 18px;
+  line-height: 20px;
+  color: $input;
   display: block;
   width: 100%;
+  padding: 8px 10px;
+  background: $input_bg;
+  border: 1px solid $input_border;
+  border-radius: 5px;
 
   &.error {
-    box-shadow: inset 0px 4px 40px #E3ABAB;
+    box-shadow: inset 0px 2px 12px 3px $input_error_shadow;
+    border-color: $input_error_border;
   }
+}
+
+.textarea {
+  resize: none;
 }

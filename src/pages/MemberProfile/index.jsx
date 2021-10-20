@@ -1,18 +1,43 @@
+import { useState } from 'react';
+
+import { Substrate } from '../../components/profile/substrate';
+import { EditProfile } from '../../components/profile/edit';
 import { Avatar } from '../../components/avatar';
 import { QrCode } from '../../components/qr-code';
 import { Layout } from '../../components/ui/Layout';
+import { Button } from '../../components/ui/Button';
+import { Pen } from '../../components/ui/Icons';
 
 import style from './styles.module.scss';
 import qrCodeImage from './../../assets/qrCode.png';
 
 export const MemberProfile = () => {
+  const [visibleSubstrate, setVisibleSubstrate] = useState(false);
+
+  const toggleVisibleSubstrate = () => {
+    setVisibleSubstrate(!visibleSubstrate);
+  }
+
   const qrCodeData = {
     image: qrCodeImage,
     code: 'QG2HSl8',
   }
+
   return (
     <Layout>
       <div className={ style.memberProfile }>
+        <Substrate visible={ visibleSubstrate }>
+          <EditProfile />
+        </Substrate>
+        <div className={ style.memberProfileTop }>
+          <div className={ style.memberProfileStatus }>active</div>
+          <Button
+            clear
+            className={ style.memberProfileBtnEdit }
+            onClick={ toggleVisibleSubstrate }>
+            <Pen className={ style.memberProfileBtnEditIcon } />
+          </Button>
+        </div>
         <div className={ style.memberProfileAvatar }>
           <Avatar size='big' />
         </div>

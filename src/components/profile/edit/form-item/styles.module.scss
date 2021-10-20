@@ -1,0 +1,36 @@
+@import "../../../../styles/variables.scss";
+
+.formItem {
+
+  label {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 65px;
+  }
+
+  &Visible &FieldWrap {
+    display: block;
+  }
+
+  &FieldWrap {
+    display: none;
+  }
+
+  &Btns {
+    margin-top: 10px;
+    display: flex;
+
+    &Right {
+      justify-content: flex-end;
+    }
+
+    button {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
