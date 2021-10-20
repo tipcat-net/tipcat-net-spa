@@ -5,7 +5,7 @@ import { Layout } from '../../components/ui/Layout';
 export const Home = () => {
 
   return (
-    <Layout>
+    <Layout title='Home'>
       <h1>Home</h1>
     </Layout>
   )

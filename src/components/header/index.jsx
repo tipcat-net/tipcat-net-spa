@@ -8,7 +8,7 @@ import LogoGrey from './../../assets/logo_grey.svg';
 
 import style from './styles.module.scss';
 
-export const Header = ({ logo }) => {
+export const Header = ({ logo, title }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const onMenuToggle = () => {
@@ -30,7 +30,7 @@ export const Header = ({ logo }) => {
       <div className={ style.headerContainer }>
         <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button>
         <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
-        <h1 className={ style.headerTitle }>Members</h1>
+        <h1 className={ style.headerTitle }>{ title }</h1>
         <Button clear className={ style.headerBtn }><Loupe className={ style.headerBtnIcon } /></Button>
         <Button clear className={ style.headerBtn }><Person className={ style.headerBtnIcon } /></Button>
       </div>
