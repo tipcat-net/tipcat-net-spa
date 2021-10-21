@@ -2,27 +2,6 @@
   display: flex;
   padding: 14px 10px 14px 20px;
 
-  &Avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #C4C4C4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &Text {
-      font-family: 'SF Pro Display';
-      font-style: normal;
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 29px;
-      /* identical to box height */
-      text-align: center;
-      color: #E0E0E0;
-    }
-  }
-
   &Info {
     padding-left: 15px;
     display: flex;

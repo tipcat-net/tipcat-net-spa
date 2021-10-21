@@ -1,6 +1,7 @@
 @import "../../styles/variables.scss";
 
 .avatar {
+  position: relative;
   width: 60px;
   height: 60px;
   display: flex;
@@ -8,27 +9,68 @@
   justify-content: center;
   background: $avatar_bg;
   border-radius: 50%;
+  color: $avatar_color;
 
   &Text {
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
     text-align: center;
-    color: $avatarText;
   }
 
-  &Small {
-    width: 35px;
-    height: 35px;
+  &Icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: $avatarIcon_color;
+    transform: scaleX(-1);
   }
-  
+
   &Big {
     width: 100px;
     height: 100px;
+    color: $avatarBig_color;
+    border: 3px solid $avatarBig_border;
   }
 
   &Big &Text{
     font-size: 39px;
     line-height: 47px;
+  }
+
+  &Big &Icon{
+    width: 44px;
+    height: 35px;
+    right: -3px;
+    bottom: -3px;
+    stroke: $avatarIconBig_stroke;
+  }
+
+  &Invited {
+    background: $avatarInvited_bg;
+    color: $avatarInvited_color;
+  }
+  &Invited &Icon{
+    color: $avatarIconInited_color;
+    right: auto;
+    left: 0;
+    transform: none;
+  }
+  &Invited.avatarBig {
+    color: $avatarInvitedBig_color;
+  }
+  &Invited.avatarBig &Icon{
+    right: auto;
+    left: -3px;
+    stroke: none;
+  }
+
+  &Active {
+    background: $avatarActive_bg;
+    color: $avatarActive_color;
+  }
+
+  &Active.avatarBig {
+    color: $avatarActiveBig_color;
   }
 }
