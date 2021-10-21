@@ -1,0 +1,26 @@
+{
+  "home": {
+    "headerTitle": "Home"
+  },
+  "auth": {
+    "button": {
+      "signIn": "Sign in"
+    }
+  },
+  "members": {
+    "headerTitle": "Members"
+  },
+  "registration": {},
+  "memberProfile": {
+    "headerTitle": "Member profile"
+  },
+  "pageNotFound": {
+    "headerTitle": "Page not found",
+    "pageNotFoundInfoTitle": "Oops!",
+    "pageNotFoundInfoText": "It seems that such a page <br/> does not exist",
+    "button": {
+      "back": "Back",
+      "home": "Home"
+    }
+  }
+}
