@@ -9,9 +9,9 @@ import style from './styles.module.scss';
 
 export const PageNotFound = () => {
   const { t } = useTranslation();
-  console.log(t("pageNotFound"));
+
   return (
-    <Layout>
+    <Layout title={ t('pageNotFound.headerTitle') }>
       <div className={ style.pageNotFound }>
         <div className={ style.pageNotFoundInfo }>
           <div className={ style.pageNotFoundInfoNumber }>4 <img src={ iconPageNotFound } alt="" /> 4</div>

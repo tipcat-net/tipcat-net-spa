@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { useTranslation } from "react-i18next";
 import { Substrate } from '../../components/profile/substrate';
 import { EditProfile } from '../../components/profile/edit';
 import { Avatar } from '../../components/avatar';
@@ -12,6 +12,7 @@ import style from './styles.module.scss';
 import qrCodeImage from './../../assets/qrCode.png';
 
 export const MemberProfile = () => {
+  const { t } = useTranslation();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
 
   const toggleVisibleSubstrate = () => {
@@ -24,7 +25,7 @@ export const MemberProfile = () => {
   }
 
   return (
-    <Layout title='Member profile'>
+    <Layout title={ t('memberProfile.headerTitle') }>
       <div className={ style.memberProfile }>
         <Substrate visible={ visibleSubstrate }>
           <EditProfile />
