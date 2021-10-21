@@ -1,27 +1,84 @@
-.btn {
-  font-family: 'SF Pro Display';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 17px;
-  line-height: 18px;/* or 106% */
+@import './../../../styles/variables.scss';
+
+$buttonPrimary_bg: #1CB86D;
+$buttonPrimary_border: #1CB86D;
+
+$buttonPrimaryHover: #219653;
+$buttonPrimaryHover_bg: #FFFFFF;
+$buttonPrimaryHover_border: #219653;
+$buttonPrimaryHover_shadow: rgba(28, 184, 109, 0.2);
+
+$buttonPrimaryActive: #219653;
+$buttonPrimaryActive_bg: #FFFFFF;
+$buttonPrimaryActive_border: #219653;
+
+.button {
+  padding: 8px 14px;
+  font-size: 16px;
+  line-height: 22px;
   display: inline-block;
-  letter-spacing: 0.05em;
-  color: #BDBDBD;
-  background: #E5E5E5;
+  letter-spacing: 0.03em;
+  color: $button_color;
+  background: $button_bg;
+  border: 1px solid $button_bg;
   border-radius: 20px;
-  border: none;
-  padding: 11px 23px;
   cursor: pointer;
-  
-  &Primary {
-    color: #FFFFFF;
-    background: #6FCF97;
+
+  &:hover {
+    color: $button_bg;
+    background: $button_color;
+    border-color: $button_bg;
+    box-shadow: 0px 1px 6px $button_shadow;
   }
 
-  &Clear {
+  &:active,
+  &Outline {
+    color: $button_bg;
+    background: $button_color;
+    border-color: $button_bg;
+  }
+  
+  &:disabled,
+  &Primary:disabled {
+    color: $button_bg;
+    background: $button_color;
+    border-color: $button_bg;
+    opacity: 0.5;
+  }
+
+  
+  &Primary {
+    color: $buttonPrimary_color;
+    background: $buttonPrimary_bg;
+    border-color: $buttonPrimary_bg;
+
+    &:hover {
+      color: $buttonPrimary_bg;
+      background: $buttonPrimary_color;
+      border-color: $buttonPrimary_bg;
+      box-shadow: 0px 1px 6px $buttonPrimary_shadow;
+    }
+
+    &:active,
+    &.buttonOutline {
+      color: $buttonPrimary_bg;
+      background: $buttonPrimary_color;
+      border-color: $buttonPrimary_bg;
+    }
+  }
+
+  &Clear,
+  &Clear:hover,
+  &Clear:active,
+  &Clear:disabled {
     background: transparent;
     padding: 0;
     border-radius: 0;
     border: none;
+    box-shadow: none;
+
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 }
