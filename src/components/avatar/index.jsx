@@ -1,27 +1,16 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
+import { ReactComponent as GoneSvg } from './svg/gone.svg';
 import style from './styles.module.scss';
 
-export const Avatar = ({ size, className }) => {
-  const [classNameSize, setClassNameSize] = useState(null);
-
-  useEffect(() => {
-    switch (size) {
-      case 'small':
-        setClassNameSize(style.avatarSmall);
-        break;
-      case 'big':
-        setClassNameSize(style.avatarBig);
-        break;
-      default:
-        setClassNameSize(null);
-        break;
-    }
-  }, []);
+export const Avatar = ({ size, className, type, data }) => {
+  const classNameSize = size === 'big' ? style.avatarBig : null;
+  const classNameType = type === 'invited' ? style.avatarInvited : type === 'active' ? style.avatarActive : null;
 
   return (
-    <div className={ cn(style.avatar, classNameSize, className) }>
-      <div className={ style.avatarText }>NA</div>
+    <div className={ cn(style.avatar, classNameSize, classNameType, className) }>
+      <div className={ style.avatarText }>{ data }</div>
+      { type !== 'active' ? <GoneSvg className={ style.avatarIcon } /> : null }
     </div>
   )
 }

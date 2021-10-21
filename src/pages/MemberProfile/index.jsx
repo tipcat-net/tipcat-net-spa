@@ -40,7 +40,7 @@ export const MemberProfile = () => {
           </Button>
         </div>
         <div className={ style.memberProfileAvatar }>
-          <Avatar size='big' />
+          <Avatar size='big' data={ 'NA' } />
         </div>
         <div className={ style.memberProfileName }>Nicholas Angel</div>
         <div className={ style.memberProfilePermissions }>senior waiter</div>

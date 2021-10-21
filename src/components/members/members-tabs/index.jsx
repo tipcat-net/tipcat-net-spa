@@ -24,12 +24,12 @@ export const MembersTabs = () => {
       visible: false,
       list: [
         {
-          image: 'NA',
+          avatar: 'NA',
           name: 'Nicholas Angel',
           position: 'senior waiter'
         },
         {
-          image: 'NA',
+          avatar: 'NA',
           name: 'Nicholas Angel',
           position: 'senior waiter'
         }
@@ -41,17 +41,17 @@ export const MembersTabs = () => {
       visible: true,
       list: [
         {
-          image: 'NA',
+          avatar: 'NA',
           name: 'Nicholas Angel',
           position: 'senior waiter'
         },
         {
-          image: 'NA',
+          avatar: 'NA',
           name: 'Nicholas Angel',
           position: 'senior waiter'
         },
         {
-          image: 'NA',
+          avatar: 'NA',
           name: 'Nicholas Angel',
           position: 'senior waiter'
         }
@@ -61,42 +61,42 @@ export const MembersTabs = () => {
 
   const membersAll = [
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
     {
-      image: 'NA',
+      avatar: 'NA',
       name: 'Nicholas Angel',
       position: 'senior waiter'
     },
