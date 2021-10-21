@@ -1,0 +1,10 @@
+{
+  "pageNotFound": {
+    "pageNotFoundInfoTitle": "Oops!",
+    "pageNotFoundInfoText": "It seems that such a page <br/> does not exist",
+    "button": {
+      "back": "Back",
+      "home": "Home"
+    }
+  }
+}
