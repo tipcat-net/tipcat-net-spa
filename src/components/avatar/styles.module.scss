@@ -45,6 +45,16 @@
     bottom: -3px;
     stroke: $avatarIconBig_stroke;
   }
+  
+  &Small {
+    width: 35px;
+    height: 35px;
+  }
+  
+  &Small &Text {
+    font-size: 14px;
+    line-height: 15px;
+  }
 
   &Invited {
     background: $avatarInvited_bg;
@@ -72,5 +82,10 @@
 
   &Active.avatarBig {
     color: $avatarActiveBig_color;
+  }
+
+  &Facility {
+    background: $avatarFacility_bg;
+    color: $avatarFacility_color;
   }
 }
