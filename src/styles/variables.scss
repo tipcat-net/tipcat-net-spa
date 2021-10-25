@@ -1,5 +1,7 @@
 $base: 'Open Sans', sans-serif;
 
+$body_bg: #F2F2F2;
+
 // header
 $header_bg: #2A6274;
 $header_shadow: rgba(0, 0, 0, 0.3);
@@ -52,10 +54,10 @@ $avatarInvitedBig_color: #FFFFFF;
 $avatarActiveBig_color: #FFFFFF;
 
 // pageNotFound
-$pageNotFound_bg: #4F4F4F;
-$pageNotFoundInfoNumber: #BDBDBD;
-$pageNotFoundInfoTitle: #BDBDBD;
-$pageNotFoundInfoText: #BDBDBD;
+$pageNotFoundInfo_bg: #BDBDBD;
+$pageNotFoundInfoNumber: #F2F2F2;
+$pageNotFoundInfoTitle: #E0E0E0;
+$pageNotFoundInfoText: #E0E0E0;
 
 // memberProfile
 $memberProfileStatus: #BDBDBD;
