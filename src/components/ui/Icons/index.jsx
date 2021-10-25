@@ -9,6 +9,8 @@ import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
 import { ReactComponent as ClockSvg } from './svg/clock.svg';
 
+import { ReactComponent as HomeSvg } from './svg/home.svg';
+
 import { ReactComponent as ImageSvg } from './svg/image.svg';
 
 import { ReactComponent as LoupeSvg } from './svg/loupe.svg';
@@ -38,6 +40,8 @@ export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>
 export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>
 
 export const Clock = (props) => <Icon { ...props }><ClockSvg /></Icon>
+
+export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>
 
 export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>
 

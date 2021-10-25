@@ -3,6 +3,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 import { Layout } from '../../components/ui/Layout'; 
 import { Button } from '../../components/ui/Button';
+import { Home } from '../../components/ui/Icons';
 
 import iconPageNotFound from './svg/404.svg'
 import style from './styles.module.scss';
@@ -23,7 +24,7 @@ export const PageNotFound = () => {
           </div>
           <Button primary>{ t("pageNotFound.button.back") }</Button>
         </div>
-        <Button className={ style.pageNotFoundBtnHome }>{ t("pageNotFound.button.home") }</Button>
+        <Button outline className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t("pageNotFound.button.home") }</Button>
       </div>
     </Layout>
   )
