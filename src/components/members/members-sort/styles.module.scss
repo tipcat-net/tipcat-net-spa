@@ -6,12 +6,10 @@
     &Selected {
       display: flex;
       align-items: center;
-      font-family: 'SF Pro Display';
       font-style: normal;
       font-weight: normal;
       font-size: 15px;
       line-height: 18px;
-      /* or 120% */
       letter-spacing: 0.05em;
       color: #828282;
     }
@@ -39,12 +37,10 @@
         &Btn {
           display: flex;
           align-items: center;
-          font-family: 'SF Pro Display';
           font-style: normal;
           font-weight: normal;
           font-size: 15px;
           line-height: 18px;
-          /* or 120% */
           letter-spacing: 0.05em;
           color: #5F5F5F;
 

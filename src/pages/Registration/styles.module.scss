@@ -7,23 +7,19 @@
   }
 
   &Title {
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: bold;
     font-size: 25px;
     line-height: 22px;
-    /* or 88% */
     text-align: center;
     color: #BDBDBD;
   }
 
   &UnderTitle {
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
     line-height: 22px;
-    /* identical to box height, or 129% */
     text-align: center;
     color: #4F4F4F;
     margin-bottom: 50px;
