@@ -14,9 +14,9 @@ steps:
   image: aosapps/drone-sonar-plugin
   settings:
     sonar_host:
-      from_secret: sonar_host
+      from_secret: SONAR_HOST
     sonar_token:
-      from_secret: sonar_token
+      from_secret: SONAR_TOKEN
       
 - name: discord-pr
   pull: always
