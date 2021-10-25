@@ -1,0 +1,8 @@
+@import "../../styles/variables.scss";
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  background-color: $profile_bg;
+  height: 100%;
+}

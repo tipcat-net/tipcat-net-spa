@@ -1,0 +1,31 @@
+@import "../../../../styles/variables.scss";
+
+.profileContentBottom {
+  margin-top: auto;
+  display: flex;
+
+  &Link {
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    color: #828282;
+
+    &Left {
+      text-align: left;
+    }
+
+    &Right {
+      text-align: right;
+      margin-left: auto;
+    }
+  }
+
+  &Email {
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $profileContentBottomEmail;
+  }
+}

@@ -23,6 +23,10 @@ export const ROUTES = {
         path: '/member',
         exact: true,
     },
+    FACILITY_PROFILE: {
+        path: '/facility',
+        exact: true,
+    },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

@@ -9,6 +9,7 @@ import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
 import MemberProfile from './MemberProfile';
+import FacilityProfile from './FacilityProfile';
 import PageNotFound from './PageNotFound';
 
 export const Pages = () => {
@@ -18,6 +19,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
+      <ProtectedRoute { ...ROUTES.FACILITY_PROFILE } component={ FacilityProfile } />
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>
