@@ -53,7 +53,7 @@ export const FacilityProfile = () => {
           <ProfileInfo data={ { title: "Adress", text: account.address} } />
           <ProfileContentBottom
             rightLink={ {
-              link: '/', text: 'Members'
+              link: '/', text: t('facilityProfile.ProfileContentBottom.rightLink')
             }}
             />
         </ProfileContent>
