@@ -14,6 +14,12 @@
   "memberProfile": {
     "headerTitle": "Member profile"
   },
+  "facilityProfile": {
+    "headerTitle": "Facility profile",
+    "ProfileContentBottom": {
+      "rightLink": "Members"
+    }
+  },
   "pageNotFound": {
     "headerTitle": "Page not found",
     "pageNotFoundInfoTitle": "Oops!",

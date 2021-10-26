@@ -1,0 +1,22 @@
+@import "../../../styles/variables.scss";
+
+.profileTop {
+  position: relative;
+  margin-bottom: 35px;
+  padding: 8px 8px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &BtnEdit {
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+    color: $profileTopBtnEdit_color;
+
+    &Icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
