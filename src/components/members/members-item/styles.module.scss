@@ -11,23 +11,19 @@
   }
   
   &Name {
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
     line-height: 18px;
-    /* identical to box height, or 106% */
     color: #5F5F5F;
   }
   
   &Permissions {
     margin-top: 7px;
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 18px;
-    /* identical to box height, or 120% */
     letter-spacing: 0.05em;
     color: #AFAFAF;
   }
