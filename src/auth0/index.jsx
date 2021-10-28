@@ -1,11 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { authConfig } from './auth0-config';
 
 const Auth0ProviderWithHistory = ({ children }) => {
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-
   const history = useHistory();
 
   const onRedirectCallback = (appState) => {
@@ -14,12 +12,13 @@ const Auth0ProviderWithHistory = ({ children }) => {
 
   return (
     <Auth0Provider
-      domain={domain}
-      clientId={clientId}
-      redirectUri={window.location.origin}
-      onRedirectCallback={onRedirectCallback}
-      audience="https://api-dev.tipcat.net/"
-      scope="read:current_user update:current_user_metadata"
+      domain={ authConfig.domain }
+      clientId={ authConfig.clientId }
+      redirectUri={ authConfig.redirectUri }
+      onRedirectCallback={ onRedirectCallback }
+      useRefreshTokens={ true }
+      audience={ authConfig.audience }
+      scope={ authConfig.scope }
     >
       {children}
     </Auth0Provider>

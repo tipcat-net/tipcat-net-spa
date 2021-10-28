@@ -1,21 +1,12 @@
 import React from "react";
-import { useMsal } from "@azure/msal-react";
-
-function handleLogout(instance) {
-  instance.logoutPopup()
-    .then(res => {
-      localStorage.removeItem('token');
-      console.log(res);
-    })
-    .catch(e => {
-      console.error(e);
-    });
-}
+import { useAuth0 } from '@auth0/auth0-react';
+import { useTranslation } from "react-i18next";
 
 export const SignOutButton = () => {
-  const { instance } = useMsal();
+  const { t } = useTranslation();
+  const { logout } = useAuth0();
 
   return (
-    <button variant="secondary" className="ml-auto" onClick={() => handleLogout(instance)}>Sign out using Popup</button>
+    <button onClick={ () => logout() }>{ t('header.button.logout') }</button>
   );
 }
