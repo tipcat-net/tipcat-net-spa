@@ -1,4 +1,9 @@
 {
+  "header": {
+    "button": {
+      "logout": "Sign out"
+    }
+  },
   "home": {
     "headerTitle": "Home"
   },

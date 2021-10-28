@@ -1,6 +1,5 @@
 import { Switch, Route } from "react-router-dom";
-
-import ProtectedRoute from './../auth/protected-route';
+import ProtectedRoute from './../protected-route';
 
 import { ROUTES } from './../constants/routes';
 
