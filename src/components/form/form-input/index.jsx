@@ -7,17 +7,22 @@ import { Input, TextArea } from '../../ui/Input';
 
 import style from './styles.module.scss';
 
-export const FormInput = ({ label, type, ...props }) => {
+export const FormInput = ({ label, type, className, ...props }) => {
   const [field, meta] = useField(props);
   
   return (
-    <div className={style.formItem}>
-      <Label htmlFor={props.id || props.name}>{label}</Label>
+    <div className={ cn(style.formItem, className) }>
+      <Label 
+        htmlFor={ props.id || props.name }
+        required={ props.required }
+      >
+        { label }
+      </Label>
       {
         type === 'textarea' ?
-          <TextArea error={ meta.touched && meta.error } {...field} {...props} />
+          <TextArea error={ meta.touched && meta.error } { ...field } { ...props } />
         :
-          <Input error={ meta.touched && meta.error } type={ type } {...field} {...props} />
+          <Input error={ meta.touched && meta.error } type={ type } { ...field } { ...props } />
       }
     </div>
   );

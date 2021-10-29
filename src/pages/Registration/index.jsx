@@ -1,43 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Formik, Form } from "formik";
 
-import { Button } from "../../components/ui/Button";
-import { ErrorRequired } from "../../components/register/error-required";
+import { RegisterAction } from "../../components/register/action";
+import { RegisterErrorRequired } from "../../components/register/error-required";
+import Spinner from "../../components/spinner";
+
+import { ROUTES } from "../../constants/routes";
+
+import { FormInput } from "../../components/form/form-input";
+import { schema } from "../../form-helpers/registration/schema";
 
 import { getMember } from './../../ducks/member/actions';
 import { selectMember, selectMemberLoading } from './../../ducks/member/selectors';
-
-import { ROUTES } from "../../constants/routes";
-import { Redirect } from "react-router-dom";
-
 import { signUp } from './../../ducks/app/actions';
 
 import style from './styles.module.scss';
 
-import { Formik, Form } from "formik";
-import { FormInput } from "../../components/form/form-input";
-
-import * as yup from 'yup';
-import Spinner from "../../components/spinner";
-
-const schema = yup.object().shape({
-  member: yup.object({
-    firstName: yup.string().required('Required').default(''),
-    lastName: yup.string().required('Required').default(''),
-    email: yup.string().email().required('Required').default(''),
-  }),
-  account: yup.object({
-    address: yup.string().required('Required').default(''),
-    commercialName: yup.string().required('Required').default(''),
-    email: yup.string().required('Required').email().default(''),
-    name: yup.string().required('Required').default(''),
-    phone: yup.string().required('Required').default(''),
-  }),
-});
-
 const initialValues = schema.cast({});
 
 export const Registration = () => {
+  const { t } = useTranslation();
   const put = useDispatch();
   const member = useSelector(selectMember);
   const loading = useSelector(selectMemberLoading);
@@ -74,7 +59,7 @@ export const Registration = () => {
   return (
     <div className={ style.register }>
       <Formik
-        initialValues={{ ...initialValues, member }}
+        initialValues={ { ...initialValues, member: member } }
         validationSchema={schema}
         onSubmit={ onSubmit }
       >
@@ -82,13 +67,8 @@ export const Registration = () => {
           ({
             values,
             errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
+            touched
           }) => {
-
             return (
               <Form>
                 {
@@ -98,79 +78,84 @@ export const Registration = () => {
                       <div className={ style.registerLogo }>
                         <img src="logo.svg" alt="tipcat" />
                       </div>
-                      <div className={ style.registerTitle }>Hallo!</div>
-                      <div className={ style.registerUnderTitle }>Introduce youreself</div>
+                      <div className={ style.registerTitle }>{ t('registration.form.member.title') }</div>
+                      <div className={ style.registerUnderTitle }>{ t('registration.form.member.underTitle') }</div>
                       <FormInput
-                        label="Your name*"
+                        label={ t('registration.form.member.fields.firstName.label') }
                         name="member.firstName"
                         type="text"
                         value={values.member.firstName}
+                        required
                       />
                       <FormInput
-                        label="Your surname*"
+                        label={ t('registration.form.member.fields.lastName.label') }
                         name="member.lastName"
                         type="text"
                         value={values.member.lastName}
+                        required
                       />
-                      <FormInput
-                        label="Your e-mail*"
-                        name="member.email"
-                        type="text"
-                        value={values.member.email}
+                      <RegisterErrorRequired
+                        touched={ touched.member }
+                        errors={ errors.member }
+                        className={ style.registerErrorRequiredVisible }
                       />
-
-                      <ErrorRequired errors={ errors.member } />
                     </>
                   : 
                     <>
-                      <div className={ style.registerUnderTitle }>Introduce your company</div>
+                      <div className={ style.registerUnderTitle }>{ t('registration.form.account.underTitle') }</div>
                       <FormInput
-                        label="Comapany name*"
-                        name="account.commercialName"
+                        label={ t('registration.form.account.fields.operatingName.label') }
+                        name="account.operatingName"
                         type="text"
-                        value={values.account.commercialName}
+                        value={ values.account.operatingName }
+                        required
                       />
                       <FormInput
-                        label="Comapany adress*"
+                        label={ t('registration.form.account.fields.address.label') }
                         name="account.address"
-                        type="text"
-                        value={values.account.address}
+                        type="textarea"
+                        value={ values.account.address }
+                        required
                       />
                       <FormInput
-                        label="Comapany e-mail"
-                        name="account.email"
-                        type="text"
-                        value={values.account.email}
-                      />
-                      <FormInput
-                        label="Name"
+                        label={ t('registration.form.account.fields.name.label') }
                         name="account.name"
                         type="text"
-                        value={values.account.name}
+                        value={ values.account.name }
+                        required
                       />
-                      <FormInput
-                        label="Comapany phone"
-                        name="account.phone"
-                        type="text"
-                        value={values.account.phone}
+                      <div className={ style.registerOr }>
+                        <FormInput
+                          label={ t('registration.form.account.fields.email.label') }
+                          name="account.email"
+                          type="text"
+                          value={ values.account.email }
+                          className={ style.registerOrItem }
+                        />
+                        <span className={ style.registerOrText }>• <br /> or <br /> •</span>
+                        <FormInput
+                          label={ t('registration.form.account.fields.phone.label') }
+                          name="account.phone"
+                          type="text"
+                          value={ values.account.phone }
+                          className={ style.registerOrItem }
+                        />
+                      </div>
+                      <RegisterErrorRequired
+                        touched={ touched.account }
+                        errors={ errors.account }
+                        className={ style.registerErrorRequiredVisible }
                       />
-
-                      <ErrorRequired errors={ errors.account } />
                     </>
                 }
-
-                <div className={ style.registerAction }>
-                  <div className={ style.registerActionButtonWrap }>
-                    { currentStep === "account" ? <Button onClick={ back }>Back</Button> : null }
-                  </div>
-                  <div className={ style.registerPoints }>
-                    <button type="button" className={ currentStep === "member" ? style.registerPointsActive : null } onClick={ back }></button>
-                    <button type="button" className={ currentStep === "account" ? style.registerPointsActive : null } onClick={ next }></button>
-                  </div>
-                  <div className={ style.registerActionButtonWrap }>
-                    { currentStep === "member" ? <Button type="button" onClick={ !errors.member ? next : null } primary>Next</Button> : <Button type="submit" primary>Register</Button> }
-                  </div>
-                </div>
+                <RegisterAction
+                  currentStep={ currentStep }
+                  back={ back }
+                  next={ next }
+                  touched={ touched }
+                  errors={ errors }
+                  className={ style.registerActionMarginTop }
+                />
               </Form>
             )
           }

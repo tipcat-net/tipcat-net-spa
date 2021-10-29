@@ -1,60 +1,52 @@
+@import "../../styles/variables.scss";
+
 .register {
-  padding: 0 20px;
+  padding: 50px 20px 0;
+  background-color: $register_Bg;
+  min-height: 100vh;
 
   &Logo {
-    margin: 30px 43px;
+    margin-bottom: 74px;
     text-align: center;
   }
 
   &Title {
-    font-style: normal;
     font-weight: bold;
-    font-size: 25px;
-    line-height: 22px;
+    font-size: 36px;
+    line-height: 39px;
     text-align: center;
-    color: #BDBDBD;
+    letter-spacing: -0.03em;
+    color: $registerTitle_color;
   }
 
   &UnderTitle {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    line-height: 22px;
+    margin: 24px 0 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
     text-align: center;
-    color: #4F4F4F;
-    margin-bottom: 50px;
+    color: $registerUnderTitle_color;
   }
 }
 
-.registerAction {
+.registerOr {
+  display: flex;
+  flex-direction: column;
+
+  &Item:first-child {
+    margin-bottom: 0;
+  }
+
+  &Text {
+    margin-bottom: -27px;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: right;
+    letter-spacing: 0.03em;
+    color: $registerOrText_color;
+  }
+}
+
+.registerErrorRequiredVisible + .registerActionMarginTop {
   margin-top: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  &ButtonWrap {
-    flex: 0 0 120px;
-    width: 0 0 120px;
-    max-width: 120px;
-  }
-}
-
-.registerPoints {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-
-  button {
-    width: 8px;
-    height: 8px;
-    margin: 4px;
-    background: #E0E0E0;
-    border-radius: 50%;
-    border: none;
-
-  }
-  
-  .registerPointsActive {
-    background: #6FCF97;
-  }
 }
