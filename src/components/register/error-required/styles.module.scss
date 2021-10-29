@@ -1,9 +1,9 @@
-.errorRequired {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
+@import "../../../styles/variables.scss";
+
+.registerErrorRequired {
+  font-size: 14px;
+  line-height: 15px;
   text-align: center;
-  letter-spacing: 0.05em;
-  color: #E3ABAB;
+  letter-spacing: 0.03em;
+  color: $registerErrorRequired_color;
 }

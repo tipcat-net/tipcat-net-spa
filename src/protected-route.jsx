@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import Spinner from './components/spinner';
 import { ROUTES } from './constants/routes';
 import { PageNotFound } from './pages/PageNotFound';
+import { getMember } from './ducks/member/actions';
+import { selectMember } from './ducks/member/selectors'
 
 const ProtectedRoute = ({ component: Component, ...args }) => {
   const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+  const put = useDispatch();
+  const member = useSelector(selectMember);
 
   useEffect(() => {
     const getToken = async () => {
@@ -15,8 +20,11 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
     };
     
     getToken();
+
+    if(!member) {
+      put(getMember());
+    }
   }, []);
-  
 
   if (isLoading) {
     return <Spinner />
@@ -26,6 +34,14 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
     return (
       <Redirect
         to={ ROUTES.AUTH.path }
+      />
+    )
+  }
+
+  if (!member?.accountId && args.path !== ROUTES.REGISTRATION.path) {
+    return (
+      <Redirect
+        to={ ROUTES.REGISTRATION.path }
       />
     )
   }

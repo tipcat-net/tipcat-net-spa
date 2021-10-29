@@ -4,5 +4,9 @@
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.03em;
-  color: $label;
+  color: $label_color;
+
+  .required {
+    color: $labelRequired_color;
+  }
 }

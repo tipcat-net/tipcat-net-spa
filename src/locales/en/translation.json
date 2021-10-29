@@ -15,7 +15,48 @@
   "members": {
     "headerTitle": "Members"
   },
-  "registration": {},
+  "registration": {
+    "form": {
+      "member": {
+        "title": "Hallo!",
+        "underTitle": "Introduce youreself",
+        "fields": {
+          "firstName": {
+            "label": "Your name"
+          },
+          "lastName": {
+            "label": "Your surname"
+          }
+        }
+      },
+      "account": {
+        "underTitle": "Introduce youreself",
+        "fields": {
+          "operatingName": {
+            "label": "Operating name"
+          },
+          "address": {
+            "label": "Comapany adress"
+          },
+          "name": {
+            "label": "Name"
+          },
+          "email": {
+            "label": "Comapany e-mail"
+          },
+          "phone": {
+            "label": "Comapany phone"
+          }
+        }
+      }
+    },
+    "registerErrorRequired": "Please fill in the required fields",
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Register"
+    }
+  },
   "memberProfile": {
     "headerTitle": "Member profile"
   },
