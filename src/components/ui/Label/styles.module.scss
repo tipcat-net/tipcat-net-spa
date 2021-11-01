@@ -6,7 +6,7 @@
   letter-spacing: 0.03em;
   color: $label_color;
 
-  .required {
+  &Required {
     color: $labelRequired_color;
   }
 }

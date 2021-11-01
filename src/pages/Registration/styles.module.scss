@@ -27,6 +27,10 @@
     text-align: center;
     color: $registerUnderTitle_color;
   }
+
+  &InputBold input {
+    font-weight: 700;
+  }
 }
 
 .registerOr {
