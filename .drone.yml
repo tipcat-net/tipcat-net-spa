@@ -57,7 +57,7 @@ steps:
     REACT_APP_AUTH0_DOMAIN:
       from_secret: DEV_REACT_APP_AUTH0_DOMAIN
     REACT_APP_AUTH0_AUDIENCE:
-      from_secret: DEV_APP_AUTH0_AUDIENCE
+      from_secret: DEV_REACT_APP_AUTH0_AUDIENCE
     REACT_APP_API:
       from_secret: DEV_REACT_APP_API
   settings:
