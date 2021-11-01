@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .members {
   &Sort {
     position: relative;
@@ -6,22 +8,21 @@
     &Selected {
       display: flex;
       align-items: center;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 15px;
-      line-height: 18px;
-      letter-spacing: 0.05em;
-      color: #828282;
+      font-size: 14px;
+      line-height: 15px;
+      letter-spacing: 0.03em;
+      color: $membersSortSelected_color;
     }
 
     &List {
       position: absolute;
+      z-index: 1;
       top: 100%;
       right: -10px;
       width: 100vw;
       padding: 20px 40px 10px;
       list-style: none;
-      background: rgba(242, 242, 242, 0.9);
+      background: $membersSortList_bg;
       visibility: hidden;
       opacity: 0;
 
@@ -37,13 +38,14 @@
         &Btn {
           display: flex;
           align-items: center;
-          font-style: normal;
-          font-weight: normal;
           font-size: 15px;
-          line-height: 18px;
-          letter-spacing: 0.05em;
-          color: #5F5F5F;
+          line-height: 16px;
+          letter-spacing: 0.03em;
+          color: $membersSortListItemBtn_color;
 
+          span {
+            color: $membersSortListItemBtnIcon_color;
+          }
         }
 
         &Active &Btn {
