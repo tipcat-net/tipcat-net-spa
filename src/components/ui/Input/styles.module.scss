@@ -10,6 +10,7 @@
   background: $input_bg;
   border: 1px solid $input_border;
   border-radius: 5px;
+  text-align: center;
 
   &.error {
     box-shadow: inset 0px 2px 12px 3px $input_error_shadow;

@@ -60,7 +60,7 @@ export const Registration = () => {
     <div className={ style.register }>
       <Formik
         initialValues={ { ...initialValues, member: member } }
-        validationSchema={schema}
+        validationSchema={ schema }
         onSubmit={ onSubmit }
       >
         {
@@ -84,14 +84,15 @@ export const Registration = () => {
                         label={ t('registration.form.member.fields.firstName.label') }
                         name="member.firstName"
                         type="text"
-                        value={values.member.firstName}
+                        value={ values.member.firstName }
+                        className={ style.registerInputBold }
                         required
                       />
                       <FormInput
                         label={ t('registration.form.member.fields.lastName.label') }
                         name="member.lastName"
                         type="text"
-                        value={values.member.lastName}
+                        value={ values.member.lastName }
                         required
                       />
                       <RegisterErrorRequired
@@ -108,6 +109,7 @@ export const Registration = () => {
                         name="account.operatingName"
                         type="text"
                         value={ values.account.operatingName }
+                        className={ style.registerInputBold }
                         required
                       />
                       <FormInput
