@@ -57,6 +57,11 @@
       "submit": "Register"
     }
   },
+  "memberItemActionBlock": {
+    "editName": "Edit name",
+    "editPosition": "Edit position",
+    "deactivated": "Deactivated"
+  },
   "memberProfile": {
     "headerTitle": "Member profile"
   },

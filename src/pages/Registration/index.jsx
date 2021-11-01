@@ -13,7 +13,6 @@ import { ROUTES } from "../../constants/routes";
 import { FormInput } from "../../components/form/form-input";
 import { schema } from "../../form-helpers/registration/schema";
 
-import { getMember } from './../../ducks/member/actions';
 import { selectMember, selectMemberLoading } from './../../ducks/member/selectors';
 import { signUp } from './../../ducks/app/actions';
 
@@ -27,10 +26,6 @@ export const Registration = () => {
   const member = useSelector(selectMember);
   const loading = useSelector(selectMemberLoading);
   const [ currentStep, setCurrentStep ] = useState('member');
-
-  useEffect(() => {
-    put(getMember());
-  }, []);
 
   if (member && member.accountId) {
     return (

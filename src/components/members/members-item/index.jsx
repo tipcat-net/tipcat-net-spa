@@ -1,9 +1,19 @@
+import { useState } from 'react';
+import cn from 'classnames';
+import { useTranslation } from "react-i18next";
 import { Button } from '../../ui/Button';
 import { Actions } from '../../ui/Icons';
 import { Avatar } from '../../avatar';
 import style from './styles.module.scss';
 
 export const MembersItem = ({ data }) => {
+  const [visibleActions, setVisibleActions] = useState(false);
+  const { t } = useTranslation();
+
+  const toggleVisibleActions = () => {
+    setVisibleActions(!visibleActions);
+  }
+
   return (
     <div className={ style.membersItem }>
       <Avatar type="active" data={ data.avatar } />
@@ -12,7 +22,16 @@ export const MembersItem = ({ data }) => {
         <div className={ style.membersItemPermissions }>{ data.position }</div>
       </div>
       <div className={ style.membersItemActions }>
-        <Button clear className={ style.membersItemActionsBtn }>
+        <div className={ cn(style.membersItemActionsBlock, visibleActions ? style.membersItemActionsBlockVisible : null) }>
+          <div className={ style.membersItemActionsBlockLink }>{ t('memberItemActionBlock.editName') }</div>
+          <div className={ style.membersItemActionsBlockLink }>{ t('memberItemActionBlock.editPosition') }</div>
+          <div className={ style.membersItemActionsBlockLink }>{ t('memberItemActionBlock.deactivated') }</div>
+        </div>
+        <Button
+          clear
+          className={ style.membersItemActionsBtn }
+          onClick={ toggleVisibleActions }
+        >
           <Actions />
         </Button>
       </div>
