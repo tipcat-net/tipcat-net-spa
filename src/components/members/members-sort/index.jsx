@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
+import { useTranslation } from "react-i18next";
 
-import { ArrowDown, Clock, Max, Min, Position, Status } from '../../ui/Icons';
+import { ArrowDown, Max, Min, Position, Status, NameAsc, NameDesc, Time } from '../../ui/Icons';
 import { Button } from '../../ui/Button';
 
 import style from './styles.module.scss';
 
 export const MembersSort = () => {
+  const { t } = useTranslation();
   const [visibleList, setVisibleList] = useState(false);
-  const [currentSort, setCurrentSort] = useState('last');
+  const [currentSort, setCurrentSort] = useState('lastTipped');
 
   const onToggleVisibleList = () => setVisibleList(!visibleList);
 
   const sortList = [
     {
-      key: 'last',
-      render: <><Clock className={ style.icon }/>Last tipped</>
+      key: 'lastTipped',
+      render: <><Time className={ style.icon }/>{ t('memberSort.lastTipped') }</>
     },
     {
-      key: 'max',
-      render: <><Max className={ style.icon }/>Max tips</>
+      key: 'tipsDesc',
+      render: <><Max className={ style.icon }/>{ t('memberSort.tipsDesc') }</>
     },
     {
-      key: 'min',
-      render: <><Min className={ style.icon }/>Min tips</>
+      key: 'tipsAcs',
+      render: <><Min className={ style.icon }/>{ t('memberSort.tipsAcs') }</>
     },
     {
       key: 'position',
-      render: <><Position className={ style.icon }/>Position</>
+      render: <><Position className={ style.icon }/>{ t('memberSort.position') }</>
     },
     {
       key: 'status',
-      render: <><Status className={ style.icon }/>Status</>
-    }
+      render: <><Status className={ style.icon }/>{ t('memberSort.status') }</>
+    },
+    {
+      key: 'nameAsc',
+      render: <><NameAsc className={ style.icon }/>{ t('memberSort.nameAsc') }</>
+    },
+    {
+      key: 'nameDesc',
+      render: <><NameDesc className={ style.icon }/>{ t('memberSort.nameDesc') }</>
+    },
   ];
 
   const onChangeSort = (key) => {

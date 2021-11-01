@@ -57,6 +57,15 @@
       "submit": "Register"
     }
   },
+  "memberSort": {
+    "lastTipped": "Last tipped",
+    "tipsDesc": "Max tips",
+    "tipsAcs": "Min tips",
+    "position": "Position",
+    "status": "Status",
+    "nameAsc": "Name direct",
+    "nameDesc": "Name reverse"
+  },
   "memberItemActionBlock": {
     "editName": "Edit name",
     "editPosition": "Edit position",
