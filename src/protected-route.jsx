@@ -7,7 +7,7 @@ import Spinner from './components/spinner';
 import { ROUTES } from './constants/routes';
 import { PageNotFound } from './pages/PageNotFound';
 import { getMember } from './ducks/member/actions';
-import { selectMember } from './ducks/member/selectors'
+import { selectMember } from './ducks/member/selectors';
 
 const ProtectedRoute = ({ component: Component, ...args }) => {
   const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
@@ -15,16 +15,16 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
   const member = useSelector(selectMember);
 
   useEffect(() => {
-    const getToken = async () => {
-      localStorage.setItem('token', await getAccessTokenSilently());
-    };
-    
-    getToken();
-
-    if(!member) {
-      put(getMember());
+    if (isAuthenticated) {
+      const getToken = async () => {
+        const token = await getAccessTokenSilently();
+        localStorage.setItem('token', token);
+        put(getMember());
+      };
+        
+      getToken();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   if (isLoading) {
     return <Spinner />
@@ -38,7 +38,7 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
     )
   }
 
-  if (!member?.accountId && args.path !== ROUTES.REGISTRATION.path) {
+  if (member && !member.accountId && args.path !== ROUTES.REGISTRATION.path) {
     return (
       <Redirect
         to={ ROUTES.REGISTRATION.path }
