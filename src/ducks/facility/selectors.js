@@ -1,5 +1,5 @@
-export const selectFasility = (state) => state.fasility.data;
-export const selectFasilityError = (state) => state.fasility.error;
-export const selectFasilityLoading = (state) => state.fasility.loading;
+export const selectFacility = (state) => state.facility.data;
+export const selectFacilityError = (state) => state.facility.error;
+export const selectFacilityLoading = (state) => state.facility.loading;
 
-export const selectFasilitySlim = (state) => state.fasility.slim;
+export const selectFacilitySlim = (state) => state.facility.slim;

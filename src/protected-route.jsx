@@ -50,6 +50,10 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
     return <PageNotFound />
   }
 
+  if (!member) {
+    return null
+  }
+
   return (
     <Route
       { ...args }

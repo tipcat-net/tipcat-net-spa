@@ -16,7 +16,6 @@ export function facilityReducer(state = initialState, action) {
         loading: true,
       };
     case FacilityActionTypes.GET_FACILITY_FINISH:
-      console.log(action.response.data);
       return {
         ...state,
         data: action.response.data,
