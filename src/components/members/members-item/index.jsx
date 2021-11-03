@@ -16,10 +16,10 @@ export const MembersItem = ({ data }) => {
 
   return (
     <div className={ style.membersItem }>
-      <Avatar type="active" data={ data.avatar } />
+      <Avatar type="active" data={ `${data.firstName} ${data.lastName}` } />
       <div className={ style.membersItemInfo }>
-        <div className={ style.membersItemName }>{ data.name }</div>
-        <div className={ style.membersItemPermissions }>{ data.position }</div>
+        <div className={ style.membersItemName }>{ data.firstName } { data.lastName }</div>
+        <div className={ style.membersItemPermissions }>{ data.permissions }</div>
       </div>
       <div className={ style.membersItemActions }>
         <div className={ cn(style.membersItemActionsBlock, visibleActions ? style.membersItemActionsBlockVisible : null) }>

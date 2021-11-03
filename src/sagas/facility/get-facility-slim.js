@@ -10,6 +10,7 @@ import {
 export default function* getFacilitySlimRequest({ payload }) {
   try {
     const response = yield call(fetchers.getFacilitySlim, payload);
+
     yield put(getFacilitySlimFinish(response));
   } catch (error) {
     yield put(getFacilitySlimError(error));
