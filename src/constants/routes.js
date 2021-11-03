@@ -28,6 +28,11 @@ export const ROUTES = {
         exact: true,
         getPath: ({ facilityId }) => ROUTES.FACILITY.path.replace(':facilityId', facilityId),
     },
+    FACILITY_MEMBERS: {
+        path: '/facility/:facilityId/members',
+        exact: true,
+        getPath: ({ facilityId }) => ROUTES.FACILITY.path.replace(':facilityId', facilityId),
+    },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

@@ -60,9 +60,9 @@ export const fetchers = {
     const accessToken = await getToken();
     return axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
-  getFacilitySlim: async (accountId) => {
+  getFacilitySlim: async ({ accountId, facilityId }) => {
     const accessToken = await getToken();
-    return axios.get(`/api/accounts/${accountId}/facilities/slim`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
+    return axios.get(`/api/accounts/${accountId}/facilities/${facilityId}/slim`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
   getFacilitySlimById: async (accountId, facilityId) => {
     const accessToken = await getToken();
