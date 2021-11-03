@@ -77,7 +77,7 @@
   "facilityProfile": {
     "headerTitle": "Facility profile",
     "operatingName": "Legal entity",
-    "address": "Adress",
+    "address": "Address",
     "ProfileContentBottom": {
       "rightLink": "Members"
     }
