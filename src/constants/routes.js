@@ -23,9 +23,10 @@ export const ROUTES = {
         path: '/member',
         exact: true,
     },
-    FACILITY_PROFILE: {
-        path: '/facility',
+    FACILITY: {
+        path: '/facility/:facilityId',
         exact: true,
+        getPath: ({ facilityId }) => ROUTES.FACILITY.path.replace(':facilityId', facilityId),
     },
 };
 

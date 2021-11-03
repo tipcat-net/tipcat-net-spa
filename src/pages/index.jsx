@@ -18,7 +18,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
-      <ProtectedRoute { ...ROUTES.FACILITY_PROFILE } component={ FacilityProfile } />
+      <ProtectedRoute { ...ROUTES.FACILITY } component={ FacilityProfile } />
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>

@@ -52,11 +52,7 @@ export const fetchers = {
     const accessToken = await getToken();
     return axios.post(`/api/accounts/${accountId}/facilities`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
-  getFacility: async (accountId) => {
-    const accessToken = await getToken();
-    return axios.get(`/api/accounts/${accountId}/facilities`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
-  getFacilityById: async (accountId, facilityId) => {
+  getFacility: async ({ accountId, facilityId }) => {
     const accessToken = await getToken();
     return axios.get(`/api/accounts/${accountId}/facilities/${facilityId}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
