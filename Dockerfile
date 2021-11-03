@@ -1,4 +1,4 @@
-FROM node:16.11.1-buster as builder
+FROM registry.tipcat.net/node:16.11.1-buster as builder
 
 ARG REACT_APP_AUTH_CONFIG_CLIENT_SECRET
 ARG REACT_APP_AUTH_CONFIG_CLIENT_ID
@@ -24,7 +24,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:1.20.0
+FROM registry.tipcat.net/nginx:1.20.0
 
 RUN apt update && \
     apt install curl -y
