@@ -8,6 +8,7 @@ import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
 import MemberProfile from './MemberProfile';
+import AccountProfile from './AccountProfile';
 import AccountMembers from './AccountMembers';
 import FacilityProfile from './FacilityProfile';
 import FacilityMembers from './FacilityMembers';
@@ -20,6 +21,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
+      <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
       <ProtectedRoute { ...ROUTES.ACCOUNT_MEMBERS } component={ AccountMembers } />
       <ProtectedRoute { ...ROUTES.FACILITY } component={ FacilityProfile } />
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
