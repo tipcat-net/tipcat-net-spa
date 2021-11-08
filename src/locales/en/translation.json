@@ -36,16 +36,16 @@
             "label": "Operating name"
           },
           "address": {
-            "label": "Comapany adress"
+            "label": "Company adress"
           },
           "name": {
             "label": "Name"
           },
           "email": {
-            "label": "Comapany e-mail"
+            "label": "Company e-mail"
           },
           "phone": {
-            "label": "Comapany phone"
+            "label": "Company phone"
           }
         }
       }
