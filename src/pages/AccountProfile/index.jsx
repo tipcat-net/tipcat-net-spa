@@ -44,7 +44,7 @@ export const AccountProfile = () => {
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ account.operatingName } type={ account.isActive ? 'active' : 'invited' } />
+              <ProfileAvatar data={ account.operatingName } type='account' />
               <ProfileName>{ account.operatingName }</ProfileName>
               <ProfileInfo top data={ { title: t('accountProfile.address'), text: account.address} } />
               <ProfileInfo data={ { title: t('accountProfile.email'), text: account.email} } />

@@ -3,15 +3,16 @@ import cn from 'classnames';
 import { ReactComponent as GoneSvg } from './svg/gone.svg';
 import style from './styles.module.scss';
 
-export const Avatar = ({ size, className, type, data }) => {
+export const Avatar = ({ size, className, type, data, invited }) => {
   const classNameSize = size === 'big' ?  style.avatarBig 
     : size === 'small' ? style.avatarSmall
     : null;
 
-  const classNameType = type === 'invited' ? style.avatarInvited
-    : type === 'active' ? style.avatarActive
+  const classNameType = type === 'account' ? style.avatarAccount
     : type === 'facility' ? style.avatarFacility
-    : null;
+    : null
+
+  const classNameInvited = invited ? style.avatarInvited : null;
 
   const transformLetters = (value) => {
     if(value.length > 2) {
@@ -22,9 +23,9 @@ export const Avatar = ({ size, className, type, data }) => {
   }
 
   return (
-    <div className={ cn(style.avatar, classNameSize, classNameType, className) }>
+    <div className={ cn(style.avatar, classNameSize, classNameType, classNameInvited, className) }>
       <div className={ style.avatarText }>{ transformLetters(data) }</div>
-      { type !== 'active' && type !== 'facility' ? <GoneSvg className={ style.avatarIcon } /> : null }
+      { invited ? <GoneSvg className={ style.avatarIcon } /> : null }
     </div>
   )
 }

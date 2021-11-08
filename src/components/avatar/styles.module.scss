@@ -7,85 +7,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $avatar_bg;
+  background-color: $avatar_bg;
   border-radius: 50%;
   color: $avatar_color;
 
   &Text {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 24px;
-    line-height: 29px;
+    line-height: 26px;
     text-align: center;
   }
 
   &Icon {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     color: $avatarIcon_color;
-    transform: scaleX(-1);
   }
 
   &Big {
     width: 100px;
     height: 100px;
-    color: $avatarBig_color;
     border: 3px solid $avatarBig_border;
   }
 
   &Big &Text{
-    font-size: 39px;
-    line-height: 47px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 39px;
   }
 
   &Big &Icon{
     width: 44px;
     height: 35px;
-    right: -3px;
+    left: -3px;
     bottom: -3px;
-    stroke: $avatarIconBig_stroke;
   }
-  
+
   &Small {
     width: 35px;
     height: 35px;
   }
-  
-  &Small &Text {
+
+  &Small &Text{
+    font-weight: normal;
     font-size: 14px;
     line-height: 15px;
   }
 
   &Invited {
-    background: $avatarInvited_bg;
-    color: $avatarInvited_color;
-  }
-  &Invited &Icon{
-    color: $avatarIconInited_color;
-    right: auto;
-    left: 0;
-    transform: none;
-  }
-  &Invited.avatarBig {
-    color: $avatarInvitedBig_color;
-  }
-  &Invited.avatarBig &Icon{
-    right: auto;
-    left: -3px;
-    stroke: none;
-  }
-
-  &Active {
-    background: $avatarActive_bg;
-    color: $avatarActive_color;
-  }
-
-  &Active.avatarBig {
-    color: $avatarActiveBig_color;
+    background-color: $avatarInvited_bg;
   }
 
   &Facility {
-    background: $avatarFacility_bg;
+    background-color: $avatarFacility_bg;
     color: $avatarFacility_color;
+  }
+
+  &Account {
+    background-color: $avatarAccount_bg;
   }
 }
