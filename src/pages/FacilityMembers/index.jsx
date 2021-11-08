@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { Layout } from '../../components/ui/Layout';
 import { Members } from "../../components/members";
 
-import { getFacility } from "../../ducks/facility/actions";
-import { selectFacility, selectFacilityLoading } from "../../ducks/facility/selectors";
+import { getAccount } from "../../ducks/account/actions";
+import { selectAccount, selectAccountLoading } from "../../ducks/account/selectors";
 import { selectMember } from "../../ducks/member/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouteMatch } from 'react-router';
@@ -14,19 +14,19 @@ export const FacilityMembers = () => {
   const put = useDispatch();
   const member = useSelector(selectMember);
   const { params: { facilityId } } = useRouteMatch();
-  const facility = useSelector(selectFacility);
-  const facilityLoading = useSelector(selectFacilityLoading);
+  const account = useSelector(selectAccount);
+  const accountLoading = useSelector(selectAccountLoading);
 
   useEffect(() => {
-    if (member && !facilityLoading && !facility) {
-      put(getFacility({ accountId: member.accountId, facilityId }));
+    if (member && !accountLoading) {
+      put(getAccount(member.accountId));
     }
   }, [member]);
 
   return (
     <Layout title={ t('facilityMembers.headerTitle') }>
       {
-        facility && <Members members={ facility.members } />
+        account && <Members members={ account?.facilities.find(item => item.id === parseInt(facilityId)).members } />
       }
     </Layout>
   )

@@ -5,8 +5,8 @@ import { Layout } from '../../components/ui/Layout';
 import { Facility } from "../../components/facility";
 
 import { selectMember } from "../../ducks/member/selectors";
-import { getFacilities } from "../../ducks/facility/actions";
-import { selectFacilities, selectFacilitiesLoading } from "../../ducks/facility/selectors";
+import { getAccount } from "../../ducks/account/actions";
+import { selectAccount, selectAccountLoading } from "../../ducks/account/selectors";
 
 import style from './styles.module.scss';
 
@@ -14,12 +14,12 @@ export const Facilities = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const member = useSelector(selectMember);
-  const facilities = useSelector(selectFacilities);
-  const facilitiesLoading = useSelector(selectFacilitiesLoading);
+  const account = useSelector(selectAccount);
+  const accountLoading = useSelector(selectAccountLoading);
 
   useEffect(() => {
-    if (member && !facilitiesLoading && !facilities) {
-      put(getFacilities({ accountId: member.accountId }));
+    if (member && !accountLoading) {
+      put(getAccount(member.accountId));
     }
   }, [member]);
 
@@ -27,7 +27,7 @@ export const Facilities = () => {
     <Layout title={ t('facilities.headerTitle') }>
       <div className={ style.facilities }>
         {
-          facilities && facilities.map(item => <Facility key={ item.id } data={ item } />)
+          account && account?.facilities.map(item => <Facility key={ item.id } data={ item } />)
         }
       </div>
     </Layout>
