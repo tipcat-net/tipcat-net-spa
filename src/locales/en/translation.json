@@ -74,6 +74,16 @@
   "memberProfile": {
     "headerTitle": "Member profile"
   },
+  "accountProfile": {
+    "headerTitle": "Account profile",
+    "address": "Address",
+    "email": "E-mail",
+    "phone": "Phone",
+    "ProfileContentBottom": {
+      "leftLink": "All facility",
+      "rightLink": "All members"
+    }
+  },
   "facilityProfile": {
     "headerTitle": "Facility profile",
     "operatingName": "Legal entity",

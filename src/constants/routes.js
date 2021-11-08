@@ -23,9 +23,12 @@ export const ROUTES = {
         path: '/member',
         exact: true,
     },
+    ACCOUNT: {
+        path: '/account',
+        exact: true,
+    },
     ACCOUNT_MEMBERS: {
         path: '/account/members',
-        exact: true,
     },
     FACILITY: {
         path: '/facility/:facilityId',
