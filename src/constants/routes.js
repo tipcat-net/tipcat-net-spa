@@ -30,6 +30,10 @@ export const ROUTES = {
     ACCOUNT_MEMBERS: {
         path: '/account/members',
     },
+    FACILITIES: {
+        path: '/facility',
+        exact: true,
+    },
     FACILITY: {
         path: '/facility/:facilityId',
         exact: true,

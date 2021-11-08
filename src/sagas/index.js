@@ -25,8 +25,8 @@ import updateAccountRequest from './account/update-account';
 
 // Facility
 import { FacilityActionTypes } from '../ducks/facility/action-types';
+import getFacilitiesRequest from './facility/get-facilities';
 import getFacilityRequest from './facility/get-facility';
-import getFacilitySlimRequest from './facility/get-facility-slim';
 
 export default function* sagas() {
   yield all([
@@ -44,7 +44,7 @@ export default function* sagas() {
       takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
       takeEvery(AccountActionTypes.UPDATE_ACCOUNT_START, updateAccountRequest),
       // Facility
+      takeEvery(FacilityActionTypes.GET_FACILITIES_START, getFacilitiesRequest),
       takeEvery(FacilityActionTypes.GET_FACILITY_START, getFacilityRequest),
-      takeEvery(FacilityActionTypes.GET_FACILITY_SLIM_START, getFacilitySlimRequest),
   ]);
 }

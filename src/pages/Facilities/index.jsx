@@ -1,19 +1,19 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Layout } from '../../components/ui/Layout';
-import { Members } from "../../components/members";
+import { Facility } from "../../components/facility";
 
+import { selectMember } from "../../ducks/member/selectors";
 import { getAccount } from "../../ducks/account/actions";
 import { selectAccount, selectAccountLoading } from "../../ducks/account/selectors";
-import { selectMember } from "../../ducks/member/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouteMatch } from 'react-router';
-import { useEffect } from "react";
 
-export const FacilityMembers = () => {
+import style from './styles.module.scss';
+
+export const Facilities = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const member = useSelector(selectMember);
-  const { params: { facilityId } } = useRouteMatch();
   const account = useSelector(selectAccount);
   const accountLoading = useSelector(selectAccountLoading);
 
@@ -24,12 +24,14 @@ export const FacilityMembers = () => {
   }, [member]);
 
   return (
-    <Layout title={ t('facilityMembers.headerTitle') }>
-      {
-        account && <Members members={ account?.facilities.find(item => item.id === parseInt(facilityId)).members } />
-      }
+    <Layout title={ t('facilities.headerTitle') }>
+      <div className={ style.facilities }>
+        {
+          account && account?.facilities.map(item => <Facility key={ item.id } data={ item } />)
+        }
+      </div>
     </Layout>
   )
 }
 
-export default FacilityMembers;
+export default Facilities;

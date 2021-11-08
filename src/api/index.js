@@ -52,6 +52,10 @@ export const fetchers = {
     const accessToken = await getToken();
     return axios.post(`/api/accounts/${accountId}/facilities`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
+  getFacilities: async ({ accountId }) => {
+    const accessToken = await getToken();
+    return axios.get(`/api/accounts/${accountId}/facilities`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
+  },
   getFacility: async ({ accountId, facilityId }) => {
     const accessToken = await getToken();
     return axios.get(`/api/accounts/${accountId}/facilities/${facilityId}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
@@ -59,13 +63,5 @@ export const fetchers = {
   updateFacility: async ({ accountId, facilityId, ...data }) => {
     const accessToken = await getToken();
     return axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
-  getFacilitySlim: async ({ accountId, facilityId }) => {
-    const accessToken = await getToken();
-    return axios.get(`/api/accounts/${accountId}/facilities/${facilityId}/slim`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
-  getFacilitySlimById: async (accountId, facilityId) => {
-    const accessToken = await getToken();
-    return axios.get(`/api/accounts/${accountId}/facilities/${facilityId}/slim`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
   },
 };
