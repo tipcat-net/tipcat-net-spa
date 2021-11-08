@@ -1,0 +1,61 @@
+@import "../../styles/variables.scss";
+
+.facility {
+  box-shadow: 1px 3px 4px $facilities_shadow;
+
+  &Header {
+    display: flex;
+    align-items: center;
+    padding: 9px 15px 11px;
+    
+    &Title {
+      margin-left: 15px;
+      flex: auto;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 15px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.03em;
+      color: $facilityHeaderTitle_color;
+    }
+    
+    &Count {
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 15px;
+      letter-spacing: 0.03em;
+      color: $facilityHeaderCount_color;
+    }
+    
+    &Arrow {
+      margin-left: 7px;
+
+      &Icon {
+        width: 40px;
+        height: 40px;
+        color: $facilityHeaderArrowIcon_color;
+        transform: rotateZ(0deg);
+        transition: all .3s ease;
+      }
+    }
+  }
+  
+  &Content {
+    display: none;
+  }
+
+  &Active {
+    box-shadow: none;
+  }
+
+  &Active &HeaderArrowIcon {
+    transform: rotateZ(-180deg);
+  }
+
+  &Active &Content {
+    display: block;
+  }
+}

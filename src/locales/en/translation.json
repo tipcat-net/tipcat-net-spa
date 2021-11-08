@@ -84,6 +84,9 @@
       "rightLink": "All members"
     }
   },
+  "facilities": {
+    "headerTitle": "Facilities"
+  },
   "facilityProfile": {
     "headerTitle": "Facility profile",
     "operatingName": "Legal entity",
@@ -91,6 +94,9 @@
     "ProfileContentBottom": {
       "rightLink": "Members"
     }
+  },
+  "facilityMembers": {
+    "headerTitle": "Members"
   },
   "pageNotFound": {
     "headerTitle": "Page not found",

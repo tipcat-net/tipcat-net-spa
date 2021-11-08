@@ -1,5 +1,19 @@
 import { FacilityActionTypes } from './action-types';
 
+// getFacilities
+export const getFacilities = (payload) => ({
+    type: FacilityActionTypes.GET_FACILITIES_START,
+    payload,
+});
+export const getFacilitiesError = (error) => ({
+    type: FacilityActionTypes.GET_FACILITIES_ERROR,
+    error,
+});
+export const getFacilitiesFinish = (response) => ({
+    type: FacilityActionTypes.GET_FACILITIES_FINISH,
+    response,
+});
+
 // getFacility
 export const getFacility = (payload) => ({
     type: FacilityActionTypes.GET_FACILITY_START,
@@ -11,19 +25,5 @@ export const getFacilityError = (error) => ({
 });
 export const getFacilityFinish = (response) => ({
     type: FacilityActionTypes.GET_FACILITY_FINISH,
-    response,
-});
-
-// getFacilitySlim
-export const getFacilitySlim = (payload) => ({
-    type: FacilityActionTypes.GET_FACILITY_SLIM_START,
-    payload,
-});
-export const getFacilitySlimError = (error) => ({
-    type: FacilityActionTypes.GET_FACILITY_SLIM_ERROR,
-    error,
-});
-export const getFacilitySlimFinish = (response) => ({
-    type: FacilityActionTypes.GET_FACILITY_SLIM_FINISH,
     response,
 });

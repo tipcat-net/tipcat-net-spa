@@ -10,6 +10,7 @@ import Members from './Members';
 import MemberProfile from './MemberProfile';
 import AccountProfile from './AccountProfile';
 import AccountMembers from './AccountMembers';
+import Facilities from './Facilities';
 import FacilityProfile from './FacilityProfile';
 import FacilityMembers from './FacilityMembers';
 import PageNotFound from './PageNotFound';
@@ -23,6 +24,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
       <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
       <ProtectedRoute { ...ROUTES.ACCOUNT_MEMBERS } component={ AccountMembers } />
+      <ProtectedRoute { ...ROUTES.FACILITIES } component={ Facilities } />
       <ProtectedRoute { ...ROUTES.FACILITY } component={ FacilityProfile } />
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
       <Route { ...ROUTES.AUTH } >
