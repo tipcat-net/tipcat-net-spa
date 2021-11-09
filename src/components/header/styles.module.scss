@@ -9,6 +9,16 @@
   &Logo {
     display: flex;
     justify-content: center;
+    flex: auto;
+
+    &Icon {
+      color: $headerLogoIcon;
+
+      &Big svg {
+        width: 75px;
+        height: 75px;
+      }
+    }
   }
 
   &Container {

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 
-import { Person, Loupe, Arrow, Burger } from '../../components/ui/Icons/';
+import { Person, Loupe, Arrow, Burger, Logo } from '../../components/ui/Icons/';
 import { Button } from '../../components/ui/Button';
 import { Menu } from './menu';
-
-import LogoGrey from './../../assets/logo_grey.svg';
 
 import style from './styles.module.scss';
 
@@ -19,7 +18,7 @@ export const Header = ({ logo, title }) => {
     return (
       <header className={ style.header }>
         <div className={ style.headerLogo }>
-          <img src={ LogoGrey } alt="TipCat" className={ style.headerLogo } />
+          <Logo className={ cn(style.headerLogoIcon, style.headerLogoIconBig) } />
         </div>
       </header>
     );
@@ -30,7 +29,13 @@ export const Header = ({ logo, title }) => {
       <div className={ style.headerContainer }>
         <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button>
         <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
-        <h1 className={ style.headerTitle }>{ title }</h1>
+        {
+          title ? <h1 className={ style.headerTitle }>{ title }</h1>
+          :
+            <div className={ style.headerLogo }>
+              <Logo className={ style.headerLogoIcon } />
+            </div>
+        }
         <Button clear className={ style.headerBtn }><Loupe className={ style.headerBtnIcon } /></Button>
         <Button clear className={ style.headerBtn }><Person className={ style.headerBtnIcon } /></Button>
       </div>
