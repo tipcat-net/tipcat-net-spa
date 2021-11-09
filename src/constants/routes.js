@@ -11,10 +11,6 @@ export const ROUTES = {
         path: '/logout',
         exact: true,
     },
-    MEMBERS: {
-        path: '/members',
-        exact: true,
-    },
     REGISTRATION: {
         path: '/registration',
         exact: true,
@@ -27,8 +23,9 @@ export const ROUTES = {
         path: '/account',
         exact: true,
     },
-    ACCOUNT_MEMBERS: {
-        path: '/account/members',
+    MEMBERS: {
+        path: '/members',
+        exact: true,
     },
     FACILITIES: {
         path: '/facility',

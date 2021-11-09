@@ -98,6 +98,9 @@
   "facilityMembers": {
     "headerTitle": "Members"
   },
+  "allMembers": {
+    "headerTitle": "Members"
+  },
   "pageNotFound": {
     "headerTitle": "Page not found",
     "pageNotFoundInfoTitle": "Oops!",
