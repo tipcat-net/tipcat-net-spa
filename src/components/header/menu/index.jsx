@@ -13,13 +13,7 @@ export const Menu = ({ open, onClose }) => {
           <button type="button" onClick={ onClose }>close</button>
         </li>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/members">Members</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
+          <Link to="/account">Account</Link>
         </li>
         <li>
           <SignOutButton />

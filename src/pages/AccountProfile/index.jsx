@@ -51,10 +51,10 @@ export const AccountProfile = () => {
               <ProfileInfo data={ { title: t('accountProfile.phone'), text: account.phone} } />
               <ProfileContentBottom
                 leftLink={ {
-                  link: `/account/facility/`, text: t('accountProfile.ProfileContentBottom.leftLink')
+                  link: `/facility/`, text: t('accountProfile.ProfileContentBottom.leftLink')
                 }}
                 rightLink={ {
-                  link: `/account/members`, text: t('accountProfile.ProfileContentBottom.rightLink')
+                  link: `/members`, text: t('accountProfile.ProfileContentBottom.rightLink')
                 }}
               />
             </ProfileContent>
