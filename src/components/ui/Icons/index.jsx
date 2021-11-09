@@ -11,6 +11,8 @@ import { ReactComponent as HomeSvg } from './svg/home.svg';
 
 import { ReactComponent as ImageSvg } from './svg/image.svg';
 
+import { ReactComponent as LogoSvg } from './svg/logo.svg';
+
 import { ReactComponent as LoupeSvg } from './svg/loupe.svg';
 
 import { ReactComponent as MaxSvg } from './svg/max.svg';
@@ -45,6 +47,8 @@ export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>
 export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>
 
 export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>
+
+export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>
 
 export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>
 

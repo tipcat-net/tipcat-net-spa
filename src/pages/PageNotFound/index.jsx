@@ -12,7 +12,7 @@ export const PageNotFound = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={ t('pageNotFound.headerTitle') }>
+    <Layout>
       <div className={ style.pageNotFound }>
         <div className={ style.pageNotFoundInfo }>
           <div className={ style.pageNotFoundInfoNumber }>4 <img src={ iconPageNotFound } alt="" /> 4</div>
@@ -22,7 +22,7 @@ export const PageNotFound = () => {
           <div className={ style.pageNotFoundInfoText }>
             <Trans i18nKey="pageNotFound.pageNotFoundInfoText" />
           </div>
-          <Button primary>{ t("pageNotFound.button.back") }</Button>
+          <Button outline>{ t("pageNotFound.button.back") }</Button>
         </div>
         <Button outline className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t("pageNotFound.button.home") }</Button>
       </div>

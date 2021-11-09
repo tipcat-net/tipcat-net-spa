@@ -102,7 +102,6 @@
     "headerTitle": "Members"
   },
   "pageNotFound": {
-    "headerTitle": "Page not found",
     "pageNotFoundInfoTitle": "Oops!",
     "pageNotFoundInfoText": "It seems that such a page <br/> does not exist",
     "button": {
