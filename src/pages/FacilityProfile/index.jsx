@@ -14,9 +14,7 @@ import { Substrate } from '../../components/profile/substrate';
 import { EditProfile } from '../../components/profile/edit';
 import { Layout } from '../../components/ui/Layout';
 
-import { getFacility } from '../../ducks/facility/actions';
 import { getAccount } from '../../ducks/account/actions';
-import { selectFacility } from '../../ducks/facility/selectors';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
 
@@ -24,26 +22,29 @@ export const FacilityProfile = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
+  const [facility, setFacility] = useState(null);
   const { params: { facilityId } } = useRouteMatch();
-  const member = useSelector(selectMember)
-  const account = useSelector(selectAccount)
-  const facility = useSelector(selectFacility)
+  const member = useSelector(selectMember);
+  const account = useSelector(selectAccount);
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
   }
 
   useEffect(() => {
-    if (member) {
-      put(getFacility({ accountId: member.accountId, facilityId: facilityId }))
-      put(getAccount(member.accountId))
-    }
+    put(getAccount(member.accountId))
   }, []);
+
+  useEffect(() => {
+    if(account) {
+      setFacility(account.facilities.find(item => item.id === parseInt(facilityId)))
+    }
+  }, [account]);
 
   return (
     <Layout title={ t('facilityProfile.headerTitle') }>
       {
-        facility && account && (
+        facility && (
           <Profile>
             <Substrate visible={ visibleSubstrate }>
               <EditProfile />
