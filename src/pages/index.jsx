@@ -4,6 +4,7 @@ import ProtectedRoute from './../protected-route';
 import { ROUTES } from './../constants/routes';
 
 import { Auth } from './Auth';
+import Logout from './Logout';
 import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
@@ -29,6 +30,9 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
       <Route { ...ROUTES.AUTH } >
         <Auth />
+      </Route>
+      <Route { ...ROUTES.LOGOUT } >
+        <Logout />
       </Route>
       <Route component={ PageNotFound } />
     </Switch>

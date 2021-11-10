@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignOutButton from './../../sign-out-button';
 import cn from 'classnames';
 
 import style from './styles.module.scss';
@@ -16,7 +15,7 @@ export const Menu = ({ open, onClose }) => {
           <Link to="/account">Account</Link>
         </li>
         <li>
-          <SignOutButton />
+          <Link to="/logout">Logout</Link>
         </li>
       </ul>
     </div>
