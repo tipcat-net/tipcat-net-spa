@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+.memberProfileQrCode {
+  padding-top: 85px;
+
+  .facility {
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: $memberProfileQrCode_facility_color;
+  }
+
+  .permissions {
+    margin-top: 4px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $memberProfileQrCode_permissions_color;
+  }
+
+  .memberCode {
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    color: $memberProfileQrCode_memberCode_color;
+  }
+}

@@ -4,23 +4,21 @@ import { useRouteMatch } from 'react-router';
 import { useTranslation } from "react-i18next";
 
 import { Layout } from '../../components/ui/Layout';
-import { Substrate } from '../../components/profile/substrate';
-import { EditProfile } from '../../components/profile/edit';
 import { Profile } from '../../components/profile/';
-import { ProfileTop } from '../../components/profile/top';
 import { ProfileContent } from '../../components/profile/content/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
-import { ProfileInfo } from '../../components/profile/info/';
+import { QrCode } from '../../components/qr-code';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
 
-export const MemberProfile = () => {
+import style from './styles.module.scss';
+
+export const MemberProfileQrCode = () => {
   const { t } = useTranslation();
   const put = useDispatch();
-  const [visibleSubstrate, setVisibleSubstrate] = useState(false);
   const [memberProfile, setMemberProfile] = useState(null);
   const [facility, setFacility] = useState(null);
   const { params: { memberId } } = useRouteMatch();
@@ -44,25 +42,18 @@ export const MemberProfile = () => {
     }
   }, [account]);
 
-  const toggleVisibleSubstrate = () => {
-    setVisibleSubstrate(!visibleSubstrate);
-  }
-
   return (
-    <Layout title={ t('memberProfile.headerTitle') }>
+    <Layout title={ t('memberProfileQrCode.headerTitle') }>
       {
         memberProfile && (
-          <Profile>
-            <Substrate visible={ visibleSubstrate }>
-              <EditProfile />
-            </Substrate>
-            <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
+          <Profile className={ style.memberProfileQrCode }>
+            <div className={ style.facility }>{ facility.name }</div>
             <ProfileContent>
               <ProfileAvatar data={ `${memberProfile.firstName} ${memberProfile.lastName}` } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
-              <ProfileInfo top data={ { title: t('memberProfile.facility'), text: facility.name} } />
-              <ProfileInfo data={ { title: t('memberProfile.permissions'), text: memberProfile.permissions} } />
-              <ProfileInfo data={ { title: t('memberProfile.email'), text: memberProfile.email} } />
+              <div className={ style.permissions }>{ memberProfile.permissions }</div>
+              <QrCode url={ memberProfile.qrCodeUrl } />
+              <div className={ style.memberCode }>{ memberProfile.memberCode }</div>
             </ProfileContent>
           </Profile>
         )
@@ -71,4 +62,4 @@ export const MemberProfile = () => {
   );
 }
 
-export default MemberProfile;
+export default MemberProfileQrCode;

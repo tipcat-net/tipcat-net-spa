@@ -7,6 +7,7 @@ $header_bg: #2A6274;
 $header_shadow: rgba(0, 0, 0, 0.3);
 $headerLogoIcon: #FFFFFF;
 $headerBtnIcon: #FFFFFF;
+$headerBtnQrCodeIcon: #CFF6FF;
 $headerTitle: #FFFFFF;
 
 // button
@@ -83,6 +84,15 @@ $editProfileTitle: #BDBDBD;
 $editProfileLabel: #4F4F4F;
 
 $substrateContent_bg: rgba(242, 242, 242, 0.9);
+
+// qrCode
+$qrCodeTitle_color: #BDBDBD;
+$qrCodeShare_color: #828282;
+
+// memberProfileQrCode
+$memberProfileQrCode_facility_color: #4F4F4F;
+$memberProfileQrCode_permissions_color: #BDBDBD;
+$memberProfileQrCode_memberCode_color: #4F4F4F;
 
 // Facilities
 $facilities_bg: #FFFFFF;

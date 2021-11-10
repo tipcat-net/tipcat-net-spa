@@ -72,7 +72,17 @@
     "deactivated": "Deactivated"
   },
   "memberProfile": {
+    "headerTitle": "Member profile",
+    "facility": "Facility",
+    "permissions": "Position",
+    "email": "E-mail"
+  },
+  "memberProfileQrCode": {
     "headerTitle": "Member profile"
+  },
+  "qrCode": {
+    "title": "Payment code",
+    "share": "Share"
   },
   "accountProfile": {
     "headerTitle": "Account profile",
