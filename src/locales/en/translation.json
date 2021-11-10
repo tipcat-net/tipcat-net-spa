@@ -12,6 +12,11 @@
       "signIn": "Sign in"
     }
   },
+  "logout": {
+    "button": {
+      "logout": "Log out"
+    }
+  },
   "members": {
     "headerTitle": "Members"
   },
