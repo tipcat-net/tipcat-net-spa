@@ -15,10 +15,6 @@ export const ROUTES = {
         path: '/registration',
         exact: true,
     },
-    MEMBER_PROFILE: {
-        path: '/member',
-        exact: true,
-    },
     ACCOUNT: {
         path: '/account',
         exact: true,
@@ -26,6 +22,16 @@ export const ROUTES = {
     MEMBERS: {
         path: '/members',
         exact: true,
+    },
+    MEMBER_PROFILE: {
+        path: '/members/:memberId',
+        exact: true,
+        getPath: ({ memberId }) => ROUTES.MEMBER_PROFILE.path.replace(':memberId', memberId),
+    },
+    MEMBER_PROFILE_QRCODE: {
+        path: '/members/:memberId/qrcode',
+        exact: true,
+        getPath: ({ memberId }) => ROUTES.MEMBER_PROFILE_QRCODE.path.replace(':memberId', memberId),
     },
     FACILITIES: {
         path: '/facility',

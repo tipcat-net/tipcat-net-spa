@@ -1,8 +1,10 @@
+import cn from 'classnames';
+
 import style from './styles.module.scss';
 
-export const Profile = ({ children }) => {
+export const Profile = ({ children, className }) => {
   return (
-    <div className={ style.profile }>
+    <div className={ cn(style.profile, className) }>
       { children }
     </div>
   )

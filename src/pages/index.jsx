@@ -8,6 +8,7 @@ import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
 import MemberProfile from './MemberProfile';
+import MemberProfileQrCode from './MemberProfileQrCode';
 import AccountProfile from './AccountProfile';
 import Facilities from './Facilities';
 import FacilityProfile from './FacilityProfile';
@@ -20,6 +21,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.HOME } component={ Home } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
+      <ProtectedRoute { ...ROUTES.MEMBER_PROFILE_QRCODE } component={ MemberProfileQrCode } />
       <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
       <ProtectedRoute { ...ROUTES.FACILITIES } component={ Facilities } />
