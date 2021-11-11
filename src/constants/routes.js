@@ -37,6 +37,10 @@ export const ROUTES = {
         path: '/facility',
         exact: true,
     },
+    ADD_FACILITY: {
+        path: '/facility/new',
+        exact: true,
+    },
     FACILITY: {
         path: '/facility/:facilityId',
         exact: true,

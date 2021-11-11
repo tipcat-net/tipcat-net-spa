@@ -107,6 +107,28 @@
   "facilities": {
     "headerTitle": "Facilities"
   },
+  "addFacility": {
+    "title": "Create new facility",
+    "fields": {
+      "operatingName": {
+        "label": "Operating name"
+      },
+      "address": {
+        "label": "Facility address"
+      },
+      "useAccountAddress": {
+        "label": "Use account address"
+      },
+      "useAccountAvatar": {
+        "label": "Use account avatar"
+      }
+    },
+    "formErrorRequired": "Please fill in the required fields",
+    "buttons": {
+      "back": "Back",
+      "submit": "Create"
+    }
+  },
   "facilityProfile": {
     "headerTitle": "Facility profile",
     "operatingName": "Legal entity",
