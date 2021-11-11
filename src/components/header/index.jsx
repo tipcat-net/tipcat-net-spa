@@ -13,7 +13,7 @@ import { ROUTES } from '../../constants/routes';
 
 import style from './styles.module.scss';
 
-export const Header = ({ logo, title }) => {
+export const Header = ({ logo, title, className }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const member = useSelector(selectMember);
 
@@ -23,7 +23,7 @@ export const Header = ({ logo, title }) => {
 
   if (logo) {
     return (
-      <header className={ style.header }>
+      <header className={ cn(style.header, className) }>
         <div className={ style.headerLogo }>
           <Logo className={ cn(style.headerLogoIcon, style.headerLogoIconBig) } />
         </div>
@@ -32,7 +32,7 @@ export const Header = ({ logo, title }) => {
   }
 
   return (
-    <header className={ style.header }>
+    <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
         <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button>
         <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
