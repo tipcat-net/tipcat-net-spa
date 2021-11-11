@@ -2,7 +2,11 @@
   height: 100vh;
 
   &Content {
-    height: calc(100% - 60px);
+    height: 100vh;
     overflow: auto;
+  }
+
+  &Header + &Content {
+    height: calc(100% - 60px);
   }
 }
