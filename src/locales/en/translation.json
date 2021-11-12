@@ -82,6 +82,11 @@
     "permissions": "Position",
     "email": "E-mail"
   },
+  "status": {
+    "active": "active",
+    "invited": "invited",
+    "deactivated": "deactivated"
+  },
   "memberProfileQrCode": {
     "headerTitle": "Member profile"
   },
