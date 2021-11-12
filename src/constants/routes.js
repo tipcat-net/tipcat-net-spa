@@ -51,6 +51,22 @@ export const ROUTES = {
         exact: true,
         getPath: ({ facilityId }) => ROUTES.FACILITY.path.replace(':facilityId', facilityId),
     },
+    SUPPORT: {
+        path: '/support',
+        exact: true,
+    },
+    PRIVACY_POLICY: {
+        path: '/privacy-policy',
+        exact: true,
+    },
+    TERMS_CONDITIONS: {
+        path: '/terms-conditions',
+        exact: true,
+    },
+    ABOUT_TIPCAT: {
+        path: '/about',
+        exact: true,
+    },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

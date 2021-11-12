@@ -2,9 +2,10 @@
 
 .button {
   padding: 8px 14px;
+  display: inline-block;
+  font-family: $base;
   font-size: 16px;
   line-height: 22px;
-  display: inline-block;
   letter-spacing: 0.03em;
   color: $button_base;
   background: $button_bg;
@@ -63,6 +64,29 @@
 
     &:disabled {
       opacity: 0.5;
+    }
+  }
+
+  &Menu {
+    padding: 11px 10px 12px;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    color: $buttonMenu_color;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover {
+      border-color: $buttonMenuHover_border;
+    }
+
+    &:active {
+      background-color: $buttonMenuActive_bg;
+    }
+
+    &:disabled {
+      opacity: 1;
+      color: $buttonMenuDisabled_bg;
     }
   }
 }

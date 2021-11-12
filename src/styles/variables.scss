@@ -10,6 +10,11 @@ $headerBtnIcon: #FFFFFF;
 $headerBtnQrCodeIcon: #CFF6FF;
 $headerTitle: #FFFFFF;
 
+// menu
+$menuWrapper_bg: rgba(242, 242, 242, 0.9);
+$menuWrapper_shadow: rgba(79, 79, 79, 0.1);
+$menuLink_color: #4F4F4F;
+
 // button
 $button_base: #828282;
 $button_bg: #FFFFFF;
@@ -19,6 +24,11 @@ $buttonPrimary_base: #4ABCA3;
 $buttonPrimary_shadow: rgba(28, 184, 109, 0.2);
 
 $buttonTransparent_base: #F2F2F2;
+
+$buttonMenu_color: #4F4F4F;
+$buttonMenuHover_border: #FFFFFF;
+$buttonMenuActive_bg: #FFFFFF;
+$buttonMenuDisabled_bg: #BDBDBD;
 
 // label
 $label_color: #828282;
