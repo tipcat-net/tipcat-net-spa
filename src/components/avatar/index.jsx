@@ -15,11 +15,11 @@ export const Avatar = ({ size, className, type, data, invited }) => {
   const classNameInvited = invited ? style.avatarInvited : null;
 
   const transformLetters = (value) => {
-    if(value.length > 2) {
-      const str = value.split(' ');
+    const str = value.split(' ');
+    if (str.length > 1) {
       return str[0][0] + str[1][0];
     }
-    return value;
+    return value[0];
   }
 
   return (
