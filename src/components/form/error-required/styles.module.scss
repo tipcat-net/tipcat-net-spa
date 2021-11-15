@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+
+.formRequiredError {
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $formRequiredError_color;
+}

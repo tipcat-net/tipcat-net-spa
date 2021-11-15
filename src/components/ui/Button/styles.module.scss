@@ -11,6 +11,7 @@
   border: 1px solid $button_base;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0px 1px 6px $button_shadow;
@@ -42,6 +43,12 @@
       color: $button_base;
       border-color: $button_base;
     }
+  }
+
+  &Transparent {
+    background-color: transparent;
+    border-color: $buttonTransparent_base;
+    color: $buttonTransparent_base
   }
 
   &Clear,

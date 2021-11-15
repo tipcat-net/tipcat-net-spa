@@ -1,0 +1,44 @@
+@import './../../../styles/variables.scss';
+
+.checkbox {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.03em;
+  color: $checkbox_color;
+
+  &Input {
+    display: none;
+  }
+
+  &Checked {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $checkboxChecked_border;
+    border-radius: 50%;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 8px;
+      height: 8px;
+      transform: translate(-50%, -50%);
+      background-color: $checkboxChecked_bg;
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
+
+  &Input:checked + &Checked:before {
+    opacity: 1;
+  }
+}

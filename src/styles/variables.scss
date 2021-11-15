@@ -18,6 +18,8 @@ $button_shadow: rgba(79, 79, 79, 0.15);
 $buttonPrimary_base: #4ABCA3;
 $buttonPrimary_shadow: rgba(28, 184, 109, 0.2);
 
+$buttonTransparent_base: #F2F2F2;
+
 // label
 $label_color: #828282;
 $labelRequired_color: #EB5757;
@@ -32,6 +34,14 @@ $input_error_border: #EB5757;
 
 // uploadFile
 $uploadFileButton: #F2F2F2;
+
+// checkbox
+$checkbox_color: #828282;
+$checkboxChecked_border: #828282;
+$checkboxChecked_bg: #7DDBC7;
+
+// formRequiredError
+$formRequiredError_color: #BF1649;
 
 // avatar
 $avatar_bg: #7DDBC7;
@@ -109,6 +119,18 @@ $facilities_shadow: rgba(0, 0, 0, 0.1);
 $facilityHeaderTitle_color: #4F4F4F;
 $facilityHeaderCount_color: #828282;
 $facilityHeaderArrowIcon_color: #828282;
+
+// create
+$create_bg: #FFFFFF;
+$createTitle_color: #828282;
+$createSuccessBtnAdd_color: #FFFFFF;
+$createSuccessBtnAddIcon_color: #FFBE17;
+
+// Success
+$success_bg: rgba(79, 79, 79, 0.85);
+$successMessage_color: #FFFFFF;
+$successMessage_bg: rgba(255, 190, 23, 0.9);
+$successMessage_shadow: rgba(49, 220, 121, 0.14);
 
 // Registration
 $register_Bg: #FFFFFF;
