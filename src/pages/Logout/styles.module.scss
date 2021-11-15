@@ -1,14 +1,46 @@
+@import './../../styles/variables.scss';
+
 .logout {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 20px 10px;
   min-height: 100vh;
+  background: $logout_bg;
 
-  &Container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  &Logo {
+    color: $logoutLogo_color;
+    margin-bottom: 75px;
+
+    svg {
+      width: 88px;
+      height: 88px;
+    }
+  }
+
+  &Title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    color: $logoutTitle_color;
+  }
+
+  &Text {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $logoutText_color;
+  }
+
+  &BtnLogin {
+    margin-top: 150px;
+  }
+
+  &LinkAbout {
+    margin-top: 65px;
   }
 }

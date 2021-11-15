@@ -23,9 +23,10 @@
     }
   },
   "logout": {
-    "button": {
-      "logout": "Log out"
-    }
+    "title": "See you later!",
+    "text": "Уou are successful log out",
+    "buttonLogin": "Log in",
+    "LinkAbout": "More about servise TipCat.net"
   },
   "members": {
     "headerTitle": "Members"
