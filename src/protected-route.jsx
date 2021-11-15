@@ -10,7 +10,7 @@ import { getMember } from './ducks/member/actions';
 import { selectMember } from './ducks/member/selectors';
 
 const ProtectedRoute = ({ component: Component, ...args }) => {
-  const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, isLoading, loginWithRedirect, getAccessTokenSilently } = useAuth0();
   const put = useDispatch();
   const member = useSelector(selectMember);
 
@@ -31,11 +31,9 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
   }
 
   if (!isAuthenticated) {
-    return (
-      <Redirect
-        to={ ROUTES.AUTH.path }
-      />
-    )
+    loginWithRedirect({
+      appState: { returnTo: args.path },
+    });
   }
 
   if (member && !member.accountId && args.path !== ROUTES.REGISTRATION.path) {
