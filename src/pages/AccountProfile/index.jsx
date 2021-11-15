@@ -9,8 +9,8 @@ import { ProfileTop } from '../../components/profile/top/';
 import { ProfileInfo } from '../../components/profile/info/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
+import { AccountProfileEdit } from '../../components/profile/edit/account';
 import { Substrate } from '../../components/profile/substrate';
-import { EditProfile } from '../../components/profile/edit';
 import { Layout } from '../../components/ui/Layout';
 
 import { getAccount } from '../../ducks/account/actions';
@@ -40,7 +40,7 @@ export const AccountProfile = () => {
         account && (
           <Profile>
             <Substrate visible={ visibleSubstrate }>
-              <EditProfile />
+              <AccountProfileEdit />
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>

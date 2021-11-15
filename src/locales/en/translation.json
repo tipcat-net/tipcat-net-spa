@@ -130,6 +130,10 @@
     "title": "Payment code",
     "share": "Share"
   },
+  "formItem": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
   "accountProfile": {
     "headerTitle": "Account profile",
     "address": "Address",
@@ -138,6 +142,28 @@
     "ProfileContentBottom": {
       "leftLink": "All facilities",
       "rightLink": "All members"
+    },
+    "edit": {
+      "fields": {
+        "operatingName": {
+          "label": "Company name"
+        },
+        "avatar": {
+          "label": "Company avatar"
+        },
+        "address": {
+          "label": "Company adress"
+        },
+        "name": {
+          "label": "Legal entity"
+        },
+        "email": {
+          "label": "Company E-mail"
+        },
+        "phone": {
+          "label": "Company phone"
+        }
+      }
     }
   },
   "facilities": {
