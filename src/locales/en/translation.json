@@ -123,10 +123,15 @@
         "label": "Use account avatar"
       }
     },
-    "formErrorRequired": "Please fill in the required fields",
+    "formRequiredError": "Please fill in the required fields",
     "buttons": {
       "back": "Back",
       "submit": "Create"
+    },
+    "success": {
+      "btnHome": "Home",
+      "message": "Facility created",
+      "btnAdd": "Add yet facility"
     }
   },
   "facilityProfile": {

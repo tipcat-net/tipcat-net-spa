@@ -108,7 +108,7 @@ export const AddFacility = () => {
                         <FormRequiredError
                           touched={ touched }
                           errors={ errors }
-                          message={ t('addFacility.formErrorRequired') }
+                          message={ t('addFacility.formRequiredError') }
                           className={ style.createError }
                         /> 
                       : 
@@ -128,17 +128,17 @@ export const AddFacility = () => {
                       className={ style.createSuccessBtnHome }
                       href={ ROUTES.HOME.path }
                     >
-                      <Home className={ style.createSuccessBtnHomeIcon } />Home
+                      <Home className={ style.createSuccessBtnHomeIcon } />{ t('addFacility.success.btnHome') }
                     </Button>
                   }
-                  message="Facility created"
+                  message={ t('addFacility.success.message') }
                   actionBottom={
                     <Button
                       clear
                       className={ style.createSuccessBtnAdd }
                       onClick={ onSuccessBtnAdd }
                     >
-                      <Add className={ style.createSuccessBtnAddIcon } />Add yet facility
+                      <Add className={ style.createSuccessBtnAddIcon } />{ t('addFacility.success.btnAdd') }
                     </Button>
                   }
                 />
