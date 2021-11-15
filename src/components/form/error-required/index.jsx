@@ -1,10 +1,10 @@
 import cn from "classnames";
 import style from './styles.module.scss';
 
-export const FormErrorRequired = ({ touched, errors, message, className }) => {
+export const FormRequiredError = ({ touched, errors, message, className }) => {
   for (let key in errors) {
-    if(errors[key] === 'Required' && touched) {
-      return <div className={ cn(style.formErrorRequired, className) }>{ message }</div>
+    if(errors[key] === 'Required' && touched[key]) {
+      return <div className={ cn(style.formRequiredError, className) }>{ message }</div>
     }
   }
 

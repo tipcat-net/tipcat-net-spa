@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 
 import { Layout } from "../../components/ui/Layout";
 import { FormInput } from "../../components/form/form-input";
-import { FormErrorRequired } from '../../components/form/error-required';
+import { FormRequiredError } from '../../components/form/error-required';
 import { FormCheckbox } from "../../components/form/form-checkbox";
 import { Button } from "../../components/ui/Button";
 import { Home, Add } from "../../components/ui/Icons";
@@ -103,12 +103,17 @@ export const AddFacility = () => {
                       checked={ values.useAccountAddress }
                       onChange={ handleChangeUseAddress }
                     />
-                    <FormErrorRequired
-                      touched={ touched }
-                      errors={ errors }
-                      message={ t('addFacility.formErrorRequired') }
-                      className={ style.createError }
-                    />
+                    {
+                      errors ?
+                        <FormRequiredError
+                          touched={ touched }
+                          errors={ errors }
+                          message={ t('addFacility.formErrorRequired') }
+                          className={ style.createError }
+                        /> 
+                      : 
+                        null
+                    }
                     <div className={ style.createButtons }>
                       <Button>{ t('addFacility.buttons.back') }</Button>
                       <Button type='submit' primary>{ t('addFacility.buttons.submit') }</Button>
