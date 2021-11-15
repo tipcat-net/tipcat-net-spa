@@ -1,7 +1,17 @@
 {
   "header": {
-    "button": {
-      "logout": "Sign out"
+    "menu": {
+      "addFacility": "Create new facility",
+      "addMember": "Create new member",
+      "transaction": "Transaction",
+      "financialAnalityc": "Financial analityc",
+      "support": "Support",
+      "logout": "Log out"
+    },
+    "menuBottom": {
+      "privacyPolicy": "Privacy Policy",
+      "termsConditions": "Terms & Conditions",
+      "AboutTipCat": "About TipCat"
     }
   },
   "home": {
