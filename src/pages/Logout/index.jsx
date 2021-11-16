@@ -2,12 +2,12 @@ import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useTranslation } from 'react-i18next';
 
-import Spinner from "../../components/spinner";
+import Spinner from '../../components/spinner';
 import { Button } from '../../components/ui/Button';
 import { Logo } from '../../components/ui/Icons';
 
 import { authConfig } from '../../auth0/auth0-config';
-import { ROUTES } from "../../constants/routes";
+import { ROUTES } from '../../constants/routes';
 
 import style from './styles.module.scss';
 
