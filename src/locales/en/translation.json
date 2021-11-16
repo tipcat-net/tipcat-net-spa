@@ -1,17 +1,17 @@
 {
   "header": {
     "menu": {
-      "addFacility": "Create new facility",
-      "addMember": "Create new member",
+      "addFacility": "Add facility",
+      "addMember": "Add member",
       "transaction": "Transaction",
-      "financialAnalityc": "Financial analityc",
-      "support": "Support",
-      "logout": "Log out"
+      "financialAnalityc": "Account stats",
+      "support": "Contact support",
+      "logout": "Sign out"
     },
     "menuBottom": {
       "privacyPolicy": "Privacy Policy",
       "termsConditions": "Terms & Conditions",
-      "AboutTipCat": "About TipCat"
+      "AboutTipCat": "About Tip Cat"
     }
   },
   "home": {
@@ -24,9 +24,9 @@
   },
   "logout": {
     "title": "See you later!",
-    "text": "Уou are successful log out",
-    "buttonLogin": "Log in",
-    "LinkAbout": "More about servise TipCat.net"
+    "text": "Уou are successfully signed out",
+    "buttonLogin": "Sign in",
+    "LinkAbout": "More about Tip Cat"
   },
   "members": {
     "headerTitle": "Members"
@@ -34,43 +34,43 @@
   "registration": {
     "form": {
       "member": {
-        "title": "Hallo!",
-        "underTitle": "Introduce youreself",
+        "title": "Hello!",
+        "underTitle": "Introduce yourself",
         "fields": {
           "firstName": {
-            "label": "Your name"
+            "label": "Your first name"
           },
           "lastName": {
-            "label": "Your surname"
+            "label": "Your last name"
           }
         }
       },
       "account": {
-        "underTitle": "Introduce youreself",
+        "underTitle": "Introduce your company",
         "fields": {
           "operatingName": {
             "label": "Operating name"
           },
           "address": {
-            "label": "Company adress"
+            "label": "Legal address"
           },
           "name": {
-            "label": "Name"
+            "label": "Legal entity"
           },
           "email": {
-            "label": "Company e-mail"
+            "label": "Notification email"
           },
           "phone": {
-            "label": "Company phone"
+            "label": "Phone"
           }
         }
       }
     },
-    "registerErrorRequired": "Please fill in the required fields",
+    "registerErrorRequired": "Please, fill-in required fields",
     "buttons": {
       "back": "Back",
       "next": "Next",
-      "submit": "Register"
+      "submit": "Create"
     }
   },
   "memberSort": {
@@ -78,20 +78,20 @@
     "tipsDesc": "Max tips",
     "tipsAcs": "Min tips",
     "position": "Position",
-    "status": "Status",
-    "nameAsc": "Name direct",
-    "nameDesc": "Name reverse"
+    "status": "State",
+    "nameAsc": "Name A to Z",
+    "nameDesc": "Name Z to A"
   },
   "memberItemActionBlock": {
     "editName": "Edit name",
     "editPosition": "Edit position",
-    "deactivated": "Deactivated"
+    "deactivated": "Deactivate"
   },
   "memberProfile": {
     "headerTitle": "Member profile",
     "facility": "Facility",
     "permissions": "Position",
-    "email": "E-mail"
+    "email": "email"
   },
   "status": {
     "active": "active",
@@ -108,10 +108,10 @@
   "accountProfile": {
     "headerTitle": "Account profile",
     "address": "Address",
-    "email": "E-mail",
+    "email": "Email",
     "phone": "Phone",
     "ProfileContentBottom": {
-      "leftLink": "All facility",
+      "leftLink": "All facilities",
       "rightLink": "All members"
     }
   },
@@ -119,7 +119,7 @@
     "headerTitle": "Facilities"
   },
   "addFacility": {
-    "title": "Create new facility",
+    "title": "Add facility",
     "fields": {
       "operatingName": {
         "label": "Operating name"
@@ -134,20 +134,20 @@
         "label": "Use account avatar"
       }
     },
-    "formRequiredError": "Please fill in the required fields",
+    "formRequiredError": "Please, fill-in the required fields",
     "buttons": {
       "back": "Back",
-      "submit": "Create"
+      "submit": "Add"
     },
     "success": {
       "btnHome": "Home",
-      "message": "Facility created",
+      "message": "The facility have been added",
       "btnAdd": "Add yet facility"
     }
   },
   "facilityProfile": {
     "headerTitle": "Facility profile",
-    "operatingName": "Legal entity",
+    "operatingName": "Operating name",
     "address": "Address",
     "ProfileContentBottom": {
       "rightLink": "Members"
@@ -161,7 +161,7 @@
   },
   "pageNotFound": {
     "pageNotFoundInfoTitle": "Oops!",
-    "pageNotFoundInfoText": "It seems that such a page <br/> does not exist",
+    "pageNotFoundInfoText": "It seems, such page <br/> does not exist",
     "button": {
       "back": "Back",
       "home": "Home"
