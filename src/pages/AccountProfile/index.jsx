@@ -22,7 +22,7 @@ export const AccountProfile = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
-  const [visibleSuccess, setVisibleSuccess] = useState(true);
+  const [visibleSuccess, setVisibleSuccess] = useState(false);
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
 
