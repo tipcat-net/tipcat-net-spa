@@ -12,6 +12,7 @@ import { ProfileAvatar } from '../../components/profile/avatar/';
 import { AccountProfileEdit } from '../../components/profile/edit/account';
 import { Substrate } from '../../components/profile/substrate';
 import { Layout } from '../../components/ui/Layout';
+import { Success } from '../../components/success';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
@@ -21,11 +22,19 @@ export const AccountProfile = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
-  const member = useSelector(selectMember)
-  const account = useSelector(selectAccount)
+  const [visibleSuccess, setVisibleSuccess] = useState(true);
+  const member = useSelector(selectMember);
+  const account = useSelector(selectAccount);
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
+  }
+
+  const closeVisibleSuccess = () => {
+    setVisibleSuccess(false);
+  }
+  const openVisibleSuccess = () => {
+    setVisibleSuccess(true);
   }
 
   useEffect(() => {
@@ -40,7 +49,11 @@ export const AccountProfile = () => {
         account && (
           <Profile>
             <Substrate visible={ visibleSubstrate }>
-              <AccountProfileEdit />
+              <AccountProfileEdit 
+                account={ account }
+                toggleVisibleSubstrate={ toggleVisibleSubstrate }
+                openVisibleSuccess={ openVisibleSuccess }
+              />
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
@@ -61,6 +74,13 @@ export const AccountProfile = () => {
           </Profile>
         )
       }
+      <Success
+        visible={ visibleSuccess }
+        duration="3000"
+        onClose={ closeVisibleSuccess }
+        transparent
+        message={ t('accountProfile.success.message') }
+      />
     </Layout>
   );
 }

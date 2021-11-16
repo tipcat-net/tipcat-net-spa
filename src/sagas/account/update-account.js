@@ -7,10 +7,10 @@ import {
   updateAccountError,
 } from '../../ducks/account/actions';
 
-export default function* updateAccountRequest({ payload }) {
+export default function* updateAccountRequest({ payload, callback }) {
   try {
     const response = yield call(fetchers.updateAccount, payload);
-
+    callback();
     yield put(updateAccountFinish(response));
   } catch (error) {
     yield put(updateAccountError({ ...error.response, ...error.request }));

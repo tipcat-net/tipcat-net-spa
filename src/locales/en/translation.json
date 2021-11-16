@@ -164,6 +164,9 @@
           "label": "Company phone"
         }
       }
+    },
+    "success": {
+      "message": "Changes saved"
     }
   },
   "facilities": {

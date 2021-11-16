@@ -1,125 +1,112 @@
 import React, { useState } from 'react';
-import { useTranslation } from "react-i18next";
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
-import * as yup from 'yup';
 
 import { FormItem } from '../form-item'
 import { EditProfile } from '../';
 
-import { Button } from '../../../ui/Button';
 import { schema } from '../../../../form-helpers/account-edit/schema';
+import { getInitialValues } from '../../../../form-helpers/account-edit/mapping';
+import { updateAccount } from '../../../../ducks/account/actions';
 
-export const AccountProfileEdit = () => {
+export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
+  const put = useDispatch();
   const initialValues = schema.cast({});
 
-  const [visivbleField, setVisivbleField] = useState('');
-  
-  const changeVisivbleField = (e) => setVisivbleField(e);
+  const [visivbleField, setVisivbleField] = useState();
 
-  // const field = [
-  //   {
-  //     label: 'Input label',
-  //     name: 'input',
-  //     type: 'text',
-  //   },
-  //   {
-  //     label: 'Textarea label',
-  //     name: 'textarea',
-  //     type: 'textarea',
-  //   },
-  //   {
-  //     label: 'Avatar label',
-  //     name: 'avatar',
-  //     type: 'file',
-  //   },
-  //   {
-  //     label: 'Email label',
-  //     name: 'email',
-  //     type: 'email',
-  //   }
-  // ]
+  const toggleVisivbleField = (field) => {
+    if (!field || field === visivbleField) {
+      setVisivbleField()
+    } else {
+      setVisivbleField(field);
+    }
+  }
 
-  const onSubmit = (value) => {
-    console.log('onSubmit', value);
+  const closeEditProfile = () => {
+    toggleVisivbleField();
+    toggleVisibleSubstrate();
+    openVisibleSuccess();
+  }
+
+  const onSubmit = (values) => {
+    if (values[visivbleField] !== account[visivbleField]) {
+      closeEditProfile();
+      put(updateAccount(values, closeEditProfile))
+    }
   }
 
   return (
     <EditProfile >
       <Formik
-        initialValues={ {...initialValues} }
+        initialValues={ getInitialValues(initialValues, account) }
         validationSchema={ schema }
         onSubmit={ onSubmit }
       >
         {
           ({
             values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
+            setValues
           }) => {
-            console.log('errors', errors);
+            const onCancel = (name) => {
+              setValues({
+                ...values,
+                [name]: account[name]
+              });
+              toggleVisivbleField();
+            }
+
             return (
               <Form>
-                {/* {
-                  field.map(item => (
-                    <FormItem
-                      key={ item.name }
-                      label={ item.label }
-                      name={ item.name }
-                      type={ item.type }
-                      onChange={ handleChange }
-                      onBlur={ handleBlur }
-                      value={ values[item.name] }
-                      visivbleField={ visivbleField }
-                      changeVisivbleField={changeVisivbleField}
-                    />
-                  ))
-                } */}
                 <FormItem
                   label={ t('accountProfile.edit.fields.operatingName.label') }
                   name="operatingName"
                   type="text"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
                 />
-                <FormItem
+                {/* <FormItem
                   label={ t('accountProfile.edit.fields.avatar.label') }
                   name="avatar"
                   type="file"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
-                />
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
+                /> */}
                 <FormItem
                   label={ t('accountProfile.edit.fields.address.label') }
                   name="address"
                   type="textarea"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
                 />
                 <FormItem
                   label={ t('accountProfile.edit.fields.email.label') }
                   name="email"
                   type="text"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
                 />
                 <FormItem
                   label={ t('accountProfile.edit.fields.phone.label') }
                   name="phone"
                   type="text"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
                 />
                 <FormItem
                   label={ t('accountProfile.edit.fields.name.label') }
                   name="name"
                   type="text"
                   visivbleField={ visivbleField }
-                  changeVisivbleField={ changeVisivbleField }
+                  toggleVisivbleField={ toggleVisivbleField }
+                  onCancel={ onCancel }
                 />
               </Form>
             )

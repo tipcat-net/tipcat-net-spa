@@ -10,18 +10,17 @@ import { Button } from './../../../ui/Button';
 
 import style from './styles.module.scss';
 
-export const FormItem = ({ label, type, visivbleField, changeVisivbleField, ...props }) => {
+export const FormItem = ({ label, visivbleField, toggleVisivbleField, onCancel, ...props }) => {
   const { t } = useTranslation();
   const [field, meta] = useField(props);
-  const { name } = props;
-  
-  const toggleVisible = () =>{
-    changeVisivbleField(name);
-  };
+  const { type, name } = props;
   
   return (
     <div className={ cn(style.formItem, visivbleField === name ? style.formItemVisible : null) }>
-      <Label htmlFor={props.id || name} onClick={ toggleVisible }>{label}</Label>
+      <Label
+        htmlFor={props.id || name}
+        onClick={ () => toggleVisivbleField(name) }
+      >{label}</Label>
       <div className={ cn(style.formItemFieldWrap, type === 'file' ? style.formItemFieldWrapFile : null) }>
         {
           type === 'textarea' ?
@@ -30,10 +29,10 @@ export const FormItem = ({ label, type, visivbleField, changeVisivbleField, ...p
           type === 'file' ?
             <UploadFile {...field} {...props} />
           :
-            <Input error={ meta.touched && meta.error } type={ type } {...field} {...props} />
+            <Input error={ meta.touched && meta.error } {...field} {...props} />
         }
         <div className={ style.formItemBtns }>
-          <Button>{ t('formItem.cancel') }</Button>
+          <Button onClick={ () => onCancel(name) }>{ t('formItem.cancel') }</Button>
           <Button type='submit' primary>{ t('formItem.save') }</Button>
         </div>
       </div>
