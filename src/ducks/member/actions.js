@@ -1,5 +1,19 @@
 import { MemberActionTypes } from './action-types';
 
+export const addMember = (payload, callback) => ({
+    type: MemberActionTypes.ADD_MEMBER_START,
+    payload,
+    callback
+});
+export const addMemberError = (error) => ({
+    type: MemberActionTypes.ADD_MEMBER_ERROR,
+    error,
+});
+export const addMemberFinish = (response) => ({
+    type: MemberActionTypes.ADD_MEMBER_FINISH,
+    response,
+});
+
 //getMember
 export const getMember = () => ({
     type: MemberActionTypes.GET_MEMBER_START,

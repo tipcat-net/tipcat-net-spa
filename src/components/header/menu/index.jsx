@@ -24,7 +24,7 @@ export const Menu = ({ open, onClose }) => {
           <Link to={ ROUTES.ADD_FACILITY.path } className={ style.menuLink }>{ t('header.menu.addFacility') }</Link>
         </li>
         <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.addMember') }</Link>
+          <Link to={ ROUTES.ADD_MEMBER.path } className={ style.menuLink }>{ t('header.menu.addMember') }</Link>
         </li>
         <li>
           <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.transaction') }</Link>

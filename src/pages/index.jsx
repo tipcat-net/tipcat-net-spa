@@ -8,6 +8,7 @@ import Logout from './Logout';
 import Registration from './Registration';
 import Home from './Home';
 import Members from './Members';
+import AddMember from './AddMember';
 import MemberProfile from './MemberProfile';
 import MemberProfileQrCode from './MemberProfileQrCode';
 import AccountProfile from './AccountProfile';
@@ -25,6 +26,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
       
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
+      <ProtectedRoute { ...ROUTES.ADD_MEMBER } component={ AddMember } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE_QRCODE } component={ MemberProfileQrCode } />
 

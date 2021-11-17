@@ -23,6 +23,10 @@ export const ROUTES = {
         path: '/members',
         exact: true,
     },
+    ADD_MEMBER: {
+        path: '/members/new',
+        exact: true,
+    },
     MEMBER_PROFILE: {
         path: '/members/:memberId',
         exact: true,
