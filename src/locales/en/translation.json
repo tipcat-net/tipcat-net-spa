@@ -1,6 +1,7 @@
 {
   "header": {
     "menu": {
+      "accountProfile": "Account profile",
       "addFacility": "Add facility",
       "addMember": "Add member",
       "transaction": "Transaction",

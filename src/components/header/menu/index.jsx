@@ -18,6 +18,9 @@ export const Menu = ({ open, onClose }) => {
     <div className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }>
       <ul className={ style.menu }>
         <li>
+          <Link to={ ROUTES.ACCOUNT.path } className={ style.menuLink }>{ t('header.menu.accountProfile') }</Link>
+        </li>
+        <li>
           <Link to={ ROUTES.ADD_FACILITY.path } className={ style.menuLink }>{ t('header.menu.addFacility') }</Link>
         </li>
         <li>
