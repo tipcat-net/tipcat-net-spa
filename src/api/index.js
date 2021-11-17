@@ -8,6 +8,10 @@ const getToken = async () => {
 
 export const fetchers = {
   // Member
+  addMember: async ({accountId, ...data}) => {
+    const accessToken = await getToken();
+    return axios.post(`/api/accounts/${accountId}/members`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
+  },
   getMember: async () => {
     const accessToken = await getToken();
     return axios.get('/api/members/current', { headers: {"Authorization" : `Bearer ${accessToken}`} });

@@ -3,11 +3,43 @@ import { MemberActionTypes } from './action-types';
 export const initialState = {
   loading: false,
   data: null,
+  addMember: {
+    loading: false,
+    data: null,
+    error: null,
+  },
   error: null,
 };
 
 export function memberReducer(state = initialState, action) {
   switch (action.type) {
+    case MemberActionTypes.ADD_MEMBER_START:
+      return {
+        ...state,
+        addMember: {
+          ...state.addMember,
+          loading: true,
+        }
+      };
+    case MemberActionTypes.ADD_MEMBER_FINISH:
+      return {
+        ...state,
+        addMember: {
+          ...state.addMember,
+          loading: false,
+          data: action.response.data,
+        }
+      };
+    case MemberActionTypes.ADD_MEMBER_ERROR:
+      return {
+        ...state,
+        addMember: {
+          ...state.addMember,
+          loading: false,
+          error: action.error,
+        }
+      };
+
     //getMember
     case MemberActionTypes.GET_MEMBER_START:
       return {

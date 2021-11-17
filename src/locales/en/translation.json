@@ -99,6 +99,30 @@
     "invited": "invited",
     "deactivated": "deactivated"
   },
+  "addMember": {
+    "title": "Invite new member",
+    "fields": {
+      "firstName": {
+        "label": "Name"
+      },
+      "lastName": {
+        "label": "Surname"
+      },
+      "email": {
+        "label": "E-mail"
+      }
+    },
+    "formRequiredError": "Please, fill-in the required fields",
+    "buttons": {
+      "back": "Back",
+      "submit": "Invite"
+    },
+    "success": {
+      "btnHome": "Home",
+      "message": "Member invited",
+      "btnAdd": "Add yet member"
+    }
+  },
   "memberProfileQrCode": {
     "headerTitle": "Member profile"
   },
