@@ -4,7 +4,7 @@
       "accountProfile": "Account profile",
       "addFacility": "Add facility",
       "addMember": "Add member",
-      "transaction": "Transaction",
+      "transaction": "Transactions",
       "financialAnalityc": "Account stats",
       "support": "Contact support",
       "logout": "Sign out"
@@ -100,27 +100,27 @@
     "deactivated": "deactivated"
   },
   "addMember": {
-    "title": "Invite new member",
+    "title": "Invite member",
     "fields": {
       "firstName": {
-        "label": "Name"
+        "label": "First name"
       },
       "lastName": {
-        "label": "Surname"
+        "label": "Last name"
       },
       "email": {
-        "label": "E-mail"
+        "label": "Email"
       }
     },
-    "formRequiredError": "Please, fill-in the required fields",
+    "formRequiredError": "Please, fill-in required fields",
     "buttons": {
       "back": "Back",
       "submit": "Invite"
     },
     "success": {
       "btnHome": "Home",
-      "message": "Member invited",
-      "btnAdd": "Add yet member"
+      "message": "Member has been invited",
+      "btnAdd": "Add another"
     }
   },
   "memberProfileQrCode": {
@@ -159,7 +159,7 @@
         "label": "Use account avatar"
       }
     },
-    "formRequiredError": "Please, fill-in the required fields",
+    "formRequiredError": "Please, fill-in required fields",
     "buttons": {
       "back": "Back",
       "submit": "Add"
