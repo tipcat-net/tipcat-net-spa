@@ -22,9 +22,9 @@ export const PageNotFound = () => {
           <div className={ style.pageNotFoundInfoText }>
             <Trans i18nKey="pageNotFound.pageNotFoundInfoText" />
           </div>
-          <Button outline>{ t("pageNotFound.button.back") }</Button>
+          <Button>{ t("pageNotFound.button.back") }</Button>
         </div>
-        <Button outline className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t("pageNotFound.button.home") }</Button>
+        <Button transparent className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t("pageNotFound.button.home") }</Button>
       </div>
     </Layout>
   )
