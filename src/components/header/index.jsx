@@ -34,7 +34,7 @@ export const Header = ({ logo, title, className }) => {
   return (
     <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
-        <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button>
+        { member && <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button> }
         <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
         {
           title ? <h1 className={ style.headerTitle }>{ title }</h1>
@@ -43,18 +43,24 @@ export const Header = ({ logo, title, className }) => {
               <Logo className={ style.headerLogoIcon } />
             </div>
         }
-        <Link 
-          to={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
-          className={ style.headerBtn }
-        >
-          <QrCode className={ style.headerBtnQrCodeIcon } />
-        </Link>
-        <Link
-          to={ ROUTES.MEMBER_PROFILE.getPath({ memberId: member.id }) }
-          className={ style.headerBtn }
-        >
-          <Person className={ style.headerBtnIcon } />
-        </Link>
+        {
+          member && (
+            <>
+              <Link 
+                to={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
+                className={ style.headerBtn }
+              >
+                <QrCode className={ style.headerBtnQrCodeIcon } />
+              </Link>
+              <Link
+                to={ ROUTES.MEMBER_PROFILE.getPath({ memberId: member.id }) }
+                className={ style.headerBtn }
+              >
+                <Person className={ style.headerBtnIcon } />
+              </Link>
+            </>
+          )
+        }
       </div>
       <Menu open={ menuOpen } onClose={ onMenuToggle } />
     </header>

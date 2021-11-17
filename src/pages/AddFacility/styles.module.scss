@@ -29,6 +29,8 @@
 
   &SuccessBtnHome {
     display: flex;
+    border-color: $createSuccessBtnHome_border;
+    color: $createSuccessBtnHome_color;
 
     &Icon {
       margin-top: 2px;
