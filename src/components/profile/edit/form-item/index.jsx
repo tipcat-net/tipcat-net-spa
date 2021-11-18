@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField } from 'formik';
-
+import { useTranslation } from "react-i18next";
 import cn from 'classnames';
 
 import { Label } from './../../../ui/Label';
@@ -10,18 +10,18 @@ import { Button } from './../../../ui/Button';
 
 import style from './styles.module.scss';
 
-export const FormItem = ({ label, type, visivbleField, changeVisivbleField, ...props }) => {
+export const FormItem = ({ label, visivbleField, toggleVisivbleField, onCancel, ...props }) => {
+  const { t } = useTranslation();
   const [field, meta] = useField(props);
-  const { name } = props;
-  
-  const toggleVisible = () =>{
-    changeVisivbleField(name);
-  };
+  const { type, name } = props;
   
   return (
     <div className={ cn(style.formItem, visivbleField === name ? style.formItemVisible : null) }>
-      <Label htmlFor={props.id || name} onClick={ toggleVisible }>{label}</Label>
-      <div className={ style.formItemFieldWrap }>
+      <Label
+        htmlFor={props.id || name}
+        onClick={ () => toggleVisivbleField(name) }
+      >{label}</Label>
+      <div className={ cn(style.formItemFieldWrap, type === 'file' ? style.formItemFieldWrapFile : null) }>
         {
           type === 'textarea' ?
             <TextArea error={ meta.touched && meta.error } {...field} {...props} />
@@ -29,11 +29,11 @@ export const FormItem = ({ label, type, visivbleField, changeVisivbleField, ...p
           type === 'file' ?
             <UploadFile {...field} {...props} />
           :
-            <Input error={ meta.touched && meta.error } type={ type } {...field} {...props} />
+            <Input error={ meta.touched && meta.error } {...field} {...props} />
         }
-        <div className={ cn(style.formItemBtns, type !== 'file' ? style.formItemBtnsRight : null) }>
-          <Button type='button'>Cancel</Button>
-          <Button primary>Save</Button>
+        <div className={ style.formItemBtns }>
+          <Button onClick={ () => onCancel(name) }>{ t('formItem.cancel') }</Button>
+          <Button type='submit' primary>{ t('formItem.save') }</Button>
         </div>
       </div>
     </div>

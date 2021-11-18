@@ -10,20 +10,22 @@
   }
 
   &Visible &FieldWrap {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &FieldWrap {
     display: none;
+
+    &File {
+      padding-left: 65px;
+      align-items: flex-end;
+    }
   }
 
   &Btns {
     margin-top: 10px;
-    display: flex;
-
-    &Right {
-      justify-content: flex-end;
-    }
+    margin-left: auto;
 
     button {
       margin-right: 10px;

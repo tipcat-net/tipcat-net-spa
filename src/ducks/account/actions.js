@@ -29,9 +29,10 @@ export const getAccountFinish = (response) => ({
 });
 
 //updateAccount
-export const updateAccount = (payload) => ({
+export const updateAccount = (payload, callback) => ({
     type: AccountActionTypes.UPDATE_ACCOUNT_START,
     payload,
+    callback
 });
 export const updateAccountError = (error) => ({
     type: AccountActionTypes.UPDATE_ACCOUNT_ERROR,
