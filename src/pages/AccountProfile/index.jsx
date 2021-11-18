@@ -25,6 +25,7 @@ export const AccountProfile = () => {
   const [visibleSuccess, setVisibleSuccess] = useState(false);
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
+  const delayBeforeClosing = 3000;
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
@@ -76,7 +77,7 @@ export const AccountProfile = () => {
       }
       <Success
         visible={ visibleSuccess }
-        duration="3000"
+        duration={ delayBeforeClosing }
         onClose={ closeVisibleSuccess }
         transparent
         message={ t('accountProfile.success.message') }

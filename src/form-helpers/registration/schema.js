@@ -1,11 +1,8 @@
 import * as yup from 'yup';
+import { member } from '../add-member/schema';
 
 export const schema = yup.object().shape({
-  member: yup.object({
-    firstName: yup.string().required('Required').default(''),
-    lastName: yup.string().required('Required').default(''),
-    email: yup.string().email().required('Required').default(''),
-  }),
+  member: yup.object(member),
   account: yup.object({
     address: yup.string().required('Required').default(''),
     operatingName: yup.string().required('Required').default(''),

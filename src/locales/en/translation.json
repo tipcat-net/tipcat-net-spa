@@ -146,27 +146,27 @@
     "edit": {
       "fields": {
         "operatingName": {
-          "label": "Company name"
+          "label": "Operating name"
         },
         "avatar": {
           "label": "Company avatar"
         },
         "address": {
-          "label": "Company adress"
+          "label": "Legal address"
         },
         "name": {
           "label": "Legal entity"
         },
         "email": {
-          "label": "Company E-mail"
+          "label": "Notification email"
         },
         "phone": {
-          "label": "Company phone"
+          "label": "Phone"
         }
       }
     },
     "success": {
-      "message": "Changes saved"
+      "message": "Changes have been saved"
     }
   },
   "facilities": {
