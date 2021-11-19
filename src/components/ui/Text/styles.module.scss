@@ -1,0 +1,21 @@
+@import './../../../styles/variables.scss';
+
+.bigText {
+  font-size: 18px;
+  line-height: 20px;
+  color: $bigTextBase_color;
+}
+
+.smallText {
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.03em;
+  color: $smallTextBase_color;
+}
+
+.superSmallText {
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.03em;
+  color: $superSmallText_color;
+}

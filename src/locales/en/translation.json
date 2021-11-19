@@ -15,6 +15,31 @@
       "AboutTipCat": "About Tip Cat"
     }
   },
+  "footer": {
+    "title": "TipCat Finance Systems LLC",
+    "contacts": {
+      "address": "B105, Saraya Avenue building <br/> P.O. Box 36690Dubai, Unated Arab Emirates",
+      "phone": {
+        "title": "Phone",
+        "text": "+971 4 2940007"
+      },
+      "tradeLicense": {
+        "title": "Trade license",
+        "text": "9836384"
+      },
+      "iata": {
+        "title": "IATA",
+        "text": "3049753475698346"
+      }
+    },
+    "menu": {
+      "aboutUs": "About us",
+      "contacts": "Contacts",
+      "termsConditions": "Terms & Conditions",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "copyright": "All rights reserved <br/> © 2021 TipCat Finance Systems LLC"
+  },
   "home": {
     "headerTitle": "Home"
   },

@@ -6,8 +6,7 @@ export const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout title={ t('home.headerTitle') }>
-      <h1>{ t('home.headerTitle') }</h1>
+    <Layout title={ t('home.headerTitle') } footer>
     </Layout>
   )
 };
