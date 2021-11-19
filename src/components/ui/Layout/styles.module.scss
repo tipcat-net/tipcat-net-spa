@@ -4,9 +4,13 @@
   &Content {
     height: 100vh;
     overflow: auto;
+
+    &HeightAuto {
+      height: auto;
+    }
   }
 
-  &Header + &Content {
+  &Header + &Content:not(&ContentHeightAuto) {
     height: calc(100% - 60px);
   }
 }

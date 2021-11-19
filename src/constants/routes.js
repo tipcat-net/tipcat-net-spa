@@ -71,6 +71,10 @@ export const ROUTES = {
         path: '/about',
         exact: true,
     },
+    CONTACTS: {
+        path: '/contacts',
+        exact: true,
+    }
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);
