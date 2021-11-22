@@ -1,0 +1,47 @@
+import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
+
+import { Text } from '../ui/Text';
+import { Button } from '../ui/Button';
+import { Card as CardIcon, Hide, Show } from '../ui/Icons';
+
+import style from './styles.module.scss';
+
+export const Card = ({ data }) => {
+  const { t } = useTranslation();
+  const [visibleNumber, setVisibleNumber] = useState(false);
+
+  const toggleVisibleNumber = () => {
+    setVisibleNumber(!visibleNumber);
+  }
+
+  const transformNumber = (number) => number.replace(/\d{4}/g, (match, offset) => {
+    if (offset === 16 ) {
+      return match;
+    }
+    if (visibleNumber) {
+      return `${match}   `;
+    } else {
+      return '• • • •   ';
+    }
+  });
+
+  return (
+    <div className={ style.card }>
+      <CardIcon className={ style.cardIconCard }/>
+      <div className={ style.cardNumberWrap }>
+        <Text size='big' className={ style.cardNumber }>{ transformNumber(data.number) }</Text>
+        <Button
+          clear
+          className={ style.cardBtnView }
+          onClick={ toggleVisibleNumber }
+        >
+          { visibleNumber ? <Hide /> : <Show /> }
+        </Button>
+      </div>
+      <Text size='small' className={ style.cardDate }>{ data.date }</Text>
+      <Text size='small' className={ style.cardName }>{ data.name }</Text>
+      <Button primary className={ style.cardBtn }>{ t('card.btn') }</Button>
+    </div>
+  )
+}

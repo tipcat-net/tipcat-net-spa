@@ -3,8 +3,10 @@ import cn from 'classnames';
 
 import style from './styles.module.scss';
 
-export const Text = ({ size, className, children }) => {
+export const Text = ({ size, strong, className, children }) => {
   let classSize = null;
+  let classStrong = strong ? style.strong : null ;
+  
   switch (size) {
     case 'big':
       classSize = style.bigText;
@@ -21,6 +23,6 @@ export const Text = ({ size, className, children }) => {
   }
 
   return (
-    <div className={ cn(classSize, className) }>{ children} </div>
+    <div className={ cn(classSize, classStrong, className) }>{ children} </div>
   )
 }

@@ -43,6 +43,9 @@
   "home": {
     "headerTitle": "Home"
   },
+  "card": {
+    "btn": "Withdraw"
+  }, 
   "auth": {
     "button": {
       "signIn": "Sign in"
