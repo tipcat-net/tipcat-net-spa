@@ -7,6 +7,9 @@ import { ReactComponent as ArrowSvg } from './svg/arrow.svg';
 
 import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
+import { ReactComponent as CardSvg } from './svg/card.svg';
+
+import { ReactComponent as HideSvg } from './svg/hide.svg';
 import { ReactComponent as HomeSvg } from './svg/home.svg';
 
 import { ReactComponent as ImageSvg } from './svg/image.svg';
@@ -28,6 +31,7 @@ import { ReactComponent as PositionSvg } from './svg/position.svg';
 import { ReactComponent as QrCodeSvg } from './svg/qr_code.svg';
 
 import { ReactComponent as SaveSvg } from './svg/save.svg';
+import { ReactComponent as ShowSvg } from './svg/show.svg';
 import { ReactComponent as StatusSvg } from './svg/status.svg';
 
 import { ReactComponent as TimeSvg } from './svg/time.svg';
@@ -47,6 +51,9 @@ export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>
 
 export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>
 
+export const Card = (props) => <Icon { ...props }><CardSvg /></Icon>
+
+export const Hide = (props) => <Icon { ...props }><HideSvg /></Icon>
 export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>
 
 export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>
@@ -68,6 +75,7 @@ export const Position = (props) => <Icon { ...props }><PositionSvg /></Icon>
 export const QrCode = (props) => <Icon { ...props }><QrCodeSvg /></Icon>
 
 export const Save = (props) => <Icon { ...props }><SaveSvg /></Icon>
+export const Show = (props) => <Icon { ...props }><ShowSvg /></Icon>
 export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>
 
 export const Time = (props) => <Icon { ...props }><TimeSvg /></Icon>
