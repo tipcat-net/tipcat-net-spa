@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import { ReactComponent as ActionsSvg } from './svg/actions.svg';
 import { ReactComponent as AddSvg } from './svg/add.svg';
+import { ReactComponent as ArrowDownCircleSvg } from './svg/arrow_down_circle.svg';
 import { ReactComponent as ArrowDownSvg } from './svg/arrow_down.svg';
 import { ReactComponent as ArrowSvg } from './svg/arrow.svg';
 
@@ -46,6 +47,7 @@ export const Icon = ({ className, children }) => {
 
 export const Actions = (props) => <Icon { ...props }><ActionsSvg /></Icon>
 export const Add = (props) => <Icon { ...props }><AddSvg /></Icon>
+export const ArrowDownCircle = (props) => <Icon { ...props }><ArrowDownCircleSvg /></Icon>
 export const ArrowDown = (props) => <Icon { ...props }><ArrowDownSvg /></Icon>
 export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>
 

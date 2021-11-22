@@ -1,0 +1,57 @@
+@import "../../../../styles/variables.scss";
+
+.transactionsItem {
+  padding: 18px 18px 16px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+
+  &Icon {
+    display: flex;
+    align-items: center;
+    color: #FFEB84;
+  }
+
+  &WriteOff &Icon {
+    color: #C9F7DC;
+    transform: scale(-1);
+  }
+
+  &Title {
+    padding: 0 8px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+    color: #4F4F4F;
+  }
+  
+  &Sum {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #FFBE17;
+  }
+
+  &WriteOff &Sum {
+    color: #7DDBC7;
+  }
+
+  &Text {
+    margin-top: 9px;
+    padding-left: 35px;
+    font-size: 14px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.03em;
+    color: #4F4F4F;
+  }
+}

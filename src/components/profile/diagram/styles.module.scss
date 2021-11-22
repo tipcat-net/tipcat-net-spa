@@ -1,0 +1,108 @@
+@import "../../../styles/variables.scss";
+
+.diagramWrap {
+  max-width: 354px;
+}
+
+.diagram {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 22px;
+  
+  &Progress {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    &Full {
+      color: #F2F2F2;
+    }
+
+    &Current {
+      color: #7DDBC7;
+      stroke-dasharray: 0%, 200%;
+      transition: stroke-dasharray 1.3s ease 0s;
+    }
+  }
+
+  &Available {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100%;
+    max-width: 192px;
+    transform: translateX(-50%);
+  
+    &Title {
+      font-size: 14px;
+      line-height: 15px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: #828282;
+    }
+  
+    &Number {
+      margin-top: 5px;
+      background: #FFEB84;
+      border: 2px solid #FFEB84;
+      box-sizing: border-box;
+      border-radius: 5px;
+      font-size: 36px;
+      line-height: 39px;
+      text-align: center;
+      letter-spacing: -0.03em;
+      color: #4F4F4F;
+    }
+  }
+  
+  &Bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 5px;
+  }
+
+  &Current {
+    flex: 0 0 70px;
+    text-align: center;
+
+    &Number {
+      font-size: 14px;
+      line-height: 15px;
+      letter-spacing: 0.03em;
+      color: #828282;
+    }
+
+    &Text {
+      font-size: 12px;
+      line-height: 13px;
+      letter-spacing: 0.03em;
+      color: #E0E0E0;
+    }
+  }
+
+  &Max {
+    flex: 0 0 70px;
+    text-align: center;
+
+    &Number {
+      font-size: 14px;
+      line-height: 15px;
+      letter-spacing: 0.03em;
+      color: #828282;
+    }
+
+    &Text {
+      font-size: 12px;
+      line-height: 13px;
+      letter-spacing: 0.03em;
+      color: #E0E0E0;
+    }
+  }
+}
