@@ -1,0 +1,28 @@
+@import "../../../styles/variables.scss";
+
+.transactions {
+  background: $transactions_bg;
+  box-shadow: 1px 1px 6px $transactions_shadow;
+
+  &Header {
+    padding: 20px 10px 5px;
+    text-align: center;
+    color: $transactionsHeader_color;
+  }
+
+  &Last {
+    padding: 10px 18px 9px 10px;
+    display: flex;
+    align-items: center;
+
+    &Text {
+      color: $transactionsLastText_color;
+    }
+
+    &Btn {
+      margin-left: 30px;
+      color: $transactionsLastBtn_color;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -43,6 +43,29 @@
   "home": {
     "headerTitle": "Home"
   },
+  "personalPanel": {
+    "totals": {
+      "transactions": "Total transactions",
+      "earned": "Total earned"
+    },
+    "paymentAccountTitle": "Account for money withdraw"
+  },
+  "profileDiagram": {
+    "availableTitle": "Available for payment",
+    "btn": "Withdraw",
+    "currentText": "last 30 days",
+    "maxText": "record"
+  },
+  "transactions": {
+    "types": {
+      "income": "Income tips",
+      "withdraw" : "Withdraw to card"
+    },
+    "transactionsLast": {
+      "text": "The last 10 transactions are shown here",
+      "btn": "All transaction"
+    }
+  },
   "card": {
     "btn": "Withdraw"
   }, 

@@ -1,0 +1,43 @@
+@import "../../../../styles/variables.scss";
+
+.transactionsItem {
+  padding: 18px 18px 16px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $transactionsItem_bg;
+  box-shadow: 1px 1px 6px $transactionsItem_shadow;
+
+  &Icon {
+    display: flex;
+    align-items: center;
+    color: $transactionsItemIcon_color;
+  }
+
+  &Withdraw &Icon {
+    color: $transactionsItemWithdrawIcon_color;
+    transform: scale(-1);
+  }
+
+  &Title {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    color: $transactionsItemTitle_color;
+  }
+  
+  &Sum {
+    margin-left: auto;
+    color: $transactionsItemSum_color;
+  }
+
+  &Withdraw &Sum {
+    color: $transactionsItemWithdrawSum_color;
+  }
+
+  &Text {
+    margin-top: 9px;
+    padding-left: 35px;
+    width: 100%;
+    color: $transactionsItemText_color;
+  }
+}

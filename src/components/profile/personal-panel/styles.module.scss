@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+
+.personalPanel {
+  &Totals {
+    margin: 30px -8px;
+    display: flex;
+
+    &Item {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+      padding: 0 8px;
+      align-items: center;
+    }
+  }
+
+  &Transactions {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  &PaymentAccount {
+    padding: 20px 0 0;
+  
+    &Title {
+      text-align: center;
+    }
+  
+    &Card {
+      margin: 12px -10px -10px;
+      box-shadow: none;
+    }
+  }
+}

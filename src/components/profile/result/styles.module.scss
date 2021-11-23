@@ -1,0 +1,11 @@
+@import "../../../styles/variables.scss";
+
+.profileResult {
+  display: flex;
+  flex-direction: column;
+
+  &Value {
+    margin-top: 7px;
+    color: $resultValue;
+  }
+}
