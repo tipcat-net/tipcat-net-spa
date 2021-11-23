@@ -1,11 +1,14 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
+
+import { Title } from '../../ui/Title';
+import { Text } from '../../ui/Text';
 import { Button } from '../../ui/Button';
 
 import style from './styles.module.scss';
 
-export const Diagram = ({ current, max }) => {
+export const ProfileDiagram = ({ current, max }) => {
+  const { t } = useTranslation();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -16,18 +19,24 @@ export const Diagram = ({ current, max }) => {
     <div className={ style.diagramWrap }>
       <div className={ style.diagram }>
         <div className={ style.diagramProgress }>
-          <svg width="289" height="171" viewBox="0 0 289 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            width="289"
+            height="171"
+            viewBox="0 0 289 171"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M9.24307 163C8.42336 156.95 8 150.775 8 144.5C8 69.1131 69.1131 8 144.5 8C219.887 8 281 69.1131 281 144.5C281 150.775 280.577 156.95 279.757 163"
               stroke="currentColor"
-              stroke-width="15"
-              stroke-linecap="round"
+              strokeWidth="15"
+              strokeLinecap="round"
               className={ style.diagramProgressFull } />
             <path
               d="M9.24307 163C8.42336 156.95 8 150.775 8 144.5C8 69.1131 69.1131 8 144.5 8C219.887 8 281 69.1131 281 144.5C281 150.775 280.577 156.95 279.757 163"
               stroke="currentColor"
-              stroke-width="15"
-              stroke-linecap="round"
+              strokeWidth="15"
+              strokeLinecap="round"
               className={ style.diagramProgressCurrent }
               style={ {
                 strokeDasharray: `${progress}%, 200%`
@@ -35,21 +44,23 @@ export const Diagram = ({ current, max }) => {
           </svg>
         </div>
         <div className={ style.diagramAvailable }>
-          <div className={ style.diagramAvailableTitle }>Available for payment</div>
-          <div className={ style.diagramAvailableNumber }>$ 84</div>
+          <Text size='small' className={ style.diagramAvailableTitle }>{ t('profileDiagram.availableTitle') }</Text>
+          <Title lavel={ 1 } className={ style.diagramAvailableNumber }>
+            <span className={ style.diagramAvailableNumberСurrency }>$</span> 84
+          </Title>
         </div>
       </div>
       <div className={ style.diagramBottom }>
-        <div className={ style.diagramCurrent }>
-          <div className={ style.diagramCurrentNumber }>${ current }</div>
-          <div className={ style.diagramCurrentText }>last 30 days</div>
+        <div className={ style.diagramBottomItem }>
+          <Text size='small' className={ style.diagramBottomItemNumber }>$ { current }</Text>
+          <Text size='superSmall' className={ style.diagramBottomtItemText }>{ t('profileDiagram.currentText') }</Text>
         </div>
-        <Button primary>Withdraw</Button>
-        <div className={ style.diagramMax }>
-          <div className={ style.diagramMaxNumber }>${ max }</div>
-          <div className={ style.diagramMaxText }>record</div>
+        <Button primary>{ t('profileDiagram.btn') }</Button>
+        <div className={ style.diagramBottomItem }>
+          <Text size='small' className={ style.diagramBottomItemNumber }>$ { max }</Text>
+          <Text size='small' className={ style.diagramBottomItemText }>{ t('profileDiagram.maxText') }</Text>
         </div>
       </div>
     </div>
-  )
+  );
 }

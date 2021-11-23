@@ -4,54 +4,40 @@
   padding: 18px 18px 16px 10px;
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFFFFF;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  background-color: $transactionsItem_bg;
+  box-shadow: 1px 1px 6px $transactionsItem_shadow;
 
   &Icon {
     display: flex;
     align-items: center;
-    color: #FFEB84;
+    color: $transactionsItemIcon_color;
   }
 
-  &WriteOff &Icon {
-    color: #C9F7DC;
+  &Withdraw &Icon {
+    color: $transactionsItemWithdrawIcon_color;
     transform: scale(-1);
   }
 
   &Title {
     padding: 0 8px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 15px;
     display: flex;
     align-items: center;
-    letter-spacing: 0.03em;
-    color: #4F4F4F;
+    color: $transactionsItemTitle_color;
   }
   
   &Sum {
     margin-left: auto;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 26px;
-    display: flex;
-    align-items: center;
-    text-align: right;
-    color: #FFBE17;
+    color: $transactionsItemSum_color;
   }
 
-  &WriteOff &Sum {
-    color: #7DDBC7;
+  &Withdraw &Sum {
+    color: $transactionsItemWithdrawSum_color;
   }
 
   &Text {
     margin-top: 9px;
     padding-left: 35px;
-    font-size: 14px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.03em;
-    color: #4F4F4F;
+    width: 100%;
+    color: $transactionsItemText_color;
   }
 }

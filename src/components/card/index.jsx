@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 import { useTranslation } from "react-i18next";
 
 import { Text } from '../ui/Text';
@@ -7,7 +8,7 @@ import { Card as CardIcon, Hide, Show } from '../ui/Icons';
 
 import style from './styles.module.scss';
 
-export const Card = ({ data }) => {
+export const Card = ({ data, className }) => {
   const { t } = useTranslation();
   const [visibleNumber, setVisibleNumber] = useState(false);
 
@@ -27,7 +28,7 @@ export const Card = ({ data }) => {
   });
 
   return (
-    <div className={ style.card }>
+    <div className={ cn(style.card, className) }>
       <CardIcon className={ style.cardIconCard }/>
       <div className={ style.cardNumberWrap }>
         <Text size='big' className={ style.cardNumber }>{ transformNumber(data.number) }</Text>

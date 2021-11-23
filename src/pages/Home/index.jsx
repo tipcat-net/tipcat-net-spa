@@ -8,10 +8,8 @@ import { ProfileTop } from '../../components/profile/top';
 import { ProfileContent } from '../../components/profile/content/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
-import { ProfileInfo } from '../../components/profile/info/';
-
-import { Diagram } from '../../components/profile/diagram';
-import { ProfileTransactions } from '../../components/profile/transactions';
+import { ProfilePosition } from '../../components/profile/position';
+import { PersonalPanel } from '../../components/profile/personal-panel';
 
 import { selectMember } from '../../ducks/member/selectors';
 
@@ -26,9 +24,13 @@ export const Home = () => {
       current: 78,
       max: 144
     },
-    transactions: {
-      count: 10
-    }
+    card: {
+      number: '11112222333344443456',
+      date: '10/2024',
+      name: 'NICHOLAS ANGEL'
+    },
+    total_transactions: 132,
+    total_earned: "$ 438"
   }
 
   return (
@@ -40,8 +42,8 @@ export const Home = () => {
             <ProfileContent>
               <ProfileAvatar data={ `${currentMember.firstName} ${currentMember.lastName}` } />
               <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
-              <Diagram current={ data.diagram.current } max={ data.diagram.max } />
-              <ProfileTransactions count={ data.transactions.count } className={ style.profileTransactions } />
+              <ProfilePosition>senior waiter</ProfilePosition>
+              <PersonalPanel data={ data } className={ style.personalPanel } />
             </ProfileContent>
           </Profile>
         )

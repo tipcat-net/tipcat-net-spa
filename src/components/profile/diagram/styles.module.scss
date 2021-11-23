@@ -2,6 +2,7 @@
 
 .diagramWrap {
   max-width: 354px;
+  margin: 0 auto;
 }
 
 .diagram {
@@ -21,11 +22,11 @@
     }
 
     &Full {
-      color: #F2F2F2;
+      color: $diagramProgressFull_color;
     }
 
     &Current {
-      color: #7DDBC7;
+      color: $diagramProgressCurrent_color;
       stroke-dasharray: 0%, 200%;
       transition: stroke-dasharray 1.3s ease 0s;
     }
@@ -40,24 +41,19 @@
     transform: translateX(-50%);
   
     &Title {
-      font-size: 14px;
-      line-height: 15px;
       text-align: center;
-      letter-spacing: 0.03em;
-      color: #828282;
     }
   
     &Number {
       margin-top: 5px;
-      background: #FFEB84;
-      border: 2px solid #FFEB84;
-      box-sizing: border-box;
+      padding: 10px 10px 11px;
+      background: $diagramAvailableNumber_bg;
       border-radius: 5px;
-      font-size: 36px;
-      line-height: 39px;
       text-align: center;
-      letter-spacing: -0.03em;
-      color: #4F4F4F;
+      
+      &Сurrency {
+        font-weight: 400;
+      }
     }
   }
   
@@ -66,43 +62,24 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 5px;
-  }
 
-  &Current {
-    flex: 0 0 70px;
-    text-align: center;
+    &Item {
+      flex: 0 0 70px;
 
-    &Number {
-      font-size: 14px;
-      line-height: 15px;
-      letter-spacing: 0.03em;
-      color: #828282;
-    }
+      &Number {
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    &Text {
-      font-size: 12px;
-      line-height: 13px;
-      letter-spacing: 0.03em;
-      color: #E0E0E0;
-    }
-  }
-
-  &Max {
-    flex: 0 0 70px;
-    text-align: center;
-
-    &Number {
-      font-size: 14px;
-      line-height: 15px;
-      letter-spacing: 0.03em;
-      color: #828282;
-    }
-
-    &Text {
-      font-size: 12px;
-      line-height: 13px;
-      letter-spacing: 0.03em;
-      color: #E0E0E0;
+      &Text {
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $diagramBottomItemText_color;
+      }
     }
   }
 }
