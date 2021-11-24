@@ -1,4 +1,5 @@
 $base: 'Open Sans', sans-serif;
+$FiraMono: 'Fira Mono', monospace;;
 
 $body_bg: #F2F2F2;
 
@@ -114,10 +115,7 @@ $profileTopBtnEdit_color: #828282;
 $profileContent_bg: #FFFFFF;
 $profileContent_shadow: rgba(0, 0, 0, 0.1);
 
-$profileName: #4F4F4F;
-
 $profileInfoTitle: #BDBDBD;
-$profileInfoText: #4F4F4F;
 
 $profileContentBottomLink: #828282;
 $profileContentBottomEmail: #828282;
@@ -133,8 +131,7 @@ $qrCodeTitle_color: #BDBDBD;
 $qrCodeShare_color: #828282;
 
 // memberProfileQrCode
-$memberProfileQrCode_facility_color: #4F4F4F;
-$memberProfileQrCode_permissions_color: #BDBDBD;
+$memberProfileQrCode_position_color: #BDBDBD;
 $memberProfileQrCode_memberCode_color: #4F4F4F;
 
 // Facilities
