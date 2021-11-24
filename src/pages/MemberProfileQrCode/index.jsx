@@ -4,10 +4,12 @@ import { useRouteMatch } from 'react-router';
 import { useTranslation } from "react-i18next";
 
 import { Layout } from '../../components/ui/Layout';
+import { Title } from '../../components/ui/Title';
 import { Profile } from '../../components/profile/';
 import { ProfileContent } from '../../components/profile/content/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
+import { ProfilePosition } from '../../components/profile/position';
 import { QrCode } from '../../components/qr-code';
 
 import { getAccount } from '../../ducks/account/actions';
@@ -47,11 +49,11 @@ export const MemberProfileQrCode = () => {
       {
         memberProfile && (
           <Profile className={ style.memberProfileQrCode }>
-            <div className={ style.facility }>{ facility.name }</div>
+            <Title level={ 3 } className={ style.facility }>{ facility.name }</Title>
             <ProfileContent>
               <ProfileAvatar data={ `${memberProfile.firstName} ${memberProfile.lastName}` } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
-              <div className={ style.permissions }>{ memberProfile.permissions }</div>
+              <ProfilePosition className={ style.position }>{ memberProfile.permissions }</ProfilePosition>
               <QrCode url={ memberProfile.qrCodeUrl } />
               <div className={ style.memberCode }>{ memberProfile.memberCode }</div>
             </ProfileContent>

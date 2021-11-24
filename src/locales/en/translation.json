@@ -142,8 +142,9 @@
   "memberProfile": {
     "headerTitle": "Member profile",
     "facility": "Facility",
-    "permissions": "Position",
-    "email": "email"
+    "position": "Position",
+    "email": "Email",
+    "accountManager": "Account manager"
   },
   "status": {
     "active": "active",
