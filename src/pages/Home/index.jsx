@@ -11,6 +11,10 @@ import { ProfileName } from '../../components/profile/name/';
 import { ProfilePosition } from '../../components/profile/position';
 import { PersonalPanel } from '../../components/profile/personal-panel';
 
+
+import { Panel } from '../../components/panel';
+import { AccountPanel } from '../../components/panel/account-panel';
+
 import { selectMember } from '../../ducks/member/selectors';
 
 import style from './styles.module.scss';
@@ -41,17 +45,38 @@ export const Home = () => {
   return (
     <Layout title={ t('home.headerTitle') } footer={ true }>
       {
-        currentMember && (
+        currentMember && currentMember.permissions === 'Employee' ? (
+        // currentMember && currentMember.permissions === 'Manager' ? (
           <Profile>
             <ProfileTop />
             <ProfileContent>
               <ProfileAvatar data={ avatarData(currentMember) } />
               <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
               <ProfilePosition>{ currentMember.position }</ProfilePosition>
-              <PersonalPanel data={ data } className={ style.personalPanel } />
+              <PersonalPanel data={ data } className={ style.homeEmployeePersonalPanel } />
             </ProfileContent>
           </Profile>
-        )
+        ) : currentMember && currentMember.permissions === 'Manager' ? (
+          <Profile>
+            <ProfileTop />
+            <ProfileContent>
+              <ProfileAvatar
+                data={ `${currentMember.firstName} ${currentMember.lastName}` }
+                className={ style.homeAvatar }
+              />
+              <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
+              <ProfilePosition>administrator</ProfilePosition>
+            </ProfileContent>
+            <div className={ style.homePanels }>
+              <Panel title='Personal panel' className={ style.homePanelsItem }>
+                <PersonalPanel data={ data } className={ style.homePersonalPanel } />
+              </Panel>
+              <Panel title='Account panel' className={ style.homePanelsItem }>
+                <AccountPanel data={ data } className={ style.homePccountPanel } />
+              </Panel>
+            </div>
+          </Profile>
+        ) : null
       }
     </Layout>
   );

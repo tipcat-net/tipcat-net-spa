@@ -68,7 +68,15 @@
   },
   "card": {
     "btn": "Withdraw"
-  }, 
+  },
+  "accountPanel": {
+    "results": {
+      "transactions": "Transactions",
+      "totalSum": "Total sum",
+      "lastWeek": "Last week"
+    },
+    "bestResult": "Best result"
+  },
   "auth": {
     "button": {
       "signIn": "Sign in"

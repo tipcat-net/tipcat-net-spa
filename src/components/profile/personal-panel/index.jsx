@@ -28,7 +28,7 @@ export const PersonalPanel = ({ data, className }) => {
           className={ style.personalPanelTotalsItem }
         />
       </div>
-      <ProfileTransactions count={ true } className={ style.personalPanelTransactions } />
+      <ProfileTransactions count={ true } />
       <div className={ style.personalPanelPaymentAccount }>
         <Text
           size='small'

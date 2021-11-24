@@ -1,0 +1,12 @@
+@import "../../../styles/variables.scss";
+
+.accountPanel {
+  &Results {
+    margin: 0 -5px;
+    display: flex;
+
+    &Item {
+      padding: 0 10px;
+    }
+  }
+}
