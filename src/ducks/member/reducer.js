@@ -115,6 +115,28 @@ export function memberReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
+    
+    //updateAvatarMember
+    case MemberActionTypes.UPDATE_AVATAR_MEMBER_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case MemberActionTypes.UPDATE_AVATAR_MEMBER_FINISH:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          avatarUrl: action.response.data
+        },
+        loading: false,
+      };
+    case MemberActionTypes.UPDATE_AVATAR_MEMBER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
 
     default: {
       return state;

@@ -9,13 +9,9 @@
     padding-left: 65px;
   }
 
-  &Visible &FieldWrap {
+  &FieldWrap {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  &FieldWrap {
-    display: none;
 
     &File {
       padding-left: 65px;

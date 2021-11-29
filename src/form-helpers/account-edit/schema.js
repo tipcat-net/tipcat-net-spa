@@ -16,4 +16,5 @@ export const schema = yup.object().shape({
     }
     return false;
   }).default(''),
+  avatar: yup.mixed()
 });
