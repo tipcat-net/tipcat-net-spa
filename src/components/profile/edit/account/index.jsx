@@ -9,6 +9,8 @@ import { EditProfile } from '../';
 import { schema } from '../../../../form-helpers/account-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/account-edit/mapping';
 import { updateAccount } from '../../../../ducks/account/actions';
+import { updateAvatarAccount } from '../../../../ducks/account/actions';
+import { AvatarCropper } from '../../../avatar/сropper';
 
 export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
@@ -16,6 +18,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
   const initialValues = schema.cast({});
 
   const [visivbleField, setVisivbleField] = useState();
+  const [dataCropAvatar, setDataCropAvatar] = useState(null);
 
   const toggleVisivbleField = (field) => {
     if (!field || field === visivbleField) {
@@ -25,6 +28,10 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
     }
   }
 
+  const toggleCropAvatar = (e) => {
+    setDataCropAvatar(e)
+  }
+
   const closeEditProfile = () => {
     toggleVisivbleField();
     toggleVisibleSubstrate();
@@ -32,8 +39,13 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
   }
 
   const onSubmit = (values) => {
+    if (visivbleField === 'avatarUrl' && (values[visivbleField] !== account[visivbleField])) {
+      put(updateAvatarAccount({
+        id: values.id,
+        data: { File: values[visivbleField] }
+      }, closeEditProfile))
+    }
     if (values[visivbleField] !== account[visivbleField]) {
-      closeEditProfile();
       put(updateAccount(values, closeEditProfile))
     }
   }
@@ -48,7 +60,8 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
         {
           ({
             values,
-            setValues
+            setValues,
+            setFieldValue
           }) => {
             const onCancel = (name) => {
               setValues({
@@ -56,6 +69,11 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                 [name]: account[name]
               });
               toggleVisivbleField();
+            }
+
+            const handleChangeAvatar = (e) => {
+              setFieldValue('avatarUrl', e);
+              toggleCropAvatar(null);
             }
 
             return (
@@ -68,14 +86,23 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   toggleVisivbleField={ toggleVisivbleField }
                   onCancel={ onCancel }
                 />
-                {/* <FormItem
+                <FormItem
                   label={ t('accountProfile.edit.fields.avatar.label') }
-                  name="avatar"
+                  name="avatarUrl"
                   type="file"
                   visivbleField={ visivbleField }
                   toggleVisivbleField={ toggleVisivbleField }
                   onCancel={ onCancel }
-                /> */}
+                  onChange={ toggleCropAvatar }
+                />
+                <AvatarCropper
+                  data={ dataCropAvatar }
+                  onClose={ () => {
+                    toggleCropAvatar(null)
+                    onCancel('avatarUrl')
+                  } }
+                  onCrop={ handleChangeAvatar }
+                />
                 <FormItem
                   label={ t('accountProfile.edit.fields.address.label') }
                   name="address"

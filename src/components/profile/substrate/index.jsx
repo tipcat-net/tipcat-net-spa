@@ -4,6 +4,9 @@ import cn from 'classnames';
 import style from './styles.module.scss';
 
 export const Substrate = ({ children, visible }) => {
+  if (!visible) {
+    return null;
+  }
 
   return (
     <div className={ cn(style.substrate, visible ? style.substrateVisible : null) }>

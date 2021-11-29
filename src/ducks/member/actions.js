@@ -14,7 +14,6 @@ export const addMemberFinish = (response) => ({
     response,
 });
 
-//getMember
 export const getMember = () => ({
     type: MemberActionTypes.GET_MEMBER_START,
 });
@@ -27,7 +26,6 @@ export const getMemberFinish = (response) => ({
     response,
 });
 
-//createMember
 export const createMember = () => ({
     type: MemberActionTypes.CREATE_MEMBER_START,
 });
@@ -40,7 +38,6 @@ export const createMemberFinish = (response) => ({
     response,
 });
 
-//getMemberById
 export const getMemberById = (payload) => ({
     type: MemberActionTypes.GET_MEMBER_BY_ID_START,
     payload
@@ -54,7 +51,6 @@ export const getMemberByIdFinish = (response) => ({
     response,
 });
 
-//updateMember
 export const updateMember = (payload) => ({
     type: MemberActionTypes.UPDATE_MEMBER_START,
     payload
@@ -65,5 +61,19 @@ export const updateMemberError = (error) => ({
 });
 export const updateMemberFinish = (response) => ({
     type: MemberActionTypes.UPDATE_MEMBER_FINISH,
+    response,
+});
+
+export const updateAvatarMember = (payload, callback) => ({
+    type: MemberActionTypes.UPDATE_AVATAR_MEMBER_START,
+    payload,
+    callback
+});
+export const updateAvatarMemberError = (error) => ({
+    type: MemberActionTypes.UPDATE_AVATAR_MEMBER_ERROR,
+    error,
+});
+export const updateAvatarMemberFinish = (response) => ({
+    type: MemberActionTypes.UPDATE_AVATAR_MEMBER_FINISH,
     response,
 });

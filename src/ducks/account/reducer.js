@@ -8,7 +8,6 @@ export const initialState = {
 
 export function accountReducer(state = initialState, action) {
   switch (action.type) {
-    //addAccount
     case AccountActionTypes.ADD_ACCOUNT_START:
       return {
         ...state,
@@ -27,7 +26,6 @@ export function accountReducer(state = initialState, action) {
         error: action.error,
       };
 
-    //getAccount
     case AccountActionTypes.GET_ACCOUNT_START:
       return {
         ...state,
@@ -46,7 +44,6 @@ export function accountReducer(state = initialState, action) {
         error: action.error,
       };
 
-    //updateAccount
     case AccountActionTypes.UPDATE_ACCOUNT_START:
       return {
         ...state,
@@ -59,6 +56,27 @@ export function accountReducer(state = initialState, action) {
         loading: false,
       };
     case AccountActionTypes.UPDATE_ACCOUNT_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    
+    case AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case AccountActionTypes.UPDATE_AVATAR_ACCOUNT_FINISH:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          avatarUrl: action.response.data
+        },
+        loading: false,
+      };
+    case AccountActionTypes.UPDATE_AVATAR_ACCOUNT_ERROR:
       return {
         ...state,
         loading: false,

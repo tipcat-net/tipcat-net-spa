@@ -1,10 +1,10 @@
 import axios from 'axios';
 
+import { getBody, ContentTypes } from '../form-helpers/utils';
+
 axios.defaults.baseURL = process.env.REACT_APP_API;
 
-const getToken = async () => {
-  return localStorage.getItem('token');
-}
+const getToken = async () => localStorage.getItem('token');
 
 export const fetchers = {
   // Member
@@ -28,6 +28,16 @@ export const fetchers = {
     const accessToken = await getToken();
     return axios.put(`/api/accounts/${accountId}/members/${id}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
   },
+  updateAvatarMember: async ({id, memberId, data}) => {
+    const accessToken = await getToken();
+    return axios.put(`/api/accounts/${id}/members/${memberId}/avatar`, getBody(data, ContentTypes.MPFD), { 
+        headers: {
+          'Content-Type': ContentTypes.MPFD,
+          'Authorization' : `Bearer ${accessToken}`
+        } 
+      }
+    );
+  },
 
   // Accounts
   addAccount: async (data) => {
@@ -41,6 +51,16 @@ export const fetchers = {
   updateAccount: async ({id, ...data}) => {
     const accessToken = await getToken();
     return axios.put(`/api/accounts/${id}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
+  },
+  updateAvatarAccount: async ({id, data}) => {
+    const accessToken = await getToken();
+    return axios.put(`/api/accounts/${id}/avatar`, getBody(data, ContentTypes.MPFD), { 
+        headers: {
+          'Content-Type': ContentTypes.MPFD,
+          'Authorization' : `Bearer ${accessToken}`
+        } 
+      }
+    );
   },
 
   // Facility

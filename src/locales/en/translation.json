@@ -186,6 +186,10 @@
     "cancel": "Cancel",
     "save": "Save"
   },
+  "avatarCropper": {
+    "close": "Close",
+    "crop": "Crop image"
+  },
   "accountProfile": {
     "headerTitle": "Account profile",
     "address": "Address",
