@@ -24,7 +24,7 @@ export const MembersItem = ({ data }) => {
       <Avatar type="active" data={ avatarData() } />
       <div className={ style.membersItemInfo }>
         <div className={ style.membersItemName }>{ data.firstName } { data.lastName }</div>
-        <div className={ style.membersItemPermissions }>{ data.permissions }</div>
+        <div className={ style.membersItemPosition }>{ data.position }</div>
       </div>
       <div className={ style.membersItemActions }>
         <div className={ cn(style.membersItemActionsBlock, visibleActions ? style.membersItemActionsBlockVisible : null) }>

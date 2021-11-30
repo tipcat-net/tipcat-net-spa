@@ -75,7 +75,7 @@ export const MemberProfile = () => {
               <ProfileAvatar data={ avatarData() } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfileInfo top data={ { title: t('memberProfile.facility'), text: facility.name} } />
-              <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.permissions} } />
+              <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.position} } />
               <ProfileInfo data={ { title: t('memberProfile.email'), text: memberProfile.email} } />
               <ProfileInfo
                 data={ {
