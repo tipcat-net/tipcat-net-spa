@@ -9,9 +9,12 @@
   }
 
   .position {
-    margin-bottom: 50px;
     text-align: center;
     color: $memberProfileQrCode_position_color;
+  }
+
+  .qrCode {
+    margin-top: 50px;
   }
 
   .memberCode {

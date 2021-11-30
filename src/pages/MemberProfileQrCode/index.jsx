@@ -54,7 +54,7 @@ export const MemberProfileQrCode = () => {
               <ProfileAvatar data={ `${memberProfile.firstName} ${memberProfile.lastName}` } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfilePosition className={ style.position }>{ memberProfile.position }</ProfilePosition>
-              <QrCode url={ memberProfile.qrCodeUrl } />
+              <QrCode url={ memberProfile.qrCodeUrl } className={ style.qrCode } />
               <div className={ style.memberCode }>{ memberProfile.memberCode }</div>
             </ProfileContent>
           </Profile>
