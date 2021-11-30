@@ -57,6 +57,11 @@ export const MemberProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   }
 
+  const avatarData = () => ({
+    text: `${memberProfile.firstName} ${memberProfile.lastName}`,
+    url: memberProfile.avatarUrl
+  });
+
   return (
     <Layout title={ t('memberProfile.headerTitle') }>
       {
@@ -67,7 +72,7 @@ export const MemberProfile = () => {
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ `${memberProfile.firstName} ${memberProfile.lastName}` } />
+              <ProfileAvatar data={ avatarData() } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfileInfo top data={ { title: t('memberProfile.facility'), text: facility.name} } />
               <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.permissions} } />

@@ -31,6 +31,11 @@ export const FacilityProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   }
 
+  const avatarData = () => ({
+    text: facility.name,
+    url: facility.avatarUrl
+  });
+
   useEffect(() => {
     put(getAccount(member.accountId))
   }, []);
@@ -51,7 +56,7 @@ export const FacilityProfile = () => {
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ facility.name } type='facility' />
+              <ProfileAvatar data={ avatarData() } type='facility' />
               <ProfileName>{ facility.name }</ProfileName>
               <ProfileInfo top data={ { title: t('facilityProfile.operatingName'), text: <b>{account.operatingName}</b> } } />
               <ProfileInfo data={ { title: t('facilityProfile.address'), text: account.address} } />

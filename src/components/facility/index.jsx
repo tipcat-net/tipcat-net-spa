@@ -14,10 +14,15 @@ import style from './styles.module.scss';
 export const Facility = ({ data }) => {
   const [visible, setVisible] = useState(false);
 
+  const avatarData = () => ({
+    text: data.name,
+    url: data.avatarUrl
+  });
+
   return (
     <div className={ cn(style.facility, visible ? style.facilityActive : null) }>
       <div className={ style.facilityHeader }>
-        <Avatar type='facility' size='small' data={ data.name } />
+        <Avatar type='facility' size='small' data={ avatarData() } />
         <div className={ style.facilityHeaderTitle }>
           <Link
             to={ ROUTES.FACILITY.getPath({ facilityId: data.id }) }

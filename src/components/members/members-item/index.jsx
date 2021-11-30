@@ -14,9 +14,14 @@ export const MembersItem = ({ data }) => {
     setVisibleActions(!visibleActions);
   }
 
+  const avatarData = () => ({
+    text: `${data.firstName} ${data.lastName}`,
+    url: data.avatarUrl
+  });
+
   return (
     <div className={ style.membersItem }>
-      <Avatar type="active" data={ `${data.firstName} ${data.lastName}` } />
+      <Avatar type="active" data={ avatarData() } />
       <div className={ style.membersItemInfo }>
         <div className={ style.membersItemName }>{ data.firstName } { data.lastName }</div>
         <div className={ style.membersItemPermissions }>{ data.permissions }</div>
