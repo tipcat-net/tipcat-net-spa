@@ -42,7 +42,7 @@ export const Home = () => {
             <ProfileContent>
               <ProfileAvatar data={ `${currentMember.firstName} ${currentMember.lastName}` } />
               <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
-              <ProfilePosition>senior waiter</ProfilePosition>
+              <ProfilePosition>{ currentMember.position }</ProfilePosition>
               <PersonalPanel data={ data } className={ style.personalPanel } />
             </ProfileContent>
           </Profile>
