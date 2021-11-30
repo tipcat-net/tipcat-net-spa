@@ -44,8 +44,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
         id: values.id,
         data: { File: values[visivbleField] }
       }, closeEditProfile))
-    }
-    if (values[visivbleField] !== account[visivbleField]) {
+    } else if (values[visivbleField] !== account[visivbleField]) {
       put(updateAccount(values, closeEditProfile))
     }
   }
