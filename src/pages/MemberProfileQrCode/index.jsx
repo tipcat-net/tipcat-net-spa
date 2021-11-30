@@ -44,6 +44,11 @@ export const MemberProfileQrCode = () => {
     }
   }, [account]);
 
+  const avatarData = () => ({
+    text: `${memberProfile.firstName} ${memberProfile.lastName}`,
+    url: memberProfile.avatarUrl
+  });
+
   return (
     <Layout title={ t('memberProfileQrCode.headerTitle') }>
       {
@@ -51,7 +56,7 @@ export const MemberProfileQrCode = () => {
           <Profile className={ style.memberProfileQrCode }>
             <Title level={ 3 } className={ style.facility }>{ facility.name }</Title>
             <ProfileContent>
-              <ProfileAvatar data={ `${memberProfile.firstName} ${memberProfile.lastName}` } />
+              <ProfileAvatar data={ avatarData() } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfilePosition className={ style.position }>{ memberProfile.permissions }</ProfilePosition>
               <QrCode url={ memberProfile.qrCodeUrl } />

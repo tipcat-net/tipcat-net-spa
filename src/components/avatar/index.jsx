@@ -24,7 +24,12 @@ export const Avatar = ({ size, className, type, data, invited }) => {
 
   return (
     <div className={ cn(style.avatar, classNameSize, classNameType, classNameInvited, className) }>
-      <div className={ style.avatarText }>{ transformLetters(data) }</div>
+      {
+        data.url ? 
+          <img src={ data.url } className={ style.avatarImage } alt={ data.text } />
+        :
+          <div className={ style.avatarText }>{ transformLetters(data.text) }</div>
+      }
       { invited ? <GoneSvg className={ style.avatarIcon } /> : null }
     </div>
   )
