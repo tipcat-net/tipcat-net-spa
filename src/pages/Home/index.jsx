@@ -33,6 +33,11 @@ export const Home = () => {
     total_earned: "$ 438"
   }
 
+  const avatarData = (data) => ({
+    text: `${data.firstName} ${data.lastName}`,
+    url: data.avatarUrl
+  });
+
   return (
     <Layout title={ t('home.headerTitle') } footer>
       {
@@ -40,7 +45,7 @@ export const Home = () => {
           <Profile>
             <ProfileTop />
             <ProfileContent>
-              <ProfileAvatar data={ `${currentMember.firstName} ${currentMember.lastName}` } />
+              <ProfileAvatar data={ avatarData(currentMember) } />
               <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
               <ProfilePosition>{ currentMember.position }</ProfilePosition>
               <PersonalPanel data={ data } className={ style.personalPanel } />
