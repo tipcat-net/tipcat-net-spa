@@ -26,6 +26,9 @@ import updateAvatarAccountRequest from './account/update-avatar-account';
 import { FacilityActionTypes } from '../ducks/facility/action-types';
 import addFacilityRequest from './facility/add-facility';
 
+import { PaymentActionTypes } from '../ducks/payment/action-types';
+import getPreparePaymentRequest from './payment/get-prepare-payment';
+
 export default function* sagas() {
   yield all([
     // SignUp
@@ -44,5 +47,8 @@ export default function* sagas() {
     takeEvery(AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START, updateAvatarAccountRequest),
     // Facility
     takeEvery(FacilityActionTypes.ADD_FACILITY_START, addFacilityRequest),
+
+    // Payment
+    takeEvery(PaymentActionTypes.GET_PREPARE_PAYMENT_START, getPreparePaymentRequest),
   ]);
 }

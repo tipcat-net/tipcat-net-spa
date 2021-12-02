@@ -75,6 +75,10 @@ export const ROUTES = {
     path: '/contacts',
     exact: true,
   },
+  PAY: {
+    path: '/:memberCode/pay',
+    exact: true,
+  },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);

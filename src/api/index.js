@@ -23,4 +23,7 @@ export const fetchers = {
   // Facility
   addFacility: async ({ accountId, ...data }) => axios.post(`/api/accounts/${accountId}/facilities`, data, config(true)),
   updateFacility: async ({ accountId, facilityId, ...data }) => axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, config(true)),
+
+  getPreparePayment: async (memberCode) => axios.get(`/api/payments/${memberCode}/prepare`),
+  createPayment: async (data) => axios.post('/api/payments', data),
 };

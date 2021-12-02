@@ -6,9 +6,9 @@ import { Footer } from "../../footer";
 
 import style from './styles.module.scss';
 
-export const Layout = ({ children, title, hiddenHeader, footer }) => (
+export const Layout = ({ children, title, hiddenHeader, footer, logo }) => (
   <div className={ style.layout }>
-    { !hiddenHeader ?  <Header title={ title } className={ style.layoutHeader } /> : null }
+    { !hiddenHeader ?  <Header logo={ logo } title={ title } className={ style.layoutHeader } /> : null }
     <div className={ cn(style.layoutContent, footer ? style.layoutContentHeightAuto : null) }>{ children }</div>
     { footer ? <Footer /> : null }
   </div>
