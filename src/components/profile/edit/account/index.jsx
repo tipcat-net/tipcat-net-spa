@@ -8,9 +8,8 @@ import { EditProfile } from '../';
 
 import { schema } from '../../../../form-helpers/account-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/account-edit/mapping';
-import { updateAccount } from '../../../../ducks/account/actions';
-import { updateAvatarAccount } from '../../../../ducks/account/actions';
-import { AvatarCropper } from '../../../avatar/сropper';
+import { updateAccount, updateAvatarAccount } from '../../../../ducks/account/actions';
+import { AvatarCropper } from '../../../avatar/cropper';
 
 export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
@@ -89,6 +88,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   label={ t('accountProfile.edit.fields.avatar.label') }
                   name="avatarUrl"
                   type="file"
+                  accept="image/jpeg,image/png,image/jpg"
                   visivbleField={ visivbleField }
                   toggleVisivbleField={ toggleVisivbleField }
                   onCancel={ onCancel }
