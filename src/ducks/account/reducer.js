@@ -72,7 +72,7 @@ export function accountReducer(state = initialState, action) {
         ...state,
         data: {
           ...state.data,
-          avatarUrl: action.response.data
+          avatarUrl: `${action.response.data}?${Date.now()}`
         },
         loading: false,
       };

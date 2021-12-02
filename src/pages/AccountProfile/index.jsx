@@ -38,9 +38,9 @@ export const AccountProfile = () => {
     setVisibleSuccess(true);
   }
 
-  const avatarData = () => ({
-    text: account.operatingName,
-    url: account.avatarUrl
+  const avatarData = (data) => ({
+    text: data.operatingName,
+    url: data.avatarUrl
   });
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export const AccountProfile = () => {
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ avatarData() } type='account' />
+              <ProfileAvatar data={ avatarData(account) } type='account' />
               <ProfileName>{ account.operatingName }</ProfileName>
               <ProfileInfo top data={ { title: t('accountProfile.address'), text: account.address} } />
               <ProfileInfo data={ { title: t('accountProfile.email'), text: account.email} } />
