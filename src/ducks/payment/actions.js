@@ -1,15 +1,15 @@
 import { PaymentActionTypes } from './action-types';
 
-export const getPreparePayment = (payload) => ({
-    type: PaymentActionTypes.GET_PREPARE_PAYMENT_START,
+export const getPayment = (payload) => ({
+    type: PaymentActionTypes.GET_PAYMENT_START,
     payload,
 });
-export const getPreparePaymentFinish = (response) => ({
-    type: PaymentActionTypes.GET_PREPARE_PAYMENT_FINISH,
+export const getPaymentFinish = (response) => ({
+    type: PaymentActionTypes.GET_PAYMENT_FINISH,
     response,
 });
-export const getPreparePaymentError = (error) => ({
-    type: PaymentActionTypes.GET_PREPARE_PAYMENT_ERROR,
+export const getPaymentError = (error) => ({
+    type: PaymentActionTypes.GET_PAYMENT_ERROR,
     error,
 });
 
@@ -23,5 +23,18 @@ export const createPaymentFinish = (response) => ({
 });
 export const createPaymentError = (error) => ({
     type: PaymentActionTypes.CREATE_PAYMENT_ERROR,
+    error,
+});
+
+export const updatePayment = (payload) => ({
+    type: PaymentActionTypes.UPDATE_PAYMENT_START,
+    payload,
+});
+export const updatePaymentFinish = (response) => ({
+    type: PaymentActionTypes.UPDATE_PAYMENT_FINISH,
+    response,
+});
+export const updatePaymentError = (error) => ({
+    type: PaymentActionTypes.UPDATE_PAYMENT_ERROR,
     error,
 });

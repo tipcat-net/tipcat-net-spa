@@ -27,7 +27,9 @@ import { FacilityActionTypes } from '../ducks/facility/action-types';
 import addFacilityRequest from './facility/add-facility';
 
 import { PaymentActionTypes } from '../ducks/payment/action-types';
-import getPreparePaymentRequest from './payment/get-prepare-payment';
+import getPaymentRequest from './payment/get-payment';
+import createPaymentRequest from './payment/create-payment';
+import updatePaymentRequest from './payment/update-payment';
 
 export default function* sagas() {
   yield all([
@@ -49,6 +51,8 @@ export default function* sagas() {
     takeEvery(FacilityActionTypes.ADD_FACILITY_START, addFacilityRequest),
 
     // Payment
-    takeEvery(PaymentActionTypes.GET_PREPARE_PAYMENT_START, getPreparePaymentRequest),
+    takeEvery(PaymentActionTypes.GET_PAYMENT_START, getPaymentRequest),
+    takeEvery(PaymentActionTypes.CREATE_PAYMENT_START, createPaymentRequest),
+    takeEvery(PaymentActionTypes.UPDATE_PAYMENT_START, updatePaymentRequest),
   ]);
 }

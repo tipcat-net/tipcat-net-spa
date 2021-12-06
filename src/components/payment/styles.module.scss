@@ -1,0 +1,71 @@
+@import "../../styles/variables.scss";
+
+.paymentLabel {
+  text-align: center;
+  margin-bottom: 6px;
+  color: #878787;
+}
+
+.paymentAmount {
+  position: relative;
+
+  &Input {
+    border: 2px solid #FFEB84;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 36px;
+    line-height: 39px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #4F4F4F
+  }
+
+  &Text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-right: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    pointer-events: none;
+
+    &:before {
+      content: attr(currency);
+      color: #BDBDBD;
+    }
+  }
+}
+.paymentTotal {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &Text {
+    color: #BDBDBD;
+    text-align: right;
+
+    span {
+      color: #878787;
+    }
+  }
+}
+
+.paymentSwitch {
+  margin: 10px 0;
+  display: flex;
+
+  &Text {
+    margin-left: 10px;
+    max-width: 137px;
+    color: #878787;
+  }
+}
+
+.paymentBottom {
+  margin-top: 35px;
+}

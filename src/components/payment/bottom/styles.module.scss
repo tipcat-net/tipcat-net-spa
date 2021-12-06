@@ -1,0 +1,42 @@
+@import "../../../styles/variables.scss";
+
+.paymentBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &Left {
+    flex: 0 0 125px;
+    width: 125px;
+    max-width: 125px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &Steps {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex: auto;
+
+    &Item {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #BDBDBD;
+      margin: 0 4px;
+
+      &Active {
+        background: #1EB9C1;
+      }
+    }
+  }
+
+  &Right {
+    flex: 0 0 125px;
+    width: 125px;
+    max-width: 125px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

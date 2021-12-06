@@ -278,5 +278,21 @@
     }
   },
   "pay": {
+    "payment": {
+      "paymentLabelAmount": "Your tip",
+      "paymentSwitch": "Include service comission at once",
+      "paymentTotalText": "Total",
+      "paymentLabelMessage": "Your message (may be)",
+      "paymentBottom": {
+        "left": "No thanks",
+        "right": "Next"
+      }
+    },
+    "paymentCard": {
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    }
   }
 }

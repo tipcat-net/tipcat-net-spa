@@ -5,58 +5,29 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
 import { Layout } from '../../components/ui/Layout';
-import { Button } from '../../components/ui/Button';
-import { ProfileContent } from '../../components/profile/content';
-import { ProfileAvatar } from '../../components/profile/avatar';
-import { ProfileName } from '../../components/profile/name';
+import { PaymentCard } from '../../components/payment/card';
+import { Payment } from '../../components/payment';
 
-import { getPreparePayment, createPayment } from '../../ducks/payment/actions';
+import { getPayment } from '../../ducks/payment/actions';
 import { selectPayment } from '../../ducks/payment/selectors';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 export const Pay = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [amount, setAmount] = useState(0);
-  const [message, setMessage] = useState('');
   const { params: { memberCode } } = useRouteMatch();
+  const steps = ['payment', 'card'];
   const payment = useSelector(selectPayment);
   const put = useDispatch();
 
   useEffect(() => {
     console.log('useEffect');
-    put(getPreparePayment(memberCode));
+    put(getPayment(memberCode));
   }, []);
 
-  const next = (amount, payment) => {
-    console.log('next', {
-      memberId: payment.member.id,
-      tipsAmount: {
-        amount: amount,
-        currency: 'NotSpecified',
-      },
-    });
-    // put(createPayment({
-    //   memberId: payment.member.id,
-    //   tipsAmount: {
-    //     amount: amount,
-    //     currency: "NotSpecified"
-    //   }
-    // }));
+  const onChangeStep = (value) => {
+    setCurrentStep(value);
   };
-
-  // const tipsAmount = {
-  //   amount: 0,
-  //   currency: "NotSpecified"
-  // }
-
-  console.log('memberCode', memberCode);
-  console.log('payment', payment);
-
-  const avatarData = (data) => ({
-    url: data.avatarUrl,
-    text: `${data.firstName} ${data.lastName}`,
-  });
 
   if (!payment) {
     return null;
@@ -65,33 +36,23 @@ export const Pay = () => {
   return (
     <Layout logo={ true } footer={ true }>
       <Elements stripe={ stripePromise }>
-        <ProfileContent>
-          {
-            currentStep === 0 ?
-              <React.Fragment>
-                <ProfileAvatar data={ avatarData(payment.member) } />
-                <ProfileName>{ payment.member.firstName } { payment.member.lastName }</ProfileName>
-                <div>
-                  <input value={ amount } onChange={ (e) => {
-                    setAmount(e.currentTarget.value);
-                  } } />
-                </div>
-                <div>
-                  <input value={ message } onChange={ (e) => {
-                    setMessage(e.currentTarget.value);
-                  } } />
-                </div>
-                <div>
-                  <Button>No thanks</Button>
-                  <Button primary={ true } onClick={ () => next(amount, payment) }>Next</Button>
-                </div>
-              </React.Fragment>
-              : currentStep === 1 ?
-                <div>1</div>
-                :
-                <div>2</div>
-          }
-        </ProfileContent>
+        {
+          currentStep === 0 ?
+            <Payment
+              payment={ payment }
+              onChangeStep={ onChangeStep }
+              currentStep={ currentStep }
+              steps={ steps }
+            />
+            : currentStep === 1 ?
+              <PaymentCard
+                onChangeStep={ onChangeStep }
+                currentStep={ currentStep }
+                steps={ steps }
+              />
+              :
+              <div>2</div>
+        }
       </Elements>
     </Layout>
   );

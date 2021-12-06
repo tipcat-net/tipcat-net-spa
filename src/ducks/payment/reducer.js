@@ -8,18 +8,18 @@ export const initialState = {
 
 export function paymentReducer(state = initialState, action) {
   switch (action.type) {
-    case PaymentActionTypes.GET_PREPARE_PAYMENT_START:
+    case PaymentActionTypes.GET_PAYMENT_START:
       return {
         ...state,
         loading: true,
       };
-    case PaymentActionTypes.GET_PREPARE_PAYMENT_FINISH:
+    case PaymentActionTypes.GET_PAYMENT_FINISH:
       return {
         ...state,
         loading: false,
         data: action.response.data,
       };
-    case PaymentActionTypes.GET_PREPARE_PAYMENT_ERROR:
+    case PaymentActionTypes.GET_PAYMENT_ERROR:
       return {
         ...state,
         loading: false,
@@ -38,6 +38,24 @@ export function paymentReducer(state = initialState, action) {
         data: action.response.data,
       };
     case PaymentActionTypes.CREATE_PAYMENT_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    
+    case PaymentActionTypes.UPDATE_PAYMENT_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case PaymentActionTypes.UPDATE_PAYMENT_FINISH:
+      return {
+        ...state,
+        loading: false,
+        data: action.response.data,
+      };
+    case PaymentActionTypes.UPDATE_PAYMENT_ERROR:
       return {
         ...state,
         loading: false,

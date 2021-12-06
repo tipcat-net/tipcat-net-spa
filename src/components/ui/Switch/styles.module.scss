@@ -1,0 +1,36 @@
+@import './../../../styles/variables.scss';
+
+.switch {
+  &Input {
+    display: none;
+  }
+
+  &Checked {
+    padding: 2px;
+    width: 51px;
+    height: 31px;
+    display: block;
+    border-radius: 25px;
+    background: #E0E0E0;
+    transition: all .3s ease;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 27px;
+      height: 27px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+      transition: all .3s ease;
+    }
+  }
+
+  &Input:checked + &Checked {
+    background: #1EB9C1;
+
+    &:before {
+      transform: translateX(20px);
+    }
+  }
+}
