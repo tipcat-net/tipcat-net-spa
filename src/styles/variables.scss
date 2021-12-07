@@ -73,6 +73,12 @@ $checkbox_color: #828282;
 $checkboxChecked_border: #828282;
 $checkboxChecked_bg: #7DDBC7;
 
+// switch
+$switchChecked_bg: #E0E0E0;
+$switchChecked_before_bg: #FFFFFF;
+$switchChecked_before_shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+$switchInput_checked_switchChecked_bg: #1EB9C1;
+
 // formRequiredError
 $formRequiredError_color: #BF1649;
 
@@ -210,9 +216,20 @@ $transactionsItemSum_color: #FFBE17;
 $transactionsItemWithdrawSum_color: #7DDBC7;
 $transactionsItemText_color: #4F4F4F;
 
-// card {
+// card
 $card_bg: #FFFFFF;
 $card_shadow: rgba(0, 0, 0, 0.1);
 $cardIconCard_color: #7DDBC7;
 $cardNumber_color: #2A6274;
 $cardBtnView_color: #828282;
+
+// pay
+$paymentLabel_color: #878787;
+$paymentAmountInput_border: #FFEB84;
+$paymentAmountInput_color: #4F4F4F;
+$paymentAmountText_before_color: #BDBDBD;
+$paymentTotalText_color: #BDBDBD;
+$paymentTotalText_span_color: #878787;
+$paymentSwitchText_color: #878787;
+$paymentBottomStepsItem_bg: #BDBDBD;
+$paymentBottomStepsItemActive_bg: #1EB9C1;

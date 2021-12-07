@@ -3,21 +3,21 @@
 .paymentLabel {
   text-align: center;
   margin-bottom: 6px;
-  color: #878787;
+  color: $paymentLabel_color;
 }
 
 .paymentAmount {
   position: relative;
 
   &Input {
-    border: 2px solid #FFEB84;
+    border: 2px solid $paymentAmountInput_border;
     box-sizing: border-box;
     border-radius: 10px;
     font-size: 36px;
     line-height: 39px;
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: #4F4F4F
+    color: $paymentAmountInput_color;
   }
 
   &Text {
@@ -35,10 +35,11 @@
 
     &:before {
       content: attr(currency);
-      color: #BDBDBD;
+      color: $paymentAmountText_before_color;
     }
   }
 }
+
 .paymentTotal {
   margin-bottom: 25px;
   display: flex;
@@ -46,11 +47,11 @@
   align-items: center;
 
   &Text {
-    color: #BDBDBD;
+    color: $paymentTotalText_color;
     text-align: right;
 
     span {
-      color: #878787;
+      color: $paymentTotalText_span_color;
     }
   }
 }
@@ -62,7 +63,7 @@
   &Text {
     margin-left: 10px;
     max-width: 137px;
-    color: #878787;
+    color: $paymentSwitchText_color;
   }
 }
 

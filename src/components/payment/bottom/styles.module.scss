@@ -23,11 +23,11 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #BDBDBD;
+      background: $paymentBottomStepsItem_bg;
       margin: 0 4px;
 
       &Active {
-        background: #1EB9C1;
+        background: $paymentBottomStepsItemActive_bg;
       }
     }
   }
