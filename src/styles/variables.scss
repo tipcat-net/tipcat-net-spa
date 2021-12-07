@@ -33,17 +33,24 @@ $smallTextBase_color: #878787;
 $superSmallText_color: #BDBDBD;
 
 // button
-$button_base: #828282;
-$button_bg: #FFFFFF;
-$button_shadow: rgba(79, 79, 79, 0.15);
-
-$buttonPrimary_base: #4ABCA3;
-$buttonPrimary_shadow: rgba(28, 184, 109, 0.2);
+$button_color: #878787;
+$button_bg: transparent;
+$button_border: #878787;
+$button_active_color: #FFFFFF;
+$button_active_bg: #878787;
+$button_disabled_color: #E0E0E0;
+$button_disabled_border: #E0E0E0;
 
 $buttonMenu_color: #4F4F4F;
-$buttonMenuHover_border: #FFFFFF;
-$buttonMenuActive_bg: #FFFFFF;
-$buttonMenuDisabled_bg: #BDBDBD;
+$buttonMenu_border: transparent;
+$buttonMenu_active_color: #4F4F4F;
+$buttonMenu_active_bg: transparent;
+$buttonMenu_active_bg: transparent;
+
+$buttonPrimary_color: #1EB9C1;
+$buttonPrimary_border: #1EB9C1;
+$buttonPrimary_active_color: #FFFFFF;
+$buttonPrimary_active_bg: #1EB9C1;
 
 // label
 $label_color: #828282;

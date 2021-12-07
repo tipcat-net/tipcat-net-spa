@@ -3,17 +3,17 @@ import cn from 'classnames'
 
 import styles from './styles.module.scss';
 
-export const Button = ({ children, type, onClick, primary, transparent, menu, clear, className, href, ...allProps }) => {
+export const Button = ({ children, className, href, type, primary, menu, clear, ...allProps }) => {
   const classPrimary = primary ? styles.buttonPrimary : null;
-  const classTransparent = transparent ? styles.buttonTransparent : null;
   const classClear = clear ? styles.buttonClear : null;
   const classMenu = menu ? styles.buttonMenu : null;
-  
+
   if (href) {
     return (
       <Link
         to={ href }
-        className={ cn(styles.button, classPrimary, classTransparent, classClear, classMenu, className) }
+        className={ cn(styles.button, classMenu, classPrimary, classClear, className) }
+        { ...allProps }
       >
         { children }
       </Link>
@@ -23,8 +23,7 @@ export const Button = ({ children, type, onClick, primary, transparent, menu, cl
   return (
     <button
       type={ type ? type : 'button' }
-      onClick={ onClick }
-      className={ cn(styles.button, classPrimary, classTransparent, classClear, classMenu, className) }
+      className={ cn(styles.button, classMenu, classPrimary, classClear, className) }
       { ...allProps }
     >
       { children }
