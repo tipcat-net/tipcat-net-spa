@@ -3,16 +3,23 @@ import cn from 'classnames';
 import { ReactComponent as GoneSvg } from './svg/gone.svg';
 import style from './styles.module.scss';
 
-export const Avatar = ({ size, className, type, data, invited }) => {
+export const Avatar = ({ size, className, type, data }) => {
   const classNameSize = size === 'big' ?  style.avatarBig 
     : size === 'small' ? style.avatarSmall
     : null;
 
   const classNameType = type === 'account' ? style.avatarAccount
+    : type === 'accountManager' ? style.avatarAccountManager
     : type === 'facility' ? style.avatarFacility
     : null
 
-  const classNameInvited = invited ? style.avatarInvited : null;
+  const checkInviteStatus = () => {
+    if (data?.invitationState && (data.invitationState === 'NotSent' || data.invitationState === 'Sent')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   const transformLetters = (value) => {
     const str = value.split(' ');
@@ -22,6 +29,8 @@ export const Avatar = ({ size, className, type, data, invited }) => {
     return value[0];
   }
 
+  const classNameInvited = checkInviteStatus(data) ? style.avatarInvited : null;
+
   return (
     <div className={ cn(style.avatar, classNameSize, classNameType, classNameInvited, className) }>
       {
@@ -30,7 +39,7 @@ export const Avatar = ({ size, className, type, data, invited }) => {
         :
           <div className={ style.avatarText }>{ transformLetters(data.text) }</div>
       }
-      { invited ? <GoneSvg className={ style.avatarIcon } /> : null }
+      { checkInviteStatus(data) ? <GoneSvg className={ style.avatarIcon } /> : null }
     </div>
   )
 }

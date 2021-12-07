@@ -57,9 +57,10 @@ export const MemberProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   }
 
-  const avatarData = () => ({
-    text: `${memberProfile.firstName} ${memberProfile.lastName}`,
-    url: memberProfile.avatarUrl
+  const avatarData = (data) => ({
+    text: `${data.firstName} ${data.lastName}`,
+    url: data.avatarUrl,
+    invitationState: data.invitationState
   });
 
   return (
@@ -72,7 +73,7 @@ export const MemberProfile = () => {
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ avatarData() } />
+              <ProfileAvatar data={ avatarData(memberProfile) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfileInfo top data={ { title: t('memberProfile.facility'), text: facility.name} } />
               <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.position} } />
