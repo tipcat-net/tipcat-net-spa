@@ -76,4 +76,9 @@
   &Account {
     background-color: $avatarAccount_bg;
   }
+
+  &AccountManager {
+    border-color: $avatarAccountManager_border;
+    box-shadow: 0px 0px 20px $avatarAccountManager_shadow;
+  }
 }

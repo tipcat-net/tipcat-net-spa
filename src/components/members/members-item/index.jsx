@@ -16,7 +16,8 @@ export const MembersItem = ({ data }) => {
 
   const avatarData = () => ({
     text: `${data.firstName} ${data.lastName}`,
-    url: data.avatarUrl
+    url: data.avatarUrl,
+    invitationState: data.invitationState
   });
 
   return (
