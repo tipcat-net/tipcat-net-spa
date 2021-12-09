@@ -17,7 +17,7 @@ import { createPayment, updatePayment } from '../../ducks/payment/actions';
 
 import style from './styles.module.scss';
 
-export const Payment = ({ payment, onChangeStep, currentStep, steps }) => {
+export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) => {
   const { t } = useTranslation();
   const [amount, setAmount] = useState(5);
   const [message, setMessage] = useState('');
@@ -45,7 +45,7 @@ export const Payment = ({ payment, onChangeStep, currentStep, steps }) => {
     if (checkedServiceFee && parseFloat(amount)) {
       return parseFloat(amount) + payment.proFormaInvoice.serviceFee.amount;
     } else if (checkedServiceFee && !parseFloat(amount)) {
-      return 0 + payment.proFormaInvoice.serviceFee.amount;
+      return payment.proFormaInvoice.serviceFee.amount;
     } else {
       return amount;
     }
@@ -72,7 +72,7 @@ export const Payment = ({ payment, onChangeStep, currentStep, steps }) => {
         }
       }));
     }
-    onChangeStep(currentStep + 1);
+    onChangeDisplay('card');
   }
 
   return (
@@ -125,11 +125,11 @@ export const Payment = ({ payment, onChangeStep, currentStep, steps }) => {
       />
 
       <PaymentBottom
-        onChangeStep={ onChangeStep }
-        currentStep={ currentStep }
-        steps={ steps }
+        onChangeDisplay={ onChangeDisplay }
+        currentDisplay={ currentDisplay }
+        display={ display }
         className={ style.paymentBottom }
-        left={ <Button>{ t('pay.payment.paymentBottom.left') }</Button> }
+        left={ <Button onClick={ () => onChangeDisplay('cancel') }>{ t('pay.payment.paymentBottom.left') }</Button> }
         right={ <Button primary onClick={ onNext }>{ t('pay.payment.paymentBottom.right') }</Button> }
       />
     </ProfileContent>

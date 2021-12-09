@@ -7,30 +7,25 @@ export const PaymentBottom = ({
     className,
     left,
     right,
-    onChangeStep,
-    currentStep,
-    steps
+    onChangeDisplay,
+    currentDisplay,
+    display
   }) => {
   const stepsItem = () => {
-    return steps.map((item, index) => {
-      if(index === currentStep) {
+    return display.map(item => {
+      if(item.step) {
         return (
           <div
-            key={ `${item}_${index}` }
-            className={
-              cn(style.paymentBottomStepsItem, style.paymentBottomStepsItemActive)
-            }
-          ></div>
-        )
-      } else {
-        return (
-          <div
-            key={ `${item}_${index}` }
-            onClick={ () => onChangeStep(index) }
-            className={ style.paymentBottomStepsItem }
+            key={ item.key }
+            onClick={ () => onChangeDisplay(item.key) }
+            className={ cn(
+              style.paymentBottomStepsItem,
+              item.key === currentDisplay ? style.paymentBottomStepsItemActive : null
+            ) }
           ></div>
         )
       }
+      return null;
     })
   }
 

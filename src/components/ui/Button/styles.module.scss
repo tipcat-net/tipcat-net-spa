@@ -10,6 +10,7 @@
   border: 2px solid $button_border;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 
   &:active {
     color: $button_active_color;
@@ -19,20 +20,26 @@
   &:disabled {
     color: $button_disabled_color;
     border-color: $button_disabled_border;
+    cursor: auto;
   }
 
-  &Menu {
+  &BorderNone {
+    padding: 10px 11px 11px;
     font-size: 14px;
     font-weight: normal;
     line-height: 15px;
     letter-spacing: 0.03em;
-    color: $buttonMenu_color;
+    color: $buttonBorderNone_color;
     text-decoration: none;
-    border-color: $buttonMenu_border;
+    border-color: $buttonBorderNone_border;
 
     &:active {
-      color: $buttonMenu_active_color;
-      background-color: $buttonMenu_active_bg;
+      color: $buttonBorderNone_active_color;
+      background-color: $buttonBorderNone_active_bg;
+    }
+  
+    &:disabled {
+      border-color: $buttonBorderNone_disabled_border;
     }
   }
 
@@ -57,5 +64,19 @@
       color: transparent;
       background-color: transparent;
     }
+  }
+
+  &White {
+    color: $buttonWhite_color;
+    border-color: $buttonWhite_border;
+
+    &:active {
+      background-color: $buttonWhite_active_bg;
+      color: $buttonWhite_active_color;
+    }
+  }
+
+  &ActiveWhite:active {
+    background-color: $buttonActiveWhite_bg;
   }
 }

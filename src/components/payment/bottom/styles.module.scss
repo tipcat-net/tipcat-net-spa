@@ -20,14 +20,16 @@
     flex: auto;
 
     &Item {
+      margin: 0 4px;
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: $paymentBottomStepsItem_bg;
-      margin: 0 4px;
+      cursor: pointer;
 
       &Active {
         background: $paymentBottomStepsItemActive_bg;
+        cursor: auto;
       }
     }
   }

@@ -293,6 +293,18 @@
         "left": "Back",
         "right": "Pay tip"
       }
+    },
+    "paymentMessage": {
+      "bottomBtn": "More about servise TipCat.net"
+    },
+    "paymentSucceeded": {
+      "title": "Thank you!",
+      "text": "Nicholas <br/> will get your tip within <br/> 5 minutes",
+      "button": "See you later!"
+    },
+    "paymentCancel": {
+      "title": "Have a nice day!",
+      "button": "Return to payment"
     }
   }
 }

@@ -8,7 +8,7 @@ import { Button } from '../../ui/Button';
 
 import style from './styles.module.scss';
 
-export const PaymentCard = ({ onChangeStep, currentStep, steps }) => {
+export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
   const { t } = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
@@ -19,22 +19,26 @@ export const PaymentCard = ({ onChangeStep, currentStep, steps }) => {
     if (!stripe || !elements) {
       return;
     }
-    const payload = await stripe.createPaymentMethod({
+
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement)
     });
-    console.log("[PaymentMethod]", payload);
+
+    if(!error) {
+      onChangeDisplay('succeeded');
+    }
   };
 
   return (
     <ProfileContent className={ style.paymentCard }>
       <CardElement />
       <PaymentBottom
-        onChangeStep={ onChangeStep }
-        currentStep={ currentStep }
-        steps={ steps }
+        onChangeDisplay={ onChangeDisplay }
+        currentDisplay={ currentDisplay }
+        display={ display }
         className={ style.paymentBottom }
-        left={ <Button onClick={ () => onChangeStep(currentStep - 1) }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
+        left={ <Button onClick={ () => onChangeDisplay('payment') }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
         right={ <Button primary onClick={ handleSubmit }>{ t('pay.paymentCard.paymentBottom.right') }</Button> }
       />
     </ProfileContent>
