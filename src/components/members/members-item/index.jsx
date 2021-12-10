@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../ui/Button';
 import { Actions } from '../../ui/Icons';
 import { Avatar } from '../../avatar';
@@ -12,12 +12,12 @@ export const MembersItem = ({ data }) => {
 
   const toggleVisibleActions = () => {
     setVisibleActions(!visibleActions);
-  }
+  };
 
   const avatarData = () => ({
     text: `${data.firstName} ${data.lastName}`,
     url: data.avatarUrl,
-    invitationState: data.invitationState
+    invitationState: data.invitationState,
   });
 
   return (
@@ -34,7 +34,7 @@ export const MembersItem = ({ data }) => {
           <div className={ style.membersItemActionsBlockLink }>{ t('memberItemActionBlock.deactivated') }</div>
         </div>
         <Button
-          clear
+          clear={ true }
           className={ style.membersItemActionsBtn }
           onClick={ toggleVisibleActions }
         >
@@ -42,5 +42,5 @@ export const MembersItem = ({ data }) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};

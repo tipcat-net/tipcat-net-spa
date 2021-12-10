@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '../../ui/Button';
 
@@ -13,17 +13,17 @@ export const FooterMenu = () => {
   return (
     <ul className={ style.footerMenu }>
       <li>
-        <Button href={ ROUTES.ABOUT_TIPCAT.path } menu>{ t('footer.menu.aboutUs') }</Button>
+        <Button href={ ROUTES.ABOUT_TIPCAT.path } menu={ true }>{ t('footer.menu.aboutUs') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.CONTACTS.path } menu>{ t('footer.menu.contacts') }</Button>
+        <Button href={ ROUTES.CONTACTS.path } menu={ true }>{ t('footer.menu.contacts') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.TERMS_CONDITIONS.path } menu>{ t('footer.menu.termsConditions') }</Button>
+        <Button href={ ROUTES.TERMS_CONDITIONS.path } menu={ true }>{ t('footer.menu.termsConditions') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.PRIVACY_POLICY.path } menu>{ t('footer.menu.privacyPolicy') }</Button>
+        <Button href={ ROUTES.PRIVACY_POLICY.path } menu={ true }>{ t('footer.menu.privacyPolicy') }</Button>
       </li>
     </ul>
-  )
-}
+  );
+};

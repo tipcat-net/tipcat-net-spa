@@ -19,7 +19,7 @@ export const Header = ({ logo, title, className }) => {
 
   const onMenuToggle = () => {
     setMenuOpen(!menuOpen);
-  }
+  };
 
   if (logo) {
     return (
@@ -34,19 +34,20 @@ export const Header = ({ logo, title, className }) => {
   return (
     <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
-        { member && <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button> }
-        <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
+        { member && <Button clear={ true } className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button> }
+        <Button clear={ true } className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
         {
           title ? <h1 className={ style.headerTitle }>{ title }</h1>
-          :
-            <div className={ style.headerLogo }>
-              <Logo className={ style.headerLogoIcon } />
-            </div>
+            : (
+              <div className={ style.headerLogo }>
+                <Logo className={ style.headerLogoIcon } />
+              </div>
+            )
         }
         {
           member && (
-            <>
-              <Link 
+            <React.Fragment>
+              <Link
                 to={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
                 className={ style.headerBtn }
               >
@@ -58,7 +59,7 @@ export const Header = ({ logo, title, className }) => {
               >
                 <Person className={ style.headerBtnIcon } />
               </Link>
-            </>
+            </React.Fragment>
           )
         }
       </div>

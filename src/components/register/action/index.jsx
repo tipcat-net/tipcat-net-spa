@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '../../ui/Button';
 
@@ -10,7 +10,7 @@ export const RegisterAction = ({ currentStep, back, next, touched, errors, class
 
   for (let key in errors) {
     if(errors[key] === 'Required') {
-      return <div className={style.errorRequired}>Please add the required information</div>
+      return <div className={ style.errorRequired }>Please add the required information</div>
     }
   }
 
@@ -18,40 +18,39 @@ export const RegisterAction = ({ currentStep, back, next, touched, errors, class
     <div className={ cn(style.registerAction, className) }>
       <div className={ style.registerActionButtonWrap }>
         {
-          currentStep === "account" ?
+          currentStep === 'account' ?
             <Button
-              outline
+              outline={ true }
               onClick={ back }
-            >{ t('registration.buttons.back') }</Button> 
-          : 
-            null
+            >{ t('registration.buttons.back') }</Button>
+            : null
         }
       </div>
       <div className={ style.registerPoints }>
         <Button
-          clear
-          className={ cn(style.registerPoint, currentStep === "member" ? style.registerPointActive : null) }
+          clear={ true }
+          className={ cn(style.registerPoint, currentStep === 'member' ? style.registerPointActive : null) }
           onClick={ back }
         ></Button>
         <Button
-          clear
-          className={ cn(style.registerPoint, currentStep === "account" ? style.registerPointActive : null) }
+          clear={ true }
+          className={ cn(style.registerPoint, currentStep === 'account' ? style.registerPointActive : null) }
           onClick={ next }
         ></Button>
       </div>
       <div className={ style.registerActionButtonWrap }>
-        { 
-          currentStep === "member" ? 
+        {
+          currentStep === 'member' ?
             <Button
-              outline
+              outline={ true }
               disabled={ touched.member && !errors.member ? false : true }
               primary={ touched.member && !errors.member ? true : false }
               onClick={ next }
             >{ t('registration.buttons.next') }</Button>
-          : 
+            :
             <Button
               type="submit"
-              outline
+              outline={ true }
               disabled={ touched.account && !errors.account ? false : true }
               primary={ touched.account && !errors.account ? true : false }
             >{ t('registration.buttons.submit') }</Button>
@@ -59,4 +58,4 @@ export const RegisterAction = ({ currentStep, back, next, touched, errors, class
       </div>
     </div>
   );
-}
+};

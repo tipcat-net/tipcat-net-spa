@@ -16,30 +16,30 @@ export const Logout = () => {
   const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   if (isAuthenticated) {
-    logout({ returnTo: authConfig.logoutUri })
+    logout({ returnTo: authConfig.logoutUri });
   }
 
   return (
     <div className={ style.logout }>
       <Logo className={ style.logoutLogo } />
-      <div className={ style.logoutTitle }>{ t("logout.title") }</div>
-      <div className={ style.logoutText }>{ t("logout.text") }</div>
+      <div className={ style.logoutTitle }>{ t('logout.title') }</div>
+      <div className={ style.logoutText }>{ t('logout.text') }</div>
       <Button
-        transparent
+        transparent={ true }
         onClick={ () => loginWithRedirect() }
         className={ style.logoutBtnLogin  }
-        >{ t("logout.buttonLogin") }</Button>
+      >{ t('logout.buttonLogin') }</Button>
       <Button
-        menu
+        menu={ true }
         href={ ROUTES.ABOUT_TIPCAT.path }
         className={ style.logoutLinkAbout  }
-      >{ t("logout.LinkAbout") }</Button>
+      >{ t('logout.LinkAbout') }</Button>
     </div>
-  )
+  );
 };
 
 export default Logout;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import { Button } from '../../ui/Button';
@@ -37,19 +37,19 @@ export const Menu = ({ open, onClose }) => {
         </li>
         <li>
           <Button
-            clear
+            clear={ true }
             className={ style.menuLink }
             onClick={ () => logout({ returnTo: authConfig.logoutUri }) }
           >{ t('header.menu.logout') }</Button>
         </li>
       </ul>
       <div className={ style.menuBottom }>
-        <Button href={ ROUTES.PRIVACY_POLICY } menu className={ style.menuBottomLink }>{ t('header.menuBottom.privacyPolicy') }</Button>
-        <Button href={ ROUTES.TERMS_CONDITIONS } menu className={ style.menuBottomLink }>{ t('header.menuBottom.termsConditions') }</Button>
-        <Button href={ ROUTES.ABOUT_TIPCAT } menu className={ style.menuBottomLink }>{ t('header.menuBottom.AboutTipCat') }</Button>
+        <Button href={ ROUTES.PRIVACY_POLICY } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.privacyPolicy') }</Button>
+        <Button href={ ROUTES.TERMS_CONDITIONS } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.termsConditions') }</Button>
+        <Button href={ ROUTES.ABOUT_TIPCAT } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.AboutTipCat') }</Button>
       </div>
     </div>
   );
-}
+};
 
 export default Menu;

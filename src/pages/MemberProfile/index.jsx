@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Substrate } from '../../components/profile/substrate';
@@ -31,7 +31,7 @@ export const MemberProfile = () => {
   const account = useSelector(selectAccount);
 
   useEffect(() => {
-    put(getAccount(member.accountId))
+    put(getAccount(member.accountId));
   }, []);
 
   useEffect(() => {
@@ -39,12 +39,13 @@ export const MemberProfile = () => {
       for (let facilitiesItem of account.facilities) {
         const resultMember = facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId));
         const resultAccountManager = facilitiesItem.members.find(memberItem => memberItem.permissions === MemberPermissions.Manager);
+
         if (resultMember) {
           setMemberProfile(resultMember);
           setFacility(facilitiesItem);
         }
         if (resultAccountManager) {
-          setAccountManager(resultAccountManager)
+          setAccountManager(resultAccountManager);
         }
         if((resultMember || memberProfile) && (resultAccountManager || accountManager)) {
           break;
@@ -55,12 +56,12 @@ export const MemberProfile = () => {
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
-  }
+  };
 
   const avatarData = (data) => ({
     text: `${data.firstName} ${data.lastName}`,
     url: data.avatarUrl,
-    invitationState: data.invitationState
+    invitationState: data.invitationState,
   });
 
   return (
@@ -75,13 +76,13 @@ export const MemberProfile = () => {
             <ProfileContent>
               <ProfileAvatar data={ avatarData(memberProfile) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
-              <ProfileInfo top data={ { title: t('memberProfile.facility'), text: facility.name} } />
+              <ProfileInfo top={ true } data={ { title: t('memberProfile.facility'), text: facility.name} } />
               <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.position} } />
               <ProfileInfo data={ { title: t('memberProfile.email'), text: memberProfile.email} } />
               <ProfileInfo
                 data={ {
                   title: t('memberProfile.accountManager'),
-                  text: `${accountManager?.firstName} ${accountManager?.lastName}`
+                  text: `${accountManager.firstName} ${accountManager.lastName}`,
                 } } />
             </ProfileContent>
           </Profile>
@@ -89,6 +90,6 @@ export const MemberProfile = () => {
       }
     </Layout>
   );
-}
+};
 
 export default MemberProfile;
