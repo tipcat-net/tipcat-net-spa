@@ -13,43 +13,43 @@ export const ProfileTransactions = ({ count, className }) => {
 
   const transactions = [
     {
-      date: "Today, 12.09",
+      date: 'Today, 12.09',
       list: [
         {
-          type: "income",
-          sum: "+$4"
+          type: 'income',
+          sum: '+$4',
         },
         {
-          type: "income",
-          text: "Thanks for a great evening)",
-          sum: "+$4"
+          type: 'income',
+          text: 'Thanks for a great evening)',
+          sum: '+$4',
         },
         {
           type: 'withdraw',
-          sum: "–$168,5"
-        }
-      ]
+          sum: '–$168,5',
+        },
+      ],
     },
     {
-      date: "Monday, 11.09",
+      date: 'Monday, 11.09',
       list: [
         {
-          type: "income",
-          sum: "+$4"
+          type: 'income',
+          sum: '+$4',
         },
         {
-          type: "income",
-          text: "You are best in the f*ng town!",
-          sum: "+$3"
+          type: 'income',
+          text: 'You are best in the f*ng town!',
+          sum: '+$3',
         },
         {
-          type: "income",
-          text: "Thank you",
-          sum: "+$10"
+          type: 'income',
+          text: 'Thank you',
+          sum: '+$10',
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ];
 
   return (
     <div className={ cn(style.transactions, className) }>
@@ -58,7 +58,7 @@ export const ProfileTransactions = ({ count, className }) => {
           <div key={ index } className={ style.transactionsGroup }>
             <Text size='small' className={ style.transactionsHeader }>{ item.date }</Text>
             <div className={ style.transactionsList }>
-              { 
+              {
                 item.list.map((transaction, transactionIndex) => (
                   <ProfileTransactionsItem key={ transactionIndex } transaction={ transaction } />
                 ))
@@ -67,7 +67,7 @@ export const ProfileTransactions = ({ count, className }) => {
           </div>
         ))
       }
-      { 
+      {
         count ? (
           <div className={ style.transactionsLast }>
             <Text
@@ -75,12 +75,12 @@ export const ProfileTransactions = ({ count, className }) => {
               className={ style.transactionsLastText }
             >{ t('transactions.transactionsLast.text') }</Text>
             <Button
-              menu
+              menu={ true }
               className={ style.transactionsLastBtn }
             >{ t('transactions.transactionsLast.btn') }</Button>
           </div>
         ) : null
       }
     </div>
-  )
-}
+  );
+};

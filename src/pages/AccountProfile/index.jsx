@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Profile } from '../../components/profile/';
 import { ProfileContent } from '../../components/profile/content/';
@@ -29,23 +29,23 @@ export const AccountProfile = () => {
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
-  }
+  };
 
   const closeVisibleSuccess = () => {
     setVisibleSuccess(false);
-  }
+  };
   const openVisibleSuccess = () => {
     setVisibleSuccess(true);
-  }
+  };
 
   const avatarData = (data) => ({
     text: data.operatingName,
-    url: data.avatarUrl
+    url: data.avatarUrl,
   });
 
   useEffect(() => {
     if (member) {
-      put(getAccount(member.accountId))
+      put(getAccount(member.accountId));
     }
   }, []);
 
@@ -55,7 +55,7 @@ export const AccountProfile = () => {
         account && (
           <Profile>
             <Substrate visible={ visibleSubstrate }>
-              <AccountProfileEdit 
+              <AccountProfileEdit
                 account={ account }
                 toggleVisibleSubstrate={ toggleVisibleSubstrate }
                 openVisibleSuccess={ openVisibleSuccess }
@@ -65,16 +65,16 @@ export const AccountProfile = () => {
             <ProfileContent>
               <ProfileAvatar data={ avatarData(account) } type='account' />
               <ProfileName>{ account.operatingName }</ProfileName>
-              <ProfileInfo top data={ { title: t('accountProfile.address'), text: account.address} } />
+              <ProfileInfo top={ true } data={ { title: t('accountProfile.address'), text: account.address} } />
               <ProfileInfo data={ { title: t('accountProfile.email'), text: account.email} } />
               <ProfileInfo data={ { title: t('accountProfile.phone'), text: account.phone} } />
               <ProfileContentBottom
                 leftLink={ {
-                  link: `/facility/`, text: t('accountProfile.ProfileContentBottom.leftLink')
-                }}
+                  link: '/facility/', text: t('accountProfile.ProfileContentBottom.leftLink'),
+                } }
                 rightLink={ {
-                  link: `/members`, text: t('accountProfile.ProfileContentBottom.rightLink')
-                }}
+                  link: '/members', text: t('accountProfile.ProfileContentBottom.rightLink'),
+                } }
               />
             </ProfileContent>
           </Profile>
@@ -84,11 +84,11 @@ export const AccountProfile = () => {
         visible={ visibleSuccess }
         duration={ delayBeforeClosing }
         onClose={ closeVisibleSuccess }
-        transparent
+        transparent={ true }
         message={ t('accountProfile.success.message') }
       />
     </Layout>
   );
-}
+};
 
 export default AccountProfile;

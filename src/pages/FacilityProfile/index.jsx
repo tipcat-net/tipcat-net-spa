@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Profile } from '../../components/profile/';
 import { ProfileContent } from '../../components/profile/content/';
@@ -29,20 +29,20 @@ export const FacilityProfile = () => {
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
-  }
+  };
 
   const avatarData = () => ({
     text: facility.name,
-    url: facility.avatarUrl
+    url: facility.avatarUrl,
   });
 
   useEffect(() => {
-    put(getAccount(member.accountId))
+    put(getAccount(member.accountId));
   }, []);
 
   useEffect(() => {
     if(account) {
-      setFacility(account.facilities.find(item => item.id === parseInt(facilityId)))
+      setFacility(account.facilities.find(item => item.id === parseInt(facilityId)));
     }
   }, [account]);
 
@@ -58,19 +58,19 @@ export const FacilityProfile = () => {
             <ProfileContent>
               <ProfileAvatar data={ avatarData() } type='facility' />
               <ProfileName>{ facility.name }</ProfileName>
-              <ProfileInfo top data={ { title: t('facilityProfile.operatingName'), text: <b>{account.operatingName}</b> } } />
+              <ProfileInfo top={ true } data={ { title: t('facilityProfile.operatingName'), text: <b>{ account.operatingName }</b> } } />
               <ProfileInfo data={ { title: t('facilityProfile.address'), text: account.address} } />
               <ProfileContentBottom
                 rightLink={ {
-                  link: `/facility/${facility.id}/members`, text: t('facilityProfile.ProfileContentBottom.rightLink')
-                }}
-                />
+                  link: `/facility/${facility.id}/members`, text: t('facilityProfile.ProfileContentBottom.rightLink'),
+                } }
+              />
             </ProfileContent>
           </Profile>
         )
       }
     </Layout>
   );
-}
+};
 
 export default FacilityProfile;

@@ -14,6 +14,7 @@ export const AvatarCropper = ({ data, onClose, onCrop }) => {
 
   const addImage = () => {
     let files;
+
     if (data) {
       if (data.dataTransfer) {
         files = data.dataTransfer.files;
@@ -21,25 +22,28 @@ export const AvatarCropper = ({ data, onClose, onCrop }) => {
         files = data.target.files;
       }
       const reader = new FileReader();
+
       reader.onload = () => {
         setImage(reader.result);
       };
       reader.readAsDataURL(files[0]);
     }
-  }
+  };
 
   const CropImage = () => {
-    const imageElement = cropperRef?.current;
-    const cropper = imageElement?.cropper;
+    const imageElement = cropperRef.current;
+    const cropper = imageElement.cropper;
+
     cropper.getCroppedCanvas({
       width: 188,
       weight: 188,
     }).toBlob(blob => {
       const formData = new FormData();
+
       formData.append('croppedImage', blob, `avatar.${blob.type.split('/')[1]}`);
       onCrop(formData.get('croppedImage'));
     });
-  }
+  };
 
   if (!data) {
     return null;
@@ -68,8 +72,8 @@ export const AvatarCropper = ({ data, onClose, onCrop }) => {
       />
       <div className={ style.avatarCropperBtns }>
         <Button onClick={ onClose } className={ style.avatarCropperBtn }>{ t('avatarCropper.close') }</Button>
-        <Button primary onClick={ CropImage } className={ style.avatarCropperBtn }>{ t('avatarCropper.crop') }</Button>
+        <Button primary={ true } onClick={ CropImage } className={ style.avatarCropperBtn }>{ t('avatarCropper.crop') }</Button>
       </div>
     </div>
-  )
-}
+  );
+};

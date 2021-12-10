@@ -16,11 +16,11 @@ export const QrCode = ({ url, className }) => {
       <div className={ style.qrCodeImage }>
         <img src={ url } alt={ t('qrCode.title') } />
       </div>
-      <Text size='small' strong className={ style.qrCodeShare }>
+      <Text size='small' strong={ true } className={ style.qrCodeShare }>
         <Save className={ style.qrCodeShareIcon } /> { t('qrCode.share') }
       </Text>
     </div>
-  )
-}
+  );
+};
 
 export default QrCode;

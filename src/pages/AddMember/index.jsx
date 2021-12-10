@@ -31,10 +31,10 @@ export const AddMember = () => {
 
   const onSubmit = (values) => {
     put(addMember(values, closeSuccess));
-  }
+  };
 
   return (
-    <Layout hiddenHeader>
+    <Layout hiddenHeader={ true }>
       <Formik
         initialValues={ getInitialValues(initialValues, member) }
         validationSchema={ schema }
@@ -50,10 +50,10 @@ export const AddMember = () => {
             const onSuccessBtnAdd = () => {
               resetForm();
               setVisibleSuccess(false);
-            }
+            };
 
             return (
-              <>
+              <React.Fragment>
                 <div className={ style.create }>
                   <div className={ style.createTitle }>{ t('addMember.title') }</div>
                   <Form>
@@ -63,21 +63,21 @@ export const AddMember = () => {
                       type="text"
                       value={ values.firstName }
                       className={ style.registerInputBold }
-                      required
+                      required={ true }
                     />
                     <FormInput
                       label={ t('addMember.fields.lastName.label') }
                       name="lastName"
                       type="text"
                       value={ values.lastName }
-                      required
+                      required={ true }
                     />
                     <FormInput
                       label={ t('addMember.fields.email.label') }
                       name="email"
                       type="email"
                       checked={ values.email }
-                      required
+                      required={ true }
                     />
                     {
                       errors ?
@@ -86,13 +86,13 @@ export const AddMember = () => {
                           errors={ errors }
                           message={ t('addMember.formRequiredError') }
                           className={ style.createError }
-                        /> 
-                      : 
+                        />
+                        :
                         null
                     }
                     <div className={ style.createButtons }>
                       <Button>{ t('addMember.buttons.back') }</Button>
-                      <Button type='submit' primary>{ t('addMember.buttons.submit') }</Button>
+                      <Button type='submit' primary={ true }>{ t('addMember.buttons.submit') }</Button>
                     </div>
                   </Form>
                 </div>
@@ -100,7 +100,7 @@ export const AddMember = () => {
                   visible={ visibleSuccess }
                   actionTop={
                     <Button
-                      transparent
+                      transparent={ true }
                       className={ style.createSuccessBtnHome }
                       href={ ROUTES.HOME.path }
                     >
@@ -110,7 +110,7 @@ export const AddMember = () => {
                   message={ t('addMember.success.message') }
                   actionBottom={
                     <Button
-                      clear
+                      clear={ true }
                       className={ style.createSuccessBtnAdd }
                       onClick={ onSuccessBtnAdd }
                     >
@@ -118,13 +118,13 @@ export const AddMember = () => {
                     </Button>
                   }
                 />
-              </>
-            )
+              </React.Fragment>
+            );
           }
         }
       </Formik>
     </Layout>
-  )
-}
+  );
+};
 
 export default AddMember;

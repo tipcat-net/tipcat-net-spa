@@ -28,21 +28,21 @@ import addFacilityRequest from './facility/add-facility';
 
 export default function* sagas() {
   yield all([
-      // SignUp
-      takeEvery(AppActionTypes.SIGN_UP_START, signUpRequest),
-      takeEvery(AppActionTypes.SIGN_UP_FINISH, getMemberRequest),
-      // Member
-      takeEvery(MemberActionTypes.ADD_MEMBER_START, addMemberRequest),
-      takeEvery(MemberActionTypes.GET_MEMBER_START, getMemberRequest),
-      takeEvery(MemberActionTypes.CREATE_MEMBER_START, createMemberRequest),
-      takeEvery(MemberActionTypes.UPDATE_MEMBER_START, updateMemberRequest),
-      takeEvery(MemberActionTypes.UPDATE_AVATAR_MEMBER_START, updateAvatarMemberRequest),
-      // Accounts
-      takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
-      takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
-      takeEvery(AccountActionTypes.UPDATE_ACCOUNT_START, updateAccountRequest),
-      takeEvery(AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START, updateAvatarAccountRequest),
-      // Facility
-      takeEvery(FacilityActionTypes.ADD_FACILITY_START, addFacilityRequest),
+    // SignUp
+    takeEvery(AppActionTypes.SIGN_UP_START, signUpRequest),
+    takeEvery(AppActionTypes.SIGN_UP_FINISH, getMemberRequest),
+    // Member
+    takeEvery(MemberActionTypes.ADD_MEMBER_START, addMemberRequest),
+    takeEvery(MemberActionTypes.GET_MEMBER_START, getMemberRequest),
+    takeEvery(MemberActionTypes.CREATE_MEMBER_START, createMemberRequest),
+    takeEvery(MemberActionTypes.UPDATE_MEMBER_START, updateMemberRequest),
+    takeEvery(MemberActionTypes.UPDATE_AVATAR_MEMBER_START, updateAvatarMemberRequest),
+    // Accounts
+    takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
+    takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
+    takeEvery(AccountActionTypes.UPDATE_ACCOUNT_START, updateAccountRequest),
+    takeEvery(AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START, updateAvatarAccountRequest),
+    // Facility
+    takeEvery(FacilityActionTypes.ADD_FACILITY_START, addFacilityRequest),
   ]);
 }

@@ -9,10 +9,10 @@ import style from './styles.module.scss';
 
 export const FormInput = ({ label, type, className, ...props }) => {
   const [field, meta] = useField(props);
-  
+
   return (
     <div className={ cn(style.formItem, className) }>
-      <Label 
+      <Label
         htmlFor={ props.id || props.name }
         required={ props.required }
       >
@@ -21,7 +21,7 @@ export const FormInput = ({ label, type, className, ...props }) => {
       {
         type === 'textarea' ?
           <TextArea error={ meta.touched && meta.error } { ...field } { ...props } />
-        :
+          :
           <Input error={ meta.touched && meta.error } type={ type } { ...field } { ...props } />
       }
     </div>

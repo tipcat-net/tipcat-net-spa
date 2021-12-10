@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans, useTranslation } from "react-i18next";
+import { Trans, useTranslation } from 'react-i18next';
 
 import { FooterMenu } from './menu';
 import { Logo } from '../ui/Icons';
@@ -38,5 +38,5 @@ export const Footer = () => {
         <Trans i18nKey="footer.copyright" />
       </div>
     </footer>
-  )
-}
+  );
+};

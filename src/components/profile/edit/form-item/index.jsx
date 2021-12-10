@@ -6,18 +6,18 @@ import { FormItemContent } from './content';
 import style from './styles.module.scss';
 
 export const FormItem = ({ label, visivbleField, toggleVisivbleField, ...props }) => {
-  const { name } = props;  
-  
+  const { name } = props;
+
   return (
     <div className={ style.formItem }>
       <Label
-        htmlFor={props.id || name}
+        htmlFor={ props.id || name }
         onClick={ () => toggleVisivbleField(name) }
-      >{label}</Label>
+      >{ label }</Label>
       {
         visivbleField === name ?
-          <FormItemContent {...props} />
-        : null
+          <FormItemContent { ...props } />
+          : null
       }
     </div>
   );

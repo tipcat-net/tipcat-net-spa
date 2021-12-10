@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Title } from '../../ui/Title';
 import { Text } from '../../ui/Text';
@@ -39,7 +39,7 @@ export const ProfileDiagram = ({ current, max }) => {
               strokeLinecap="round"
               className={ style.diagramProgressCurrent }
               style={ {
-                strokeDasharray: `${progress}%, 200%`
+                strokeDasharray: `${progress}%, 200%`,
               } } />
           </svg>
         </div>
@@ -55,7 +55,7 @@ export const ProfileDiagram = ({ current, max }) => {
           <Text size='small' className={ style.diagramBottomItemNumber }>$ { current }</Text>
           <Text size='superSmall' className={ style.diagramBottomtItemText }>{ t('profileDiagram.currentText') }</Text>
         </div>
-        <Button primary>{ t('profileDiagram.btn') }</Button>
+        <Button primary={ true }>{ t('profileDiagram.btn') }</Button>
         <div className={ style.diagramBottomItem }>
           <Text size='small' className={ style.diagramBottomItemNumber }>$ { max }</Text>
           <Text size='small' className={ style.diagramBottomItemText }>{ t('profileDiagram.maxText') }</Text>
@@ -63,4 +63,4 @@ export const ProfileDiagram = ({ current, max }) => {
       </div>
     </div>
   );
-}
+};

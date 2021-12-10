@@ -1,9 +1,9 @@
 import React from 'react';
 import cn from 'classnames';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
-import { Title } from '../../../ui/Title'
-import { Text } from '../../../ui/Text'
+import { Title } from '../../../ui/Title';
+import { Text } from '../../../ui/Text';
 import { ArrowDownCircle } from '../../../ui/Icons';
 
 import style from './styles.module.scss';
@@ -19,18 +19,18 @@ export const ProfileTransactionsItem = ({ transaction }) => {
       </div>
       <Text
         size='small'
-        strong
+        strong={ true }
         className={ style.transactionsItemTitle }
       >{ t(`transactions.types.${transaction.type}`) }</Text>
       <Title
         level={ 2 }
         className={ style.transactionsItemSum }
       >{ transaction.sum }</Title>
-      { 
-        transaction.text ? 
+      {
+        transaction.text ?
           <Text size='small' className={ style.transactionsItemText }>{ transaction.text }</Text>
-        : null
+          : null
       }
     </div>
   );
-}
+};

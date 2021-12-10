@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Profile } from '../../components/profile/';
@@ -22,24 +22,24 @@ export const Home = () => {
   const data = {
     diagram: {
       current: 78,
-      max: 144
+      max: 144,
     },
     card: {
       number: '11112222333344443456',
       date: '10/2024',
-      name: 'NICHOLAS ANGEL'
+      name: 'NICHOLAS ANGEL',
     },
     total_transactions: 132,
-    total_earned: "$ 438"
-  }
+    total_earned: '$ 438',
+  };
 
   const avatarData = (data) => ({
     text: `${data.firstName} ${data.lastName}`,
-    url: data.avatarUrl
+    url: data.avatarUrl,
   });
 
   return (
-    <Layout title={ t('home.headerTitle') } footer>
+    <Layout title={ t('home.headerTitle') } footer={ true }>
       {
         currentMember && (
           <Profile>
@@ -54,7 +54,7 @@ export const Home = () => {
         )
       }
     </Layout>
-  )
+  );
 };
 
 export default Home;

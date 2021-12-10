@@ -1,0 +1,78 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'airbnb/hooks',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: [
+    'react-hooks',
+    'react',
+  ],
+  rules: {
+    quotes: ['warn', 'single', { avoidEscape: true }],
+    'comma-dangle': ['warn', 'always-multiline'],
+    'comma-spacing': ['warn', { before: false, after: true }],
+    'comma-style': ['warn', 'last'],
+    'computed-property-spacing': ['warn', 'never'],
+    'func-call-spacing': ['warn', 'never'],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'key-spacing': ['warn'],
+    'no-trailing-spaces': ['warn'],
+    'no-whitespace-before-property': ['warn'],
+    'padding-line-between-statements': [
+      'warn',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      { blankLine: 'always', prev: '*', next: 'return' },
+      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+    ],
+    'quote-props': ['warn', 'as-needed'],
+    semi: ['warn'],
+    'semi-spacing': ['warn'],
+    'semi-style': ['warn'],
+    'space-before-blocks': ['warn'],
+    'space-in-parens': ['warn'],
+    'space-infix-ops': ['warn'],
+    'space-unary-ops': ['warn'],
+    'switch-colon-spacing': ['warn'],
+    'no-shadow': 'off',
+
+    'operator-linebreak': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'max-len': 'off',
+
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-negated-condition': 'warn',
+    'default-case': 'off',
+    'no-use-before-define': 'off',
+
+    complexity: ['warn', 20],
+    'max-nested-callbacks': 'warn',
+
+    // React
+    'react/jsx-indent': ['warn', 2],
+    'react/jsx-indent-props': ['warn', 2],
+    'react/jsx-curly-spacing': ['warn', { when: 'always', children: true }],
+    'react/jsx-fragments': ['warn', 'element'],
+    'react/static-property-placement': ['error', 'static public field'],
+    'react/state-in-constructor': ['error', 'never'],
+    'react/prop-types': 'off',
+    'react/sort-comp': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-boolean-value': ['error', 'always'],
+    'react/jsx-props-no-spreading': 'off',
+    'react/prefer-stateless-function': 'off',
+    'react/destructuring-assignment': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx'] }],
+    'react/jsx-one-expression-per-line': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+  },
+};

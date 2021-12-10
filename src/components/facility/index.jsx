@@ -16,7 +16,7 @@ export const Facility = ({ data }) => {
 
   const avatarData = () => ({
     text: data.name,
-    url: data.avatarUrl
+    url: data.avatarUrl,
   });
 
   return (
@@ -29,11 +29,15 @@ export const Facility = ({ data }) => {
           >{ data.name }</Link>
         </div>
         <div className={ style.facilityHeaderCount }>{ data.members.length }</div>
-        <Button clear className={ style.facilityHeaderArrow } onClick={ () => setVisible(!visible) }><ArrowDown className={ style.facilityHeaderArrowIcon }/></Button>
+        <Button
+          clear={ true }
+          className={ style.facilityHeaderArrow }
+          onClick={ () => setVisible(!visible) }
+        ><ArrowDown className={ style.facilityHeaderArrowIcon }/></Button>
       </div>
       <div className={ style.facilityContent }>
         <Members members={ data.members } />
       </div>
     </div>
-  )
-}
+  );
+};
