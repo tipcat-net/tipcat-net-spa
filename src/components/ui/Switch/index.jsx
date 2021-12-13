@@ -3,12 +3,12 @@ import cn from 'classnames';
 
 import style from './styles.module.scss';
 
-export const Switch = ({ className, onChange, checked, children }) => {
+export const Switch = ({ className, onChange, checked }) => {
   const switchRef = useRef(null);
-  
+
   return (
     <label
-      className={ style.switch } 
+      className={ style.switch }
       onClick={ () => switchRef.current.checked }
     >
       <input
@@ -18,7 +18,7 @@ export const Switch = ({ className, onChange, checked, children }) => {
         onChange={ onChange }
         checked={ checked }
       />
-      <span className={ style.switchChecked  }></span>
+      <span className={ style.switchChecked }></span>
     </label>
-  )
-}
+  );
+};
