@@ -15,7 +15,7 @@ export const PaymentMessage = ({ title, text, button }) => {
   const { t } = useTranslation();
 
   return (
-    <Layout hiddenHeader background>
+    <Layout hiddenHeader={ true } background={ true }>
       <div className={ style.paymentMessage }>
         <div className={ style.paymentMessageContent }>
           <Logo className={ style.paymentMessageLogo } />
@@ -23,9 +23,12 @@ export const PaymentMessage = ({ title, text, button }) => {
             title ?
               <Title
                 level={ 2 }
-                className={ cn(style.paymentMessageTitle, !text ? style.paymentMessageTitleMarginTop : null) }
+                className={ cn(
+                  style.paymentMessageTitle,
+                  text ? null : style.paymentMessageTitleMarginTop,
+                ) }
               >{ title }</Title>
-            :
+              :
               null
           }
           {
@@ -34,23 +37,23 @@ export const PaymentMessage = ({ title, text, button }) => {
                 level={ 3 }
                 className={ style.paymentMessageText }
               >{ text }</Title>
-            :
+              :
               null
           }
         </div>
         {
           button ?
-            <Button white { ...button.props }>{ button.text }</Button>
-          :
+            <Button white={ true } { ...button.props }>{ button.text }</Button>
+            :
             null
         }
         <Button
           href={ ROUTES.ABOUT_TIPCAT.path }
-          borderNone
-          disabled
+          borderNone={ true }
+          disabled={ true }
           className={ style.paymentMessageBottomBtn }
         >{ t('pay.paymentMessage.bottomBtn') }</Button>
       </div>
     </Layout>
-  )
-}
+  );
+};

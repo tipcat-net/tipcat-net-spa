@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useTranslation } from 'react-i18next';
 
 import { ProfileContent } from '../../profile/content';
@@ -21,8 +21,8 @@ export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
     }
 
     const { error } = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardElement)
+      type: 'card',
+      card: elements.getElement(CardElement),
     });
 
     if(!error) {
@@ -39,8 +39,8 @@ export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
         display={ display }
         className={ style.paymentBottom }
         left={ <Button onClick={ () => onChangeDisplay('payment') }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
-        right={ <Button primary onClick={ handleSubmit }>{ t('pay.paymentCard.paymentBottom.right') }</Button> }
+        right={ <Button primary={ true } onClick={ handleSubmit }>{ t('pay.paymentCard.paymentBottom.right') }</Button> }
       />
     </ProfileContent>
-  )
-}
+  );
+};

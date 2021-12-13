@@ -43,7 +43,7 @@ export function paymentReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
-    
+
     case PaymentActionTypes.UPDATE_PAYMENT_START:
       return {
         ...state,

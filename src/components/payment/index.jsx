@@ -26,20 +26,21 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
 
   const avatarData = (data) => ({
     url: data.avatarUrl,
-    text: `${data.firstName} ${data.lastName}`
-  })
+    text: `${data.firstName} ${data.lastName}`,
+  });
 
   const onChangeCheckedServiceFee = (e) => {
     setCheckedServiceFee(!checkedServiceFee);
-  }
+  };
 
   const onChangeAmount = (value) => {
     let result = amount;
+
     if (/^[\d]*\.?[\d]{0,2}$/.test(value)) {
       result = value;
     }
     setAmount(result);
-  }
+  };
 
   const totalAmount = () => {
     if (checkedServiceFee && parseFloat(amount)) {
@@ -49,18 +50,18 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
     } else {
       return amount;
     }
-  }
+  };
 
   const onNext = () => {
-    if(payment?.paymentIntentId) {
+    if(payment.paymentIntentId) {
       put(updatePayment({
         memberId: payment.member.id,
         paymentId: payment.paymentIntentId,
         message: message,
         tipsAmount: {
           amount: totalAmount(),
-          currency: payment.proFormaInvoice.serviceFee.currency
-        }
+          currency: payment.proFormaInvoice.serviceFee.currency,
+        },
       }));
     } else {
       put(createPayment({
@@ -68,12 +69,12 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
         message: message,
         tipsAmount: {
           amount: totalAmount(),
-          currency: payment.proFormaInvoice.serviceFee.currency
-        }
+          currency: payment.proFormaInvoice.serviceFee.currency,
+        },
       }));
     }
     onChangeDisplay('card');
-  }
+  };
 
   return (
     <ProfileContent>
@@ -93,9 +94,9 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
             onChangeAmount(e.currentTarget.value);
           } }
         />
-        <Title className={ style.paymentAmountText } currency='$ '>{amount}</Title>
+        <Title className={ style.paymentAmountText } currency='$ '>{ amount }</Title>
       </div>
-  
+
       <div className={ style.paymentTotal }>
         <div className={ style.paymentSwitch }>
           <Switch
@@ -109,11 +110,11 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
         </div>
         <Text
           size='big'
-          strong
+          strong={ true }
           className={ style.paymentTotalText }
         >{ t('pay.payment.paymentTotalText') } <br/> $ <span>{ totalAmount() }</span></Text>
       </div>
-      
+
       <Text
         size='small'
         className={ style.paymentLabel }
@@ -130,8 +131,8 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
         display={ display }
         className={ style.paymentBottom }
         left={ <Button onClick={ () => onChangeDisplay('cancel') }>{ t('pay.payment.paymentBottom.left') }</Button> }
-        right={ <Button primary onClick={ onNext }>{ t('pay.payment.paymentBottom.right') }</Button> }
+        right={ <Button primary={ true } onClick={ onNext }>{ t('pay.payment.paymentBottom.right') }</Button> }
       />
     </ProfileContent>
-  )
-}
+  );
+};

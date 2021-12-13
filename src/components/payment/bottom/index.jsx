@@ -4,13 +4,13 @@ import cn from 'classnames';
 import style from './styles.module.scss';
 
 export const PaymentBottom = ({
-    className,
-    left,
-    right,
-    onChangeDisplay,
-    currentDisplay,
-    display
-  }) => {
+  className,
+  left,
+  right,
+  onChangeDisplay,
+  currentDisplay,
+  display,
+}) => {
   const stepsItem = () => {
     return display.map(item => {
       if(item.step) {
@@ -20,22 +20,23 @@ export const PaymentBottom = ({
             onClick={ () => onChangeDisplay(item.key) }
             className={ cn(
               style.paymentBottomStepsItem,
-              item.key === currentDisplay ? style.paymentBottomStepsItemActive : null
+              item.key === currentDisplay ? style.paymentBottomStepsItemActive : null,
             ) }
           ></div>
-        )
+        );
       }
+
       return null;
-    })
-  }
+    });
+  };
 
   return (
     <div className={ cn(style.paymentBottom, className) }>
-      { left ? <div className={ style.paymentBottomLeft }>{ left }</div> : null}
+      { left ? <div className={ style.paymentBottomLeft }>{ left }</div> : null }
       <div className={ style.paymentBottomSteps }>
         { stepsItem() }
       </div>
-      { right ? <div className={ style.paymentBottomRight }>{ right }</div> : null}
+      { right ? <div className={ style.paymentBottomRight }>{ right }</div> : null }
     </div>
   );
-}
+};
