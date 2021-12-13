@@ -6,8 +6,9 @@ import { Elements } from '@stripe/react-stripe-js';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
-import { PaymentCard } from '../../components/payment/card';
 import { Payment } from '../../components/payment';
+import { PaymentMethod } from '../../components/payment/method';
+import { PaymentCard } from '../../components/payment/card';
 import { PaymentMessage } from '../../components/payment/message';
 
 import { getPayment } from '../../ducks/payment/actions';
@@ -24,6 +25,10 @@ export const Pay = () => {
   const display = [
     {
       key: 'payment',
+      step: true,
+    },
+    {
+      key: 'paymentMethod',
       step: true,
     },
     {
@@ -53,13 +58,25 @@ export const Pay = () => {
   switch(currentDisplay) {
     case 'payment':
       return (
+        <Payment
+          payment={ payment }
+          onChangeDisplay={ onChangeDisplay }
+          currentDisplay={ currentDisplay }
+          display={ display }
+        />
+      );
+
+    case 'paymentMethod':
+      return (
         <Layout logo={ true } footer={ true }>
-          <Payment
-            payment={ payment }
-            onChangeDisplay={ onChangeDisplay }
-            currentDisplay={ currentDisplay }
-            display={ display }
-          />
+          <Elements stripe={ stripePromise }>
+            <PaymentMethod
+              payment={ payment }
+              onChangeDisplay={ onChangeDisplay }
+              currentDisplay={ currentDisplay }
+              display={ display }
+            />
+          </Elements>
         </Layout>
       );
 

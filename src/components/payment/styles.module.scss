@@ -1,9 +1,32 @@
 @import "../../styles/variables.scss";
 
+.payment {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  & &FacilityName {
+    margin-bottom: 5px;
+  }
+}
+
+.paymentCompanyName {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #4F4F4F;
+}
+
 .paymentLabel {
   text-align: center;
   margin-bottom: 6px;
   color: $paymentLabel_color;
+
+  &Amount {
+    margin-top: 33px;
+  }
 }
 
 .paymentAmount {

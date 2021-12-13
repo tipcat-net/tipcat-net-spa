@@ -1,12 +1,14 @@
 @import './../../../styles/variables.scss';
 
 .bigText {
+  font-weight: 400;
   font-size: 18px;
   line-height: 20px;
   color: $bigTextBase_color;
 }
 
 .smallText {
+  font-weight: 400;
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.03em;
@@ -14,6 +16,7 @@
 }
 
 .superSmallText {
+  font-weight: 400;
   font-size: 12px;
   line-height: 13px;
   letter-spacing: 0.03em;

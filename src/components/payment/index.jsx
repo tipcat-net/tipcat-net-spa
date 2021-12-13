@@ -3,9 +3,12 @@ import { useDispatch } from 'react-redux';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
+import { ProfileFacilityName } from '../profile/facilityName';
 import { ProfileContent } from '../profile/content';
 import { ProfileAvatar } from '../profile/avatar';
 import { ProfileName } from '../profile/name';
+import { ProfilePosition } from '../profile/position';
+import { Layout } from '../ui/Layout';
 import { Switch } from '../ui/Switch';
 import { Input } from '../ui/Input';
 import { Text } from '../ui/Text';
@@ -73,66 +76,68 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
         },
       }));
     }
-    onChangeDisplay('card');
+    onChangeDisplay('paymentMethod');
   };
 
   return (
-    <ProfileContent>
-      <ProfileAvatar data={ avatarData(payment.member) } />
-      <ProfileName>{ payment.member.firstName } { payment.member.lastName }</ProfileName>
-
-      <Text
-        size='big'
-        className={ cn(style.paymentLabel, style.paymentLabelAmount) }
-      >{ t('pay.payment.paymentLabelAmount') }</Text>
-      <div className={ style.paymentAmount }>
-        <Input
-          name='amount'
-          value={ amount }
-          className={ style.paymentAmountInput }
-          onChange={ (e) => {
-            onChangeAmount(e.currentTarget.value);
-          } }
-        />
-        <Title className={ style.paymentAmountText } currency='$ '>{ amount }</Title>
-      </div>
-
-      <div className={ style.paymentTotal }>
-        <div className={ style.paymentSwitch }>
-          <Switch
-            checked={ checkedServiceFee }
-            onChange={ onChangeCheckedServiceFee }
-          ></Switch>
+    <Layout logo={ true } footer={ true }>
+      <div className={ style.payment }>
+        <ProfileFacilityName className={ style.paymentFacilityName }>{ payment.member.facilityName }</ProfileFacilityName>
+        <div className={ style.paymentCompanyName }>{ payment.member.accountName }</div>
+        <ProfileContent>
+          <ProfileAvatar data={ avatarData(payment.member) } />
+          <ProfileName>{ payment.member.firstName } { payment.member.lastName }</ProfileName>
+          <ProfilePosition>{ payment.member.position }</ProfilePosition>
+          <Text
+            size='big'
+            className={ cn(style.paymentLabel, style.paymentLabelAmount) }
+          >{ t('pay.payment.paymentLabelAmount') }</Text>
+          <div className={ style.paymentAmount }>
+            <Input
+              name='amount'
+              value={ amount }
+              className={ style.paymentAmountInput }
+              onChange={ (e) => {
+                onChangeAmount(e.currentTarget.value);
+              } }
+            />
+            <Title className={ style.paymentAmountText } currency='$ '>{ amount }</Title>
+          </div>
+          <div className={ style.paymentTotal }>
+            <div className={ style.paymentSwitch }>
+              <Switch
+                checked={ checkedServiceFee }
+                onChange={ onChangeCheckedServiceFee }
+              ></Switch>
+              <Text
+                size='small'
+                className={ style.paymentSwitchText }
+              >{ t('pay.payment.paymentSwitch') }</Text>
+            </div>
+            <Text
+              size='big'
+              strong={ true }
+              className={ style.paymentTotalText }
+            >{ t('pay.payment.paymentTotalText') } <br/> $ <span>{ totalAmount() }</span></Text>
+          </div>
           <Text
             size='small'
-            className={ style.paymentSwitchText }
-          >{ t('pay.payment.paymentSwitch') }</Text>
-        </div>
-        <Text
-          size='big'
-          strong={ true }
-          className={ style.paymentTotalText }
-        >{ t('pay.payment.paymentTotalText') } <br/> $ <span>{ totalAmount() }</span></Text>
+            className={ style.paymentLabel }
+          >{ t('pay.payment.paymentLabelMessage') }</Text>
+          <Input
+            name='message'
+            value={ message }
+            onChange={ (e) => setMessage(e.currentTarget.value) }
+          />
+          <PaymentBottom
+            currentDisplay={ currentDisplay }
+            display={ display }
+            className={ style.paymentBottom }
+            left={ <Button onClick={ () => onChangeDisplay('cancel') }>{ t('pay.payment.paymentBottom.left') }</Button> }
+            right={ <Button primary={ true } onClick={ onNext }>{ t('pay.payment.paymentBottom.right') }</Button> }
+          />
+        </ProfileContent>
       </div>
-
-      <Text
-        size='small'
-        className={ style.paymentLabel }
-      >{ t('pay.payment.paymentLabelMessage') }</Text>
-      <Input
-        name='message'
-        value={ message }
-        onChange={ (e) => setMessage(e.currentTarget.value) }
-      />
-
-      <PaymentBottom
-        onChangeDisplay={ onChangeDisplay }
-        currentDisplay={ currentDisplay }
-        display={ display }
-        className={ style.paymentBottom }
-        left={ <Button onClick={ () => onChangeDisplay('cancel') }>{ t('pay.payment.paymentBottom.left') }</Button> }
-        right={ <Button primary={ true } onClick={ onNext }>{ t('pay.payment.paymentBottom.right') }</Button> }
-      />
-    </ProfileContent>
+    </Layout>
   );
 };

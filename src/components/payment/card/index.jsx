@@ -34,11 +34,10 @@ export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
     <ProfileContent className={ style.paymentCard }>
       <CardElement />
       <PaymentBottom
-        onChangeDisplay={ onChangeDisplay }
         currentDisplay={ currentDisplay }
         display={ display }
         className={ style.paymentBottom }
-        left={ <Button onClick={ () => onChangeDisplay('payment') }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
+        left={ <Button onClick={ () => onChangeDisplay('paymentMethod') }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
         right={ <Button primary={ true } onClick={ handleSubmit }>{ t('pay.paymentCard.paymentBottom.right') }</Button> }
       />
     </ProfileContent>

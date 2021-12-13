@@ -288,6 +288,27 @@
         "right": "Next"
       }
     },
+    "paymentMethod": {
+      "text": "How do you pay?",
+      "list": {
+        "applePay": {
+          "title": "ApplePay",
+          "description": ""
+        },
+        "card": {
+          "title": "Card",
+          "description": "Secure processing payment ensured <br> <strong>Rapid payment system</strong>"
+        },
+        "googlePay": {
+          "title": "GooglePay",
+          "description": ""
+        }
+      },
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    },
     "paymentCard": {
       "paymentBottom": {
         "left": "Back",

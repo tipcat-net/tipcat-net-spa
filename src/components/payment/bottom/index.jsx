@@ -7,17 +7,15 @@ export const PaymentBottom = ({
   className,
   left,
   right,
-  onChangeDisplay,
   currentDisplay,
   display,
 }) => {
-  const stepsItem = () => {
-    return display.map(item => {
+  const stepsItem = () => (
+    display.map(item => {
       if(item.step) {
         return (
           <div
             key={ item.key }
-            onClick={ () => onChangeDisplay(item.key) }
             className={ cn(
               style.paymentBottomStepsItem,
               item.key === currentDisplay ? style.paymentBottomStepsItemActive : null,
@@ -27,8 +25,8 @@ export const PaymentBottom = ({
       }
 
       return null;
-    });
-  };
+    })
+  );
 
   return (
     <div className={ cn(style.paymentBottom, className) }>
