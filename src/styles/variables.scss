@@ -3,6 +3,8 @@ $FiraMono: 'Fira Mono', monospace;;
 
 $body_bg: #F2F2F2;
 
+$layoutBackground_bg: linear-gradient(167.85deg, #1EB9C1 22.45%, #01687F 88.33%);
+
 // header
 $header_bg: #2A6274;
 $header_shadow: rgba(0, 0, 0, 0.3);
@@ -41,16 +43,23 @@ $button_active_bg: #878787;
 $button_disabled_color: #E0E0E0;
 $button_disabled_border: #E0E0E0;
 
-$buttonMenu_color: #4F4F4F;
-$buttonMenu_border: transparent;
-$buttonMenu_active_color: #4F4F4F;
-$buttonMenu_active_bg: transparent;
-$buttonMenu_active_bg: transparent;
+$buttonBorderNone_color: #4F4F4F;
+$buttonBorderNone_border: transparent;
+$buttonBorderNone_active_color: #4F4F4F;
+$buttonBorderNone_active_bg: transparent;
+$buttonBorderNone_disabled_border: transparent;
 
 $buttonPrimary_color: #1EB9C1;
 $buttonPrimary_border: #1EB9C1;
 $buttonPrimary_active_color: #FFFFFF;
 $buttonPrimary_active_bg: #1EB9C1;
+
+$buttonWhite_color: #FFFFFF;
+$buttonWhite_border: #FFFFFF;
+$buttonWhite_active_bg: #E0E0E0;
+$buttonWhite_active_color: #FFFFFF;
+
+$buttonActiveWhite_bg: #FFFFFF;
 
 // label
 $label_color: #828282;
@@ -72,6 +81,12 @@ $uploadFileButton_border: #BDBDBD;
 $checkbox_color: #828282;
 $checkboxChecked_border: #828282;
 $checkboxChecked_bg: #7DDBC7;
+
+// switch
+$switchChecked_bg: #E0E0E0;
+$switchChecked_before_bg: #FFFFFF;
+$switchChecked_before_shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+$switchInput_checked_switchChecked_bg: #1EB9C1;
 
 // formRequiredError
 $formRequiredError_color: #BF1649;
@@ -210,9 +225,29 @@ $transactionsItemSum_color: #FFBE17;
 $transactionsItemWithdrawSum_color: #7DDBC7;
 $transactionsItemText_color: #4F4F4F;
 
-// card {
+// card
 $card_bg: #FFFFFF;
 $card_shadow: rgba(0, 0, 0, 0.1);
 $cardIconCard_color: #7DDBC7;
 $cardNumber_color: #2A6274;
 $cardBtnView_color: #828282;
+
+// pay
+$paymentLabel_color: #878787;
+$paymentAmountInput_border: #FFEB84;
+$paymentAmountInput_color: #4F4F4F;
+$paymentAmountText_before_color: #BDBDBD;
+$paymentTotalText_color: #BDBDBD;
+$paymentTotalText_span_color: #878787;
+$paymentSwitchText_color: #878787;
+$paymentBottomStepsItem_bg: #BDBDBD;
+$paymentBottomStepsItemActive_bg: #1EB9C1;
+$paymentMethodDescription_color: #878787;
+$paymentMethotListItemIcon_border: #1EB9C1;
+$paymentMethotListItem_disabled_Icon_border: #F2F2F2;
+$paymentMethotListItemActiveIcon_bg: #1EB9C1;
+$paymentMethotListItemActiveIcon_color: #FFFFFF;
+$paymentMessageLogo_color: #01687F;
+$paymentMessageTitle_color: #FFFFFF;
+$paymentMessageText_color: #FFFFFF;
+$paymentMessageBottomBtn_color: #E0E0E0;

@@ -18,16 +18,17 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
     if (isAuthenticated) {
       const getToken = async () => {
         const token = await getAccessTokenSilently();
+
         localStorage.setItem('token', token);
         put(getMember());
       };
-        
+
       getToken();
     }
   }, [isAuthenticated]);
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   if (!isAuthenticated) {
@@ -41,15 +42,15 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
       <Redirect
         to={ ROUTES.REGISTRATION.path }
       />
-    )
+    );
   }
 
   if (!Component) {
-    return <PageNotFound />
+    return <PageNotFound />;
   }
 
   if (!member) {
-    return null
+    return null;
   }
 
   return (
@@ -57,7 +58,7 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
       { ...args }
       render={ (props) => <Component { ...props } /> }
     />
-  )
+  );
 };
 
 export default ProtectedRoute;

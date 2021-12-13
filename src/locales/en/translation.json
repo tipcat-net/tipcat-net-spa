@@ -276,5 +276,56 @@
       "back": "Back",
       "home": "Home"
     }
+  },
+  "pay": {
+    "payment": {
+      "paymentLabelAmount": "Your tip",
+      "paymentSwitch": "Include service comission at once",
+      "paymentTotalText": "Total",
+      "paymentLabelMessage": "Your message (may be)",
+      "paymentBottom": {
+        "left": "No thanks",
+        "right": "Next"
+      }
+    },
+    "paymentMethod": {
+      "text": "How do you pay?",
+      "list": {
+        "applePay": {
+          "title": "ApplePay",
+          "description": ""
+        },
+        "card": {
+          "title": "Card",
+          "description": "Secure processing payment ensured <br> <strong>Rapid payment system</strong>"
+        },
+        "googlePay": {
+          "title": "GooglePay",
+          "description": ""
+        }
+      },
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    },
+    "paymentCard": {
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    },
+    "paymentMessage": {
+      "bottomBtn": "More about servise TipCat.net"
+    },
+    "paymentSucceeded": {
+      "title": "Thank you!",
+      "text": "Nicholas <br/> will get your tip within <br/> 5 minutes",
+      "button": "See you later!"
+    },
+    "paymentCancel": {
+      "title": "Have a nice day!",
+      "button": "Return to payment"
+    }
   }
 }

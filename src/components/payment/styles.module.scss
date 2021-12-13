@@ -1,0 +1,95 @@
+@import "../../styles/variables.scss";
+
+.payment {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+  & &FacilityName {
+    margin-bottom: 5px;
+  }
+}
+
+.paymentCompanyName {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #4F4F4F;
+}
+
+.paymentLabel {
+  text-align: center;
+  margin-bottom: 6px;
+  color: $paymentLabel_color;
+
+  &Amount {
+    margin-top: 33px;
+  }
+}
+
+.paymentAmount {
+  position: relative;
+
+  &Input {
+    border: 2px solid $paymentAmountInput_border;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 36px;
+    line-height: 39px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: $paymentAmountInput_color;
+  }
+
+  &Text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-right: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    pointer-events: none;
+
+    &:before {
+      content: attr(currency);
+      color: $paymentAmountText_before_color;
+    }
+  }
+}
+
+.paymentTotal {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &Text {
+    color: $paymentTotalText_color;
+    text-align: right;
+
+    span {
+      color: $paymentTotalText_span_color;
+    }
+  }
+}
+
+.paymentSwitch {
+  margin: 10px 0;
+  display: flex;
+
+  &Text {
+    margin-left: 10px;
+    max-width: 137px;
+    color: $paymentSwitchText_color;
+  }
+}
+
+.paymentBottom {
+  margin-top: 35px;
+}

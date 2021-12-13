@@ -1,0 +1,52 @@
+@import "../../../styles/variables.scss";
+
+.paymentMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  &Content {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &Logo {
+    width: 80px;
+    height: 80px;
+    color: $paymentMessageLogo_color;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &Title {
+    margin-top: 37px;
+    color: $paymentMessageTitle_color;
+    text-align: center;
+
+    &MarginTop {
+      margin-top: 60px;
+    }
+  }
+  
+
+  &Text {
+    margin-top: 23px;
+    color: $paymentMessageText_color;
+    text-align: center;
+  }
+
+  &BottomBtn {
+    padding: 11px 11px 12px;
+    margin-top: 60px;
+    font-size: 12px;
+    line-height: 13px;
+    color: $paymentMessageBottomBtn_color;
+  }
+}

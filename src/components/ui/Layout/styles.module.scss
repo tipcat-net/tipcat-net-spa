@@ -1,3 +1,5 @@
+@import './../../../styles/variables.scss';
+
 .layout {
   height: 100vh;
 
@@ -12,5 +14,9 @@
 
   &Header + &Content:not(&ContentHeightAuto) {
     height: calc(100% - 60px);
+  }
+
+  &Background {
+    background: $layoutBackground_bg;
   }
 }

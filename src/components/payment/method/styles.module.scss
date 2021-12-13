@@ -1,0 +1,36 @@
+@import "../../../styles/variables.scss";
+
+.paymentMethod {
+  padding-top: 20px;
+}
+
+.paymentMethodContent {
+  padding-top: 20px;
+}
+
+.paymentMethodText {
+  margin-bottom: 90px;
+  text-align: center;
+}
+
+.paymentMethodDescription {
+  margin-top: 20px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $paymentMethodDescription_color;
+
+  img {
+    margin-bottom: 13px;
+  }
+}
+
+.paymentBottom {
+  margin-top: 20px;
+}

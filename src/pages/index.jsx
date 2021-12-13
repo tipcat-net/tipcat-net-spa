@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './../protected-route';
 
 import { ROUTES } from './../constants/routes';
@@ -17,6 +17,7 @@ import AddFacility from './AddFacility';
 import FacilityProfile from './FacilityProfile';
 import FacilityMembers from './FacilityMembers';
 import PageNotFound from './PageNotFound';
+import Pay from './Pay';
 
 export const Pages = () => {
   return (
@@ -24,7 +25,7 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.HOME } component={ Home } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
       <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
-      
+
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
       <ProtectedRoute { ...ROUTES.ADD_MEMBER } component={ AddMember } />
       <ProtectedRoute { ...ROUTES.MEMBER_PROFILE } component={ MemberProfile } />
@@ -34,6 +35,9 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.ADD_FACILITY } component={ AddFacility } />
       <ProtectedRoute { ...ROUTES.FACILITY } component={ FacilityProfile } />
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
+      <Route { ...ROUTES.PAY } >
+        <Pay />
+      </Route>
       <Route { ...ROUTES.AUTH } >
         <Auth />
       </Route>
@@ -42,7 +46,7 @@ export const Pages = () => {
       </Route>
       <Route component={ PageNotFound } />
     </Switch>
-  )
-}
+  );
+};
 
 export default Pages;

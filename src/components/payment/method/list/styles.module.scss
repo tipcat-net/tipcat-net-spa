@@ -1,0 +1,49 @@
+@import "../../../../styles/variables.scss";
+
+.paymentMethotList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &Item {
+    margin: 0 12px;
+    flex: 0 0 86px;
+    display: flex;
+    flex-direction: column;
+
+    &Icon {
+      width: 100%;
+      height: 86px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid $paymentMethotListItemIcon_border;
+      border-radius: 10px;
+    }
+
+    &Text {
+      margin-top: 11px;
+      width: 100%;
+      text-align: center;
+    }
+
+    &:disabled {
+      flex: 0 0 76px;
+    }
+
+    &:disabled &Icon {
+      height: 76px;
+      border-color: $paymentMethotListItem_disabled_Icon_border;
+    }
+    
+    &:disabled &Text {
+      margin-top: 16px;
+    }
+
+    &Active &Icon {
+      background-color: $paymentMethotListItemActiveIcon_bg;
+      color: $paymentMethotListItemActiveIcon_color;
+    }
+  }
+}

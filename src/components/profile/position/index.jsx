@@ -9,8 +9,11 @@ export const ProfilePosition = ({ className, children }) => {
   if (!children) {
     return null;
   }
-  
+
   return (
-    <Text size='small' className={ cn(style.profilePosition, className) }>{ children }</Text>
-  )
+    <Text
+      size='small'
+      className={ cn(style.profilePosition, className) }
+    >{ children }</Text>
+  );
 };
