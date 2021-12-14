@@ -24,7 +24,7 @@ export const Avatar = ({ size, className, type, data }) => {
   const transformLetters = (value) => {
     const str = value.split(' ');
 
-    if (str[0][0] && str[1][0]) {
+    if (str[0] && str[1]) {
       return str[0][0] + str[1][0];
     }
 
