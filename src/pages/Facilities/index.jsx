@@ -27,11 +27,11 @@ export const Facilities = () => {
     <Layout title={ t('facilities.headerTitle') }>
       <div className={ style.facilities }>
         {
-          account && account?.facilities.map(item => <Facility key={ item.id } data={ item } />)
+          account && account.facilities.map(item => <Facility key={ item.id } data={ item } />)
         }
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export default Facilities;
