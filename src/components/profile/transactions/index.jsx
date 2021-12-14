@@ -75,7 +75,7 @@ export const ProfileTransactions = ({ count, className }) => {
               className={ style.transactionsLastText }
             >{ t('transactions.transactionsLast.text') }</Text>
             <Button
-              menu={ true }
+              borderNone={ true }
               className={ style.transactionsLastBtn }
             >{ t('transactions.transactionsLast.btn') }</Button>
           </div>

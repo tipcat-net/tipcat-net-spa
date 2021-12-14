@@ -14,7 +14,7 @@ export const Button = ({ children, className, href, type, primary, borderNone, c
     return (
       <Link
         to={ href }
-        className={ cn(styles.button, classBorderNone, classPrimary, classClear, classWhite, classWhiteActive, className) }
+        className={ cn(styles.button, classClear, classBorderNone, classPrimary, classWhite, classWhiteActive, className) }
         { ...allProps }
       >
         { children }
@@ -25,10 +25,10 @@ export const Button = ({ children, className, href, type, primary, borderNone, c
   return (
     <button
       type={ type ? type : 'button' }
-      className={ cn(styles.button, classBorderNone, classPrimary, classClear, classWhite, className) }
+      className={ cn(styles.button, classClear, classBorderNone, classPrimary, classWhite, className) }
       { ...allProps }
     >
       { children }
     </button>
-  )
-}
+  );
+};

@@ -18,35 +18,71 @@ export const Menu = ({ open, onClose }) => {
     <div className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }>
       <ul className={ style.menu }>
         <li>
-          <Link to={ ROUTES.ACCOUNT.path } className={ style.menuLink }>{ t('header.menu.accountProfile') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.ADD_FACILITY.path } className={ style.menuLink }>{ t('header.menu.addFacility') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.ADD_MEMBER.path } className={ style.menuLink }>{ t('header.menu.addMember') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.transaction') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.financialAnalityc') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.SUPPORT.path } className={ style.menuLink }>{ t('header.menu.support') }</Link>
+          <Button
+            href={ ROUTES.ACCOUNT.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.accountProfile') }</Button>
         </li>
         <li>
           <Button
-            clear={ true }
+            href={ ROUTES.ADD_FACILITY.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.addFacility') }</Button>
+        </li>
+        <li>
+          <Button
+            href={ ROUTES.ADD_MEMBER.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.addMember') }</Button>
+        </li>
+        <li>
+          <Button
+            href={ ROUTES.HOME.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.transaction') }</Button>
+        </li>
+        <li>
+          <Button
+            href={ ROUTES.HOME.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.financialAnalityc') }</Button>
+        </li>
+        <li>
+          <Button
+            href={ ROUTES.SUPPORT.path }
+            borderNone={ true }
+            className={ style.menuLink }
+          >{ t('header.menu.support') }</Button>
+        </li>
+        <li>
+          <Button
+            borderNone={ true }
             className={ style.menuLink }
             onClick={ () => logout({ returnTo: authConfig.logoutUri }) }
           >{ t('header.menu.logout') }</Button>
         </li>
       </ul>
       <div className={ style.menuBottom }>
-        <Button href={ ROUTES.PRIVACY_POLICY } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.privacyPolicy') }</Button>
-        <Button href={ ROUTES.TERMS_CONDITIONS } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.termsConditions') }</Button>
-        <Button href={ ROUTES.ABOUT_TIPCAT } menu={ true } className={ style.menuBottomLink }>{ t('header.menuBottom.AboutTipCat') }</Button>
+        <Button
+          href={ ROUTES.PRIVACY_POLICY }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.privacyPolicy') }</Button>
+        <Button
+          href={ ROUTES.TERMS_CONDITIONS }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.termsConditions') }</Button>
+        <Button
+          href={ ROUTES.ABOUT_TIPCAT }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.AboutTipCat') }</Button>
       </div>
     </div>
   );
