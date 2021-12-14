@@ -46,7 +46,6 @@ export const Home = () => {
     <Layout title={ t('home.headerTitle') } footer={ true }>
       {
         currentMember && currentMember.permissions === 'Employee' ? (
-        // currentMember && currentMember.permissions === 'Manager' ? (
           <Profile>
             <ProfileTop />
             <ProfileContent>
@@ -61,11 +60,11 @@ export const Home = () => {
             <ProfileTop />
             <ProfileContent>
               <ProfileAvatar
-                data={ `${currentMember.firstName} ${currentMember.lastName}` }
+                data={ avatarData(currentMember) }
                 className={ style.homeAvatar }
               />
               <ProfileName>{ currentMember.firstName } { currentMember.lastName }</ProfileName>
-              <ProfilePosition>administrator</ProfilePosition>
+              <ProfilePosition>{ currentMember.position }</ProfilePosition>
             </ProfileContent>
             <div className={ style.homePanels }>
               <Panel title='Personal panel' className={ style.homePanelsItem }>

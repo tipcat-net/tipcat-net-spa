@@ -1,12 +1,55 @@
 @import "../../../styles/variables.scss";
 
 .accountPanel {
-  &Results {
-    margin: 0 -5px;
+  &Padding {
+    padding: 0 20px;
     display: flex;
+    flex-direction: column;
+  }
+
+  &BtnAccount {
+    margin: -20px 0 0 auto;
+  }
+
+  &Results {
+    margin: 12px -5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
     &Item {
       padding: 0 10px;
+      text-align: center;
+
+      &Transactions {
+        flex: 0 0 110px
+      }
     }
+  }
+
+  &BestResult {
+    margin-top: 20px;
+
+    &Title {
+      margin-bottom: 5px;
+    }
+
+    &Content {
+      min-height: 40px;
+      display: flex;
+      justify-content: space-between;
+      color: #01687F;
+
+      span {
+        margin-left: 7px;
+        text-align: right;
+      }
+    }
+  }
+
+  &Btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
   }
 }

@@ -70,12 +70,17 @@
     "btn": "Withdraw"
   },
   "accountPanel": {
+    "btnAccount": "Go to account",
     "results": {
-      "transactions": "Transactions",
+      "transactions": "Transactions today",
       "totalSum": "Total sum",
       "lastWeek": "Last week"
     },
-    "bestResult": "Best result"
+    "bestResult": "Best result",
+    "buttons": {
+      "facilitys": "Facilitys",
+      "members": "Members"
+    }
   },
   "auth": {
     "button": {
