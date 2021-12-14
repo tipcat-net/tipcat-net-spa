@@ -13,16 +13,28 @@ export const FooterMenu = () => {
   return (
     <ul className={ style.footerMenu }>
       <li>
-        <Button href={ ROUTES.ABOUT_TIPCAT.path } menu={ true }>{ t('footer.menu.aboutUs') }</Button>
+        <Button
+          href={ ROUTES.ABOUT_TIPCAT.path }
+          borderNone={ true }
+        >{ t('footer.menu.aboutUs') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.CONTACTS.path } menu={ true }>{ t('footer.menu.contacts') }</Button>
+        <Button
+          href={ ROUTES.CONTACTS.path }
+          borderNone={ true }
+        >{ t('footer.menu.contacts') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.TERMS_CONDITIONS.path } menu={ true }>{ t('footer.menu.termsConditions') }</Button>
+        <Button
+          href={ ROUTES.TERMS_CONDITIONS.path }
+          borderNone={ true }
+        >{ t('footer.menu.termsConditions') }</Button>
       </li>
       <li>
-        <Button href={ ROUTES.PRIVACY_POLICY.path } menu={ true }>{ t('footer.menu.privacyPolicy') }</Button>
+        <Button
+          href={ ROUTES.PRIVACY_POLICY.path }
+          borderNone={ true }
+        >{ t('footer.menu.privacyPolicy') }</Button>
       </li>
     </ul>
   );
