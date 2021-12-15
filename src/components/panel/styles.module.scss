@@ -1,0 +1,32 @@
+@import './../../styles/variables.scss';
+
+.panel {
+  box-shadow: 1px 1px 6px $panel_shadow;
+  border-radius: 20px;
+  background-color: $panel_bg;
+  
+  &Header {
+    padding: 8px;
+    display: flex;
+    align-items: flex-start;
+
+    &Title {
+      margin-top: 4px;
+      color: $panelHeaderTitle_color;
+    }
+
+    &Icon {
+      color: $panelHeaderIcon_color;
+      margin-right: 7px;
+      transition: all .3s ease;
+
+      &Open {
+        transform: rotateZ(-180deg);
+      }
+    }
+  }
+
+  &Content {
+    padding-bottom: 20px;
+  }
+}
