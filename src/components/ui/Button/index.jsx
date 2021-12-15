@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 import styles from './styles.module.scss';
 
-export const Button = ({ children, className, href, type, primary, borderNone, clear, white, whiteActive, ...allProps }) => {
+export const Button = ({ children, className, href, type, draggable, primary, borderNone, clear, white, whiteActive, ...allProps }) => {
   const classPrimary = primary ? styles.buttonPrimary : null;
   const classClear = clear ? styles.buttonClear : null;
   const classBorderNone = borderNone ? styles.buttonBorderNone : null;
@@ -15,6 +15,7 @@ export const Button = ({ children, className, href, type, primary, borderNone, c
       <Link
         to={ href }
         className={ cn(styles.button, classClear, classBorderNone, classPrimary, classWhite, classWhiteActive, className) }
+        draggable={ draggable ? draggable : false }
         { ...allProps }
       >
         { children }
