@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
-import { Person, QrCode, Arrow, Burger, Logo } from '../../components/ui/Icons/';
+import { Person, QrCode, ChevronBigLeft, Hamburger, Logo } from '../../components/ui/Icons/';
 import { Button } from '../../components/ui/Button';
 import { Menu } from './menu';
 
@@ -16,6 +17,8 @@ import style from './styles.module.scss';
 export const Header = ({ logo, title, className }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const member = useSelector(selectMember);
+
+  const history = useHistory();
 
   const onMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -34,8 +37,22 @@ export const Header = ({ logo, title, className }) => {
   return (
     <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
-        { member && <Button clear={ true } className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button> }
-        <Button clear={ true } className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
+        { member && (
+          <Button
+            clear={ true }
+            className={ style.headerBtn }
+            onClick={ history.goBack }
+          >
+            <ChevronBigLeft className={ style.headerBtnIcon } />
+          </Button>
+        ) }
+        <Button
+          clear={ true }
+          className={ cn(style.headerBtn, style.headerBtnBurger) }
+          onClick={ onMenuToggle }
+        >
+          <Hamburger className={ style.headerBtnIcon } />
+        </Button>
         {
           title ? <h1 className={ style.headerTitle }>{ title }</h1>
             : (
