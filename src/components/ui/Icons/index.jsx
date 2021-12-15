@@ -5,6 +5,7 @@ import { ReactComponent as AddSvg } from './svg/add.svg';
 import { ReactComponent as ArrowDownCircleSvg } from './svg/arrow_down_circle.svg';
 import { ReactComponent as ArrowDownSvg } from './svg/arrow_down.svg';
 import { ReactComponent as ArrowSvg } from './svg/arrow.svg';
+import { ReactComponent as ChevronDownSvg } from './svg/arrow/chevronDown.svg';
 
 import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
@@ -41,43 +42,44 @@ import './styles.scss';
 
 export const Icon = ({ className, children }) => {
   return (
-    <span className={ cn("icon", className) }>{ children }</span>
-  )
-}
+    <span className={ cn('icon', className) }>{ children }</span>
+  );
+};
 
-export const Actions = (props) => <Icon { ...props }><ActionsSvg /></Icon>
-export const Add = (props) => <Icon { ...props }><AddSvg /></Icon>
-export const ArrowDownCircle = (props) => <Icon { ...props }><ArrowDownCircleSvg /></Icon>
-export const ArrowDown = (props) => <Icon { ...props }><ArrowDownSvg /></Icon>
-export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>
+export const Actions = (props) => <Icon { ...props }><ActionsSvg /></Icon>;
+export const Add = (props) => <Icon { ...props }><AddSvg /></Icon>;
+export const ArrowDownCircle = (props) => <Icon { ...props }><ArrowDownCircleSvg /></Icon>;
+export const ArrowDown = (props) => <Icon { ...props }><ArrowDownSvg /></Icon>;
+export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>;
+export const ChevronDown = (props) => <Icon { ...props }><ChevronDownSvg /></Icon>;
 
-export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>
+export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>;
 
-export const Card = (props) => <Icon { ...props }><CardSvg /></Icon>
+export const Card = (props) => <Icon { ...props }><CardSvg /></Icon>;
 
-export const Hide = (props) => <Icon { ...props }><HideSvg /></Icon>
-export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>
+export const Hide = (props) => <Icon { ...props }><HideSvg /></Icon>;
+export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>;
 
-export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>
+export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>;
 
-export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>
+export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>;
 
-export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>
+export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>;
 
-export const Max = (props) => <Icon { ...props }><MaxSvg /></Icon>
-export const Min = (props) => <Icon { ...props }><MinSvg /></Icon>
+export const Max = (props) => <Icon { ...props }><MaxSvg /></Icon>;
+export const Min = (props) => <Icon { ...props }><MinSvg /></Icon>;
 
-export const NameAsc = (props) => <Icon { ...props }><NameAscSvg /></Icon>
-export const NameDesc = (props) => <Icon { ...props }><NameDescSvg /></Icon>
+export const NameAsc = (props) => <Icon { ...props }><NameAscSvg /></Icon>;
+export const NameDesc = (props) => <Icon { ...props }><NameDescSvg /></Icon>;
 
-export const Pen = (props) => <Icon { ...props }><PenSvg /></Icon>
-export const Person = (props) => <Icon { ...props }><PersonSvg /></Icon>
-export const Position = (props) => <Icon { ...props }><PositionSvg /></Icon>
+export const Pen = (props) => <Icon { ...props }><PenSvg /></Icon>;
+export const Person = (props) => <Icon { ...props }><PersonSvg /></Icon>;
+export const Position = (props) => <Icon { ...props }><PositionSvg /></Icon>;
 
-export const QrCode = (props) => <Icon { ...props }><QrCodeSvg /></Icon>
+export const QrCode = (props) => <Icon { ...props }><QrCodeSvg /></Icon>;
 
-export const Save = (props) => <Icon { ...props }><SaveSvg /></Icon>
-export const Show = (props) => <Icon { ...props }><ShowSvg /></Icon>
-export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>
+export const Save = (props) => <Icon { ...props }><SaveSvg /></Icon>;
+export const Show = (props) => <Icon { ...props }><ShowSvg /></Icon>;
+export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>;
 
-export const Time = (props) => <Icon { ...props }><TimeSvg /></Icon>
+export const Time = (props) => <Icon { ...props }><TimeSvg /></Icon>;
