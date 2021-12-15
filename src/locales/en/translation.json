@@ -57,6 +57,7 @@
     "maxText": "record"
   },
   "transactions": {
+    "headerTitle": "Transactions",
     "types": {
       "income": "Income tips",
       "withdraw" : "Withdraw to card"

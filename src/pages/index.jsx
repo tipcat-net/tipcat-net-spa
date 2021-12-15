@@ -18,6 +18,7 @@ import FacilityProfile from './FacilityProfile';
 import FacilityMembers from './FacilityMembers';
 import PageNotFound from './PageNotFound';
 import Pay from './Pay';
+import Transactions from './Transactions';
 
 export const Pages = () => {
   return (
@@ -35,6 +36,9 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.ADD_FACILITY } component={ AddFacility } />
       <ProtectedRoute { ...ROUTES.FACILITY } component={ FacilityProfile } />
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
+
+      <ProtectedRoute { ...ROUTES.TRANSACTIONS } component={ Transactions } />
+
       <Route { ...ROUTES.PAY } >
         <Pay />
       </Route>

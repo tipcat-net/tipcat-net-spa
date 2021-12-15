@@ -2,13 +2,13 @@ import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileTransactionsItem } from './item';
-import { Text } from '../../ui/Text';
-import { Button } from '../../ui/Button';
+import { TransactionsListItem } from './item';
+import { Text } from '../ui/Text';
+import { Button } from '../ui/Button';
 
 import style from './styles.module.scss';
 
-export const ProfileTransactions = ({ count, className }) => {
+export const TransactionsList = ({ primary, count, className }) => {
   const { t } = useTranslation();
 
   const transactions = [
@@ -52,7 +52,13 @@ export const ProfileTransactions = ({ count, className }) => {
   ];
 
   return (
-    <div className={ cn(style.transactions, className) }>
+    <div
+      className={ cn(
+        style.transactions,
+        primary ? style.transactionsPrimary : null,
+        className,
+      ) }
+    >
       {
         transactions.map((item, index) => (
           <div key={ index } className={ style.transactionsGroup }>
@@ -60,7 +66,7 @@ export const ProfileTransactions = ({ count, className }) => {
             <div className={ style.transactionsList }>
               {
                 item.list.map((transaction, transactionIndex) => (
-                  <ProfileTransactionsItem key={ transactionIndex } transaction={ transaction } />
+                  <TransactionsListItem key={ transactionIndex } transaction={ transaction } />
                 ))
               }
             </div>
