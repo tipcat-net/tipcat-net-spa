@@ -2,13 +2,15 @@ import React from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
-import { TransactionsListItem } from './item';
+import { TransactionListItem } from './item';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 
+import { ROUTES } from '../../constants/routes';
+
 import style from './styles.module.scss';
 
-export const TransactionsList = ({ primary, count, className }) => {
+export const TransactionList = ({ primary, count, className }) => {
   const { t } = useTranslation();
 
   const transactions = [
@@ -66,7 +68,7 @@ export const TransactionsList = ({ primary, count, className }) => {
             <div className={ style.transactionsList }>
               {
                 item.list.map((transaction, transactionIndex) => (
-                  <TransactionsListItem key={ transactionIndex } transaction={ transaction } />
+                  <TransactionListItem key={ transactionIndex } transaction={ transaction } />
                 ))
               }
             </div>
@@ -82,6 +84,7 @@ export const TransactionsList = ({ primary, count, className }) => {
             >{ t('transactions.transactionsLast.text') }</Text>
             <Button
               borderNone={ true }
+              href={ ROUTES.TRANSACTIONS.path }
               className={ style.transactionsLastBtn }
             >{ t('transactions.transactionsLast.btn') }</Button>
           </div>

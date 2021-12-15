@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { ProfileDiagram } from '../diagram';
-import { TransactionsList } from '../../transactions-list';
+import { TransactionList } from '../../transaction-list';
 import { ProfileResult } from '../result';
 import { Card } from '../../card';
 import { Text } from '../../ui/Text';
@@ -28,7 +28,7 @@ export const PersonalPanel = ({ data, className }) => {
           className={ style.personalPanelTotalsItem }
         />
       </div>
-      <TransactionsList count={ true } />
+      <TransactionList count={ true } />
       <div className={ style.personalPanelPaymentAccount }>
         <Text
           size='small'

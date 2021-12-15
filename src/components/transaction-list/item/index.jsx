@@ -8,7 +8,7 @@ import { ArrowDownCircle } from '../../ui/Icons';
 
 import style from './styles.module.scss';
 
-export const TransactionsListItem = ({ transaction }) => {
+export const TransactionListItem = ({ transaction }) => {
   const { t } = useTranslation();
   const classType = transaction.type === 'withdraw' ? style.transactionsItemWithdraw : null;
 
