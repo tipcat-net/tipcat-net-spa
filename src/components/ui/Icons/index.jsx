@@ -6,6 +6,7 @@ import { ReactComponent as ArrowDownCircleSvg } from './svg/arrow_down_circle.sv
 import { ReactComponent as ArrowDownSvg } from './svg/arrow_down.svg';
 import { ReactComponent as ArrowSvg } from './svg/arrow.svg';
 import { ReactComponent as ChevronDownSvg } from './svg/arrow/chevronDown.svg';
+import { ReactComponent as CircleUpSvg } from './svg/arrow/circleUp.svg';
 
 import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
@@ -52,6 +53,7 @@ export const ArrowDownCircle = (props) => <Icon { ...props }><ArrowDownCircleSvg
 export const ArrowDown = (props) => <Icon { ...props }><ArrowDownSvg /></Icon>;
 export const Arrow = (props) => <Icon { ...props }><ArrowSvg /></Icon>;
 export const ChevronDown = (props) => <Icon { ...props }><ChevronDownSvg /></Icon>;
+export const CircleUp = (props) => <Icon { ...props }><CircleUpSvg /></Icon>;
 
 export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>;
 

@@ -1,8 +1,12 @@
-@import "../../../styles/variables.scss";
+@import "../../styles/variables.scss";
 
 .transactions {
   background: $transactions_bg;
   box-shadow: 1px 1px 6px $transactions_shadow;
+
+  &Primary {
+    background: $transactionsPrimary_bg;
+  }
 
   &Header {
     padding: 20px 10px 5px;
