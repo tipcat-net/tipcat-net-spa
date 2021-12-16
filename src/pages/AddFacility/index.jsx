@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
 
 import { Layout } from '../../components/ui/Layout';
+import { Text } from '../../components/ui/Text';
 import { FormInput } from '../../components/form/form-input';
 import { FormRequiredError } from '../../components/form/error-required';
 import { FormCheckbox } from '../../components/form/form-checkbox';
 import { Button } from '../../components/ui/Button';
 import { Home, Add } from '../../components/ui/Icons';
+import { AvatarCropper } from '../../components/avatar/cropper';
 import { Success } from '../../components/success';
 
 import { ROUTES } from '../../constants/routes';
@@ -30,12 +32,17 @@ export const AddFacility = () => {
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
   const accountLoading = useSelector(selectAccountLoading);
+  const [dataCropAvatar, setDataCropAvatar] = useState(null);
 
   useEffect(() => {
     if (member && !accountLoading) {
       put(getAccount(member.accountId));
     }
   }, [member]);
+
+  const toggleCropAvatar = (e) => {
+    setDataCropAvatar(e);
+  };
 
   const onSubmit = (values) => {
     const data = {
@@ -63,6 +70,7 @@ export const AddFacility = () => {
             errors,
             touched,
             setValues,
+            setFieldValue,
             resetForm,
           }) => {
 
@@ -74,6 +82,11 @@ export const AddFacility = () => {
               });
             };
 
+            const handleChangeAvatar = (e) => {
+              setFieldValue('avatar', e);
+              toggleCropAvatar(null);
+            };
+
             const onSuccessBtnAdd = () => {
               resetForm();
               setVisibleSuccess(false);
@@ -82,14 +95,16 @@ export const AddFacility = () => {
             return (
               <React.Fragment>
                 <div className={ style.create }>
-                  <div className={ style.createTitle }>{ t('addFacility.title') }</div>
+                  <Text
+                    size='big'
+                    className={ style.createTitle }
+                  >{ t('addFacility.title') }</Text>
                   <Form>
                     <FormInput
                       label={ t('addFacility.fields.operatingName.label') }
                       name="name"
                       type="text"
                       value={ values.name }
-                      className={ style.registerInputBold }
                       required={ true }
                     />
                     <FormInput
@@ -97,13 +112,26 @@ export const AddFacility = () => {
                       name="address"
                       type="textarea"
                       value={ values.address }
-                      className={ style.registerInputBold }
                     />
                     <FormCheckbox
                       label={ t('addFacility.fields.useAccountAddress.label') }
                       name="useAccountAddress"
                       checked={ values.useAccountAddress }
                       onChange={ handleChangeUseAddress }
+                    />
+                    <FormInput
+                      name="avatar"
+                      type="file"
+                      accept="image/jpeg,image/png,image/jpg"
+                      onChange={ toggleCropAvatar }
+                      className={ style.createInputAvatar }
+                    />
+                    <AvatarCropper
+                      data={ dataCropAvatar }
+                      onClose={ () => {
+                        toggleCropAvatar(null);
+                      } }
+                      onCrop={ handleChangeAvatar }
                     />
                     {
                       errors ?

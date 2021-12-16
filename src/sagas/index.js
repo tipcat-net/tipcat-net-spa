@@ -25,6 +25,7 @@ import updateAvatarAccountRequest from './account/update-avatar-account';
 // Facility
 import { FacilityActionTypes } from '../ducks/facility/action-types';
 import addFacilityRequest from './facility/add-facility';
+import addAvatarFacilityRequest from './facility/add-avatar-facility';
 
 import { PaymentActionTypes } from '../ducks/payment/action-types';
 import getPaymentRequest from './payment/get-payment';
@@ -49,7 +50,7 @@ export default function* sagas() {
     takeEvery(AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START, updateAvatarAccountRequest),
     // Facility
     takeEvery(FacilityActionTypes.ADD_FACILITY_START, addFacilityRequest),
-
+    takeEvery(FacilityActionTypes.ADD_AVATAR_FACILITY_START, addAvatarFacilityRequest),
     // Payment
     takeEvery(PaymentActionTypes.GET_PAYMENT_START, getPaymentRequest),
     takeEvery(PaymentActionTypes.CREATE_PAYMENT_START, createPaymentRequest),
