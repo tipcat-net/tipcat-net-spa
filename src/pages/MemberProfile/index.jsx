@@ -12,23 +12,34 @@ import { ProfileContent } from '../../components/profile/content/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfileInfo } from '../../components/profile/info/';
+import { Success } from '../../components/success';
 
 import { MemberPermissions } from '../../constants/MemberPermissions';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
+import { MemberProfileEdit } from '../../components/profile/edit/member';
 
 export const MemberProfile = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
+  const [visibleSuccess, setVisibleSuccess] = useState(false);
   const [memberProfile, setMemberProfile] = useState(null);
   const [facility, setFacility] = useState(null);
   const [accountManager, setAccountManager] = useState(null);
   const { params: { memberId } } = useRouteMatch();
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
+  const delayBeforeClosing = 3000;
+
+  const closeVisibleSuccess = () => {
+    setVisibleSuccess(false);
+  };
+  const openVisibleSuccess = () => {
+    setVisibleSuccess(true);
+  };
 
   useEffect(() => {
     put(getAccount(member.accountId));
@@ -70,7 +81,11 @@ export const MemberProfile = () => {
         memberProfile && (
           <Profile>
             <Substrate visible={ visibleSubstrate }>
-              <EditProfile />
+              <MemberProfileEdit
+                member={ memberProfile }
+                toggleVisibleSubstrate={ toggleVisibleSubstrate }
+                openVisibleSuccess={ openVisibleSuccess }
+              />
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
@@ -79,15 +94,27 @@ export const MemberProfile = () => {
               <ProfileInfo top={ true } data={ { title: t('memberProfile.facility'), text: facility.name} } />
               <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.position} } />
               <ProfileInfo data={ { title: t('memberProfile.email'), text: memberProfile.email} } />
-              <ProfileInfo
-                data={ {
-                  title: t('memberProfile.accountManager'),
-                  text: `${accountManager.firstName} ${accountManager.lastName}`,
-                } } />
+              {
+                accountManager && (
+                  <ProfileInfo
+                    data={ {
+                      title: t('memberProfile.accountManager'),
+                      text: `${accountManager.firstName} ${accountManager.lastName}`,
+                    } }
+                  />
+                )
+              }
             </ProfileContent>
           </Profile>
         )
       }
+      <Success
+        visible={ visibleSuccess }
+        duration={ delayBeforeClosing }
+        onClose={ closeVisibleSuccess }
+        transparent={ true }
+        message={ t('memberProfile.success.message') }
+      />
     </Layout>
   );
 };
