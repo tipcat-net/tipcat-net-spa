@@ -10,7 +10,7 @@ export const UploadFile = ({ className, error, ...Allprops }) => {
   return (
     <div className={ cn(style.uploadFile, className) }>
       <input
-        type="file" 
+        type="file"
         ref={ fileInput }
         className={ style.uploadFileInput }
         { ...Allprops } />
@@ -22,5 +22,5 @@ export const UploadFile = ({ className, error, ...Allprops }) => {
         <Image />
       </Button>
     </div>
-  )
-}
+  );
+};
