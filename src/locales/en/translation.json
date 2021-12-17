@@ -158,7 +158,20 @@
     "facility": "Facility",
     "position": "Position",
     "email": "Email",
-    "accountManager": "Account manager"
+    "accountManager": "Account manager",
+    "edit": {
+      "fields": {
+        "avatar": {
+          "label": "Avatar"
+        },
+        "email": {
+          "label": "Email"
+        }
+      }
+    },
+    "success": {
+      "message": "Changes have been saved"
+    }
   },
   "status": {
     "active": "active",

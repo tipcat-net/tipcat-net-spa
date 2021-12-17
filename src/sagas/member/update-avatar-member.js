@@ -10,6 +10,7 @@ import {
 export default function* updateAvatarMemberRequest({ payload, callback }) {
   try {
     const response = yield call(fetchers.updateAvatarMember, payload);
+
     callback();
     yield put(updateAvatarMemberFinish(response));
   } catch (error) {
