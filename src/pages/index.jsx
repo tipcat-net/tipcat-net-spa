@@ -19,6 +19,7 @@ import FacilityMembers from './FacilityMembers';
 import PageNotFound from './PageNotFound';
 import Pay from './Pay';
 import Transactions from './Transactions';
+import PrivacyPolicy from './PrivacyPolicy';
 
 export const Pages = () => {
   return (
@@ -47,6 +48,9 @@ export const Pages = () => {
       </Route>
       <Route { ...ROUTES.LOGOUT } >
         <Logout />
+      </Route>
+      <Route { ...ROUTES.PRIVACY_POLICY } >
+        <PrivacyPolicy />
       </Route>
       <Route component={ PageNotFound } />
     </Switch>

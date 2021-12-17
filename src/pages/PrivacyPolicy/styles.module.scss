@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+
+.privacyPolicy {
+  padding: 80px 20px 0;
+
+  &Logo {
+    margin-bottom: 41px;
+    display: flex;
+    justify-content: center;
+    color: $privacyPolicyLogo_color;
+  }
+
+  &Title {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}
