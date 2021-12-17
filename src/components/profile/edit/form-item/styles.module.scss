@@ -3,9 +3,10 @@
 .formItem {
 
   label {
+    padding-left: 65px;
     min-height: 40px;
     display: flex;
     align-items: center;
-    padding-left: 65px;
+    color: $editProfileLabel;
   }
 }

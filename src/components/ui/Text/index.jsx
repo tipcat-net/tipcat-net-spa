@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import style from './styles.module.scss';
 
-export const Text = ({ size, strong, className, children }) => {
+export const Text = ({ tag, size, strong, className, children, ...props }) => {
   let classSize = null;
   let classStrong = strong ? style.strong : null;
 
@@ -20,6 +20,19 @@ export const Text = ({ size, strong, className, children }) => {
     default:
       classSize = null;
       break;
+  }
+
+  if (tag) {
+    return (
+      React.createElement(
+        tag,
+        {
+          className: cn(classSize, classStrong, className),
+          ...props,
+        },
+        children,
+      )
+    );
   }
 
   return (

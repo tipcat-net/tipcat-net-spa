@@ -5,10 +5,10 @@ import style from './styles.module.scss';
 
 export const Сheckbox = ({ className, label, onChange, checked }) => {
   const checkbox = useRef(null);
-  
+
   return (
     <label
-      className={ style.checkbox } 
+      className={ style.checkbox }
       onClick={ () => checkbox.current.checked }
     >
       <input
@@ -21,5 +21,5 @@ export const Сheckbox = ({ className, label, onChange, checked }) => {
       <span className={ style.checkboxChecked  }></span>
       { label }
     </label>
-  )
-}
+  );
+};
