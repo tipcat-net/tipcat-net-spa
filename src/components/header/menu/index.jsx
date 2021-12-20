@@ -69,17 +69,17 @@ export const Menu = ({ open, onClose }) => {
       </ul>
       <div className={ style.menuBottom }>
         <Button
-          href={ ROUTES.PRIVACY_POLICY }
+          href={ ROUTES.PRIVACY_POLICY.path }
           borderNone={ true }
           className={ style.menuBottomLink }
         >{ t('header.menuBottom.privacyPolicy') }</Button>
         <Button
-          href={ ROUTES.TERMS_CONDITIONS }
+          href={ ROUTES.TERMS_CONDITIONS.path }
           borderNone={ true }
           className={ style.menuBottomLink }
         >{ t('header.menuBottom.termsConditions') }</Button>
         <Button
-          href={ ROUTES.ABOUT_TIPCAT }
+          href={ ROUTES.ABOUT_TIPCAT.path }
           borderNone={ true }
           className={ style.menuBottomLink }
         >{ t('header.menuBottom.AboutTipCat') }</Button>
