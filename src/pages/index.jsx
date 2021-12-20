@@ -20,6 +20,7 @@ import PageNotFound from './PageNotFound';
 import Pay from './Pay';
 import Transactions from './Transactions';
 import PrivacyPolicy from './PrivacyPolicy';
+import TermsAndConditions from './TermsAndConditions';
 
 export const Pages = () => {
   return (
@@ -51,6 +52,9 @@ export const Pages = () => {
       </Route>
       <Route { ...ROUTES.PRIVACY_POLICY } >
         <PrivacyPolicy />
+      </Route>
+      <Route { ...ROUTES.TERMS_CONDITIONS } >
+        <TermsAndConditions />
       </Route>
       <Route component={ PageNotFound } />
     </Switch>
