@@ -19,7 +19,7 @@ export function memberReducer(state = initialState, action) {
         addMember: {
           ...state.addMember,
           loading: true,
-        }
+        },
       };
     case MemberActionTypes.ADD_MEMBER_FINISH:
       return {
@@ -28,7 +28,7 @@ export function memberReducer(state = initialState, action) {
           ...state.addMember,
           loading: false,
           data: action.response.data,
-        }
+        },
       };
     case MemberActionTypes.ADD_MEMBER_ERROR:
       return {
@@ -37,7 +37,7 @@ export function memberReducer(state = initialState, action) {
           ...state.addMember,
           loading: false,
           error: action.error,
-        }
+        },
       };
 
     //getMember
@@ -58,7 +58,7 @@ export function memberReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
-    
+
     //createMember
     case MemberActionTypes.CREATE_MEMBER_START:
       return {
@@ -77,7 +77,7 @@ export function memberReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
-    
+
     //getMemberById
     case MemberActionTypes.GET_MEMBER_BY_ID_START:
       return {
@@ -115,7 +115,7 @@ export function memberReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
-    
+
     //updateAvatarMember
     case MemberActionTypes.UPDATE_AVATAR_MEMBER_START:
       return {
@@ -127,7 +127,7 @@ export function memberReducer(state = initialState, action) {
         ...state,
         data: {
           ...state.data,
-          avatarUrl: action.response.data
+          avatarUrl: `${action.response.data}?${Date.now()}`,
         },
         loading: false,
       };
