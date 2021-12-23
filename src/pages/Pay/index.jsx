@@ -51,7 +51,7 @@ export const Pay = () => {
     setCurrentDisplay(value);
   };
 
-  if (!payment) {
+  if (!payment.member) {
     return null;
   }
 

@@ -10,6 +10,7 @@ import {
 export default function* updatePaymentRequest({ payload }) {
   try {
     const response = yield call(fetchers.updatePayment, payload);
+
     yield put(updatePaymentFinish(response));
   } catch (error) {
     yield put(updatePaymentError(error));

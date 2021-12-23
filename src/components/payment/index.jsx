@@ -22,8 +22,8 @@ import style from './styles.module.scss';
 
 export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) => {
   const { t } = useTranslation();
-  const [amount, setAmount] = useState(5);
-  const [message, setMessage] = useState('');
+  const [amount, setAmount] = useState(payment.amount);
+  const [message, setMessage] = useState(payment.message);
   const [checkedServiceFee, setCheckedServiceFee] = useState(false);
   const put = useDispatch();
 
