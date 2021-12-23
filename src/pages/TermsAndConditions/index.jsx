@@ -15,7 +15,7 @@ export const TermsAndConditions = () => {
     <Layout title={ t('termsAndConditions.headerTitle') }>
       <div className={ style.termsAndConditions }>
         <div className={ style.termsAndConditionsLogo }>
-          <Logo />
+          <Logo className={ style.termsAndConditionsLogoIcon } />
         </div>
         <Title
           level={ 2 }
