@@ -1,5 +1,12 @@
 @import "../../styles/variables.scss";
 
 .transactions {
-  margin: 0 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &Scroll {
+    overflow: auto;
+    padding: 0 10px;
+  }
 }

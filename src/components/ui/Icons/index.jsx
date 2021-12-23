@@ -10,9 +10,16 @@ import { ReactComponent as ChevronDownSvg } from './svg/arrow/chevronDown.svg';
 import { ReactComponent as CircleUpSvg } from './svg/arrow/circleUp.svg';
 import { ReactComponent as HamburgerSvg } from './svg/menu/hamburger.svg';
 
+import { ReactComponent as BadgeSvg } from './svg/user/badge.svg';
 import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
 import { ReactComponent as CardSvg } from './svg/card.svg';
+import { ReactComponent as ClockSvg } from './svg/basic/clock.svg';
+
+import { ReactComponent as DiaDownSvg } from './svg/diaDown.svg';
+import { ReactComponent as DiaHighSvg } from './svg/diaHigh.svg';
+
+import { ReactComponent as GroupAltSvg } from './svg/user/groupAlt.svg';
 
 import { ReactComponent as HideSvg } from './svg/hide.svg';
 import { ReactComponent as HomeSvg } from './svg/home.svg';
@@ -59,9 +66,16 @@ export const ChevronDown = (props) => <Icon { ...props }><ChevronDownSvg /></Ico
 export const CircleUp = (props) => <Icon { ...props }><CircleUpSvg /></Icon>;
 export const Hamburger = (props) => <Icon { ...props }><HamburgerSvg /></Icon>;
 
+export const Badge = (props) => <Icon { ...props }><BadgeSvg /></Icon>;
 export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>;
 
 export const Card = (props) => <Icon { ...props }><CardSvg /></Icon>;
+export const Clock = (props) => <Icon { ...props }><ClockSvg /></Icon>;
+
+export const DiaDown = (props) => <Icon { ...props }><DiaDownSvg /></Icon>;
+export const DiaHigh = (props) => <Icon { ...props }><DiaHighSvg /></Icon>;
+
+export const GroupAlt = (props) => <Icon { ...props }><GroupAltSvg /></Icon>;
 
 export const Hide = (props) => <Icon { ...props }><HideSvg /></Icon>;
 export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>;

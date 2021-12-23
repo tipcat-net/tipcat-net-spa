@@ -32,6 +32,10 @@ import getPaymentRequest from './payment/get-payment';
 import createPaymentRequest from './payment/create-payment';
 import updatePaymentRequest from './payment/update-payment';
 
+import { TransactionActionTypes } from '../ducks/transaction/action-types';
+import getTransactionsRequest from './transaction/get-transactions';
+import changeParamsTransactionsRequest from './transaction/change-params-transactions';
+
 export default function* sagas() {
   yield all([
     // SignUp
@@ -55,5 +59,8 @@ export default function* sagas() {
     takeEvery(PaymentActionTypes.GET_PAYMENT_START, getPaymentRequest),
     takeEvery(PaymentActionTypes.CREATE_PAYMENT_START, createPaymentRequest),
     takeEvery(PaymentActionTypes.UPDATE_PAYMENT_START, updatePaymentRequest),
+    // Transaction
+    takeEvery(TransactionActionTypes.GET_TRANSACTIONS_START, getTransactionsRequest),
+    takeEvery(TransactionActionTypes.CHANGE_PARAMS_TRANSACTIONS, changeParamsTransactionsRequest),
   ]);
 }

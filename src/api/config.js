@@ -1,6 +1,7 @@
-export const config = (token, contentTypes) => {
+export const config = (token, contentTypes, params) => {
   const result = {
     headers: {},
+    params: {},
   };
 
   if (token) {
@@ -14,6 +15,13 @@ export const config = (token, contentTypes) => {
     result.headers = {
       ...result.headers,
       'Content-Type': contentTypes,
+    };
+  }
+
+  if (params) {
+    result.params = {
+      ...result.params,
+      ...params,
     };
   }
 

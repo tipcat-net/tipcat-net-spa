@@ -44,6 +44,27 @@
     }
   }
 
+  &Icon {
+    display: inline-flex;
+    align-items: flex-start;
+
+    .icon {
+      margin: -4px 0 -5px -2px;
+    }
+
+    .content {
+      margin-left: 5px;
+      display: inline-flex;
+      align-items: flex-start;
+    }
+  }
+
+  &Icon:not(&BorderNone) {
+    .icon {
+      margin: -2px 5px -2px -2px;
+    }
+  }
+
   &Primary {
     color: $buttonPrimary_color;
     border-color: $buttonPrimary_border;

@@ -28,4 +28,6 @@ export const fetchers = {
   getPayment: async (memberCode) => axios.get(`/api/payments/${memberCode}`),
   createPayment: async (data) => axios.post('/api/payments', data),
   updatePayment: async ({ paymentId, ...data }) => axios.put(`/api/payments/${paymentId}`, data),
+
+  getTransactions: async (params) => axios.get('/api/transactions/', config(true, null, params)),
 };
