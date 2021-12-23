@@ -57,6 +57,8 @@ export const Pay = () => {
 
   switch(currentDisplay) {
     case 'payment':
+      window.scrollTo(0, 0);
+
       return (
         <Payment
           payment={ payment }
@@ -67,6 +69,8 @@ export const Pay = () => {
       );
 
     case 'paymentMethod':
+      window.scrollTo(0, 0);
+
       return (
         <Layout logo={ true } footer={ true }>
           <Elements stripe={ stripePromise }>
@@ -81,6 +85,8 @@ export const Pay = () => {
       );
 
     case 'card':
+      window.scrollTo(0, 0);
+
       return (
         <Layout logo={ true } footer={ true }>
           <Elements stripe={ stripePromise }>
