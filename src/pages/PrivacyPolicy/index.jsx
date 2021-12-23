@@ -15,7 +15,7 @@ export const PrivacyPolicy = () => {
     <Layout title={ t('privacyPolicy.headerTitle') }>
       <div className={ style.privacyPolicy }>
         <div className={ style.privacyPolicyLogo }>
-          <Logo />
+          <Logo className={ style.privacyPolicyLogoIcon } />
         </div>
         <Title
           level={ 2 }

@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
     color: $privacyPolicyLogo_color;
+
+    &Icon {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   &Title {

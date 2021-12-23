@@ -8,6 +8,11 @@
     display: flex;
     justify-content: center;
     color: $termsAndConditionsLogo_color;
+
+    &Icon {
+      width: 36px;
+      height: 36px;
+    }
   }
 
   &Title {
