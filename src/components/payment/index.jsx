@@ -24,7 +24,7 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
   const { t } = useTranslation();
   const [amount, setAmount] = useState(payment.amount);
   const [message, setMessage] = useState(payment.message);
-  const [checkedServiceFee, setCheckedServiceFee] = useState(false);
+  const [isServiceFee, setIsServiceFee] = useState(payment.isServiceFee);
   const put = useDispatch();
 
   const avatarData = (data) => ({
@@ -32,8 +32,8 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
     text: `${data.firstName} ${data.lastName}`,
   });
 
-  const onChangeCheckedServiceFee = (e) => {
-    setCheckedServiceFee(!checkedServiceFee);
+  const onChangeIsServiceFee = (e) => {
+    setIsServiceFee(!isServiceFee);
   };
 
   const onChangeAmount = (value) => {
@@ -46,9 +46,9 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
   };
 
   const totalAmount = () => {
-    if (checkedServiceFee && parseFloat(amount)) {
+    if (isServiceFee && parseFloat(amount)) {
       return parseFloat(amount) + payment.proFormaInvoice.serviceFee.amount;
-    } else if (checkedServiceFee && !parseFloat(amount)) {
+    } else if (isServiceFee && !parseFloat(amount)) {
       return payment.proFormaInvoice.serviceFee.amount;
     } else {
       return amount;
@@ -60,7 +60,9 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
       put(updatePayment({
         memberId: payment.member.id,
         paymentId: payment.paymentIntentId,
+        amount: amount,
         message: message,
+        isServiceFee: isServiceFee,
         tipsAmount: {
           amount: totalAmount(),
           currency: payment.proFormaInvoice.serviceFee.currency,
@@ -69,7 +71,9 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
     } else {
       put(createPayment({
         memberId: payment.member.id,
+        amount: amount,
         message: message,
+        isServiceFee: isServiceFee,
         tipsAmount: {
           amount: totalAmount(),
           currency: payment.proFormaInvoice.serviceFee.currency,
@@ -106,8 +110,8 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
           <div className={ style.paymentTotal }>
             <div className={ style.paymentSwitch }>
               <Switch
-                checked={ checkedServiceFee }
-                onChange={ onChangeCheckedServiceFee }
+                checked={ isServiceFee }
+                onChange={ onChangeIsServiceFee }
               ></Switch>
               <Text
                 size='small'

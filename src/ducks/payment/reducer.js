@@ -5,6 +5,7 @@ export const initialState = {
   data: {
     amount: 5,
     message: '',
+    isServiceFee: false,
     member: null,
     clientSecret: null,
     paymentIntentId: null,
@@ -42,8 +43,9 @@ export function paymentReducer(state = initialState, action) {
         loading: true,
         data: {
           ...state.data,
-          amount: action.payload.tipsAmount.amount,
+          amount: action.payload.amount,
           message: action.payload.message,
+          isServiceFee: action.payload.isServiceFee,
         },
       };
     case PaymentActionTypes.CREATE_PAYMENT_FINISH:
@@ -68,8 +70,9 @@ export function paymentReducer(state = initialState, action) {
         loading: true,
         data: {
           ...state.data,
-          amount: action.payload.tipsAmount.amount,
+          amount: action.payload.amount,
           message: action.payload.message,
+          isServiceFee: action.payload.isServiceFee,
         },
       };
     case PaymentActionTypes.UPDATE_PAYMENT_FINISH:
