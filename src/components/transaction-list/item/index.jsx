@@ -5,12 +5,16 @@ import { Title } from '../../ui/Title';
 import { Text } from '../../ui/Text';
 import { ArrowDownCircle } from '../../ui/Icons';
 
-import { Currency } from '../../../constants/Currency';
-
 import style from './styles.module.scss';
 
 export const TransactionListItem = ({ transaction }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const formatter = new Intl.NumberFormat(i18n.language, {
+    style: 'currency',
+    currency: transaction.amount.currency,
+    minimumFractionDigits: 0,
+  });
 
   return (
     <div className={ style.transactionsItem }>
@@ -25,7 +29,7 @@ export const TransactionListItem = ({ transaction }) => {
       <Title
         level={ 2 }
         className={ style.transactionsItemSum }
-      >+{ transaction.amount.amount } { Currency[transaction.amount.currency] }</Title>
+      >+ { formatter.format(transaction.amount.amount) }</Title>
       {
         transaction.message ?
           <Text size='small' className={ style.transactionsItemText }>{ transaction.message }</Text>

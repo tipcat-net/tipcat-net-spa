@@ -72,11 +72,11 @@ export const TransactionList = ({ primary, count, className }) => {
               {
                 dayjs(item.date).calendar(null, {
                   sameDay: `[${t('transactions.calendar.sameDay')}], DD.MM`,
-                  nextDay: 'dddd DD.MM',
-                  nextWeek: 'dddd DD.MM',
+                  nextDay: 'dddd, DD.MM',
+                  nextWeek: 'dddd, DD.MM',
                   lastDay: 'dddd, DD.MM',
                   lastWeek: 'dddd, DD.MM',
-                  sameElse: 'dddd DD.MM',
+                  sameElse: 'dddd, DD.MM',
                 })
               }
             </Text>
