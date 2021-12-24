@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
-import cn from 'classnames'
+import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-export const Button = ({ children, className, href, type, draggable, primary, borderNone, clear, white, whiteActive, ...allProps }) => {
+export const Button = ({ children, className, href, type, draggable, primary, borderNone, icon: Icon, clear, white, whiteActive, ...allProps }) => {
   const classPrimary = primary ? styles.buttonPrimary : null;
   const classClear = clear ? styles.buttonClear : null;
   const classBorderNone = borderNone ? styles.buttonBorderNone : null;
+  const classIcon = Icon ? styles.buttonIcon : null;
   const classWhite = white ? styles.buttonWhite : null;
   const classWhiteActive = whiteActive ? styles.buttonWhiteActive : null;
 
@@ -14,11 +15,12 @@ export const Button = ({ children, className, href, type, draggable, primary, bo
     return (
       <Link
         to={ href }
-        className={ cn(styles.button, classClear, classBorderNone, classPrimary, classWhite, classWhiteActive, className) }
+        className={ cn(styles.button, classClear, classBorderNone, classIcon, classPrimary, classWhite, classWhiteActive, className) }
         draggable={ draggable ? draggable : false }
         { ...allProps }
       >
-        { children }
+        { Icon ? <Icon className={ styles.icon } /> : null }
+        <span className={ styles.content }>{ children }</span>
       </Link>
     );
   }
@@ -26,10 +28,11 @@ export const Button = ({ children, className, href, type, draggable, primary, bo
   return (
     <button
       type={ type ? type : 'button' }
-      className={ cn(styles.button, classClear, classBorderNone, classPrimary, classWhite, className) }
+      className={ cn(styles.button, classClear, classBorderNone, classIcon, classPrimary, classWhite, className) }
       { ...allProps }
     >
-      { children }
+      { Icon ? <Icon className={ styles.icon } /> : null }
+      <span className={ styles.content }>{ children }</span>
     </button>
   );
 };

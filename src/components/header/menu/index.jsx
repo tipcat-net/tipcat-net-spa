@@ -40,7 +40,7 @@ export const Menu = ({ open, onClose }) => {
         </li>
         <li>
           <Button
-            href={ ROUTES.HOME.path }
+            href={ ROUTES.TRANSACTIONS.path }
             borderNone={ true }
             className={ style.menuLink }
           >{ t('header.menu.transaction') }</Button>

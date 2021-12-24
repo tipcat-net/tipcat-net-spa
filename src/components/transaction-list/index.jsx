@@ -1,57 +1,58 @@
-import React from 'react';
-import cn from 'classnames';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
+import * as dayjs from 'dayjs';
+import calendar from 'dayjs/plugin/calendar';
 
 import { TransactionListItem } from './item';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 
 import { ROUTES } from '../../constants/routes';
+import { selectTransaction, selectTransactionParams } from '../../ducks/transaction/selectors';
+import { getTransactions } from '../../ducks/transaction/actions';
 
 import style from './styles.module.scss';
 
+dayjs.extend(calendar);
+
 export const TransactionList = ({ primary, count, className }) => {
   const { t } = useTranslation();
+  const put = useDispatch();
+  const transactionsParams = useSelector(selectTransactionParams);
+  const transactions = useSelector(selectTransaction);
 
-  const transactions = [
-    {
-      date: 'Today, 12.09',
-      list: [
-        {
-          type: 'income',
-          sum: '+$4',
-        },
-        {
-          type: 'income',
-          text: 'Thanks for a great evening)',
-          sum: '+$4',
-        },
-        {
-          type: 'withdraw',
-          sum: '–$168,5',
-        },
-      ],
-    },
-    {
-      date: 'Monday, 11.09',
-      list: [
-        {
-          type: 'income',
-          sum: '+$4',
-        },
-        {
-          type: 'income',
-          text: 'You are best in the f*ng town!',
-          sum: '+$3',
-        },
-        {
-          type: 'income',
-          text: 'Thank you',
-          sum: '+$10',
-        },
-      ],
-    },
-  ];
+  useEffect(() => {
+    if (!transactions && count) {
+      put(getTransactions({
+        ...transactionsParams,
+        top: count,
+      }));
+    } else if (!transactions) {
+      put(getTransactions());
+    }
+  }, []);
+
+  const groupDate = (list) => {
+    const result = [];
+
+    for (const item of list) {
+      const date = dayjs(item.created).format('YYYY-MM-DD');
+      const index = result.findIndex(item => item.date === date);
+
+      if (index >= 0) {
+        result[index].list.push(item);
+      } else {
+        result.push({
+          date: date,
+          list: [item],
+        });
+      }
+    }
+
+    return result;
+  };
 
   return (
     <div
@@ -62,9 +63,23 @@ export const TransactionList = ({ primary, count, className }) => {
       ) }
     >
       {
-        transactions.map((item, index) => (
+        transactions && groupDate(transactions).map((item, index) => (
           <div key={ index } className={ style.transactionsGroup }>
-            <Text size='small' className={ style.transactionsHeader }>{ item.date }</Text>
+            <Text
+              size='small'
+              className={ style.transactionsHeader }
+            >
+              {
+                dayjs(item.date).calendar(null, {
+                  sameDay: `[${t('transactions.calendar.sameDay')}], DD.MM`,
+                  nextDay: 'dddd, DD.MM',
+                  nextWeek: 'dddd, DD.MM',
+                  lastDay: 'dddd, DD.MM',
+                  lastWeek: 'dddd, DD.MM',
+                  sameElse: 'dddd, DD.MM',
+                })
+              }
+            </Text>
             <div className={ style.transactionsList }>
               {
                 item.list.map((transaction, transactionIndex) => (

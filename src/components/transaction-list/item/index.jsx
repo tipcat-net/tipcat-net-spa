@@ -1,5 +1,4 @@
 import React from 'react';
-import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { Title } from '../../ui/Title';
@@ -9,11 +8,16 @@ import { ArrowDownCircle } from '../../ui/Icons';
 import style from './styles.module.scss';
 
 export const TransactionListItem = ({ transaction }) => {
-  const { t } = useTranslation();
-  const classType = transaction.type === 'withdraw' ? style.transactionsItemWithdraw : null;
+  const { t, i18n } = useTranslation();
+
+  const formatter = new Intl.NumberFormat(i18n.language, {
+    style: 'currency',
+    currency: transaction.amount.currency,
+    minimumFractionDigits: 0,
+  });
 
   return (
-    <div className={ cn(style.transactionsItem, classType) }>
+    <div className={ style.transactionsItem }>
       <div className={ style.transactionsItemIcon }>
         <ArrowDownCircle />
       </div>
@@ -21,14 +25,14 @@ export const TransactionListItem = ({ transaction }) => {
         size='small'
         strong={ true }
         className={ style.transactionsItemTitle }
-      >{ t(`transactions.types.${transaction.type}`) }</Text>
+      >{ t('transactions.types.income') }</Text>
       <Title
         level={ 2 }
         className={ style.transactionsItemSum }
-      >{ transaction.sum }</Title>
+      >+ { formatter.format(transaction.amount.amount) }</Title>
       {
-        transaction.text ?
-          <Text size='small' className={ style.transactionsItemText }>{ transaction.text }</Text>
+        transaction.message ?
+          <Text size='small' className={ style.transactionsItemText }>{ transaction.message }</Text>
           : null
       }
     </div>

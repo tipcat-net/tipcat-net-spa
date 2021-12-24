@@ -56,8 +56,18 @@
     "currentText": "last 30 days",
     "maxText": "record"
   },
+  "sort": "Sort by",
   "transactions": {
     "headerTitle": "Transactions",
+    "sortList": {
+      "createdASC": "First paid",
+      "createdDESC": "Last paid",
+      "amountASC": "Min amount",
+      "amountDESC": "Max amount"
+    },
+    "calendar": {
+      "sameDay": "Today"
+    },
     "types": {
       "income": "Income tips",
       "withdraw" : "Withdraw to card"
