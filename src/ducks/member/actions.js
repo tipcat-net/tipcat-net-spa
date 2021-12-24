@@ -51,9 +51,10 @@ export const getMemberByIdFinish = (response) => ({
   response,
 });
 
-export const updateMember = (payload) => ({
+export const updateMember = (payload, callback) => ({
   type: MemberActionTypes.UPDATE_MEMBER_START,
   payload,
+  callback,
 });
 export const updateMemberError = (error) => ({
   type: MemberActionTypes.UPDATE_MEMBER_ERROR,
