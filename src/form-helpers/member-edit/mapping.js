@@ -6,5 +6,5 @@ export const getInitialValues = (initialValues, member) => ({
   email: member.email,
   firstName: member.firstName,
   lastName: member.lastName,
-  position: member.position ? member.position : '',
+  position: member.position,
 });
