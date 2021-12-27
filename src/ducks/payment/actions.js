@@ -26,6 +26,20 @@ export const createPaymentError = (error) => ({
   error,
 });
 
+export const capturePayment = (payload, callback) => ({
+  type: PaymentActionTypes.CAPTURE_PAYMENT_START,
+  payload,
+  callback,
+});
+export const capturePaymentFinish = (response) => ({
+  type: PaymentActionTypes.CAPTURE_PAYMENT_FINISH,
+  response,
+});
+export const capturePaymentError = (error) => ({
+  type: PaymentActionTypes.CAPTURE_PAYMENT_ERROR,
+  error,
+});
+
 export const updatePayment = (payload) => ({
   type: PaymentActionTypes.UPDATE_PAYMENT_START,
   payload,

@@ -73,14 +73,12 @@ export const Pay = () => {
 
       return (
         <Layout logo={ true } footer={ true }>
-          <Elements stripe={ stripePromise }>
-            <PaymentMethod
-              payment={ payment }
-              onChangeDisplay={ onChangeDisplay }
-              currentDisplay={ currentDisplay }
-              display={ display }
-            />
-          </Elements>
+          <PaymentMethod
+            payment={ payment }
+            onChangeDisplay={ onChangeDisplay }
+            currentDisplay={ currentDisplay }
+            display={ display }
+          />
         </Layout>
       );
 
@@ -89,13 +87,16 @@ export const Pay = () => {
 
       return (
         <Layout logo={ true } footer={ true }>
-          <Elements stripe={ stripePromise }>
-            <PaymentCard
-              onChangeDisplay={ onChangeDisplay }
-              currentDisplay={ currentDisplay }
-              display={ display }
-            />
-          </Elements>
+          { payment.clientSecret && (
+            <Elements stripe={ stripePromise }>
+              <PaymentCard
+                payment={ payment }
+                onChangeDisplay={ onChangeDisplay }
+                currentDisplay={ currentDisplay }
+                display={ display }
+              />
+            </Elements>
+          ) }
         </Layout>
       );
 
