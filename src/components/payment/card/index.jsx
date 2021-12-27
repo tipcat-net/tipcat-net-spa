@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useTranslation } from 'react-i18next';
 
@@ -6,10 +7,13 @@ import { ProfileContent } from '../../profile/content';
 import { PaymentBottom } from '../bottom';
 import { Button } from '../../ui/Button';
 
+import { capturePayment } from '../../../ducks/payment/actions';
+
 import style from './styles.module.scss';
 
-export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
+export const PaymentCard = ({ payment, onChangeDisplay, currentDisplay, display }) => {
   const { t } = useTranslation();
+  const put = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -20,13 +24,14 @@ export const PaymentCard = ({ onChangeDisplay, currentDisplay, display }) => {
       return;
     }
 
-    const { error } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
+    const { error } = await stripe.confirmCardPayment(payment.clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
     });
 
-    if(!error) {
-      onChangeDisplay('succeeded');
+    if (!error) {
+      put(capturePayment(payment.paymentIntentId, onChangeDisplay('succeeded')));
     }
   };
 

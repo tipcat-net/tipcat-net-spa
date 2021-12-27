@@ -11,6 +11,7 @@
     flex: 0 0 86px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 
     &Icon {
       width: 100%;
@@ -20,6 +21,7 @@
       align-items: center;
       border: 2px solid $paymentMethotListItemIcon_border;
       border-radius: 10px;
+      color: $paymentMethotListItemIcon_color;
     }
 
     &Text {
@@ -35,6 +37,7 @@
     &:disabled &Icon {
       height: 76px;
       border-color: $paymentMethotListItem_disabled_Icon_border;
+      color: $paymentMethotListItem_disabled_Icon_color;
     }
     
     &:disabled &Text {
