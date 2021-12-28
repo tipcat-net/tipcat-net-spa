@@ -8,6 +8,7 @@ axios.defaults.baseURL = process.env.REACT_APP_API;
 export const fetchers = {
   // Member
   addMember: async ({accountId, ...data}) => axios.post(`/api/accounts/${accountId}/members`, data, config(true)),
+  addAvatarMember: async ({id, accountId, data}) => axios.post(`/api/accounts/${accountId}/members/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
   getMember: async () => axios.get('/api/members/current', config(true)),
   createMember: async () => axios.post('/api/members/current', null, config(true)),
   getMemberById: async ({accountId, memberId}) => axios.post(`/api/accounts/${accountId}/members/${memberId}`, null, config(true)),

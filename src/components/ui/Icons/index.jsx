@@ -39,6 +39,7 @@ import { ReactComponent as NameDescSvg } from './svg/nameDesc.svg';
 import { ReactComponent as PenSvg } from './svg/pen.svg';
 import { ReactComponent as PersonSvg } from './svg/person.svg';
 import { ReactComponent as PositionSvg } from './svg/position.svg';
+import { ReactComponent as PlusSquareSvg } from './svg/edit/plusSquare.svg';
 
 import { ReactComponent as QrCodeSvg } from './svg/qr_code.svg';
 
@@ -95,6 +96,7 @@ export const NameDesc = (props) => <Icon { ...props }><NameDescSvg /></Icon>;
 export const Pen = (props) => <Icon { ...props }><PenSvg /></Icon>;
 export const Person = (props) => <Icon { ...props }><PersonSvg /></Icon>;
 export const Position = (props) => <Icon { ...props }><PositionSvg /></Icon>;
+export const PlusSquare = (props) => <Icon { ...props }><PlusSquareSvg /></Icon>;
 
 export const QrCode = (props) => <Icon { ...props }><QrCodeSvg /></Icon>;
 

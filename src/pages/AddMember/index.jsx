@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import cn from 'classnames';
 import { Formik, Form } from 'formik';
 
 import { Layout } from '../../components/ui/Layout';
 import { FormInput } from '../../components/form/form-input';
 import { FormRequiredError } from '../../components/form/error-required';
 import { Button } from '../../components/ui/Button';
-import { Home, Add } from '../../components/ui/Icons';
+import { Text } from '../../components/ui/Text';
+import { Home, PlusSquare } from '../../components/ui/Icons';
+import { AvatarCropper } from '../../components/avatar/cropper';
 import { Success } from '../../components/success';
 
 import { ROUTES } from '../../constants/routes';
@@ -26,6 +30,12 @@ export const AddMember = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const member = useSelector(selectMember);
+  const history = useHistory();
+  const [dataCropAvatar, setDataCropAvatar] = useState(null);
+
+  const toggleCropAvatar = (e) => {
+    setDataCropAvatar(e);
+  };
 
   const closeSuccess = () => setVisibleSuccess(true);
 
@@ -46,7 +56,13 @@ export const AddMember = () => {
             errors,
             touched,
             resetForm,
+            setFieldValue,
           }) => {
+            const handleChangeAvatar = (e) => {
+              setFieldValue('avatar', e);
+              toggleCropAvatar(null);
+            };
+
             const onSuccessBtnAdd = () => {
               resetForm();
               setVisibleSuccess(false);
@@ -55,14 +71,14 @@ export const AddMember = () => {
             return (
               <React.Fragment>
                 <div className={ style.create }>
-                  <div className={ style.createTitle }>{ t('addMember.title') }</div>
+                  <Text size="big" className={ style.createTitle }>{ t('addMember.title') }</Text>
                   <Form>
                     <FormInput
                       label={ t('addMember.fields.firstName.label') }
                       name="firstName"
                       type="text"
                       value={ values.firstName }
-                      className={ style.registerInputBold }
+                      className={ style.createItem }
                       required={ true }
                     />
                     <FormInput
@@ -70,6 +86,7 @@ export const AddMember = () => {
                       name="lastName"
                       type="text"
                       value={ values.lastName }
+                      className={ style.createItem }
                       required={ true }
                     />
                     <FormInput
@@ -77,7 +94,22 @@ export const AddMember = () => {
                       name="email"
                       type="email"
                       checked={ values.email }
+                      className={ style.createItem }
                       required={ true }
+                    />
+                    <FormInput
+                      name="avatar"
+                      type="file"
+                      accept="image/jpeg,image/png,image/jpg"
+                      onChange={ toggleCropAvatar }
+                      className={ cn(style.createItem, style.createItemAvatar) }
+                    />
+                    <AvatarCropper
+                      data={ dataCropAvatar }
+                      onClose={ () => {
+                        toggleCropAvatar(null);
+                      } }
+                      onCrop={ handleChangeAvatar }
                     />
                     {
                       errors ?
@@ -91,7 +123,7 @@ export const AddMember = () => {
                         null
                     }
                     <div className={ style.createButtons }>
-                      <Button>{ t('addMember.buttons.back') }</Button>
+                      <Button onClick={ history.goBack }>{ t('addMember.buttons.back') }</Button>
                       <Button type='submit' primary={ true }>{ t('addMember.buttons.submit') }</Button>
                     </div>
                   </Form>
@@ -100,21 +132,23 @@ export const AddMember = () => {
                   visible={ visibleSuccess }
                   actionTop={
                     <Button
-                      transparent={ true }
+                      white={ true }
                       className={ style.createSuccessBtnHome }
                       href={ ROUTES.HOME.path }
+                      icon={ Home }
                     >
-                      <Home className={ style.createSuccessBtnHomeIcon } />{ t('addMember.success.btnHome') }
+                      { t('addMember.success.btnHome') }
                     </Button>
                   }
                   message={ t('addMember.success.message') }
                   actionBottom={
                     <Button
-                      clear={ true }
+                      borderNone={ true }
                       className={ style.createSuccessBtnAdd }
                       onClick={ onSuccessBtnAdd }
+                      icon={ PlusSquare }
                     >
-                      <Add className={ style.createSuccessBtnAddIcon } />{ t('addMember.success.btnAdd') }
+                      { t('addMember.success.btnAdd') }
                     </Button>
                   }
                 />
