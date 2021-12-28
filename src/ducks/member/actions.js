@@ -14,6 +14,20 @@ export const addMemberFinish = (response) => ({
   response,
 });
 
+export const addAvatarMember = (payload, callback) => ({
+  type: MemberActionTypes.ADD_AVATAR_MEMBER_START,
+  payload,
+  callback,
+});
+export const addAvatarMemberError = (error) => ({
+  type: MemberActionTypes.ADD_AVATAR_MEMBER_ERROR,
+  error,
+});
+export const addAvatarMemberFinish = (response) => ({
+  type: MemberActionTypes.ADD_AVATAR_MEMBER_FINISH,
+  response,
+});
+
 export const getMember = () => ({
   type: MemberActionTypes.GET_MEMBER_START,
 });
