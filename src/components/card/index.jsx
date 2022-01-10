@@ -8,7 +8,7 @@ import { Card as CardIcon, Hide, Show } from '../ui/Icons';
 
 import style from './styles.module.scss';
 
-export const Card = ({ data, className }) => {
+export const Card = ({ data, className, button }) => {
   const { t } = useTranslation();
   const [visibleNumber, setVisibleNumber] = useState(false);
 
@@ -36,13 +36,12 @@ export const Card = ({ data, className }) => {
           clear={ true }
           className={ style.cardBtnView }
           onClick={ toggleVisibleNumber }
-        >
-          { visibleNumber ? <Hide /> : <Show /> }
-        </Button>
+          icon={ visibleNumber ? Hide : Show }
+        ></Button>
       </div>
       <Text size='small' className={ style.cardDate }>{ data.date }</Text>
       <Text size='small' className={ style.cardName }>{ data.name }</Text>
-      <Button primary={ true } className={ style.cardBtn }>{ t('card.btn') }</Button>
+      { button && <Button primary={ true } className={ style.cardBtn }>{ t('card.btn') }</Button> }
     </div>
   );
 };

@@ -21,12 +21,14 @@ import Pay from './Pay';
 import Transactions from './Transactions';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
+import Withdraw from './Withdraw';
 
 export const Pages = () => {
   return (
     <Switch>
       <ProtectedRoute { ...ROUTES.HOME } component={ Home } />
       <ProtectedRoute { ...ROUTES.REGISTRATION } component={ Registration } />
+
       <ProtectedRoute { ...ROUTES.ACCOUNT } component={ AccountProfile } />
 
       <ProtectedRoute { ...ROUTES.MEMBERS } component={ Members } />
@@ -40,6 +42,8 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.FACILITY_MEMBERS } component={ FacilityMembers } />
 
       <ProtectedRoute { ...ROUTES.TRANSACTIONS } component={ Transactions } />
+
+      <ProtectedRoute { ...ROUTES.WITHDRAW } component={ Withdraw } />
 
       <Route { ...ROUTES.PAY } >
         <Pay />

@@ -83,6 +83,10 @@ export const ROUTES = {
     path: '/transactions',
     exact: true,
   },
+  WITHDRAW: {
+    path: '/withdraw',
+    exact: true,
+  },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);
