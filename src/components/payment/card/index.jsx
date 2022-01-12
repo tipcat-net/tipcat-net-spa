@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,11 @@ export const PaymentCard = ({ payment, onChangeDisplay, currentDisplay, display 
   const put = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
+  const [isComplete, setIsComplete] = useState(false);
+
+  const handleComplete = (e) => {
+    setIsComplete(e.complete);
+  };
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -37,13 +42,25 @@ export const PaymentCard = ({ payment, onChangeDisplay, currentDisplay, display 
 
   return (
     <ProfileContent className={ style.paymentCard }>
-      <CardElement />
+      <CardElement
+        onChange={ handleComplete }
+      />
       <PaymentBottom
         currentDisplay={ currentDisplay }
         display={ display }
         className={ style.paymentBottom }
-        left={ <Button onClick={ () => onChangeDisplay('paymentMethod') }>{ t('pay.paymentCard.paymentBottom.left') }</Button> }
-        right={ <Button primary={ true } onClick={ handleSubmit }>{ t('pay.paymentCard.paymentBottom.right') }</Button> }
+        left={
+          <Button
+            onClick={ () => onChangeDisplay('paymentMethod') }
+          >{ t('pay.paymentCard.paymentBottom.left') }</Button>
+        }
+        right={
+          <Button
+            primary={ true }
+            onClick={ handleSubmit }
+            disabled={ !isComplete }
+          >{ t('pay.paymentCard.paymentBottom.right') }</Button>
+        }
       />
     </ProfileContent>
   );
