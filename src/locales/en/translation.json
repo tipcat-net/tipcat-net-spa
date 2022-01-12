@@ -91,7 +91,8 @@
     "buttons": {
       "facilitys": "Facilitys",
       "members": "Members"
-    }
+    },
+    "facilities": "Facilities"
   },
   "auth": {
     "button": {

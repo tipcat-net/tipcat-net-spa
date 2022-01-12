@@ -3,10 +3,11 @@ import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
 import { ProfileResult } from '../../profile/result';
+import { AccountPanelFacilities } from './facilities';
 import { Button } from '../../ui/Button';
+import { Text } from '../../ui/Text';
 
 import style from './styles.module.scss';
-import { Text } from '../../ui/Text';
 
 export const AccountPanel = ({ className }) => {
   const { t } = useTranslation();
@@ -62,6 +63,7 @@ export const AccountPanel = ({ className }) => {
           <Button>{ t('accountPanel.buttons.members') }</Button>
         </div>
       </div>
+      <AccountPanelFacilities/>
     </div>
   );
 };

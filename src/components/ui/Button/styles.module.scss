@@ -24,6 +24,23 @@
     cursor: auto;
   }
 
+  &Icon {
+    display: inline-flex;
+    align-items: flex-start;
+
+    :global {
+      .icon {
+        margin: -2px 0 -2px -4px;
+      }
+    }
+
+    .content {
+      margin-left: 5px;
+      display: inline-flex;
+      align-items: flex-start;
+    }
+  }
+
   &BorderNone {
     padding: 10px 11px 11px;
     font-size: 14px;
@@ -42,26 +59,11 @@
     &:disabled {
       border-color: $buttonBorderNone_disabled_border;
     }
-  }
 
-  &Icon {
-    display: inline-flex;
-    align-items: flex-start;
-
-    .icon {
-      margin: -4px 0 -5px -2px;
-    }
-
-    .content {
-      margin-left: 5px;
-      display: inline-flex;
-      align-items: flex-start;
-    }
-  }
-
-  &Icon:not(&BorderNone) {
-    .icon {
-      margin: -2px 5px -2px -2px;
+    :global {
+      .icon {
+        margin: -4px 0 -5px -4px;
+      }
     }
   }
 
@@ -81,6 +83,12 @@
     border-radius: 0;
     border: none;
     box-shadow: none;
+
+    :global {
+      .icon {
+        margin: 0;
+      }
+    }
   }
 
   &White {

@@ -6,7 +6,7 @@
   &Header {
     display: flex;
     align-items: center;
-    padding: 9px 15px 11px;
+    padding: 9px 15px 11px 20px;
     
     &Title {
       margin-left: 15px;
@@ -27,20 +27,15 @@
     
     &Count {
       margin-left: 15px;
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      line-height: 15px;
-      letter-spacing: 0.03em;
-      color: $facilityHeaderCount_color;
+    }
+
+    &Amount {
+      margin-left: 15px;
+      color: $facilityHeaderAmount_color;
     }
     
     &Arrow {
-      margin-left: 7px;
-
       &Icon {
-        width: 40px;
-        height: 40px;
         color: $facilityHeaderArrowIcon_color;
         transform: rotateZ(0deg);
         transition: all .3s ease;
