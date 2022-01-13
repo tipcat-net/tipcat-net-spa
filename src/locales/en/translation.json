@@ -18,7 +18,7 @@
   "footer": {
     "title": "TipCat Finance Systems LLC",
     "contacts": {
-      "address": "B105, Saraya Avenue building <br/> P.O. Box 36690Dubai, Unated Arab Emirates",
+      "address": "B105, Saraya Avenue building <br/> P.O. Box 36690 <br/> Dubai, Unated Arab Emirates",
       "phone": {
         "title": "Phone",
         "text": "+971 4 2940007"
@@ -38,7 +38,7 @@
       "termsConditions": "Terms & Conditions",
       "privacyPolicy": "Privacy Policy"
     },
-    "copyright": "All rights reserved <br/> © 2021 TipCat Finance Systems LLC"
+    "copyright": "All rights reserved © 2022 <br/> TipCat Finance Systems LLC"
   },
   "home": {
     "headerTitle": "Home"
