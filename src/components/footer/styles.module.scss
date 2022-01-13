@@ -1,10 +1,10 @@
 @import './../../styles/variables.scss';
 
 .footer {
-  padding: 35px 20px 15px;
+  padding: 40px 20px 15px;
 
   &Logo {
-    margin-bottom: 15px;
+    margin-bottom: 19px;
     display: flex;
     justify-content: center;
     color: $footerLogo_color;
@@ -16,16 +16,16 @@
   }
 
   &Title {
-    margin-bottom: 13px;
+    margin-bottom: 16px;
     text-align: center;
   }
 
   &Contacts {
     list-style: none;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
 
     li {
-      margin-top: 10px;
+      margin-top: 11px;
       font-size: 11px;
       line-height: 14px;
       text-align: center;
@@ -38,12 +38,13 @@
 
       span {
         display: block;
+        color: $footerContactsSpan_color;
       }
     }
   }
 
   &Copyright {
-    margin-top: 20px;
+    margin-top: 21px;
     font-size: 10px;
     line-height: 12px;
     text-align: center;
