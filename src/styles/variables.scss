@@ -234,9 +234,14 @@ $transactionsItemText_color: #4F4F4F;
 // card
 $card_bg: #FFFFFF;
 $card_shadow: rgba(0, 0, 0, 0.1);
-$cardIconCard_color: #7DDBC7;
-$cardNumber_color: #2A6274;
-$cardBtnView_color: #828282;
+$cardDisabled_bg: #E0E0E0;
+$cardDisabled_cardIcon_color: #BDBDBD;
+$cardIconCard_color: #1EB9C1;
+$cardNumber_color: #01687F;
+$cardBtnView_color: #878787;
+
+// myAccounts
+$myAccountsTitle_color: #878787;
 
 // pay
 $paymentLabel_color: #878787;

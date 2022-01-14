@@ -48,6 +48,8 @@ import { ReactComponent as ShowSvg } from './svg/show.svg';
 import { ReactComponent as StatusSvg } from './svg/status.svg';
 
 import { ReactComponent as TimeSvg } from './svg/time.svg';
+import { ReactComponent as TrashEmptySvg } from './svg/basic/trashEmpty.svg';
+import { ReactComponent as TrashFullSvg } from './svg/basic/trashFull.svg';
 
 import './styles.scss';
 
@@ -105,3 +107,5 @@ export const Show = (props) => <Icon { ...props }><ShowSvg /></Icon>;
 export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>;
 
 export const Time = (props) => <Icon { ...props }><TimeSvg /></Icon>;
+export const TrashEmpty = (props) => <Icon { ...props }><TrashEmptySvg /></Icon>;
+export const TrashFull = (props) => <Icon { ...props }><TrashFullSvg /></Icon>;

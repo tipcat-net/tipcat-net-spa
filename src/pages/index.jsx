@@ -21,6 +21,7 @@ import Pay from './Pay';
 import Transactions from './Transactions';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
+import MyAccounts from './MyAccounts';
 import Withdraw from './Withdraw';
 
 export const Pages = () => {
@@ -43,6 +44,7 @@ export const Pages = () => {
 
       <ProtectedRoute { ...ROUTES.TRANSACTIONS } component={ Transactions } />
 
+      <ProtectedRoute { ...ROUTES.MYACCOUNTS } component={ MyAccounts } />
       <ProtectedRoute { ...ROUTES.WITHDRAW } component={ Withdraw } />
 
       <Route { ...ROUTES.PAY } >
