@@ -11,7 +11,11 @@ export const Layout = ({ children, title, hiddenHeader, footer, logo, background
 
   return (
     <div className={ cn(style.layout, classNameBackground) }>
-      { !hiddenHeader ?  <Header logo={ logo } title={ title } className={ style.layoutHeader } /> : null }
+      {
+        hiddenHeader ?
+          null
+          : <Header logo={ logo } title={ title } className={ style.layoutHeader } />
+      }
       <div className={ cn(style.layoutContent, footer ? style.layoutContentHeightAuto : null) }>{ children }</div>
       { footer ? <Footer /> : null }
     </div>
