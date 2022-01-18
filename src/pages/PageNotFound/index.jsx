@@ -1,15 +1,17 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Trans, useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Button } from '../../components/ui/Button';
-import { Home } from '../../components/ui/Icons';
 
 import iconPageNotFound from './svg/404.svg';
 import style from './styles.module.scss';
 
 export const PageNotFound = () => {
   const { t } = useTranslation();
+
+  const history = useHistory();
 
   return (
     <Layout>
@@ -22,9 +24,11 @@ export const PageNotFound = () => {
           <div className={ style.pageNotFoundInfoText }>
             <Trans i18nKey="pageNotFound.pageNotFoundInfoText" />
           </div>
-          <Button>{ t('pageNotFound.button.back') }</Button>
+          <Button
+            onClick={ history.goBack }
+            className={ style.pageNotFoundBack }
+          >{ t('pageNotFound.button.back') }</Button>
         </div>
-        <Button transparent={ true } className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t('pageNotFound.button.home') }</Button>
       </div>
     </Layout>
   );
