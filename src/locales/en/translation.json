@@ -73,7 +73,7 @@
       "withdraw" : "Withdraw to card"
     },
     "transactionsLast": {
-      "text": "The last 10 transactions are shown here",
+      "text": "The last {{count}} transactions are shown here",
       "btn": "All transaction"
     }
   },

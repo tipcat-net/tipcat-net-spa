@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import cn from 'classnames';
 import * as dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
@@ -29,7 +29,7 @@ export const TransactionList = ({ primary, count, className }) => {
     if (!transactions && count) {
       put(getTransactions({
         ...transactionsParams,
-        top: 10,
+        top: count,
         filter: `memberId eq ${member.id}`,
       }));
     } else if (!transactions) {
@@ -101,7 +101,8 @@ export const TransactionList = ({ primary, count, className }) => {
             <Text
               size='superSmall'
               className={ style.transactionsLastText }
-            >{ t('transactions.transactionsLast.text') }</Text>
+            >
+              <Trans i18nKey="transactions.transactionsLast.text" count={ count }></Trans></Text>
             <Button
               borderNone={ true }
               href={ ROUTES.TRANSACTIONS.path }
