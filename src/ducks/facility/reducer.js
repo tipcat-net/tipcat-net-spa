@@ -1,6 +1,9 @@
 import { FacilityActionTypes } from './action-types';
 
 export const initialState = {
+  loading: false,
+  data: null,
+  error: null,
   addFacility: {
     loading: false,
     error: null,
@@ -13,6 +16,24 @@ export const initialState = {
 
 export function facilityReducer(state = initialState, action) {
   switch (action.type) {
+    case FacilityActionTypes.GET_FACILITIES:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FacilityActionTypes.GET_FACILITIES_FINISH:
+      return {
+        ...state,
+        loading: false,
+        data: action.response.data,
+      };
+    case FacilityActionTypes.GET_FACILITIES_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+
     case FacilityActionTypes.ADD_FACILITY_START:
       return {
         ...state,

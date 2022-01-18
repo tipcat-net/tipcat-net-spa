@@ -19,8 +19,8 @@ export const Button = ({ children, className, href, type, draggable, primary, bo
         draggable={ draggable ? draggable : false }
         { ...allProps }
       >
-        { Icon ? <Icon className={ styles.icon } /> : null }
-        <span className={ styles.content }>{ children }</span>
+        { Icon ? Icon : null }
+        { children ? <span className={ styles.content }>{ children }</span> : null }
       </Link>
     );
   }
@@ -31,8 +31,8 @@ export const Button = ({ children, className, href, type, draggable, primary, bo
       className={ cn(styles.button, classClear, classBorderNone, classIcon, classPrimary, classWhite, className) }
       { ...allProps }
     >
-      { Icon ? <Icon className={ styles.icon } /> : null }
-      <span className={ styles.content }>{ children }</span>
+      { Icon ? Icon : null }
+      { children ? <span className={ styles.content }>{ children }</span> : null }
     </button>
   );
 };

@@ -1,5 +1,18 @@
 import { FacilityActionTypes } from './action-types';
 
+export const getFacilities = (payload) => ({
+  type: FacilityActionTypes.GET_FACILITIES,
+  payload,
+});
+export const getFacilitiesFinish = (response) => ({
+  type: FacilityActionTypes.GET_FACILITIES_FINISH,
+  response,
+});
+export const getFacilitiesError = (error) => ({
+  type: FacilityActionTypes.GET_FACILITIES_ERROR,
+  error,
+});
+
 export const addFacility = (payload, callback) => ({
   type: FacilityActionTypes.ADD_FACILITY_START,
   payload,

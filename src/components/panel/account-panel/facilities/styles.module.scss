@@ -1,0 +1,14 @@
+@import "../../../../styles/variables.scss";
+
+.accountPanelFacilities {
+  margin-top: 30px;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+
+  &Header {
+    padding: 18px 10px 5px;
+    background: #BDBDBD;
+    color: #FFFFFF;
+    text-align: center;
+  }
+}
