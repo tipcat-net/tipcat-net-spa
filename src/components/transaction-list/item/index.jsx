@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import * as dayjs from 'dayjs';
 
 import { Title } from '../../ui/Title';
 import { Text } from '../../ui/Text';
@@ -22,6 +23,10 @@ export const TransactionListItem = ({ transaction }) => {
         <ArrowDownCircle />
       </div>
       <Text
+        size='superSmall'
+        className={ style.transactionsItemTime }
+      >{ dayjs(transaction.created).format('hh.mm A') }</Text>
+      <Text
         size='small'
         strong={ true }
         className={ style.transactionsItemTitle }
@@ -32,7 +37,7 @@ export const TransactionListItem = ({ transaction }) => {
       >+ { formatter.format(transaction.amount.amount) }</Title>
       {
         transaction.message ?
-          <Text size='small' className={ style.transactionsItemText }>{ transaction.message }</Text>
+          <Text size='small' className={ style.transactionsItemMessage }>{ transaction.message }</Text>
           : null
       }
     </div>

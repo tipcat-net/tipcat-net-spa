@@ -10,6 +10,7 @@ import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 
 import { ROUTES } from '../../constants/routes';
+import { selectMember } from '../../ducks/member/selectors';
 import { selectTransaction, selectTransactionParams } from '../../ducks/transaction/selectors';
 import { getTransactions } from '../../ducks/transaction/actions';
 
@@ -20,6 +21,7 @@ dayjs.extend(calendar);
 export const TransactionList = ({ primary, count, className }) => {
   const { t } = useTranslation();
   const put = useDispatch();
+  const member = useSelector(selectMember);
   const transactionsParams = useSelector(selectTransactionParams);
   const transactions = useSelector(selectTransaction);
 
@@ -27,10 +29,13 @@ export const TransactionList = ({ primary, count, className }) => {
     if (!transactions && count) {
       put(getTransactions({
         ...transactionsParams,
-        top: count,
+        top: 10,
+        filter: `memberId eq ${member.id}`,
       }));
     } else if (!transactions) {
-      put(getTransactions());
+      put(getTransactions({
+        filter: `memberId eq ${member.id}`,
+      }));
     }
   }, []);
 
