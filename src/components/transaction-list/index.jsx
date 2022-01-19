@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 import cn from 'classnames';
 import * as dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
@@ -10,6 +10,7 @@ import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 
 import { ROUTES } from '../../constants/routes';
+import { selectMember } from '../../ducks/member/selectors';
 import { selectTransaction, selectTransactionParams } from '../../ducks/transaction/selectors';
 import { getTransactions } from '../../ducks/transaction/actions';
 
@@ -20,6 +21,7 @@ dayjs.extend(calendar);
 export const TransactionList = ({ primary, count, className }) => {
   const { t } = useTranslation();
   const put = useDispatch();
+  const member = useSelector(selectMember);
   const transactionsParams = useSelector(selectTransactionParams);
   const transactions = useSelector(selectTransaction);
 
@@ -28,9 +30,12 @@ export const TransactionList = ({ primary, count, className }) => {
       put(getTransactions({
         ...transactionsParams,
         top: count,
+        filter: `memberId eq ${member.id}`,
       }));
     } else if (!transactions) {
-      put(getTransactions());
+      put(getTransactions({
+        filter: `memberId eq ${member.id}`,
+      }));
     }
   }, []);
 
@@ -96,7 +101,8 @@ export const TransactionList = ({ primary, count, className }) => {
             <Text
               size='superSmall'
               className={ style.transactionsLastText }
-            >{ t('transactions.transactionsLast.text') }</Text>
+            >
+              <Trans i18nKey="transactions.transactionsLast.text" count={ count }></Trans></Text>
             <Button
               borderNone={ true }
               href={ ROUTES.TRANSACTIONS.path }

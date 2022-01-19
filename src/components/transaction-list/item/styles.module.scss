@@ -8,6 +8,7 @@
   box-shadow: 1px 1px 6px $transactionsItem_shadow;
 
   &Icon {
+    margin-right: 6px;
     display: flex;
     align-items: center;
     color: $transactionsItemIcon_color;
@@ -16,6 +17,10 @@
   &Withdraw &Icon {
     color: $transactionsItemWithdrawIcon_color;
     transform: scale(-1);
+  }
+
+  &Time {
+    flex: 0 0 41px;
   }
 
   &Title {
@@ -34,10 +39,10 @@
     color: $transactionsItemWithdrawSum_color;
   }
 
-  &Text {
+  &Message {
     margin-top: 9px;
-    padding-left: 35px;
-    width: 100%;
+    padding-left: 30px;
+    flex: 0 0 100%;
     color: $transactionsItemText_color;
   }
 }
