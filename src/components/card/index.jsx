@@ -5,12 +5,15 @@ import { useTranslation } from 'react-i18next';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 import { Card as CardIcon, Hide, Show } from '../ui/Icons';
+import { ReactComponent as BlankIcon } from './svg/blank.svg';
 
 import style from './styles.module.scss';
 
-export const Card = ({ data, className, button }) => {
+export const Card = ({ data, className, button, disabled }) => {
   const { t } = useTranslation();
   const [visibleNumber, setVisibleNumber] = useState(false);
+  const classNoButton = button === false ? style.cardNoButton : null;
+  const classDisabled = disabled ? style.cardDisabled : null;
 
   const toggleVisibleNumber = () => {
     setVisibleNumber(!visibleNumber);
@@ -28,18 +31,33 @@ export const Card = ({ data, className, button }) => {
   });
 
   return (
-    <div className={ cn(style.card, className) }>
-      <CardIcon className={ style.cardIconCard }/>
+    <div className={ cn(style.card, classNoButton, classDisabled, className) }>
+      {
+        data.type === 'card' ?
+          <CardIcon className={ cn(style.cardIcon, style.cardIconCard) }/>
+          : <BlankIcon className={ cn(style.cardIcon, style.cardIconBlank) }/>
+      }
       <div className={ style.cardNumberWrap }>
-        <Text size='big' className={ style.cardNumber }>{ transformNumber(data.number) }</Text>
-        <Button
-          clear={ true }
-          className={ style.cardBtnView }
-          onClick={ toggleVisibleNumber }
-          icon={ visibleNumber ? Hide : Show }
-        ></Button>
+        <Text
+          size='big'
+          className={ style.cardNumber }
+        >{ data.type === 'card' ? transformNumber(data.number) : data.number }</Text>
+        {
+          data.type === 'card' ?
+            <Button
+              clear={ true }
+              className={ style.cardBtnView }
+              onClick={ toggleVisibleNumber }
+              icon={ visibleNumber ? Hide : Show }
+            ></Button>
+            : null
+        }
       </div>
-      <Text size='small' className={ style.cardDate }>{ data.date }</Text>
+      {
+        data.type === 'card' ?
+          <Text size='small' className={ style.cardDate }>{ data.date }</Text>
+          : <Text size='small' className={ style.cardType }>{ t(`card.type.${data.type}`) }</Text>
+      }
       <Text size='small' className={ style.cardName }>{ data.name }</Text>
       { button && <Button primary={ true } className={ style.cardBtn }>{ t('card.btn') }</Button> }
     </div>
