@@ -8,6 +8,7 @@
   width: 100%;
 
   &Logo {
+    margin-bottom: -4px;
     display: flex;
     justify-content: center;
     flex: auto;
@@ -24,7 +25,22 @@
 
   &Container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+
+    &Left {
+      display: flex;
+      flex: 0 0 58px;
+    }
+
+    &Center {
+      flex: auto;
+    }
+
+    &Right {
+      display: flex;
+      justify-content: flex-end;
+      flex: 0 0 58px;
+    }
   }
 
   &Btn {
@@ -48,10 +64,12 @@
   }
 
   &Title {
+    margin-top: -26px;
     flex-grow: 1;
     font-weight: bold;
-    font-size: 21px;
+    font-size: 20px;
     line-height: 22px;
+    letter-spacing: -0.03em;
     text-align: center;
     color: $headerTitle;
   }
