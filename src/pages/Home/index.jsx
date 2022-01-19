@@ -43,7 +43,7 @@ export const Home = () => {
   });
 
   return (
-    <Layout title={ t('home.headerTitle') } footer={ true }>
+    <Layout footer={ true }>
       {
         currentMember && currentMember.permissions === 'Employee' ? (
           <Profile>
