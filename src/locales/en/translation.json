@@ -385,5 +385,20 @@
     },
     "max": "Max",
     "button": "Withdraw"
+  },
+  "support": {
+    "headerTitle": "Support",
+    "fields": {
+      "message": {
+        "label": "Describe your problem"
+      },
+      "email": {
+        "label": "Your e-mail"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Send"
+    }
   }
 }

@@ -71,7 +71,7 @@
     color: $buttonPrimary_color;
     border-color: $buttonPrimary_border;
 
-    &:active {
+    &:active:not(&Clear) {
       color: $buttonPrimary_active_color;
       background-color: $buttonPrimary_active_bg;
     }
