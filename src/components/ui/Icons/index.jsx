@@ -31,6 +31,7 @@ import { ReactComponent as LogoSvg } from './svg/logo.svg';
 import { ReactComponent as LoupeSvg } from './svg/loupe.svg';
 
 import { ReactComponent as MaxSvg } from './svg/max.svg';
+import { ReactComponent as MessageSvg } from './svg/basic/message.svg';
 import { ReactComponent as MinSvg } from './svg/min.svg';
 
 import { ReactComponent as NameAscSvg } from './svg/nameAsc.svg';
@@ -90,6 +91,7 @@ export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>;
 export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>;
 
 export const Max = (props) => <Icon { ...props }><MaxSvg /></Icon>;
+export const Message = (props) => <Icon { ...props }><MessageSvg /></Icon>;
 export const Min = (props) => <Icon { ...props }><MinSvg /></Icon>;
 
 export const NameAsc = (props) => <Icon { ...props }><NameAscSvg /></Icon>;

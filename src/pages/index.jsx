@@ -23,6 +23,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
 import MyAccounts from './MyAccounts';
 import Withdraw from './Withdraw';
+import Support from './Support';
 
 export const Pages = () => {
   return (
@@ -61,6 +62,9 @@ export const Pages = () => {
       </Route>
       <Route { ...ROUTES.TERMS_CONDITIONS } >
         <TermsAndConditions />
+      </Route>
+      <Route { ...ROUTES.SUPPORT } >
+        <Support />
       </Route>
       <Route component={ PageNotFound } />
     </Switch>
