@@ -30,40 +30,40 @@
 
     :global {
       .icon {
-        margin: -2px 0 -2px -4px;
+        margin: -2px -5px;
       }
     }
 
     .content {
-      margin-left: 5px;
+      margin-left: 10px;
       display: inline-flex;
       align-items: flex-start;
     }
   }
 
   &BorderNone {
-    padding: 10px 11px 11px;
+    padding: 12px 13px 13px;
     font-size: 14px;
     font-weight: normal;
     line-height: 15px;
     letter-spacing: 0.03em;
     color: $buttonBorderNone_color;
     text-decoration: none;
-    border-color: $buttonBorderNone_border;
+    border: none;
 
     &:active {
       color: $buttonBorderNone_active_color;
       background-color: $buttonBorderNone_active_bg;
     }
-  
-    &:disabled {
-      border-color: $buttonBorderNone_disabled_border;
-    }
 
     :global {
       .icon {
-        margin: -4px 0 -5px -4px;
+        margin: -4px -5px -5px;
       }
+    }
+
+    .content {
+      margin-left: 13px;
     }
   }
 

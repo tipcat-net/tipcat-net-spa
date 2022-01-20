@@ -25,22 +25,22 @@ export const Transactions = () => {
   const sortList = [
     {
       value: TransactionSort.CreatedASC,
-      icon: Clock,
+      icon: <Clock />,
       text: t('transactions.sortList.createdASC'),
     },
     {
       value: TransactionSort.CreatedDESC,
-      icon: Clock,
+      icon: <Clock />,
       text: t('transactions.sortList.createdDESC'),
     },
     {
       value: TransactionSort.AmountASC,
-      icon: DiaHigh,
+      icon: <DiaHigh />,
       text: t('transactions.sortList.amountASC'),
     },
     {
       value: TransactionSort.AmountDESC,
-      icon: DiaDown,
+      icon: <DiaDown />,
       text: t('transactions.sortList.amountDESC'),
     },
   ];
@@ -49,7 +49,7 @@ export const Transactions = () => {
     setSelected(value);
     put(changeParamsTransactions({
       skip: 0,
-      filterProperty: value,
+      orderBy: value,
     }));
   };
 

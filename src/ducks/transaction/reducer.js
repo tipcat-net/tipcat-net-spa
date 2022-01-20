@@ -4,7 +4,10 @@ export const initialState = {
   loading: false,
   data: null,
   lastPage: false,
-  params: {},
+  params: {
+    skip: 0,
+    top: 20,
+  },
   error: null,
 };
 

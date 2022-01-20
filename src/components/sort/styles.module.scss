@@ -14,10 +14,15 @@
     margin-left: auto;
     padding-right: 0;
 
-    &Arrow {
+    span svg {
+      color: $sortSelected_span_svg_color;
+    }
+
+    &Arrow:global.icon {
       margin: -4px 0 -5px 13px;
     }
   }
+
   &List {
     position: relative;
     padding: 20px;
