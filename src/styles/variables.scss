@@ -44,10 +44,8 @@ $button_disabled_color: #E0E0E0;
 $button_disabled_border: #E0E0E0;
 
 $buttonBorderNone_color: #4F4F4F;
-$buttonBorderNone_border: transparent;
 $buttonBorderNone_active_color: #4F4F4F;
 $buttonBorderNone_active_bg: transparent;
-$buttonBorderNone_disabled_border: transparent;
 
 $buttonPrimary_color: #1EB9C1;
 $buttonPrimary_border: #1EB9C1;
@@ -134,6 +132,7 @@ $membersSortListItemBtnIcon_color: #828282;
 // sort
 $sort_bg: #FFFFFF;
 $sort_shadow: rgba(79, 79, 79, 0.1);
+$sortSelected_span_svg_color: #878787;
 $sortList_before_color: #BDBDBD;
 
 // memberProfile
