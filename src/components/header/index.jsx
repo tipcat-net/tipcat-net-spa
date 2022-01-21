@@ -85,7 +85,7 @@ export const Header = ({ logo, title, className }) => {
           }
         </div>
       </div>
-      <Menu open={ menuOpen } onClose={ onMenuToggle } />
+      <Menu open={ menuOpen } history={ history } onClose={ onMenuToggle } />
     </header>
   );
 };

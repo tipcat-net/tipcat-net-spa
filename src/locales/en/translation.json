@@ -1,6 +1,6 @@
 {
   "header": {
-    "menu": {
+    "accountMenu": {
       "accountProfile": "Account profile",
       "addFacility": "Add facility",
       "addMember": "Add member",
@@ -8,6 +8,15 @@
       "financialAnalityc": "Account stats",
       "support": "Contact support",
       "logout": "Sign out"
+    },
+    "memberMenu": {
+      "myProfile": "My profile",
+      "myQrCode": "My QR code for payment",
+      "myCards": "My cards",
+      "transaction": "Transaction",
+      "support": "Support",
+      "search": "Search",
+      "logout": "Log out"
     },
     "menuBottom": {
       "privacyPolicy": "Privacy Policy",

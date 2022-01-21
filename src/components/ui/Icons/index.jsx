@@ -27,7 +27,7 @@ import { ReactComponent as HomeSvg } from './svg/home.svg';
 import { ReactComponent as ImageSvg } from './svg/image.svg';
 
 import { ReactComponent as LogoSvg } from './svg/logo.svg';
-
+import { ReactComponent as LogOutSvg } from './svg/basic/logOut.svg';
 import { ReactComponent as LoupeSvg } from './svg/loupe.svg';
 
 import { ReactComponent as MaxSvg } from './svg/max.svg';
@@ -42,15 +42,19 @@ import { ReactComponent as PersonSvg } from './svg/person.svg';
 import { ReactComponent as PositionSvg } from './svg/position.svg';
 import { ReactComponent as PlusSquareSvg } from './svg/edit/plusSquare.svg';
 
-import { ReactComponent as QrCodeSvg } from './svg/qr_code.svg';
+import { ReactComponent as QrCodeSvg } from './svg/basic/qrCode.svg';
 
 import { ReactComponent as SaveSvg } from './svg/save.svg';
+import { ReactComponent as SearchSvg } from './svg/basic/search.svg';
 import { ReactComponent as ShowSvg } from './svg/show.svg';
 import { ReactComponent as StatusSvg } from './svg/status.svg';
 
 import { ReactComponent as TimeSvg } from './svg/time.svg';
+import { ReactComponent as TransactionSvg } from './svg/basic/transaction.svg';
 import { ReactComponent as TrashEmptySvg } from './svg/basic/trashEmpty.svg';
 import { ReactComponent as TrashFullSvg } from './svg/basic/trashFull.svg';
+
+import { ReactComponent as UserSvg } from './svg/basic/user.svg';
 
 import './styles.scss';
 
@@ -87,7 +91,7 @@ export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>;
 export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>;
 
 export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>;
-
+export const LogOut = (props) => <Icon { ...props }><LogOutSvg /></Icon>;
 export const Loupe = (props) => <Icon { ...props }><LoupeSvg /></Icon>;
 
 export const Max = (props) => <Icon { ...props }><MaxSvg /></Icon>;
@@ -105,9 +109,13 @@ export const PlusSquare = (props) => <Icon { ...props }><PlusSquareSvg /></Icon>
 export const QrCode = (props) => <Icon { ...props }><QrCodeSvg /></Icon>;
 
 export const Save = (props) => <Icon { ...props }><SaveSvg /></Icon>;
+export const Search = (props) => <Icon { ...props }><SearchSvg /></Icon>;
 export const Show = (props) => <Icon { ...props }><ShowSvg /></Icon>;
 export const Status = (props) => <Icon { ...props }><StatusSvg /></Icon>;
 
 export const Time = (props) => <Icon { ...props }><TimeSvg /></Icon>;
+export const Transaction = (props) => <Icon { ...props }><TransactionSvg /></Icon>;
 export const TrashEmpty = (props) => <Icon { ...props }><TrashEmptySvg /></Icon>;
 export const TrashFull = (props) => <Icon { ...props }><TrashFullSvg /></Icon>;
+
+export const User = (props) => <Icon { ...props }><UserSvg /></Icon>;

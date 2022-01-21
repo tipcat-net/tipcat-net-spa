@@ -1,0 +1,20 @@
+@import './../../../../styles/variables.scss';
+
+.menu {
+  list-style: none;
+
+  &Item {
+    padding-left: 40px;
+    display: flex;
+
+    &Icon {
+      padding-left: 0;
+    }
+
+    :global {
+      .icon {
+        color: $menuItem_icon_color;
+      }
+    }
+  }
+}
