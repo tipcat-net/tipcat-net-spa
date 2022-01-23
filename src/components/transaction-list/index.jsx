@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation, Trans } from 'react-i18next';
 import cn from 'classnames';
@@ -9,9 +9,10 @@ import { TransactionListItem } from './item';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
 
+import { TransactionSort } from '../../constants/TransactionSort';
 import { ROUTES } from '../../constants/routes';
 import { selectMember } from '../../ducks/member/selectors';
-import { selectTransaction, selectTransactionParams } from '../../ducks/transaction/selectors';
+import { selectTransaction, selectTransactionParams, selectTransactionLoading } from '../../ducks/transaction/selectors';
 import { getTransactions } from '../../ducks/transaction/actions';
 
 import style from './styles.module.scss';
@@ -24,19 +25,24 @@ export const TransactionList = ({ primary, count, className }) => {
   const member = useSelector(selectMember);
   const transactionsParams = useSelector(selectTransactionParams);
   const transactions = useSelector(selectTransaction);
+  const transactionsLoading = useSelector(selectTransactionLoading);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!transactions && count) {
+    if (count) {
       put(getTransactions({
         ...transactionsParams,
         top: count,
         filter: `memberId eq ${member.id}`,
+        orderBy: TransactionSort.CreatedDESC,
       }));
-    } else if (!transactions) {
+    } else {
       put(getTransactions({
         filter: `memberId eq ${member.id}`,
+        orderBy: TransactionSort.CreatedDESC,
       }));
     }
+    setLoading(false);
   }, []);
 
   const groupDate = (list) => {
@@ -58,6 +64,10 @@ export const TransactionList = ({ primary, count, className }) => {
 
     return result;
   };
+
+  if ((loading && !transactionsLoading) || (!loading && transactionsLoading)) {
+    return false;
+  }
 
   return (
     <div
