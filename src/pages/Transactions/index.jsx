@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -16,7 +16,6 @@ import style from './styles.module.scss';
 export const Transactions = () => {
   const { t } = useTranslation();
   const put = useDispatch();
-  const [selected, setSelected] = useState(TransactionSort.CreatedDESC);
   const scrollRef = useRef(null);
   const transactionsParams = useSelector(selectTransactionParams);
   const transactionsLoading = useSelector(selectTransactionLoading);
@@ -46,7 +45,6 @@ export const Transactions = () => {
   ];
 
   const onToggleSelected = (value) => {
-    setSelected(value);
     put(changeParamsTransactions({
       skip: 0,
       orderBy: value,
@@ -70,7 +68,7 @@ export const Transactions = () => {
       <div className={ style.transactions }>
         <Sort
           data={ {
-            selected: selected,
+            selected: transactionsParams.orderBy,
             list: sortList,
           } }
           onToggleSelected={ onToggleSelected }

@@ -1,5 +1,7 @@
 import { TransactionActionTypes } from './action-types';
 
+import { TransactionSort } from '../../constants/TransactionSort';
+
 export const initialState = {
   loading: false,
   data: null,
@@ -7,6 +9,7 @@ export const initialState = {
   params: {
     skip: 0,
     top: 20,
+    orderBy: TransactionSort.CreatedDESC,
   },
   error: null,
 };
