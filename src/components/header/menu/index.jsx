@@ -1,72 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import { Button } from '../../ui/Button';
-import { authConfig } from '../../../auth0/auth0-config';
+import { AccountMenu } from './account-menu';
+import { MemberMenu } from './member-menu';
+
 import { ROUTES } from '../../../constants/routes';
 
 import style from './styles.module.scss';
 
-export const Menu = ({ open, onClose }) => {
+export const Menu = ({ open, history, onClose }) => {
   const { t } = useTranslation();
-  const { logout } = useAuth0();
 
   return (
     <div className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }>
-      <ul className={ style.menu }>
-        <li>
-          <Button
-            href={ ROUTES.ACCOUNT.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.accountProfile') }</Button>
-        </li>
-        <li>
-          <Button
-            href={ ROUTES.ADD_FACILITY.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.addFacility') }</Button>
-        </li>
-        <li>
-          <Button
-            href={ ROUTES.ADD_MEMBER.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.addMember') }</Button>
-        </li>
-        <li>
-          <Button
-            href={ ROUTES.TRANSACTIONS.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.transaction') }</Button>
-        </li>
-        <li>
-          <Button
-            href={ ROUTES.HOME.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.financialAnalityc') }</Button>
-        </li>
-        <li>
-          <Button
-            href={ ROUTES.SUPPORT.path }
-            borderNone={ true }
-            className={ style.menuLink }
-          >{ t('header.menu.support') }</Button>
-        </li>
-        <li>
-          <Button
-            borderNone={ true }
-            className={ style.menuLink }
-            onClick={ () => logout({ returnTo: authConfig.logoutUri }) }
-          >{ t('header.menu.logout') }</Button>
-        </li>
-      </ul>
+      {
+        history.location.pathname === ROUTES.ACCOUNT.path ?
+          <AccountMenu />
+          : <MemberMenu />
+      }
       <div className={ style.menuBottom }>
         <Button
           href={ ROUTES.PRIVACY_POLICY.path }

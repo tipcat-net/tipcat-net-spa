@@ -91,6 +91,10 @@ export const ROUTES = {
     path: '/my-accounts',
     exact: true,
   },
+  SEARCH: {
+    path: '/search',
+    exact: true,
+  },
 };
 
 export const ROUTES_KEYS = Object.keys(ROUTES);
