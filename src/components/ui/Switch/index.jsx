@@ -8,13 +8,13 @@ export const Switch = ({ className, onChange, checked }) => {
 
   return (
     <label
-      className={ style.switch }
+      className={ cn(style.switch, className) }
       onClick={ () => switchRef.current.checked }
     >
       <input
         type="checkbox"
         ref={ switchRef }
-        className={ cn(style.switchInput, className) }
+        className={ style.switchInput }
         onChange={ onChange }
         checked={ checked }
       />

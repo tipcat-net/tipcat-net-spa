@@ -26,7 +26,7 @@ export const Header = ({ logo, title, className }) => {
   if (logo) {
     return (
       <header className={ cn(style.header, className) }>
-        <div className={ style.headerLogo }>
+        <div className={ cn(style.headerLogo, style.headerLogoBig) }>
           <Logo className={ cn(style.headerLogoIcon, style.headerLogoIconBig) } />
         </div>
       </header>

@@ -88,9 +88,9 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
       <div className={ style.payment }>
         <ProfileFacilityName className={ style.paymentFacilityName }>{ payment.member.facilityName }</ProfileFacilityName>
         <div className={ style.paymentCompanyName }>{ payment.member.accountName }</div>
-        <ProfileContent>
+        <ProfileContent className={ style.paymentContent }>
           <ProfileAvatar data={ avatarData(payment.member) } />
-          <ProfileName>{ payment.member.firstName } { payment.member.lastName }</ProfileName>
+          <ProfileName className={ style.paymentName }>{ payment.member.firstName } { payment.member.lastName }</ProfileName>
           <ProfilePosition>{ payment.member.position }</ProfilePosition>
           <Text
             size='big'
@@ -112,6 +112,7 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
               <Switch
                 checked={ isServiceFee }
                 onChange={ onChangeIsServiceFee }
+                className={ style.paymentSwitchToggle }
               ></Switch>
               <Text
                 size='small'
@@ -132,6 +133,7 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
             name='message'
             value={ message }
             onChange={ (e) => setMessage(e.currentTarget.value) }
+            className={ style.paymentMessage }
           />
           <PaymentBottom
             currentDisplay={ currentDisplay }
