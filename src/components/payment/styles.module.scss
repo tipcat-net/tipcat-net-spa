@@ -1,31 +1,40 @@
 @import "../../styles/variables.scss";
 
 .payment {
-  padding-top: 20px;
+  padding-top: 21px;
   display: flex;
   flex-direction: column;
 
   & &FacilityName {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
 }
 
 .paymentCompanyName {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   font-size: 14px;
   line-height: 15px;
   text-align: center;
   letter-spacing: 0.03em;
-  color: #4F4F4F;
+  color: $paymentCompanyName;
+}
+
+.paymentContent {
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.paymentName {
+  margin-top: 10px;
 }
 
 .paymentLabel {
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: $paymentLabel_color;
 
   &Amount {
-    margin-top: 33px;
+    margin-top: 37px;
   }
 }
 
@@ -33,6 +42,7 @@
   position: relative;
 
   &Input {
+    padding: 9px 10px 8px;
     border: 2px solid $paymentAmountInput_border;
     box-sizing: border-box;
     border-radius: 10px;
@@ -79,9 +89,17 @@
   }
 }
 
+.paymentMessage {
+  font-weight: 400;
+}
+
 .paymentSwitch {
-  margin: 10px 0;
+  margin: 11px 0 10px;
   display: flex;
+
+  &Toggle {
+    transform: translateY(3px);
+  }
 
   &Text {
     margin-left: 10px;
@@ -91,5 +109,5 @@
 }
 
 .paymentBottom {
-  margin-top: 35px;
+  margin-top: 30px;
 }
