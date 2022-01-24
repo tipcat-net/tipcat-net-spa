@@ -29,40 +29,39 @@
     }
 
     &Card {
+      margin-bottom: 46px;
       width: 50px;
-      height: 40px;
-      margin-bottom: 53px;
     }
 
     &Blank {
-      margin: 4px 0 25px;
+      margin: 4px 0 22px;
     }
   }
 
   &Number {
     color: $cardNumber_color;
     white-space: pre;
-    min-height: 24px;
     
     &Wrap {
+      margin-bottom: 13px;
+      min-height: 24px;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 11px;
+      align-items: center;
     }
   }
 
   &BtnView {
-    width: 24px;
-    height: 24px;
+    margin-right: 2px;
     color: $cardBtnView_color;
   }
 
-  &Name {
-    margin-top: 7px;
+  &Date, &Type {
+    color: $cardDate_color;
   }
 
   &Name {
-    margin-top: 7px;
+    margin-top: 8px;
   }
 
   &Btn {

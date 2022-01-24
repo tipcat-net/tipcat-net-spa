@@ -18,11 +18,12 @@ export const MyAccountsListItem = ({ data }) => {
         disabled={ !data.active }
       />
       <div className={ style.myAccountsListItemBottom }>
-        { data.active === false ? <Button className={ style.myAccountsListItemMakeActive }>Make active</Button> : null }
+        { data.active === false ? <Button>Make active</Button> : null }
         <Button
+          icon={ <TrashFull /> }
           clear={ true }
           className={ style.myAccountsListItemTrash }
-        ><TrashFull /></Button>
+        ></Button>
       </div>
     </div>
   );

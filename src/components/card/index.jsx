@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
-import { Card as CardIcon, Hide, Show } from '../ui/Icons';
+import { Hide, Show } from '../ui/Icons';
+import { ReactComponent as CardIcon } from './svg/card.svg';
 import { ReactComponent as BlankIcon } from './svg/blank.svg';
 
 import style from './styles.module.scss';
@@ -23,10 +24,13 @@ export const Card = ({ data, className, button, disabled }) => {
     if (offset === 16) {
       return match;
     }
-    if (visibleNumber) {
-      return `${match}   `;
+
+    const render = visibleNumber ? match : '• • • •';
+
+    if (offset === 12) {
+      return `${render}  `;
     } else {
-      return '• • • •   ';
+      return `${render}   `;
     }
   });
 
@@ -48,7 +52,7 @@ export const Card = ({ data, className, button, disabled }) => {
               clear={ true }
               className={ style.cardBtnView }
               onClick={ toggleVisibleNumber }
-              icon={ visibleNumber ? Hide : Show }
+              icon={ visibleNumber ? <Hide /> : <Show /> }
             ></Button>
             : null
         }
