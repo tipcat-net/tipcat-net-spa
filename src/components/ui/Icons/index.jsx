@@ -14,6 +14,7 @@ import { ReactComponent as BadgeSvg } from './svg/user/badge.svg';
 import { ReactComponent as BurgerSvg } from './svg/burger.svg';
 
 import { ReactComponent as CardSvg } from './svg/card.svg';
+import { ReactComponent as CreditCardSvg } from './svg/basic/creditCard.svg';
 import { ReactComponent as ClockSvg } from './svg/basic/clock.svg';
 
 import { ReactComponent as DiaDownSvg } from './svg/diaDown.svg';
@@ -78,6 +79,7 @@ export const Badge = (props) => <Icon { ...props }><BadgeSvg /></Icon>;
 export const Burger = (props) => <Icon { ...props }><BurgerSvg /></Icon>;
 
 export const Card = (props) => <Icon { ...props }><CardSvg /></Icon>;
+export const CreditCard = (props) => <Icon { ...props }><CreditCardSvg /></Icon>;
 export const Clock = (props) => <Icon { ...props }><ClockSvg /></Icon>;
 
 export const DiaDown = (props) => <Icon { ...props }><DiaDownSvg /></Icon>;

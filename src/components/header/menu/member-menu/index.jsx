@@ -5,7 +5,7 @@ import { MenuList } from '../menu-list';
 
 import { authConfig } from '../../../../auth0/auth0-config';
 import { ROUTES } from '../../../../constants/routes';
-import { Card, LogOut, Message, QrCode, Search, Transaction, User } from '../../../ui/Icons';
+import { CreditCard, LogOut, Message, QrCode, Search, Transaction, User } from '../../../ui/Icons';
 
 export const MemberMenu = ({ className }) => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ export const MemberMenu = ({ className }) => {
       text: t('header.memberMenu.myQrCode'),
     },
     {
-      icon: <Card />,
+      icon: <CreditCard />,
       href: ROUTES.MYACCOUNTS.path,
       text: t('header.memberMenu.myCards'),
     },

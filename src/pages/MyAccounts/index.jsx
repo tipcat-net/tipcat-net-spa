@@ -32,7 +32,7 @@ export const MyAccounts = () => {
       id: 2,
       type: 'citybank',
       number: '098039485098095403476856',
-      name: 'NICHOLAS ANGEL',
+      name: 'LUCY ANGEL',
       active: false,
     },
   ];

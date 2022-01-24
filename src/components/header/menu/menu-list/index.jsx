@@ -8,11 +8,11 @@ import style from './styles.module.scss';
 export const MenuList = ({ list, className }) => (
   <ul className={ cn(style.menu, className) }>
     {
-      list.map(item => {
+      list.map((item, index) => {
         const classIcon = item.icon ? style.menuItemIcon : null;
 
         return (
-          <li className={ cn(style.menuItem, classIcon) }>
+          <li key={ index } className={ cn(style.menuItem, classIcon) }>
             <Button
               icon={ item.icon ? item.icon : null }
               href={ item.href ? item.href : null }
