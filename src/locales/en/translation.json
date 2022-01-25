@@ -333,6 +333,7 @@
       "paymentSwitch": "Include service comission at once",
       "paymentTotalText": "Total",
       "paymentLabelMessage": "Your message (may be)",
+      "paymentPlaceholderMessage": "Thanks for a great evening)",
       "paymentBottom": {
         "left": "No thanks",
         "right": "Next"
