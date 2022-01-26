@@ -197,9 +197,9 @@
     }
   },
   "status": {
-    "active": "active",
-    "invited": "invited",
-    "deactivated": "deactivated"
+    "Active": "active",
+    "Invited": "invited",
+    "Deactivated": "deactivated"
   },
   "addMember": {
     "title": "Invite member",

@@ -20,6 +20,8 @@ import { ReactComponent as ClockSvg } from './svg/basic/clock.svg';
 import { ReactComponent as DiaDownSvg } from './svg/diaDown.svg';
 import { ReactComponent as DiaHighSvg } from './svg/diaHigh.svg';
 
+import { ReactComponent as EditSvg } from './svg/basic/edit.svg';
+
 import { ReactComponent as GroupAltSvg } from './svg/user/groupAlt.svg';
 
 import { ReactComponent as HideSvg } from './svg/hide.svg';
@@ -84,6 +86,8 @@ export const Clock = (props) => <Icon { ...props }><ClockSvg /></Icon>;
 
 export const DiaDown = (props) => <Icon { ...props }><DiaDownSvg /></Icon>;
 export const DiaHigh = (props) => <Icon { ...props }><DiaHighSvg /></Icon>;
+
+export const Edit = (props) => <Icon { ...props }><EditSvg /></Icon>;
 
 export const GroupAlt = (props) => <Icon { ...props }><GroupAltSvg /></Icon>;
 
