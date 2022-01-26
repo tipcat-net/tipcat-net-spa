@@ -1,24 +1,23 @@
 import React from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+
+import { Text } from '../ui/Text';
+
+import { MemberStatus } from '../../constants/MemberStatus';
 
 import style from './styles.module.scss';
 
-export const Status = ({ status }) => {
+export const Status = ({ status, className }) => {
   const { t } = useTranslation();
 
-  const statusInfo = {
-    className: null,
-    text: t('status.active')
+  let statusClassName = null;
+
+  if (status === MemberStatus.Invited) {
+    statusClassName = style.statusInvited;
+  } else if (status === MemberStatus.Deactivated) {
+    statusClassName = style.statusDeactivated;
   }
 
-  if (status === 'invited') {
-    statusInfo.text = t('status.invited');
-    statusInfo.className = style.statusInvited;
-  } else if (status === 'deactivated') {
-    statusInfo.text = t('status.deactivated');
-    statusInfo.className = style.statusDeactivated;
-  }
-  
-  return <div className={ cn(style.status, statusInfo.className) }>{ statusInfo.text }</div>
-}
+  return <Text size='superSmall' className={ cn(style.status, statusClassName, className) }>{ t(`status.${status}`) }</Text>;
+};

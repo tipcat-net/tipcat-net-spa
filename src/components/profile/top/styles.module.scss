@@ -2,21 +2,22 @@
 
 .profileTop {
   position: relative;
-  margin-bottom: 35px;
-  padding: 8px 8px 0 20px;
+  margin-bottom: 25px;
+  padding: 10px 10px 0;
+  min-height: 50px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  &Status {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
 
   &BtnEdit {
     margin-left: auto;
     position: relative;
     z-index: 1;
     color: $profileTopBtnEdit_color;
-
-    &Icon {
-      width: 40px;
-      height: 40px;
-    }
   }
 }

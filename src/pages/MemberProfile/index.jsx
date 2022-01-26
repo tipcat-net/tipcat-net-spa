@@ -20,6 +20,7 @@ import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
 import { MemberProfileEdit } from '../../components/profile/edit/member';
+import { useMemberStatus } from '../../hooks/memberStatus';
 
 export const MemberProfile = () => {
   const { t } = useTranslation();
@@ -33,6 +34,7 @@ export const MemberProfile = () => {
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
   const delayBeforeClosing = 3000;
+  const status = useMemberStatus(memberProfile);
 
   const closeVisibleSuccess = () => {
     setVisibleSuccess(false);
@@ -87,7 +89,7 @@ export const MemberProfile = () => {
                 openVisibleSuccess={ openVisibleSuccess }
               />
             </Substrate>
-            <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
+            <ProfileTop status={ status } toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
               <ProfileAvatar data={ avatarData(memberProfile) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>

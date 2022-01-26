@@ -2,21 +2,19 @@
 
 .status {
   display: flex;
-  align-items: center;
-  font-size: 12px;
-  line-height: 13px;
-  letter-spacing: 0.03em;
+  align-items: flex-start;
   color: $status_color;
 
   &:before {
     content: "";
-    margin-right: 10px;
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
     display: inline-block;
-    width: 16px;
-    height: 16px;
     background-color: $status_bg;
     border: 2px solid $status_border;
     border-radius: 50%;
+    box-sizing: border-box;
   }
 
   &Invited:before {
