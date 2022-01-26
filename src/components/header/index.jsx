@@ -37,20 +37,22 @@ export const Header = ({ logo, title, className }) => {
     <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
         <div className={ style.headerContainerLeft }>
-          { member && (
-            <Button
-              clear={ true }
-              className={ style.headerBtn }
-              onClick={ history.goBack }
-              icon={ <ChevronBigLeft className={ style.headerBtnIcon } /> }
-            ></Button>
-          ) }
           <Button
             clear={ true }
-            className={ cn(style.headerBtn, style.headerBtnBurger) }
-            onClick={ onMenuToggle }
-            icon={ <Hamburger className={ style.headerBtnIcon } /> }
+            className={ style.headerBtn }
+            onClick={ history.goBack }
+            icon={ <ChevronBigLeft className={ style.headerBtnIcon } /> }
           ></Button>
+          {
+            member && (
+              <Button
+                clear={ true }
+                className={ cn(style.headerBtn, style.headerBtnBurger) }
+                onClick={ onMenuToggle }
+                icon={ <Hamburger className={ style.headerBtnIcon } /> }
+              ></Button>
+            )
+          }
         </div>
         <div className={ style.headerContainerCenter }>
           {
@@ -85,7 +87,7 @@ export const Header = ({ logo, title, className }) => {
           }
         </div>
       </div>
-      <Menu open={ menuOpen } history={ history } onClose={ onMenuToggle } />
+      { member && <Menu open={ menuOpen } history={ history } onClose={ onMenuToggle } /> }
     </header>
   );
 };
