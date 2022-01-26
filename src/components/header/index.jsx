@@ -69,14 +69,14 @@ export const Header = ({ logo, title, className }) => {
           {
             member && history.location.pathname === ROUTES.HOME.path ?
               <Button
-                to={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
+                href={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
                 clear={ true }
                 className={ style.headerBtn }
-                icon={ <QrCode className={ style.headerBtnQrCodeIcon } /> }
+                icon={ <QrCode className={ style.headerBtnIcon } /> }
               ></Button>
               : member ?
                 <Button
-                  to={ ROUTES.HOME }
+                  href={ ROUTES.HOME.path }
                   clear={ true }
                   className={ style.headerBtn }
                   icon={ <Home className={ style.headerBtnIcon } /> }
