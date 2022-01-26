@@ -8,10 +8,14 @@ import style from './styles.module.scss';
 export const ProfileInfo = ({ data, top }) => {
   const { title, text } = data;
 
+  if (!text) {
+    return null;
+  }
+
   return (
     <div className={ cn(style.profileInfo, top ? style.profileInfoTop : null) }>
       { title ? <Text size='small' className={ style.profileInfoTitle }>{ title }</Text> : null }
       { text ? <Text size='big' className={ style.profileInfoText }>{ text }</Text> : null }
     </div>
-  )
-}
+  );
+};
