@@ -132,6 +132,7 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
           <Input
             name='message'
             value={ message }
+            placeholder={ t('pay.payment.paymentPlaceholderMessage') }
             onChange={ (e) => setMessage(e.currentTarget.value) }
             className={ style.paymentMessage }
           />
