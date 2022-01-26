@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Input } from '../../components/ui/Input';
 import { Button } from '../../components/ui/Button';
-import { Card as CardSvg } from '../../components/ui/Icons';
 import { Card } from '../../components/card';
 import { Label } from '../../components/ui/Label';
-import { Text } from '../../components/ui/Text';
 import { Title } from '../../components/ui/Title';
+
+import { ReactComponent as CardSvg } from './svg/card.svg';
 
 import style from './styles.module.scss';
 
@@ -16,11 +16,13 @@ export const Withdraw = () => {
   const { t, i18n } = useTranslation();
   const [sum, setSum] = useState(50);
   const [email, setEmail] = useState('nicholas.angel@gmail.com');
+  const withdrawSumInputRef = useRef(null);
 
   const data = {
     max: 84,
     currency: 'AED',
     card: {
+      type: 'card',
       number: '11112222333344443456',
       date: '10/2024',
       name: 'NICHOLAS ANGEL',
@@ -45,24 +47,27 @@ export const Withdraw = () => {
     return currencyFormat.format(value).replace(numberFormat.format(value), '').replace(' ', '');
   };
 
-  const onChangeSum = (e) => {
-    const value = e.currentTarget.value;
-    let result = sum;
+  const onFocusSum = (e) => {
+    if (e.target !== withdrawSumInputRef.current) {
+      withdrawSumInputRef.current.focus();
+    }
+  };
 
-    if (value[0] === '.' || value[0] === ',') {
-      result = `0${value}`.replace(',', '.');
-    } else if (/^[\d]*(\.|\,)?[\d]{0,2}$/.test(value)) {
-      result = value.replace(',', '.');
-    } else {
-      result = result.replace(',', '.');
+  const onChangeSum = (value) => {
+    value = value.toString().replace(',', '.');
+
+    if (!/^[\d]*(\.|\,)?[\d]{0,2}$/.test(value)) {
+      return;
     }
 
-    if (parseFloat(result) >= data.max) {
-      setSum(numberFormat.format(data.max));
-    } else if (result[result.length - 1] === '.' || result[result.length - 1] === '0' || !result) {
-      setSum(result);
+    if (parseFloat(value) >= data.max) {
+      setSum(data.max);
+    } else if (value[0] === '.' || (value[0] === value[1] && value[1] === '0')) {
+      setSum('0.');
+    } else if (value[value.length - 1] === '.' || (value[value.length - 1] === '0') || !value) {
+      setSum(value);
     } else {
-      setSum(numberFormat.format(parseFloat(result)));
+      setSum(parseFloat(value));
     }
   };
 
@@ -77,18 +82,25 @@ export const Withdraw = () => {
           <CardSvg className={ style.withdrawImageIcon }/>
         </div>
         <Label className={ style.withdrawLabel }>{ t('withdraw.labels.sum') }</Label>
-        <Title className={ style.withdrawSum }>
-          <span className={ style.withdrawSumCurrency }>{ renderCurrency(sum) }</span>
-          <Input
+        <div
+          className={ style.withdrawSum }
+          onFocus={ onFocusSum }
+          tabIndex={ -1 }
+        >
+          <Title className={ style.withdrawSumCurrency }>{ renderCurrency(sum) }</Title>
+          <input
             className={ style.withdrawSumInput }
             value={ sum }
-            onChange={ onChangeSum }
+            onChange={ (e) => onChangeSum(e.currentTarget.value) }
             style={ {'--size': sum.toString().length} }
+            ref={ withdrawSumInputRef }
           />
-          <Text size='big' className={ style.withdrawSumMax }>
-            { t('withdraw.max') } <br/> { renderCurrency(sum) } <span>{ data.max }</span>
-          </Text>
-        </Title>
+        </div>
+        <Button
+          className={ style.withdrawBtnMax }
+          borderNone={ true }
+          onClick={ () => onChangeSum(data.max) }
+        >{ t('withdraw.max') } { renderCurrency(sum) }<span className={ style.withdrawBtnMaxNumber }>{ data.max }</span></Button>
         <Label className={ style.withdrawLabel }>{ t('withdraw.labels.account') }</Label>
         <Card
           data={ data.card }
@@ -105,6 +117,7 @@ export const Withdraw = () => {
         <Button
           primary={ true }
           className={ style.withdrawButton }
+          disabled={ !sum || parseFloat(sum) <= 0 }
         >{ t('withdraw.button') }</Button>
       </div>
     </Layout>
