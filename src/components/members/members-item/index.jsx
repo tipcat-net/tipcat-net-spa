@@ -1,28 +1,32 @@
 import { useState } from 'react';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+
+import { useMemberStatus } from '../../../hooks/memberStatus';
 import { Button } from '../../ui/Button';
 import { Actions } from '../../ui/Icons';
 import { Avatar } from '../../avatar';
+
 import style from './styles.module.scss';
 
 export const MembersItem = ({ data }) => {
-  const [visibleActions, setVisibleActions] = useState(false);
   const { t } = useTranslation();
+  const status = useMemberStatus(data);
+  const [visibleActions, setVisibleActions] = useState(false);
 
   const toggleVisibleActions = () => {
     setVisibleActions(!visibleActions);
   };
 
-  const avatarData = () => ({
+  const avatarData = (data, status) => ({
     text: `${data.firstName} ${data.lastName}`,
     url: data.avatarUrl,
-    invitationState: data.invitationState,
+    status: status,
   });
 
   return (
     <div className={ style.membersItem }>
-      <Avatar type="active" data={ avatarData() } />
+      <Avatar type="active" data={ avatarData(data, status) } />
       <div className={ style.membersItemInfo }>
         <div className={ style.membersItemName }>{ data.firstName } { data.lastName }</div>
         <div className={ style.membersItemPosition }>{ data.position }</div>

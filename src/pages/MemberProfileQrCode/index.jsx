@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Title } from '../../components/ui/Title';
@@ -11,6 +11,7 @@ import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfilePosition } from '../../components/profile/position';
 import { QrCode } from '../../components/qr-code';
+import { useMemberStatus } from '../../hooks/memberStatus';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
@@ -26,15 +27,17 @@ export const MemberProfileQrCode = () => {
   const { params: { memberId } } = useRouteMatch();
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
+  const status = useMemberStatus(memberProfile);
 
   useEffect(() => {
-    put(getAccount(member.accountId))
+    put(getAccount(member.accountId));
   }, []);
 
   useEffect(() => {
     if(account) {
       for (let facilitiesItem of account.facilities) {
         const result = facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId));
+
         if (result) {
           setMemberProfile(result);
           setFacility(facilitiesItem);
@@ -44,9 +47,10 @@ export const MemberProfileQrCode = () => {
     }
   }, [account]);
 
-  const avatarData = () => ({
+  const avatarData = (memberProfile, status) => ({
     text: `${memberProfile.firstName} ${memberProfile.lastName}`,
-    url: memberProfile.avatarUrl
+    url: memberProfile.avatarUrl,
+    status: status,
   });
 
   return (
@@ -56,7 +60,7 @@ export const MemberProfileQrCode = () => {
           <Profile className={ style.memberProfileQrCode }>
             <Title level={ 3 } className={ style.facility }>{ facility.name }</Title>
             <ProfileContent>
-              <ProfileAvatar data={ avatarData() } />
+              <ProfileAvatar data={ avatarData(memberProfile, status) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfilePosition className={ style.position }>{ memberProfile.position }</ProfilePosition>
               <QrCode url={ memberProfile.qrCodeUrl } className={ style.qrCode } />
@@ -67,6 +71,6 @@ export const MemberProfileQrCode = () => {
       }
     </Layout>
   );
-}
+};
 
 export default MemberProfileQrCode;

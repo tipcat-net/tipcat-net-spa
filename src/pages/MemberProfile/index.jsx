@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
 import { Substrate } from '../../components/profile/substrate';
-import { EditProfile } from '../../components/profile/edit';
 import { Profile } from '../../components/profile/';
 import { ProfileTop } from '../../components/profile/top';
 import { ProfileContent } from '../../components/profile/content/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfileInfo } from '../../components/profile/info/';
+import { MemberProfileEdit } from '../../components/profile/edit/member';
+import { useMemberStatus } from '../../hooks/memberStatus';
 import { Success } from '../../components/success';
 
 import { MemberPermissions } from '../../constants/MemberPermissions';
@@ -19,8 +20,6 @@ import { MemberPermissions } from '../../constants/MemberPermissions';
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
-import { MemberProfileEdit } from '../../components/profile/edit/member';
-import { useMemberStatus } from '../../hooks/memberStatus';
 
 export const MemberProfile = () => {
   const { t } = useTranslation();
@@ -71,10 +70,10 @@ export const MemberProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   };
 
-  const avatarData = (data) => ({
+  const avatarData = (data, status) => ({
     text: `${data.firstName} ${data.lastName}`,
     url: data.avatarUrl,
-    invitationState: data.invitationState,
+    status: status,
   });
 
   return (
@@ -91,7 +90,7 @@ export const MemberProfile = () => {
             </Substrate>
             <ProfileTop status={ status } toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
-              <ProfileAvatar data={ avatarData(memberProfile) } />
+              <ProfileAvatar data={ avatarData(memberProfile, status) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfileInfo top={ true } data={ { title: t('memberProfile.facility'), text: facility.name} } />
               <ProfileInfo data={ { title: t('memberProfile.position'), text: memberProfile.position} } />
