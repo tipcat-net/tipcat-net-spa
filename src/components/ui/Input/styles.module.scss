@@ -3,7 +3,7 @@
 .input, textarea {
   padding: 9px 10px;
   width: 100%;
-  font-family: $base;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 700;
   line-height: 20px;
@@ -16,6 +16,7 @@
 
   &::placeholder {
     color: inherit;
+    opacity: 1;
   }
 
   &.error {
