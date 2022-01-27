@@ -81,5 +81,13 @@
   &AccountManager {
     border-color: $avatarAccountManager_border;
     box-shadow: 0px 0px 20px $avatarAccountManager_shadow;
+
+    &.avatarBg {
+      background-color: $avatarAccountManager_avatarBg_bg;
+    }
+  }
+
+  &Bg {
+    background-color: $avatarBg_bg;
   }
 }
