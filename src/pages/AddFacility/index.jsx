@@ -106,12 +106,14 @@ export const AddFacility = () => {
                       type="text"
                       value={ values.name }
                       required={ true }
+                      className={ style.createItem }
                     />
                     <FormInput
                       label={ t('addFacility.fields.address.label') }
                       name="address"
                       type="textarea"
                       value={ values.address }
+                      className={ style.createItem }
                     />
                     <FormCheckbox
                       label={ t('addFacility.fields.useAccountAddress.label') }

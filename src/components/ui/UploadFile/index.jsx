@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import cn from 'classnames';
+
 import { Button } from '../Button';
-import { Image } from '../Icons';
+import { Gallery } from '../Icons';
+
 import style from './styles.module.scss';
 
 export const UploadFile = ({ className, error, ...Allprops }) => {
@@ -15,12 +17,10 @@ export const UploadFile = ({ className, error, ...Allprops }) => {
         className={ style.uploadFileInput }
         { ...Allprops } />
       <Button
-        type="button"
         className={ style.uploadFileButton }
+        icon={ <Gallery className={ style.uploadFileButtonIcon } /> }
         onClick={ () => fileInput.current.click() }
-      >
-        <Image />
-      </Button>
+      ></Button>
     </div>
   );
 };
