@@ -70,6 +70,10 @@ export const MemberProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   };
 
+  const closeVisibleSubstrate = () => {
+    setVisibleSubstrate(false);
+  };
+
   const avatarData = (data, status) => ({
     text: `${data.firstName} ${data.lastName}`,
     url: data.avatarUrl,
@@ -81,7 +85,7 @@ export const MemberProfile = () => {
       {
         memberProfile && (
           <Profile>
-            <Substrate visible={ visibleSubstrate }>
+            <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
               <MemberProfileEdit
                 member={ memberProfile }
                 toggleVisibleSubstrate={ toggleVisibleSubstrate }
