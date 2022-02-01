@@ -18,12 +18,12 @@ export const MemberMenu = ({ className }) => {
   const list = [
     {
       icon: <User />,
-      href: ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }),
+      href: ROUTES.MEMBER_PROFILE.getPath({ memberId: member.id }),
       text: t('header.memberMenu.myProfile'),
     },
     {
       icon: <QrCode />,
-      href: ROUTES.MEMBER_PROFILE_QRCODE.path,
+      href: ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }),
       text: t('header.memberMenu.myQrCode'),
     },
     {
