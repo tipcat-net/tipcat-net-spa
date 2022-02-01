@@ -31,6 +31,10 @@ export const FacilityProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   };
 
+  const closeVisibleSubstrate = () => {
+    setVisibleSubstrate(false);
+  };
+
   const avatarData = () => ({
     text: facility.name,
     url: facility.avatarUrl,
@@ -51,7 +55,7 @@ export const FacilityProfile = () => {
       {
         facility && (
           <Profile>
-            <Substrate visible={ visibleSubstrate }>
+            <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
               <EditProfile />
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />

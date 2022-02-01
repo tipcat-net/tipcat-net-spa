@@ -31,6 +31,10 @@ export const AccountProfile = () => {
     setVisibleSubstrate(!visibleSubstrate);
   };
 
+  const closeVisibleSubstrate = () => {
+    setVisibleSubstrate(false);
+  };
+
   const closeVisibleSuccess = () => {
     setVisibleSuccess(false);
   };
@@ -54,7 +58,7 @@ export const AccountProfile = () => {
       {
         account && (
           <Profile>
-            <Substrate visible={ visibleSubstrate }>
+            <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
               <AccountProfileEdit
                 account={ account }
                 toggleVisibleSubstrate={ toggleVisibleSubstrate }
