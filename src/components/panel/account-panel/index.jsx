@@ -7,6 +7,8 @@ import { AccountPanelFacilities } from './facilities';
 import { Button } from '../../ui/Button';
 import { Text } from '../../ui/Text';
 
+import { ROUTES } from '../../../constants/routes';
+
 import style from './styles.module.scss';
 
 export const AccountPanel = ({ className }) => {
@@ -26,6 +28,7 @@ export const AccountPanel = ({ className }) => {
     <div className={ cn(style.accountPanel, className) }>
       <div className={ style.accountPanelPadding }>
         <Button
+          href={ ROUTES.ACCOUNT.path }
           className={ style.accountPanelBtnAccount }
         >{ t('accountPanel.btnAccount') }</Button>
         <div className={ style.accountPanelResults }>
@@ -59,8 +62,12 @@ export const AccountPanel = ({ className }) => {
           </Text>
         </div>
         <div className={ style.accountPanelBtns }>
-          <Button>{ t('accountPanel.buttons.facilitys') }</Button>
-          <Button>{ t('accountPanel.buttons.members') }</Button>
+          <Button
+            href={ ROUTES.FACILITIES.path }
+          >{ t('accountPanel.buttons.facilities') }</Button>
+          <Button
+            href={ ROUTES.MEMBERS.path }
+          >{ t('accountPanel.buttons.members') }</Button>
         </div>
       </div>
       <AccountPanelFacilities/>
