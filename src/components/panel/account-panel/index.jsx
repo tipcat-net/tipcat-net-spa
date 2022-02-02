@@ -64,7 +64,7 @@ export const AccountPanel = ({ className }) => {
         <div className={ style.accountPanelBtns }>
           <Button
             href={ ROUTES.FACILITIES.path }
-          >{ t('accountPanel.buttons.facilitys') }</Button>
+          >{ t('accountPanel.buttons.facilities') }</Button>
           <Button
             href={ ROUTES.MEMBERS.path }
           >{ t('accountPanel.buttons.members') }</Button>
