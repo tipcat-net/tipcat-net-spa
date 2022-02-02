@@ -36,7 +36,7 @@ export const AvatarCropper = ({ data, onClose, onCrop }) => {
 
     cropper.getCroppedCanvas({
       width: 188,
-      weight: 188,
+      height: 188,
     }).toBlob(blob => {
       const formData = new FormData();
 

@@ -1,0 +1,43 @@
+@import "../../../../styles/variables.scss";
+
+.editProfileItem {
+  display: flex;
+  flex-wrap: wrap;
+
+  &Toggle, &Link {
+    margin-left: 60px;
+  }
+
+  &Content {
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &File {
+      padding-left: 73px;
+      align-items: flex-end;
+    }
+
+    label {
+      margin: 11px auto 8px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &Btns {
+    margin-top: 10px;
+    margin-left: auto;
+
+    button {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

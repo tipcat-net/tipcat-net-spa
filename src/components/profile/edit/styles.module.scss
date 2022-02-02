@@ -2,25 +2,12 @@
 
 .editProfile {
   position: relative;
-  padding: 20px 20px 15px 15px;
+  padding: 20px;
 
   &Title {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 15px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.03em;
+    top: 32px;
+    left: 18px;
     color: $editProfileTitle;
-  }
-
-  &Label {
-    font-size: 15px;
-    line-height: 17px;
-    letter-spacing: 0.05em;
-    color: $editProfileLabel;
   }
 }

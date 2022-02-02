@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
 
-import { FormItem } from '../form-item';
 import { EditProfile } from '../';
+import { EditProfileItem } from '../item';
+import { Label } from '../../../ui/Label';
+import { Input } from '../../../ui/Input';
+import { UploadFile } from '../../../ui/UploadFile';
+import { AvatarCropper } from '../../../avatar/cropper';
+
+import { ROUTES } from '../../../../constants/routes';
+import { MemberPermissions } from '../../../../constants/MemberPermissions';
 
 import { schema } from '../../../../form-helpers/member-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/member-edit/mapping';
-import { updateMember, updateAvatarMember } from '../../../../ducks/member/actions';
-import { AvatarCropper } from '../../../avatar/cropper';
+import { updateMember, updateAvatarMember, deleteMember } from '../../../../ducks/member/actions';
+import { selectMember } from '../../../../ducks/member/selectors';
 
-export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleSuccess }) => {
+
+export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
   const put = useDispatch();
   const initialValues = schema.cast({});
-
+  const currentMember = useSelector(selectMember);
   const [visivbleField, setVisivbleField] = useState();
   const [dataCropAvatar, setDataCropAvatar] = useState(null);
 
@@ -40,13 +48,13 @@ export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleS
   const onSubmit = (values) => {
     const {avatarUrl, ...data} = values;
 
-    if (visivbleField === 'avatarUrl' && (values[visivbleField] !== member[visivbleField])) {
+    if (visivbleField === 'avatarUrl' && (values[visivbleField] !== profile[visivbleField])) {
       put(updateAvatarMember({
         id: values.id,
         accountId: values.accountId,
         data: { File: avatarUrl },
       }, closeEditProfile));
-    } else if (values[visivbleField] !== member[visivbleField]) {
+    } else if (values[visivbleField] !== profile[visivbleField]) {
       put(updateMember(data, closeEditProfile));
     }
   };
@@ -54,7 +62,7 @@ export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleS
   return (
     <EditProfile >
       <Formik
-        initialValues={ getInitialValues(initialValues, member) }
+        initialValues={ getInitialValues(initialValues, profile) }
         validationSchema={ schema }
         onSubmit={ onSubmit }
       >
@@ -63,11 +71,12 @@ export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleS
             values,
             setValues,
             setFieldValue,
+            handleChange,
           }) => {
             const onCancel = (name) => {
               setValues({
                 ...values,
-                [name]: member[name],
+                [name]: profile[name],
               });
               toggleVisivbleField();
             };
@@ -79,16 +88,59 @@ export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleS
 
             return (
               <Form>
-                <FormItem
-                  label={ t('memberProfile.edit.fields.avatar.label') }
+                {
+                  currentMember.permissions === MemberPermissions.Manager ?
+                    <React.Fragment>
+                      <EditProfileItem
+                        title={ t('editProfile.memberProfile.items.name.title') }
+                        name="name"
+                        visivbleField={ visivbleField }
+                        toggleVisivbleField={ toggleVisivbleField }
+                        onCancel={ onCancel }
+                      >
+                        <Label>{ t('editProfile.memberProfile.items.name.labels.newName') }</Label>
+                        <Input
+                          name="newName"
+                          defaultValue={ values.firstName }
+                          onChange={ handleChange }
+                        />
+                        <Label>{ t('editProfile.memberProfile.items.name.labels.newSurname') }</Label>
+                        <Input
+                          name="newSurname"
+                          defaultValue={ values.lastName }
+                          onChange={ handleChange }
+                        />
+                      </EditProfileItem>
+                      <EditProfileItem
+                        title={ t('editProfile.memberProfile.items.position.title') }
+                        name="position"
+                        visivbleField={ visivbleField }
+                        toggleVisivbleField={ toggleVisivbleField }
+                        onCancel={ onCancel }
+                      >
+                        <Input
+                          name="position"
+                          defaultValue={ values.position }
+                          onChange={ handleChange }
+                        />
+                      </EditProfileItem>
+                    </React.Fragment>
+                    : null
+                }
+                <EditProfileItem
+                  title={ t('editProfile.memberProfile.items.avatar.title') }
                   name="avatarUrl"
-                  type="file"
-                  accept="image/jpeg,image/png,image/jpg"
                   visivbleField={ visivbleField }
                   toggleVisivbleField={ toggleVisivbleField }
                   onCancel={ onCancel }
-                  onChange={ toggleCropAvatar }
-                />
+                  file={ true }
+                >
+                  <UploadFile
+                    name="avatarUrl"
+                    accept="image/jpeg,image/png,image/jpg"
+                    onChange={ toggleCropAvatar }
+                  />
+                </EditProfileItem>
                 <AvatarCropper
                   data={ dataCropAvatar }
                   onClose={ () => {
@@ -97,14 +149,52 @@ export const MemberProfileEdit = ({ member, toggleVisibleSubstrate, openVisibleS
                   } }
                   onCrop={ handleChangeAvatar }
                 />
-                <FormItem
-                  label={ t('memberProfile.edit.fields.email.label') }
-                  name="email"
-                  type="text"
-                  visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
-                  onCancel={ onCancel }
-                />
+                {
+                  currentMember.id === profile.id ?
+                    <EditProfileItem
+                      title={ t('editProfile.memberProfile.items.email.title') }
+                      name="email"
+                      visivbleField={ visivbleField }
+                      toggleVisivbleField={ toggleVisivbleField }
+                      onCancel={ onCancel }
+                    >
+                      <Input
+                        name="email"
+                        defaultValue={ values.email }
+                        onChange={ handleChange }
+                      />
+                    </EditProfileItem>
+                    : null
+                }
+                {
+                  currentMember.permissions === MemberPermissions.Manager && currentMember.id === profile.id ?
+                    <EditProfileItem
+                      href={ ROUTES.HOME.path }
+                      title={ t('editProfile.memberProfile.items.transferAccountRights.title') }
+                    ></EditProfileItem>
+                    : null
+                }
+                {
+                  currentMember.permissions !== MemberPermissions.Manager && currentMember.id !== profile.id ?
+                    <React.Fragment>
+                      <EditProfileItem
+                        title={ t('editProfile.memberProfile.items.transferTheMemberTo.title') }
+                      ></EditProfileItem>
+                      <EditProfileItem
+                        title={ t('editProfile.memberProfile.items.deactivate.title') }
+                      ></EditProfileItem>
+                      <EditProfileItem
+                        title={ t('editProfile.memberProfile.items.delete.title') }
+                        onClick={ () => {
+                          put(deleteMember({
+                            id: profile.id,
+                            accountId: profile.accountId,
+                          }, closeEditProfile));
+                        } }
+                      ></EditProfileItem>
+                    </React.Fragment>
+                    : null
+                }
               </Form>
             );
           }

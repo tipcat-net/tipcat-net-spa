@@ -49,8 +49,12 @@ export const MemberProfile = () => {
   useEffect(() => {
     if(account) {
       for (let facilitiesItem of account.facilities) {
-        const resultMember = facilitiesItem.members ? facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId)) : null;
-        const resultAccountManager = facilitiesItem.members ? facilitiesItem.members.find(memberItem => memberItem.permissions === MemberPermissions.Manager) : null;
+        const resultMember = facilitiesItem.members ?
+          facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId))
+          : null;
+        const resultAccountManager = facilitiesItem.members ?
+          facilitiesItem.members.find(memberItem => memberItem.permissions === MemberPermissions.Manager)
+          : null;
 
         if (resultMember) {
           setMemberProfile(resultMember);
@@ -87,7 +91,7 @@ export const MemberProfile = () => {
           <Profile>
             <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
               <MemberProfileEdit
-                member={ memberProfile }
+                profile={ memberProfile }
                 toggleVisibleSubstrate={ toggleVisibleSubstrate }
                 openVisibleSuccess={ openVisibleSuccess }
               />
