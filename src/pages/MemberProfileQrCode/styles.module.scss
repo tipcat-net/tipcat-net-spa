@@ -1,20 +1,24 @@
 @import "../../styles/variables.scss";
 
 .memberProfileQrCode {
-  padding-top: 85px;
+  padding-top: 86px;
 
   .facility {
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .content {
+    margin-bottom: 12px;
+    padding-bottom: 32px;
   }
 
   .position {
+    margin-top: 6px;
     text-align: center;
-    color: $memberProfileQrCode_position_color;
   }
 
   .qrCode {
-    margin-top: 50px;
+    margin-top: 53px;
   }
 
   .memberCode {

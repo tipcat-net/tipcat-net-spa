@@ -8,7 +8,7 @@
   &Title {
     position: relative;
     z-index: 1;
-    margin-bottom: -9px;
+    margin-bottom: -7px;
     color: $qrCodeTitle_color;
   }
 
@@ -17,9 +17,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 183px;
-    height: 183px;
-    padding: 1px;
+    width: 202px;
+    height: 202px;
+    padding: 12px;
 
     img {
       width: 100%;
@@ -45,13 +45,14 @@
   
   &Share {
     position: relative;
-    margin-top: -10px;
+    margin-top: -19px;
     display: flex;
     align-items: center;
+    font-weight: 700;
     color: $qrCodeShare_color;
     
-    &Icon {
-      margin-right: 8px;
+    & &Icon {
+      margin: -7px -5px -4px -3px;
     }
   }
 }
