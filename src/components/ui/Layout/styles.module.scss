@@ -13,7 +13,7 @@
   }
 
   &Header + &Content:not(&ContentHeightAuto) {
-    height: calc(100% - 60px);
+    height: calc(100% - 52px);
   }
 
   &Background {

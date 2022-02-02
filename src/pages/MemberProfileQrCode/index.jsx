@@ -4,9 +4,9 @@ import { useRouteMatch } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import { Layout } from '../../components/ui/Layout';
-import { Title } from '../../components/ui/Title';
 import { Profile } from '../../components/profile/';
 import { ProfileContent } from '../../components/profile/content/';
+import { ProfileFacilityName } from '../../components/profile/facilityName';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfilePosition } from '../../components/profile/position';
@@ -58,8 +58,8 @@ export const MemberProfileQrCode = () => {
       {
         memberProfile && (
           <Profile className={ style.memberProfileQrCode }>
-            <Title level={ 3 } className={ style.facility }>{ facility.name }</Title>
-            <ProfileContent>
+            <ProfileFacilityName className={ style.facility }>{ facility.name }</ProfileFacilityName>
+            <ProfileContent className={ style.content }>
               <ProfileAvatar data={ avatarData(memberProfile, status) } />
               <ProfileName>{ memberProfile.firstName } { memberProfile.lastName }</ProfileName>
               <ProfilePosition className={ style.position }>{ memberProfile.position }</ProfilePosition>
