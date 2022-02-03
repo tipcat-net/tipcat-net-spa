@@ -38,7 +38,10 @@ export const Facility = ({ data }) => {
               className={ style.facilityHeaderAmount }
             >{ currency }</Text>
           ) : (
-            <Text size="small" className={ style.facilityHeaderCount }>{ data.members.length }</Text>
+            <Text
+              size="small"
+              className={ style.facilityHeaderCount }
+            >{ data.members ? data.members.length : 0 }</Text>
           )
         }
         <Button
