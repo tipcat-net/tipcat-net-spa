@@ -36,7 +36,7 @@ export const MemberProfileQrCode = () => {
   useEffect(() => {
     if(account) {
       for (let facilitiesItem of account.facilities) {
-        const result = facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId));
+        const result = facilitiesItem.members ? facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId)) : null;
 
         if (result) {
           setMemberProfile(result);

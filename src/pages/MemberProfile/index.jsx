@@ -49,8 +49,8 @@ export const MemberProfile = () => {
   useEffect(() => {
     if(account) {
       for (let facilitiesItem of account.facilities) {
-        const resultMember = facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId));
-        const resultAccountManager = facilitiesItem.members.find(memberItem => memberItem.permissions === MemberPermissions.Manager);
+        const resultMember = facilitiesItem.members ? facilitiesItem.members.find(memberItem => memberItem.id === parseInt(memberId)) : null;
+        const resultAccountManager = facilitiesItem.members ? facilitiesItem.members.find(memberItem => memberItem.permissions === MemberPermissions.Manager) : null;
 
         if (resultMember) {
           setMemberProfile(resultMember);
