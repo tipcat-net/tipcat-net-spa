@@ -182,18 +182,47 @@
     "position": "Position",
     "email": "Email",
     "accountManager": "Account manager",
-    "edit": {
-      "fields": {
+    "success": {
+      "message": "Changes have been saved"
+    }
+  },
+  "editProfile": {
+    "title": "Edit",
+    "memberProfile": {
+      "items": {
+        "name": {
+          "title": "Name",
+          "labels": {
+            "firstName": "New name",
+            "lastName": "New surname"
+          }
+        },
+        "position": {
+          "title": "Position"
+        },
         "avatar": {
-          "label": "Avatar"
+          "title": "Avatar"
         },
         "email": {
-          "label": "Email"
+          "title": "Email"
+        },
+        "transferAccountRights": {
+          "title": "Transfer account rights"
+        },
+        "transferTheMemberTo": {
+          "title": "Transfer the member to"
+        },
+        "deactivate": {
+          "title": "Deactivate"
+        },
+        "delete": {
+          "title": "Delete"
         }
       }
     },
-    "success": {
-      "message": "Changes have been saved"
+    "editProfileItem": {
+      "cancel": "Cancel",
+      "save": "Save"
     }
   },
   "status": {

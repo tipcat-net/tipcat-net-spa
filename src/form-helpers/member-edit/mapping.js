@@ -6,5 +6,6 @@ export const getInitialValues = (initialValues, member) => ({
   email: member.email,
   firstName: member.firstName,
   lastName: member.lastName,
+  permissions: member.permissions,
   position: member.position,
 });

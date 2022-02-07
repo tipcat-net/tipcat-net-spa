@@ -6,4 +6,5 @@ export const schema = yup.object().shape({
   firstName: yup.string().required('Required').default(''),
   lastName: yup.string().required('Required').default(''),
   position: yup.string().max(64).default(''),
+  permissions: yup.string().default(''),
 });

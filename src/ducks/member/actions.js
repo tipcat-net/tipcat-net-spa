@@ -92,3 +92,17 @@ export const updateAvatarMemberFinish = (response) => ({
   type: MemberActionTypes.UPDATE_AVATAR_MEMBER_FINISH,
   response,
 });
+
+export const deleteMember = (payload, callback) => ({
+  type: MemberActionTypes.DELETE_MEMBER_START,
+  payload,
+  callback,
+});
+export const deleteMemberError = (error) => ({
+  type: MemberActionTypes.DELETE_MEMBER_ERROR,
+  error,
+});
+export const deleteMemberFinish = (response) => ({
+  type: MemberActionTypes.DELETE_MEMBER_FINISH,
+  response,
+});

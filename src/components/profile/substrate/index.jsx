@@ -1,43 +1,33 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
+
+import { useComponentVisible } from '../../../hooks/useComponentVisible';
 
 import style from './styles.module.scss';
 
 export const Substrate = ({ children, visible, closeVisible }) => {
-  const substrateRef = useRef(null);
-  let timeOutId = null;
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(false);
 
   useEffect(() => {
-    if(substrateRef.current) {
-      substrateRef.current.focus();
+    if (visible) {
+      setIsComponentVisible(true);
     }
-  }, [visible]);
+    if (visible && !isComponentVisible) {
+      closeVisible();
+    }
+  }, [visible, isComponentVisible]);
 
   if (!visible) {
     return null;
   }
 
-  const onBlurHandler = (e) => {
-    if(e.relatedTarget) {
-      timeOutId = setTimeout(() => {
-        closeVisible();
-      });
-    }
-  };
-
-  const onFocusHandler = (e) => {
-    clearTimeout(timeOutId);
-    if((e.target.localName === 'button') && !(e.target.previousElementSibling && e.target.previousElementSibling.localName === 'input')) {
-      substrateRef.current.focus();
-    }
-  };
-
   return (
     <div
-      ref={ substrateRef }
-      onBlur={ onBlurHandler }
-      onFocus={ onFocusHandler }
-      tabIndex={ -1 }
+      ref={ ref }
       className={ cn(style.substrate, visible ? style.substrateVisible : null) }
     >
       <div className={ style.substrateContent }>

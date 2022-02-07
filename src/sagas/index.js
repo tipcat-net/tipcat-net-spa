@@ -15,6 +15,7 @@ import getMemberRequest from './member/get-member';
 import createMemberRequest from './member/create-member';
 import updateMemberRequest from './member/update-member';
 import updateAvatarMemberRequest from './member/update-avatar-member';
+import deleteMemberRequest from './member/delete-member';
 
 // Accounts
 import { AccountActionTypes } from '../ducks/account/action-types';
@@ -51,6 +52,7 @@ export default function* sagas() {
     takeEvery(MemberActionTypes.CREATE_MEMBER_START, createMemberRequest),
     takeEvery(MemberActionTypes.UPDATE_MEMBER_START, updateMemberRequest),
     takeEvery(MemberActionTypes.UPDATE_AVATAR_MEMBER_START, updateAvatarMemberRequest),
+    takeEvery(MemberActionTypes.DELETE_MEMBER_START, deleteMemberRequest),
     // Accounts
     takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
     takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),
