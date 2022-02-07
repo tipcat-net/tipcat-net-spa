@@ -1,0 +1,55 @@
+@import "../../styles/variables.scss";
+
+.sort {
+  position: relative;
+  background: $sort_bg;
+  box-shadow: 0px 4px 6px $sort_shadow;
+
+  &Action {
+    display: flex;
+    padding: 20px 10px 5px;
+  }
+
+  &Selected {
+    margin-left: auto;
+    padding-right: 0;
+
+    span svg {
+      color: $sortSelected_span_svg_color;
+    }
+
+    &Arrow:global.icon {
+      margin: -4px 0 -5px 13px;
+    }
+  }
+
+  &List {
+    position: relative;
+    padding: 20px;
+    list-style: none;
+
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      top: 32px;
+      left: 20px;
+      padding-right: 10px;
+      width: 100px;
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 15px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.03em;
+      color: $sortList_before_color;
+      box-sizing: border-box;
+    }
+
+    &Item {
+      padding-left: 100px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

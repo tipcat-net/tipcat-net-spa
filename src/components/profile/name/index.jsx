@@ -1,7 +1,12 @@
+import React from 'react';
+import cn from 'classnames';
+
+import { Title } from '../../ui/Title';
+
 import style from './styles.module.scss';
 
-export const ProfileName= ({ children }) => {
+export const ProfileName = ({ className, children }) => {
   return (
-    <div className={ style.profileName }>{ children }</div>
-  )
-}
+    <Title level={ 2 } className={ cn(style.profileName, className) }>{ children }</Title>
+  );
+};

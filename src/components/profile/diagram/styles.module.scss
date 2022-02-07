@@ -1,0 +1,86 @@
+@import "../../../styles/variables.scss";
+
+.diagramWrap {
+  max-width: 354px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.diagram {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 22px;
+  
+  &Progress {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    &Full {
+      color: $diagramProgressFull_color;
+    }
+
+    &Current {
+      color: $diagramProgressCurrent_color;
+      stroke-dasharray: 0%, 200%;
+      transition: stroke-dasharray 1.3s ease 0s;
+    }
+  }
+
+  &Available {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100%;
+    max-width: 192px;
+    transform: translateX(-50%);
+  
+    &Title {
+      text-align: center;
+    }
+  
+    &Number {
+      margin-top: 5px;
+      padding: 10px 10px 11px;
+      background: $diagramAvailableNumber_bg;
+      border-radius: 5px;
+      text-align: center;
+      
+      &Сurrency {
+        font-weight: 400;
+      }
+    }
+  }
+  
+  &Bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 5px;
+
+    &Item {
+      flex: 0 0 70px;
+
+      &Number {
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &Text {
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $diagramBottomItemText_color;
+      }
+    }
+  }
+}

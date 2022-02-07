@@ -1,0 +1,25 @@
+@import "../../styles/variables.scss";
+
+.home {
+  
+  &EmployeePersonalPanel {
+    margin: 24px -10px 10px;
+  }
+
+  &Avatar {
+    border-color: $homeAvatar_border;
+    box-shadow: 0px 0px 20px $homeAvatar_shadow;
+  }
+
+  &Panels {
+    margin: 0 10px;
+
+    &Item {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

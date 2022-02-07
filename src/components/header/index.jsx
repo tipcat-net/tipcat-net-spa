@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import cn from 'classnames';
 
-import { Person, QrCode, Arrow, Burger, Logo } from '../../components/ui/Icons/';
+import { QrCode, ChevronBigLeft, Hamburger, Logo, Home } from '../../components/ui/Icons/';
 import { Button } from '../../components/ui/Button';
 import { Menu } from './menu';
 
@@ -17,14 +17,16 @@ export const Header = ({ logo, title, className }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const member = useSelector(selectMember);
 
+  const history = useHistory();
+
   const onMenuToggle = () => {
     setMenuOpen(!menuOpen);
-  }
+  };
 
   if (logo) {
     return (
       <header className={ cn(style.header, className) }>
-        <div className={ style.headerLogo }>
+        <div className={ cn(style.headerLogo, style.headerLogoBig) }>
           <Logo className={ cn(style.headerLogoIcon, style.headerLogoIconBig) } />
         </div>
       </header>
@@ -34,29 +36,58 @@ export const Header = ({ logo, title, className }) => {
   return (
     <header className={ cn(style.header, className) }>
       <div className={ style.headerContainer }>
-        <Button clear className={ style.headerBtn }><Arrow className={ style.headerBtnIcon } /></Button>
-        <Button clear className={ style.headerBtn } onClick={ onMenuToggle }><Burger className={ style.headerBtnIcon } /></Button>
-        {
-          title ? <h1 className={ style.headerTitle }>{ title }</h1>
-          :
-            <div className={ style.headerLogo }>
-              <Logo className={ style.headerLogoIcon } />
-            </div>
-        }
-        <Link 
-          to={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
-          className={ style.headerBtn }
-        >
-          <QrCode className={ style.headerBtnQrCodeIcon } />
-        </Link>
-        <Link
-          to={ ROUTES.MEMBER_PROFILE.getPath({ memberId: member.id }) }
-          className={ style.headerBtn }
-        >
-          <Person className={ style.headerBtnIcon } />
-        </Link>
+        <div className={ style.headerContainerLeft }>
+          <Button
+            clear={ true }
+            className={ style.headerBtn }
+            onClick={ history.goBack }
+            icon={ <ChevronBigLeft className={ style.headerBtnIcon } /> }
+          ></Button>
+          {
+            member && (
+              <Button
+                clear={ true }
+                className={ cn(style.headerBtn, style.headerBtnBurger) }
+                onClick={ onMenuToggle }
+                icon={ <Hamburger className={ style.headerBtnIcon } /> }
+              ></Button>
+            )
+          }
+        </div>
+        <div className={ style.headerContainerCenter }>
+          {
+            title ?
+              <h1
+                className={ style.headerTitle }
+              >{ title }</h1>
+              : (
+                <div className={ style.headerLogo }>
+                  <Logo className={ style.headerLogoIcon } />
+                </div>
+              )
+          }
+        </div>
+        <div className={ style.headerContainerRight }>
+          {
+            member && history.location.pathname === ROUTES.HOME.path ?
+              <Button
+                href={ ROUTES.MEMBER_PROFILE_QRCODE.getPath({ memberId: member.id }) }
+                clear={ true }
+                className={ style.headerBtn }
+                icon={ <QrCode className={ style.headerBtnIcon } /> }
+              ></Button>
+              : member ?
+                <Button
+                  href={ ROUTES.HOME.path }
+                  clear={ true }
+                  className={ style.headerBtn }
+                  icon={ <Home className={ style.headerBtnIcon } /> }
+                ></Button>
+                : null
+          }
+        </div>
       </div>
-      <Menu open={ menuOpen } onClose={ onMenuToggle } />
+      { member && <Menu open={ menuOpen } history={ history } onClose={ onMenuToggle } /> }
     </header>
   );
 };

@@ -1,0 +1,54 @@
+@import './../../styles/variables.scss';
+
+.footer {
+  padding: 40px 20px 15px;
+
+  &Logo {
+    margin-bottom: 19px;
+    display: flex;
+    justify-content: center;
+    color: $footerLogo_color;
+
+    &Icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  &Title {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  &Contacts {
+    list-style: none;
+    margin-bottom: 22px;
+
+    li {
+      margin-top: 11px;
+      font-size: 11px;
+      line-height: 14px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: $footerContacts_color;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+
+      span {
+        display: block;
+        color: $footerContactsSpan_color;
+      }
+    }
+  }
+
+  &Copyright {
+    margin-top: 21px;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: $footerCopyright_color;
+  }
+}

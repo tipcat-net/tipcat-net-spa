@@ -1,16 +1,23 @@
 @import './../../../styles/variables.scss';
 
 .input, textarea {
+  padding: 9px 10px;
+  width: 100%;
+  font-family: inherit;
   font-size: 18px;
+  font-weight: 700;
   line-height: 20px;
   color: $input;
   display: block;
-  width: 100%;
-  padding: 8px 10px;
   background: $input_bg;
   border: 1px solid $input_border;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
+
+  &::placeholder {
+    color: inherit;
+    opacity: 1;
+  }
 
   &.error {
     box-shadow: inset 0px 2px 12px 3px $input_error_shadow;

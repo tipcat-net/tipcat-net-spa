@@ -1,0 +1,71 @@
+@import "../../styles/variables.scss";
+
+.withdraw {
+  padding: 53px 20px 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &Image {
+    margin-bottom: 53px;
+    display: flex;
+    justify-content: center;
+
+    &Icon {
+      color: $withdrawImageIcon_svg_color;
+    }
+  }
+
+  &Label {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &Sum {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $withdrawSum_bg;
+    border: 2px solid $withdrawSum_border;
+    border-radius: 10px;
+
+    &Currency {
+      color: $withdrawSumCurrency_color;
+    }
+
+    &Input {
+      --size: 1;
+      padding: 8px 10px 9px;
+      width: calc(var(--size) * 1ch + 20px);
+      font-family: $base;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 39px;
+      letter-spacing: -0.03em;
+      color: $withdrawSumInput_color;
+      outline: none;
+      border: none;
+    }
+  }
+
+  &BtnMax {
+    margin: 0 0 2px auto;
+
+    &Number {
+      font-weight: 700;
+    }
+  }
+
+  &Card {
+    margin-bottom: 21px;
+    padding-bottom: 35px;
+    width: 100%;
+  }
+
+  &Button {
+    margin-top: 20px;
+  }
+}

@@ -1,12 +1,22 @@
 {
   "header": {
-    "menu": {
+    "accountMenu": {
+      "accountProfile": "Account profile",
       "addFacility": "Add facility",
       "addMember": "Add member",
-      "transaction": "Transaction",
+      "transaction": "Transactions",
       "financialAnalityc": "Account stats",
       "support": "Contact support",
       "logout": "Sign out"
+    },
+    "memberMenu": {
+      "myProfile": "My profile",
+      "myQrCode": "My QR code for payment",
+      "myCards": "My cards",
+      "transaction": "Transaction",
+      "support": "Support",
+      "search": "Search",
+      "logout": "Log out"
     },
     "menuBottom": {
       "privacyPolicy": "Privacy Policy",
@@ -14,8 +24,87 @@
       "AboutTipCat": "About Tip Cat"
     }
   },
+  "footer": {
+    "title": "TIP CAT L.L.C",
+    "contacts": {
+      "address": "B105, Saraya Avenue building <br/> P.O. Box 36690 <br/> Dubai, Unated Arab Emirates",
+      "phone": {
+        "title": "Phone",
+        "text": "+971 4 2940007"
+      },
+      "tradeLicense": {
+        "title": "Trade license",
+        "text": "9836384"
+      },
+      "iata": {
+        "title": "IATA",
+        "text": "3049753475698346"
+      }
+    },
+    "menu": {
+      "aboutUs": "About us",
+      "contacts": "Contacts",
+      "termsConditions": "Terms & Conditions",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "copyright": "All rights reserved © 2022 <br/> TipCat Finance Systems LLC"
+  },
   "home": {
     "headerTitle": "Home"
+  },
+  "personalPanel": {
+    "totals": {
+      "transactions": "Total transactions",
+      "earned": "Total earned"
+    },
+    "paymentAccountTitle": "Account for money withdraw"
+  },
+  "profileDiagram": {
+    "availableTitle": "Available for payment",
+    "btn": "Withdraw",
+    "currentText": "last 30 days",
+    "maxText": "record"
+  },
+  "sort": "Sort by",
+  "transactions": {
+    "headerTitle": "Transactions",
+    "sortList": {
+      "createdASC": "First paid",
+      "createdDESC": "Last paid",
+      "amountASC": "Min amount",
+      "amountDESC": "Max amount"
+    },
+    "calendar": {
+      "sameDay": "Today"
+    },
+    "types": {
+      "income": "Income tips",
+      "withdraw" : "Withdraw to card"
+    },
+    "transactionsLast": {
+      "text": "The last {{count}} transactions are shown here",
+      "btn": "All transaction"
+    }
+  },
+  "card": {
+    "type": {
+      "citybank": "Citybank"
+    },
+    "btn": "Withdraw"
+  },
+  "accountPanel": {
+    "btnAccount": "Go to account",
+    "results": {
+      "transactions": "Transactions today",
+      "totalSum": "Total sum",
+      "lastWeek": "Last week"
+    },
+    "bestResult": "Best result",
+    "buttons": {
+      "facilities": "Facilities",
+      "members": "Members"
+    },
+    "facilities": "Facilities"
   },
   "auth": {
     "button": {
@@ -90,13 +179,80 @@
   "memberProfile": {
     "headerTitle": "Member profile",
     "facility": "Facility",
-    "permissions": "Position",
-    "email": "email"
+    "position": "Position",
+    "email": "Email",
+    "accountManager": "Account manager",
+    "success": {
+      "message": "Changes have been saved"
+    }
+  },
+  "editProfile": {
+    "title": "Edit",
+    "memberProfile": {
+      "items": {
+        "name": {
+          "title": "Name",
+          "labels": {
+            "firstName": "New name",
+            "lastName": "New surname"
+          }
+        },
+        "position": {
+          "title": "Position"
+        },
+        "avatar": {
+          "title": "Avatar"
+        },
+        "email": {
+          "title": "Email"
+        },
+        "transferAccountRights": {
+          "title": "Transfer account rights"
+        },
+        "transferTheMemberTo": {
+          "title": "Transfer the member to"
+        },
+        "deactivate": {
+          "title": "Deactivate"
+        },
+        "delete": {
+          "title": "Delete"
+        }
+      }
+    },
+    "editProfileItem": {
+      "cancel": "Cancel",
+      "save": "Save"
+    }
   },
   "status": {
-    "active": "active",
-    "invited": "invited",
-    "deactivated": "deactivated"
+    "Active": "active",
+    "Invited": "invited",
+    "Deactivated": "deactivated"
+  },
+  "addMember": {
+    "title": "Invite member",
+    "fields": {
+      "firstName": {
+        "label": "First name"
+      },
+      "lastName": {
+        "label": "Last name"
+      },
+      "email": {
+        "label": "Email"
+      }
+    },
+    "formRequiredError": "Please, fill-in required fields",
+    "buttons": {
+      "back": "Back",
+      "submit": "Invite"
+    },
+    "success": {
+      "btnHome": "Home",
+      "message": "Member has been invited",
+      "btnAdd": "Add another"
+    }
   },
   "memberProfileQrCode": {
     "headerTitle": "Member profile"
@@ -104,6 +260,14 @@
   "qrCode": {
     "title": "Payment code",
     "share": "Share"
+  },
+  "formItem": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "avatarCropper": {
+    "close": "Close",
+    "crop": "Crop image"
   },
   "accountProfile": {
     "headerTitle": "Account profile",
@@ -113,6 +277,31 @@
     "ProfileContentBottom": {
       "leftLink": "All facilities",
       "rightLink": "All members"
+    },
+    "edit": {
+      "fields": {
+        "operatingName": {
+          "label": "Operating name"
+        },
+        "avatar": {
+          "label": "Company avatar"
+        },
+        "address": {
+          "label": "Legal address"
+        },
+        "name": {
+          "label": "Legal entity"
+        },
+        "email": {
+          "label": "Notification email"
+        },
+        "phone": {
+          "label": "Phone"
+        }
+      }
+    },
+    "success": {
+      "message": "Changes have been saved"
     }
   },
   "facilities": {
@@ -134,7 +323,7 @@
         "label": "Use account avatar"
       }
     },
-    "formRequiredError": "Please, fill-in the required fields",
+    "formRequiredError": "Please, fill-in required fields",
     "buttons": {
       "back": "Back",
       "submit": "Add"
@@ -165,6 +354,96 @@
     "button": {
       "back": "Back",
       "home": "Home"
+    }
+  },
+  "pay": {
+    "payment": {
+      "paymentLabelAmount": "Your tip",
+      "paymentSwitch": "Include service comission at once",
+      "paymentTotalText": "Total",
+      "paymentLabelMessage": "Your message (may be)",
+      "paymentPlaceholderMessage": "Thanks for a great evening)",
+      "paymentBottom": {
+        "left": "No thanks",
+        "right": "Next"
+      }
+    },
+    "paymentMethod": {
+      "text": "How do you pay?",
+      "list": {
+        "applePay": {
+          "title": "ApplePay",
+          "description": ""
+        },
+        "card": {
+          "title": "Card",
+          "description": "Secure processing payment ensured <br> <strong>Rapid payment system</strong>"
+        },
+        "googlePay": {
+          "title": "GooglePay",
+          "description": ""
+        }
+      },
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    },
+    "paymentCard": {
+      "paymentBottom": {
+        "left": "Back",
+        "right": "Pay tip"
+      }
+    },
+    "paymentMessage": {
+      "bottomBtn": "More about servise TipCat.net"
+    },
+    "paymentSucceeded": {
+      "title": "Thank you!",
+      "text": "Nicholas <br/> will get your tip within <br/> 5 minutes",
+      "button": "See you later!"
+    },
+    "paymentCancel": {
+      "title": "Have a nice day!",
+      "button": "Return to payment"
+    }
+  },
+  "privacyPolicy": {
+    "headerTitle": "Privacy Policy",
+    "title": "Privacy Policy",
+    "text": "Throughout this privacy notice, the terms “you” and “your” refer to (i) employees and representatives of travel companies (such as travel agents, tour operators and other wholesalers or airlines providing ground services to customers) that wish to purchase one or more travel components (such as accommodation, transfers, sightseeing tours, excursions or meals out), and (ii) end users of  Components (whose personal data may be provided to us indirectly, as further described below). <br/><br/> This notice describes how TipCat.net “processes” (e.g., collects, stores, uses, transmits) and protects your personal data that we collect and receive through our online booking platform. This notice also explains your various legal rights in connection with our processing of your personal data. <br/><br/> <strong>1. WHO WE ARE</strong> <br/> TipCat.net is responsible for processing your personal data in connection with our online booking platform and is the “data controller” of the processing described in this notice. <br/><br/> Please contact us if you have any questions about the contents of this privacy notice, including requests to exercise your legal rights. <br/><br/> <strong>2. PERSONAL DATA WE COLLECT</strong> <br/> Personal data is information relating to an individual, from which that person can be identified. <br/><br/> We may process different types of your personal data, such as: <br/><br/> Identity Data includes name, title, marital status, date of birth, gender, phone number, email address, location, postal address, information contained in government-issued identification documents such as passports, national ID cards and driver licenses (including nationality, identification numbers, social security numbers and your photograph). <br/><br/>Financial Data includes bank account and credit card details. <br/> Transaction Data includes details about Travel Components or other products and services purchased. <br/> Usage Data includes information about how you use our website, such as internet protocol (IP) address, mouse tracking, links clicked, your login data, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website. <br/> Profile Data includes your username and password, your interests, preferences, and feedback responses. <br/> Marketing and Communications Data includes your preferences in receiving marketing information from us and our partners. <br/> We may also process Aggregated or Anonymised Data (i.e., data that can no longer be used to identify you), for any purpose. <br/><br/> Special Categories of Personal Data include information revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, sex life, sexual orientation, genetic data, biometric data and data concerning health. <br/><br/> In certain limited circumstances, we may process Special Categories of Personal Data (for example, a religious meal preference). We will process such Special Categories of Personal Data only as permitted under applicable laws and regulations and where we have a basis for doing so. For instance, it may be possible for us to process Special Categories of Personal Data where it is necessary for the establishment, exercise or defense of legal claims, or for reasons of substantial public interest.  We may also seek consent to process Special Categories of Personal Data, in which case we will provide you with further information about our data processing activities, as necessary."
+  },
+  "termsAndConditions": {
+    "headerTitle": "Terms & Conditions",
+    "title": "Terms & Conditions",
+    "text": "In these terms of use (“Terms of Use”) for the web site (“Site”) of TipCat Finance Systems LLC (“TipCat.net”, “our”, “us” or “we”), the terms “you” and “your” refer to any travel companies such as travel agents, tour operators, other wholesalers or airlines (“Business”) that wish to purchase one or more travel components, including but not limited to, accommodation, transfers, transportation, sightseeing tours, excursions and meals out (collectively referred to as “Components”), but not including airline tickets,made through our online reservation system (including via an application programming interface (“API” or “Site API”)), and/or our Site, and has signed a Credit Line Commercial Agreement or a Credit Card Commercial Agreement with TipCat.net or any other user of the Site. <br/><br/> Please read these Terms of Use carefully. By accessing our Site you represent and warrant to TipCat.net that: <br/><br/> You have signed a Credit Line Commercial Agreement or a Credit Card Commercial Agreement with TipCat.net. <br/> You have read and understood these Terms of Use. <br/> You agree to be bound by these Terms of Use, in relation to your access to the Site. <br/> You as the representative for your Business have the authority to enter into these Terms of Use and bind your Business. <br/> You will be responsible for all use of the Site by you. <br/> You comply with all applicable laws and regulations with regards to: economic sanctions; export controls; import regulations; and trade embargoes (“Sanctions”), including those of the European Union and United States. <br/> You acknowledge that you are not targeted by Sanctions nor otherwise owned or controlled by or acting on behalf of any person or entity targeted by Sanctions."
+  },
+  "myAccounts": {
+    "headerTitle": "My accounts"
+  },
+  "withdraw": {
+    "headerTitle": "Withdraw",
+    "labels": {
+      "sum": "Sum for withdraw",
+      "account": "To account",
+      "email": "Sent recipe to"
+    },
+    "max": "Max",
+    "button": "Withdraw"
+  },
+  "support": {
+    "headerTitle": "Support",
+    "fields": {
+      "message": {
+        "label": "Describe your problem"
+      },
+      "email": {
+        "label": "Your e-mail"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Send"
     }
   }
 }

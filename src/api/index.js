@@ -1,51 +1,37 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API;
+import { getBody, ContentTypes } from '../form-helpers/utils';
+import { config } from './config';
 
-const getToken = async () => {
-  return localStorage.getItem('token');
-}
+axios.defaults.baseURL = process.env.REACT_APP_API;
 
 export const fetchers = {
   // Member
-  getMember: async () => {
-    const accessToken = await getToken();
-    return axios.get('/api/members/current', { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
-  createMember: async () => {
-    const accessToken = await getToken();
-    return axios.post('/api/members/current', null, { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
-  getMemberById: async ({accountId, memberId}) => {
-    const accessToken = await getToken();
-    return axios.post(`/api/accounts/${accountId}/members/${memberId}`, null, { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
-  updateMember: async ({accountId, id, ...data}) => {
-    const accessToken = await getToken();
-    return axios.put(`/api/accounts/${accountId}/members/${id}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
+  addMember: async ({accountId, ...data}) => axios.post(`/api/accounts/${accountId}/members`, data, config(true)),
+  addAvatarMember: async ({id, accountId, data}) => axios.post(`/api/accounts/${accountId}/members/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
+  getMember: async () => axios.get('/api/members/current', config(true)),
+  createMember: async () => axios.post('/api/members/current', null, config(true)),
+  getMemberById: async ({accountId, memberId}) => axios.post(`/api/accounts/${accountId}/members/${memberId}`, null, config(true)),
+  updateMember: async ({accountId, id, ...data}) => axios.put(`/api/accounts/${accountId}/members/${id}`, data, config(true)),
+  updateAvatarMember: async ({id, accountId, data}) => axios.put(`/api/accounts/${accountId}/members/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
+  deleteMember: async ({id, accountId}) => axios.delete(`/api/accounts/${accountId}/members/${id}`, config(true)),
 
   // Accounts
-  addAccount: async (data) => {
-    const accessToken = await getToken();
-    return axios.post('/api/accounts', data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
-  getAccount: async (accountId) => {
-    const accessToken = await getToken();
-    return axios.get(`/api/accounts/${accountId}`, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
-  updateAccount: async ({id, ...data}) => {
-    const accessToken = await getToken();
-    return axios.put(`/api/accounts/${id}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} });
-  },
+  addAccount: async (data) => axios.post('/api/accounts', data, config(true)),
+  getAccount: async (accountId) => axios.get(`/api/accounts/${accountId}`, config(true)),
+  updateAccount: async ({id, ...data}) => axios.put(`/api/accounts/${id}`, data, config(true)),
+  updateAvatarAccount: async ({id, data}) => axios.put(`/api/accounts/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
 
   // Facility
-  addFacility: async ({ accountId, ...data }) => {
-    const accessToken = await getToken();
-    return axios.post(`/api/accounts/${accountId}/facilities`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
-  updateFacility: async ({ accountId, facilityId, ...data }) => {
-    const accessToken = await getToken();
-    return axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, { headers: {"Authorization" : `Bearer ${accessToken}`} })
-  },
+  getFacilities: async (accountId) => axios.get(`/api/accounts/${accountId}/facilities`, config(true)),
+  addFacility: async ({ accountId, ...data }) => axios.post(`/api/accounts/${accountId}/facilities`, data, config(true)),
+  addAvatarFacility: async ({id, accountId, data}) => axios.put(`/api/accounts/${accountId}/facilities/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
+  updateFacility: async ({ accountId, facilityId, ...data }) => axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, config(true)),
+
+  getPayment: async (memberCode) => axios.get(`/api/payments/${memberCode}`),
+  createPayment: async (data) => axios.post('/api/payments', data),
+  capturePayment: async (paymentId) => axios.post(`/api/payments/${paymentId}/capture`),
+  updatePayment: async ({ paymentId, ...data }) => axios.put(`/api/payments/${paymentId}`, data),
+
+  getTransactions: async (params) => axios.get('/api/transactions/', config(true, null, params)),
 };

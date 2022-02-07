@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.card {
+  padding: 20px;
+  background: $card_bg;
+  box-shadow: 1px 1px 6px $card_shadow;
+  border-radius: 20px;
+
+  &NoButton {
+    padding: 20px 20px 39px;
+  }
+
+  &Disabled {
+    background: $cardDisabled_bg;
+  }
+
+  &Disabled & {
+    &Icon {
+      color: $cardDisabled_cardIcon_color;
+    }
+  }
+
+  &Icon {
+    color: $cardIconCard_color;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+    &Card {
+      margin-bottom: 46px;
+      width: 50px;
+    }
+
+    &Blank {
+      margin: 4px 0 22px;
+    }
+  }
+
+  &Number {
+    color: $cardNumber_color;
+    white-space: pre;
+    
+    &Wrap {
+      margin-bottom: 13px;
+      min-height: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &BtnView {
+    margin-right: 2px;
+    color: $cardBtnView_color;
+  }
+
+  &Date, &Type {
+    color: $cardDate_color;
+  }
+
+  &Name {
+    margin-top: 8px;
+  }
+
+  &Btn {
+    margin-top: 35px;
+  }
+}

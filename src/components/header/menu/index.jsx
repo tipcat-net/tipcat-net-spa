@@ -1,52 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-import { useTranslation } from "react-i18next";
+import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import { Button } from '../../ui/Button';
-import { authConfig } from '../../../auth0/auth0-config';
+import { AccountMenu } from './account-menu';
+import { MemberMenu } from './member-menu';
+
 import { ROUTES } from '../../../constants/routes';
 
 import style from './styles.module.scss';
 
-export const Menu = ({ open, onClose }) => {
+export const Menu = ({ open, history, onClose }) => {
   const { t } = useTranslation();
-  const { logout } = useAuth0();
 
   return (
     <div className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }>
-      <ul className={ style.menu }>
-        <li>
-          <Link to={ ROUTES.ADD_FACILITY.path } className={ style.menuLink }>{ t('header.menu.addFacility') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.addMember') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.transaction') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.HOME.path } className={ style.menuLink }>{ t('header.menu.financialAnalityc') }</Link>
-        </li>
-        <li>
-          <Link to={ ROUTES.SUPPORT.path } className={ style.menuLink }>{ t('header.menu.support') }</Link>
-        </li>
-        <li>
-          <Button
-            clear
-            className={ style.menuLink }
-            onClick={ () => logout({ returnTo: authConfig.logoutUri }) }
-          >{ t('header.menu.logout') }</Button>
-        </li>
-      </ul>
+      {
+        history.location.pathname === ROUTES.ACCOUNT.path ?
+          <AccountMenu />
+          : <MemberMenu />
+      }
       <div className={ style.menuBottom }>
-        <Button href={ ROUTES.PRIVACY_POLICY } menu className={ style.menuBottomLink }>{ t('header.menuBottom.privacyPolicy') }</Button>
-        <Button href={ ROUTES.TERMS_CONDITIONS } menu className={ style.menuBottomLink }>{ t('header.menuBottom.termsConditions') }</Button>
-        <Button href={ ROUTES.ABOUT_TIPCAT } menu className={ style.menuBottomLink }>{ t('header.menuBottom.AboutTipCat') }</Button>
+        <Button
+          href={ ROUTES.PRIVACY_POLICY.path }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.privacyPolicy') }</Button>
+        <Button
+          href={ ROUTES.TERMS_CONDITIONS.path }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.termsConditions') }</Button>
+        <Button
+          href={ ROUTES.ABOUT_TIPCAT.path }
+          borderNone={ true }
+          className={ style.menuBottomLink }
+        >{ t('header.menuBottom.AboutTipCat') }</Button>
       </div>
     </div>
   );
-}
+};
 
 export default Menu;

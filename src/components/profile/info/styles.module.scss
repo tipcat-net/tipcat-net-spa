@@ -4,26 +4,19 @@
   margin-top: 14px;
 
   &Top {
-    margin-top: 87px;
+    margin-top: 89px;
   }
 
   &Title {
-    font-size: 15px;
-    line-height: 18px;
     text-align: center;
-    letter-spacing: 0.05em;
     color: $profileInfoTitle;
   }
 
   &Title + &Text {
-    margin-top: 6px;
+    margin-top: 9px;
   }
   
   &Text {
-    font-size: 17px;
-    line-height: 18px;
     text-align: center;
-    letter-spacing: 0.05em;
-    color: $profileInfoText;
   }
 }

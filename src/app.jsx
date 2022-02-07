@@ -4,12 +4,12 @@ import store from './store';
 
 import Pages from './pages';
 
-function App() {
+export const App = () => {
   return (
     <Provider store={ store }>
       <Pages/>
     </Provider>
   );
-}
+};
 
 export default App;

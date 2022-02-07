@@ -1,0 +1,27 @@
+@import './../../../styles/variables.scss';
+
+.avatarCropper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background: $avatarCropper_bg;
+
+  &Container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  &Btns {
+    margin: 20px -10px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  &Btn {
+    margin: 0 5px;
+  }
+}

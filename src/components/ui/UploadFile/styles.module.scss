@@ -11,6 +11,8 @@
     padding: 0;
     width: 80px;
     height: 80px;
-    color: $uploadFileButton
+    color: $uploadFileButton_color;
+    background-color: transparent;
+    border: 2px solid $uploadFileButton_border;
   }
 }

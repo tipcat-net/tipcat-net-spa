@@ -1,15 +1,17 @@
 import React from 'react';
-import { Trans, useTranslation } from "react-i18next";
+import { useHistory } from 'react-router-dom';
+import { Trans, useTranslation } from 'react-i18next';
 
-import { Layout } from '../../components/ui/Layout'; 
+import { Layout } from '../../components/ui/Layout';
 import { Button } from '../../components/ui/Button';
-import { Home } from '../../components/ui/Icons';
 
-import iconPageNotFound from './svg/404.svg'
+import iconPageNotFound from './svg/404.svg';
 import style from './styles.module.scss';
 
 export const PageNotFound = () => {
   const { t } = useTranslation();
+
+  const history = useHistory();
 
   return (
     <Layout>
@@ -17,17 +19,19 @@ export const PageNotFound = () => {
         <div className={ style.pageNotFoundInfo }>
           <div className={ style.pageNotFoundInfoNumber }>4 <img src={ iconPageNotFound } alt="" /> 4</div>
           <div className={ style.pageNotFoundInfoTitle }>
-            { t("pageNotFound.pageNotFoundInfoTitle") }
+            { t('pageNotFound.pageNotFoundInfoTitle') }
           </div>
           <div className={ style.pageNotFoundInfoText }>
             <Trans i18nKey="pageNotFound.pageNotFoundInfoText" />
           </div>
-          <Button outline>{ t("pageNotFound.button.back") }</Button>
+          <Button
+            onClick={ history.goBack }
+            className={ style.pageNotFoundBack }
+          >{ t('pageNotFound.button.back') }</Button>
         </div>
-        <Button outline className={ style.pageNotFoundBtnHome }><Home className={ style.pageNotFoundBtnHomeIcon } />{ t("pageNotFound.button.home") }</Button>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export default PageNotFound;

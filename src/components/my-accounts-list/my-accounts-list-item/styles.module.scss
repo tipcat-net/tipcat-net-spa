@@ -1,0 +1,19 @@
+@import './../../../styles/variables.scss';
+
+.myAccountsListItem {
+  margin-top: 40px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &Bottom {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  &Trash {
+    margin: 8px 10px 8px auto;
+  }
+}

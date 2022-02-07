@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import { Formik, Form } from "formik";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Formik, Form } from 'formik';
 
-import { RegisterAction } from "../../components/register/action";
-import { RegisterErrorRequired } from "../../components/register/error-required";
-import Spinner from "../../components/spinner";
+import { RegisterAction } from '../../components/register/action';
+import { RegisterErrorRequired } from '../../components/register/error-required';
+import Spinner from '../../components/spinner';
 
-import { ROUTES } from "../../constants/routes";
+import { ROUTES } from '../../constants/routes';
 
-import { FormInput } from "../../components/form/form-input";
-import { schema } from "../../form-helpers/registration/schema";
+import { FormInput } from '../../components/form/form-input';
+import { schema } from '../../form-helpers/registration/schema';
 
 import { selectMember, selectMemberLoading } from './../../ducks/member/selectors';
 import { signUp } from './../../ducks/app/actions';
@@ -32,7 +32,7 @@ export const Registration = () => {
       <Redirect
         to={ ROUTES.HOME.path }
       />
-    )
+    );
   }
 
   const back = () => {
@@ -45,10 +45,10 @@ export const Registration = () => {
 
   const onSubmit = (values) => {
     put(signUp(values));
-  }
+  };
 
   if(loading || !member) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   return (
@@ -62,14 +62,13 @@ export const Registration = () => {
           ({
             values,
             errors,
-            touched
+            touched,
           }) => {
             return (
               <Form>
                 {
-                  currentStep === "member"
-                  ? 
-                    <>
+                  currentStep === 'member' ?
+                    <React.Fragment>
                       <div className={ style.registerLogo }>
                         <img src="logo.svg" alt="tipcat" />
                       </div>
@@ -81,23 +80,23 @@ export const Registration = () => {
                         type="text"
                         value={ values.member.firstName }
                         className={ style.registerInputBold }
-                        required
+                        required={ true }
                       />
                       <FormInput
                         label={ t('registration.form.member.fields.lastName.label') }
                         name="member.lastName"
                         type="text"
                         value={ values.member.lastName }
-                        required
+                        required={ true }
                       />
                       <RegisterErrorRequired
                         touched={ touched.member }
                         errors={ errors.member }
                         className={ style.registerErrorRequiredVisible }
                       />
-                    </>
-                  : 
-                    <>
+                    </React.Fragment>
+                    :
+                    <React.Fragment>
                       <div className={ style.registerUnderTitle }>{ t('registration.form.account.underTitle') }</div>
                       <FormInput
                         label={ t('registration.form.account.fields.operatingName.label') }
@@ -105,21 +104,21 @@ export const Registration = () => {
                         type="text"
                         value={ values.account.operatingName }
                         className={ style.registerInputBold }
-                        required
+                        required={ true }
                       />
                       <FormInput
                         label={ t('registration.form.account.fields.address.label') }
                         name="account.address"
                         type="textarea"
                         value={ values.account.address }
-                        required
+                        required={ true }
                       />
                       <FormInput
                         label={ t('registration.form.account.fields.name.label') }
                         name="account.name"
                         type="text"
                         value={ values.account.name }
-                        required
+                        required={ true }
                       />
                       <div className={ style.registerOr }>
                         <FormInput
@@ -143,7 +142,7 @@ export const Registration = () => {
                         errors={ errors.account }
                         className={ style.registerErrorRequiredVisible }
                       />
-                    </>
+                    </React.Fragment>
                 }
                 <RegisterAction
                   currentStep={ currentStep }
@@ -154,12 +153,12 @@ export const Registration = () => {
                   className={ style.registerActionMarginTop }
                 />
               </Form>
-            )
+            );
           }
         }
       </Formik>
     </div>
-  )
-}
+  );
+};
 
 export default Registration;

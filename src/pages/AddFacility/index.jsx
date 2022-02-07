@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import { Formik, Form } from "formik";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Formik, Form } from 'formik';
 
-import { Layout } from "../../components/ui/Layout";
-import { FormInput } from "../../components/form/form-input";
+import { Layout } from '../../components/ui/Layout';
+import { Text } from '../../components/ui/Text';
+import { FormInput } from '../../components/form/form-input';
 import { FormRequiredError } from '../../components/form/error-required';
-import { FormCheckbox } from "../../components/form/form-checkbox";
-import { Button } from "../../components/ui/Button";
-import { Home, Add } from "../../components/ui/Icons";
+import { FormCheckbox } from '../../components/form/form-checkbox';
+import { Button } from '../../components/ui/Button';
+import { Home, Add } from '../../components/ui/Icons';
+import { AvatarCropper } from '../../components/avatar/cropper';
 import { Success } from '../../components/success';
 
-import { ROUTES } from "../../constants/routes";
-import { schema } from "../../form-helpers/addFacility/schema";
+import { ROUTES } from '../../constants/routes';
+import { schema } from '../../form-helpers/addFacility/schema';
 
-import { selectMember } from "../../ducks/member/selectors";
-import { selectAccount, selectAccountLoading } from "../../ducks/account/selectors";
-import { getAccount } from "../../ducks/account/actions";
-import { addFacility } from "../../ducks/facility/actions";
+import { selectMember } from '../../ducks/member/selectors';
+import { selectAccount, selectAccountLoading } from '../../ducks/account/selectors';
+import { getAccount } from '../../ducks/account/actions';
+import { addFacility } from '../../ducks/facility/actions';
 
 import style from './styles.module.scss';
 
@@ -30,6 +32,7 @@ export const AddFacility = () => {
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
   const accountLoading = useSelector(selectAccountLoading);
+  const [dataCropAvatar, setDataCropAvatar] = useState(null);
 
   useEffect(() => {
     if (member && !accountLoading) {
@@ -37,19 +40,25 @@ export const AddFacility = () => {
     }
   }, [member]);
 
+  const toggleCropAvatar = (e) => {
+    setDataCropAvatar(e);
+  };
+
   const onSubmit = (values) => {
     const data = {
       ...values,
-      accountId: account.id
+      accountId: account.id,
     };
+
     delete data.useAccountAddress;
 
-    const callback = () => setVisibleSuccess(true)
+    const callback = () => setVisibleSuccess(true);
+
     put(addFacility(data, callback));
-  }
+  };
 
   return (
-    <Layout hiddenHeader>
+    <Layout hiddenHeader={ true }>
       <Formik
         initialValues={ { ...initialValues, useAccountAddress: false } }
         validationSchema={ schema }
@@ -61,6 +70,7 @@ export const AddFacility = () => {
             errors,
             touched,
             setValues,
+            setFieldValue,
             resetForm,
           }) => {
 
@@ -68,40 +78,60 @@ export const AddFacility = () => {
               setValues({
                 ...values,
                 useAccountAddress: e.target.checked,
-                address: e.target.checked ? account.address : ''
+                address: e.target.checked ? account.address : '',
               });
-            }
+            };
+
+            const handleChangeAvatar = (e) => {
+              setFieldValue('avatar', e);
+              toggleCropAvatar(null);
+            };
 
             const onSuccessBtnAdd = () => {
               resetForm();
               setVisibleSuccess(false);
-            }
+            };
 
             return (
-              <>
+              <React.Fragment>
                 <div className={ style.create }>
-                  <div className={ style.createTitle }>{ t('addFacility.title') }</div>
+                  <Text
+                    size='big'
+                    className={ style.createTitle }
+                  >{ t('addFacility.title') }</Text>
                   <Form>
                     <FormInput
                       label={ t('addFacility.fields.operatingName.label') }
                       name="name"
                       type="text"
                       value={ values.name }
-                      className={ style.registerInputBold }
-                      required
+                      required={ true }
                     />
                     <FormInput
                       label={ t('addFacility.fields.address.label') }
                       name="address"
                       type="textarea"
                       value={ values.address }
-                      className={ style.registerInputBold }
                     />
                     <FormCheckbox
                       label={ t('addFacility.fields.useAccountAddress.label') }
                       name="useAccountAddress"
                       checked={ values.useAccountAddress }
                       onChange={ handleChangeUseAddress }
+                    />
+                    <FormInput
+                      name="avatar"
+                      type="file"
+                      accept="image/jpeg,image/png,image/jpg"
+                      onChange={ toggleCropAvatar }
+                      className={ style.createInputAvatar }
+                    />
+                    <AvatarCropper
+                      data={ dataCropAvatar }
+                      onClose={ () => {
+                        toggleCropAvatar(null);
+                      } }
+                      onCrop={ handleChangeAvatar }
                     />
                     {
                       errors ?
@@ -110,13 +140,13 @@ export const AddFacility = () => {
                           errors={ errors }
                           message={ t('addFacility.formRequiredError') }
                           className={ style.createError }
-                        /> 
-                      : 
+                        />
+                        :
                         null
                     }
                     <div className={ style.createButtons }>
                       <Button>{ t('addFacility.buttons.back') }</Button>
-                      <Button type='submit' primary>{ t('addFacility.buttons.submit') }</Button>
+                      <Button type='submit' primary={ true }>{ t('addFacility.buttons.submit') }</Button>
                     </div>
                   </Form>
                 </div>
@@ -124,7 +154,7 @@ export const AddFacility = () => {
                   visible={ visibleSuccess }
                   actionTop={
                     <Button
-                      transparent
+                      transparent={ true }
                       className={ style.createSuccessBtnHome }
                       href={ ROUTES.HOME.path }
                     >
@@ -134,7 +164,7 @@ export const AddFacility = () => {
                   message={ t('addFacility.success.message') }
                   actionBottom={
                     <Button
-                      clear
+                      clear={ true }
                       className={ style.createSuccessBtnAdd }
                       onClick={ onSuccessBtnAdd }
                     >
@@ -142,13 +172,13 @@ export const AddFacility = () => {
                     </Button>
                   }
                 />
-              </>
-            )
+              </React.Fragment>
+            );
           }
         }
       </Formik>
     </Layout>
-  )
-}
+  );
+};
 
 export default AddFacility;

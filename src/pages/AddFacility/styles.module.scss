@@ -7,10 +7,12 @@
 
   &Title {
     margin-bottom: 70px;
-    font-size: 18px;
-    line-height: 20px;
     text-align: center;
     color: $createTitle_color
+  }
+
+  &InputAvatar {
+    margin: 25px 0 0;
   }
 
   &Error {
@@ -29,6 +31,8 @@
 
   &SuccessBtnHome {
     display: flex;
+    border-color: $createSuccessBtnHome_border;
+    color: $createSuccessBtnHome_color;
 
     &Icon {
       margin-top: 2px;

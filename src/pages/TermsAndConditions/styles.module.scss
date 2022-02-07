@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.termsAndConditions {
+  padding: 80px 20px 0;
+
+  &Logo {
+    margin-bottom: 41px;
+    display: flex;
+    justify-content: center;
+    color: $termsAndConditionsLogo_color;
+
+    &Icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  &Title {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+}

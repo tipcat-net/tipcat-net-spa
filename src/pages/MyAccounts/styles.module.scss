@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.myAccounts {
+  padding: 33px 10px;
+
+  &Title {
+    color: $myAccountsTitle_color;
+    text-align: center;
+
+    &OtherAccounts {
+      margin: 38px 0 17px;
+    }
+  }
+}

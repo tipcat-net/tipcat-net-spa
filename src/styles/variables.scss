@@ -1,37 +1,65 @@
 $base: 'Open Sans', sans-serif;
+$FiraMono: 'Fira Mono', monospace;;
 
 $body_bg: #F2F2F2;
+
+$layoutBackground_bg: linear-gradient(167.85deg, #1EB9C1 22.45%, #01687F 88.33%);
 
 // header
 $header_bg: #2A6274;
 $header_shadow: rgba(0, 0, 0, 0.3);
 $headerLogoIcon: #FFFFFF;
 $headerBtnIcon: #FFFFFF;
-$headerBtnQrCodeIcon: #CFF6FF;
 $headerTitle: #FFFFFF;
 
 // menu
 $menuWrapper_bg: rgba(242, 242, 242, 0.9);
 $menuWrapper_shadow: rgba(79, 79, 79, 0.1);
-$menuLink_color: #4F4F4F;
+$menuItem_icon_color: #878787;
+$menuBottomLink_color: #BDBDBD;
+
+// footer
+$footerLogo_color: #828282;
+$footerContacts_color: #828282;
+$footerContactsSpan_color: #1EB9C1;
+$footerCopyright_color: #828282;
+
+// Title
+$h1_color: #4F4F4F;
+$h2_color: #4F4F4F;
+$h3_color: #4F4F4F;
+
+// Text
+$bigTextBase_color: #4F4F4F;
+$smallTextBase_color: #878787;
+$superSmallText_color: #BDBDBD;
 
 // button
-$button_base: #828282;
-$button_bg: #FFFFFF;
-$button_shadow: rgba(79, 79, 79, 0.15);
+$button_color: #878787;
+$button_bg: transparent;
+$button_border: #878787;
+$button_active_color: #FFFFFF;
+$button_active_bg: #878787;
+$button_disabled_color: #E0E0E0;
+$button_disabled_border: #E0E0E0;
 
-$buttonPrimary_base: #4ABCA3;
-$buttonPrimary_shadow: rgba(28, 184, 109, 0.2);
+$buttonBorderNone_color: #4F4F4F;
+$buttonBorderNone_active_color: #4F4F4F;
+$buttonBorderNone_active_bg: transparent;
 
-$buttonTransparent_base: #F2F2F2;
+$buttonPrimary_color: #1EB9C1;
+$buttonPrimary_border: #1EB9C1;
+$buttonPrimary_active_color: #FFFFFF;
+$buttonPrimary_active_bg: #1EB9C1;
 
-$buttonMenu_color: #4F4F4F;
-$buttonMenuHover_border: #FFFFFF;
-$buttonMenuActive_bg: #FFFFFF;
-$buttonMenuDisabled_bg: #BDBDBD;
+$buttonWhite_color: #FFFFFF;
+$buttonWhite_border: #FFFFFF;
+$buttonWhite_active_bg: #E0E0E0;
+$buttonWhite_active_color: #FFFFFF;
+
+$buttonActiveWhite_bg: #FFFFFF;
 
 // label
-$label_color: #828282;
 $labelRequired_color: #EB5757;
 
 // input
@@ -43,36 +71,52 @@ $input_error_shadow: rgba(235, 87, 87, 0.3);
 $input_error_border: #EB5757;
 
 // uploadFile
-$uploadFileButton: #F2F2F2;
+$uploadFileButton_color: #878787;
+$uploadFileButton_border: #878787;
 
 // checkbox
-$checkbox_color: #828282;
-$checkboxChecked_border: #828282;
-$checkboxChecked_bg: #7DDBC7;
+$checkbox_color: #878787;
+$checkboxChecked_border: #878787;
+$checkboxChecked_bg: #1EB9C1;
+
+// switch
+$switchChecked_bg: #E0E0E0;
+$switchChecked_before_bg: #FFFFFF;
+$switchChecked_before_shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 3px 1px rgba(0, 0, 0, 0.06);
+$switchInput_checked_switchChecked_bg: #1EB9C1;
 
 // formRequiredError
 $formRequiredError_color: #BF1649;
 
 // avatar
-$avatar_bg: #7DDBC7;
+$avatar_bg: #1EB9C1;
 $avatar_color: #FFFFFF;
 $avatarIcon_color: #BDBDBD;
 
 $avatarBig_border: #FFFFFF;
 
-$avatarInvited_bg: #FFEB84;
+$avatarInvited_bg: #FEE054;
 
 $avatarFacility_bg: #FFBE17;
 $avatarFacility_color: #FFEB84;
 
 $avatarAccount_bg: #BF1649;
 
+$avatarAccountManager_border: #FFF8D8;
+$avatarAccountManager_shadow: #FFEB84;
+$avatarAccountManager_avatarBg_bg: #FFF8D8;
+
+$avatarBg_bg: #FFFFFF;
+
+// avatarCropper
+$avatarCropper_bg: rgba(79, 79, 79, 0.85);
+
 // status
-$status_color: #828282;
-$status_bg: #4ABCA3;
+$status_color: #878787;
+$status_bg: #1EB9C1;
 $status_border: #FFFFFF;
 
-$statusInvited_bg: #FFBE17;
+$statusInvited_bg: #FEE054;
 $statusDeactivated_bg: #BDBDBD;
 
 // pageNotFound
@@ -80,12 +124,19 @@ $pageNotFoundInfo_bg: #BDBDBD;
 $pageNotFoundInfoNumber: #F2F2F2;
 $pageNotFoundInfoTitle: #E0E0E0;
 $pageNotFoundInfoText: #E0E0E0;
+$pageNotFoundBack: #FFFFFF;
 
 // memberSort
 $membersSortSelected_color: #828282;
 $membersSortList_bg: rgba(242, 242, 242, 0.9);
 $membersSortListItemBtn_color: #4F4F4F;
 $membersSortListItemBtnIcon_color: #828282;
+
+// sort
+$sort_bg: #FFFFFF;
+$sort_shadow: rgba(79, 79, 79, 0.1);
+$sortSelected_span_svg_color: #878787;
+$sortList_before_color: #BDBDBD;
 
 // memberProfile
 $memberProfileStatus: #BDBDBD;
@@ -99,10 +150,9 @@ $profileTopBtnEdit_color: #828282;
 $profileContent_bg: #FFFFFF;
 $profileContent_shadow: rgba(0, 0, 0, 0.1);
 
-$profileName: #4F4F4F;
-
 $profileInfoTitle: #BDBDBD;
-$profileInfoText: #4F4F4F;
+
+$profilePosition: #BDBDBD;
 
 $profileContentBottomLink: #828282;
 $profileContentBottomEmail: #828282;
@@ -115,11 +165,9 @@ $substrateContent_bg: rgba(242, 242, 242, 0.9);
 
 // qrCode
 $qrCodeTitle_color: #BDBDBD;
-$qrCodeShare_color: #828282;
+$qrCodeShare_color: #878787;
 
 // memberProfileQrCode
-$memberProfileQrCode_facility_color: #4F4F4F;
-$memberProfileQrCode_permissions_color: #BDBDBD;
 $memberProfileQrCode_memberCode_color: #4F4F4F;
 
 // Facilities
@@ -127,13 +175,15 @@ $facilities_bg: #FFFFFF;
 $facilities_shadow: rgba(0, 0, 0, 0.1);
 
 $facilityHeaderTitle_color: #4F4F4F;
-$facilityHeaderCount_color: #828282;
+$facilityHeaderAmount_color: #01687F;
 $facilityHeaderArrowIcon_color: #828282;
 
 // create
 $create_bg: #FFFFFF;
-$createTitle_color: #828282;
-$createSuccessBtnAdd_color: #FFFFFF;
+$createTitle_color: #878787;
+$createSuccessBtnHome_color: #F2F2F2;
+$createSuccessBtnHome_border: #F2F2F2;
+$createSuccessBtnAdd_color: #E0E0E0;
 $createSuccessBtnAddIcon_color: #FFBE17;
 
 // Success
@@ -156,3 +206,92 @@ $logout_bg: linear-gradient(167.85deg, #7DDBC7 22.45%, #4ABCA3 88.33%);
 $logoutLogo_color: #4ABCA3;
 $logoutTitle_color: #FFFFFF;
 $logoutText_color: #FFFFFF;
+
+// diagram 
+$diagramProgressFull_color: #F2F2F2;
+$diagramProgressCurrent_color: #7DDBC7;
+$diagramAvailableNumber_bg: #FFEB84;
+$diagramBottomItemText_color: #E0E0E0;
+
+// result
+$resultValue: #2A6274;
+
+// transactions
+$transactions_bg: #BDBDBD;
+$transactions_shadow: rgba(0, 0, 0, 0.1);
+$transactionsPrimary_bg: #1EB9C1;
+$transactionsHeader_color: #FFFFFF;
+$transactionsLastText_color: #E0E0E0;
+$transactionsLastBtn_color: #FFFFFF;
+
+// transactionsItem 
+$transactionsItem_bg: #FFFFFF;
+$transactionsItem_shadow: rgba(0, 0, 0, 0.1);
+$transactionsItemIcon_color: #FEE054;
+$transactionsItemWithdrawIcon_color: #E8FBFC;
+$transactionsItemTitle_color: #4F4F4F;
+$transactionsItemSum_color: #FFBA34;
+$transactionsItemWithdrawSum_color: #1EB9C1;
+$transactionsItemText_color: #4F4F4F;
+
+// card
+$card_bg: #FFFFFF;
+$card_shadow: rgba(0, 0, 0, 0.1);
+$cardDisabled_bg: #E0E0E0;
+$cardDisabled_cardIcon_color: #BDBDBD;
+$cardIconCard_color: #1EB9C1;
+$cardNumber_color: #01687F;
+$cardBtnView_color: #878787;
+$cardDate_color: #BDBDBD;
+
+// myAccounts
+$myAccountsTitle_color: #878787;
+
+// pay
+$paymentCompanyName: #4F4F4F;
+$paymentLabel_color: #878787;
+$paymentAmountInput_border: #FFEB84;
+$paymentAmountInput_color: #4F4F4F;
+$paymentAmountText_before_color: #BDBDBD;
+$paymentTotalText_color: #BDBDBD;
+$paymentTotalText_span_color: #878787;
+$paymentSwitchText_color: #878787;
+$paymentBottomStepsItem_bg: #BDBDBD;
+$paymentBottomStepsItemActive_bg: #1EB9C1;
+$paymentMethodDescription_color: #878787;
+$paymentMethotListItemIcon_border: #1EB9C1;
+$paymentMethotListItemIcon_color: #1EB9C1;
+$paymentMethotListItem_disabled_Icon_border: #F2F2F2;
+$paymentMethotListItem_disabled_Icon_color: #F2F2F2;
+$paymentMethotListItemActiveIcon_bg: #1EB9C1;
+$paymentMethotListItemActiveIcon_color: #FFFFFF;
+$paymentMessageLogo_color: #01687F;
+$paymentMessageTitle_color: #FFFFFF;
+$paymentMessageText_color: #FFFFFF;
+$paymentMessageBottomBtn_color: #E0E0E0;
+
+// panel
+$panel_shadow: rgba(79, 79, 79, 0.1);
+$panel_bg: #FFFFFF;
+$panelHeaderTitle_color: #01687F;
+$panelHeaderIcon_color: #828282;
+
+// home
+$homeAvatar_border: #FFF8D8;
+$homeAvatar_shadow: #FFEB84;
+
+// privacyPolicy
+$privacyPolicyLogo_color: #878787;
+
+// termsAndConditions
+$termsAndConditionsLogo_color: #878787;
+
+// withdraw
+$withdrawImageIcon_svg_color: #1EB9C1;
+$withdrawSum_bg: #fff;
+$withdrawSum_border: #FFEB84;
+$withdrawSumCurrency_color: #BDBDBD;
+$withdrawSumInput_color: #4F4F4F;
+
+// support
+$supportIcon_color: #1EB9C1;

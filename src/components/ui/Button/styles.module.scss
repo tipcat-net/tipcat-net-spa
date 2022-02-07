@@ -1,92 +1,107 @@
 @import './../../../styles/variables.scss';
 
 .button {
-  padding: 8px 14px;
-  display: inline-block;
+  padding: 8px 11px;
   font-family: $base;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.03em;
-  color: $button_base;
-  background: $button_bg;
-  border: 1px solid $button_base;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  color: $button_color;
+  background-color: $button_bg;
+  border: 2px solid $button_border;
   border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
 
-  &:hover {
-    box-shadow: 0px 1px 6px $button_shadow;
+  &:active:not(&Clear) {
+    color: $button_active_color;
+    background-color: $button_active_bg;
   }
 
-  &:active {
-    color: $button_bg;
-    background-color: $button_base;
+  &:disabled:not(&Clear) {
+    color: $button_disabled_color;
+    border-color: $button_disabled_border;
+    cursor: auto;
   }
 
-  &:disabled {
-    opacity: 0.5;
-  }
+  &Icon {
+    display: inline-flex;
+    align-items: flex-start;
 
-  
-  &Primary {
-    color: $buttonPrimary_base;
-    border-color: $buttonPrimary_base;
-
-    &:hover {
-      box-shadow: 0px 1px 6px $buttonPrimary_shadow;
+    :global {
+      .icon {
+        margin: -2px -5px;
+      }
     }
+
+    .content {
+      margin-left: 10px;
+      display: inline-flex;
+      align-items: flex-start;
+    }
+  }
+
+  &BorderNone {
+    padding: 12px 13px 13px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    color: $buttonBorderNone_color;
+    text-decoration: none;
+    border: none;
 
     &:active {
-      background-color: $buttonPrimary_base;
+      color: $buttonBorderNone_active_color;
+      background-color: $buttonBorderNone_active_bg;
     }
 
-    &:disabled {
-      color: $button_base;
-      border-color: $button_base;
+    :global {
+      .icon {
+        margin: -4px -5px -5px;
+      }
+    }
+
+    &.buttonIcon .content {
+      margin-left: 13px;
     }
   }
 
-  &Transparent {
-    background-color: transparent;
-    border-color: $buttonTransparent_base;
-    color: $buttonTransparent_base
+  &Primary {
+    color: $buttonPrimary_color;
+    border-color: $buttonPrimary_border;
+
+    &:active:not(&Clear) {
+      color: $buttonPrimary_active_color;
+      background-color: $buttonPrimary_active_bg;
+    }
   }
 
-  &Clear,
-  &Clear:hover,
-  &Clear:active,
-  &Clear:disabled {
+  &Clear {
     background: transparent;
     padding: 0;
     border-radius: 0;
     border: none;
     box-shadow: none;
 
-    &:disabled {
-      opacity: 0.5;
+    :global {
+      .icon {
+        margin: 0;
+      }
     }
   }
 
-  &Menu {
-    padding: 11px 10px 12px;
-    font-size: 14px;
-    line-height: 15px;
-    letter-spacing: 0.03em;
-    color: $buttonMenu_color;
-    background-color: transparent;
-    border-color: transparent;
-
-    &:hover {
-      border-color: $buttonMenuHover_border;
-    }
+  &White {
+    color: $buttonWhite_color;
+    border-color: $buttonWhite_border;
 
     &:active {
-      background-color: $buttonMenuActive_bg;
+      background-color: $buttonWhite_active_bg;
+      color: $buttonWhite_active_color;
     }
+  }
 
-    &:disabled {
-      opacity: 1;
-      color: $buttonMenuDisabled_bg;
-    }
+  &ActiveWhite:active {
+    background-color: $buttonActiveWhite_bg;
   }
 }

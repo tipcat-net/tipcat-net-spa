@@ -1,0 +1,47 @@
+@import "../../styles/variables.scss";
+
+.support {
+  padding: 33px 20px;
+
+  &Icon {
+    margin: 0 auto 33px;
+    width: 96px;
+    height: 96px;
+    display: block;
+    color: $supportIcon_color;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &FormItem {
+    margin-bottom: 6px;
+    
+    label + textarea {
+      margin-top: 6px;
+      padding: 9px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 15px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    textarea {
+      min-height: 235px;
+    }
+
+    label + input {
+      margin-top: 5px;
+      padding: 9px;
+    }
+  }
+
+  &Buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

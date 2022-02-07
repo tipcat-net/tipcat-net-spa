@@ -1,21 +1,26 @@
 import { Link } from 'react-router-dom';
-import cn from 'classnames'
+import cn from 'classnames';
 
 import styles from './styles.module.scss';
 
-export const Button = ({ children, type, onClick, primary, transparent, menu, clear, className, href, ...allProps }) => {
+export const Button = ({ children, className, href, type, draggable, primary, borderNone, icon: Icon, clear, white, whiteActive, ...allProps }) => {
   const classPrimary = primary ? styles.buttonPrimary : null;
-  const classTransparent = transparent ? styles.buttonTransparent : null;
   const classClear = clear ? styles.buttonClear : null;
-  const classMenu = menu ? styles.buttonMenu : null;
-  
+  const classBorderNone = borderNone ? styles.buttonBorderNone : null;
+  const classIcon = Icon ? styles.buttonIcon : null;
+  const classWhite = white ? styles.buttonWhite : null;
+  const classWhiteActive = whiteActive ? styles.buttonWhiteActive : null;
+
   if (href) {
     return (
       <Link
         to={ href }
-        className={ cn(styles.button, classPrimary, classTransparent, classClear, classMenu, className) }
+        className={ cn(styles.button, classClear, classBorderNone, classIcon, classPrimary, classWhite, classWhiteActive, className) }
+        draggable={ draggable ? draggable : false }
+        { ...allProps }
       >
-        { children }
+        { Icon ? Icon : null }
+        { children ? <span className={ styles.content }>{ children }</span> : null }
       </Link>
     );
   }
@@ -23,11 +28,11 @@ export const Button = ({ children, type, onClick, primary, transparent, menu, cl
   return (
     <button
       type={ type ? type : 'button' }
-      onClick={ onClick }
-      className={ cn(styles.button, classPrimary, classTransparent, classClear, classMenu, className) }
+      className={ cn(styles.button, classClear, classBorderNone, classIcon, classPrimary, classWhite, className) }
       { ...allProps }
     >
-      { children }
+      { Icon ? Icon : null }
+      { children ? <span className={ styles.content }>{ children }</span> : null }
     </button>
-  )
-}
+  );
+};

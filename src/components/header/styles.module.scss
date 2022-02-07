@@ -4,10 +4,11 @@
   position: relative;
   background: $header_bg;
   box-shadow: 0px 0.5px 0px $header_shadow;
-  padding: 10px;
+  padding: 18px 10px 10px;
   width: 100%;
 
   &Logo {
+    margin-bottom: -4px;
     display: flex;
     justify-content: center;
     flex: auto;
@@ -16,20 +17,40 @@
       color: $headerLogoIcon;
 
       &Big svg {
-        width: 75px;
-        height: 75px;
+        width: 76px;
+        height: 76px;
       }
+    }
+
+    &Big {
+      margin-top: -16px;
+      margin-bottom: 9px;
     }
   }
 
   &Container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+
+    &Left {
+      display: flex;
+      flex: 0 0 58px;
+    }
+
+    &Center {
+      flex: auto;
+    }
+
+    &Right {
+      display: flex;
+      justify-content: flex-end;
+      flex: 0 0 58px;
+    }
   }
 
   &Btn {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,16 +59,18 @@
       color: $headerBtnIcon;
     }
 
-    &QrCodeIcon {
-      color: $headerBtnQrCodeIcon;
+    &Burger {
+      margin-left: 10px;
     }
   }
 
   &Title {
+    margin-top: -26px;
     flex-grow: 1;
     font-weight: bold;
-    font-size: 21px;
+    font-size: 20px;
     line-height: 22px;
+    letter-spacing: -0.03em;
     text-align: center;
     color: $headerTitle;
   }
