@@ -45,6 +45,10 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
     openVisibleSuccess();
   };
 
+  const isErrors = (errors) => {
+    return Object.keys(errors).length === 0 ? false : true;
+  };
+
   const onSubmit = (values) => {
     const {avatarUrl, ...data} = values;
 
@@ -54,7 +58,8 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
         accountId: values.accountId,
         data: { File: avatarUrl },
       }, closeEditProfile));
-    } else if (values[visivbleField] !== profile[visivbleField]) {
+    } else if (visivbleField !== 'avatarUrl' &&
+      (visivbleField.split(',').filter(item => values[item] !== profile[item]).length > 0)) {
       put(updateMember(data, closeEditProfile));
     }
   };
@@ -69,6 +74,7 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
         {
           ({
             values,
+            errors,
             setValues,
             setFieldValue,
             handleChange,
@@ -93,35 +99,40 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                     <React.Fragment>
                       <EditProfileItem
                         title={ t('editProfile.memberProfile.items.name.title') }
-                        name="name"
+                        name="firstName,lastName"
                         visivbleField={ visivbleField }
-                        toggleVisivbleField={ toggleVisivbleField }
+                        toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                         onCancel={ onCancel }
+                        error={ errors.firstName || errors.lastName }
                       >
-                        <Label>{ t('editProfile.memberProfile.items.name.labels.newName') }</Label>
+                        <Label>{ t('editProfile.memberProfile.items.name.labels.firstName') }</Label>
                         <Input
-                          name="newName"
+                          name="firstName"
                           defaultValue={ values.firstName }
                           onChange={ handleChange }
+                          error={ errors.firstName }
                         />
-                        <Label>{ t('editProfile.memberProfile.items.name.labels.newSurname') }</Label>
+                        <Label>{ t('editProfile.memberProfile.items.name.labels.lastName') }</Label>
                         <Input
-                          name="newSurname"
+                          name="lastName"
                           defaultValue={ values.lastName }
                           onChange={ handleChange }
+                          error={ errors.lastName }
                         />
                       </EditProfileItem>
                       <EditProfileItem
                         title={ t('editProfile.memberProfile.items.position.title') }
                         name="position"
                         visivbleField={ visivbleField }
-                        toggleVisivbleField={ toggleVisivbleField }
+                        toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                         onCancel={ onCancel }
+                        error={ errors.position }
                       >
                         <Input
                           name="position"
                           defaultValue={ values.position }
                           onChange={ handleChange }
+                          error={ errors.position }
                         />
                       </EditProfileItem>
                     </React.Fragment>
@@ -131,7 +142,7 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                   title={ t('editProfile.memberProfile.items.avatar.title') }
                   name="avatarUrl"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   file={ true }
                 >
@@ -155,13 +166,15 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                       title={ t('editProfile.memberProfile.items.email.title') }
                       name="email"
                       visivbleField={ visivbleField }
-                      toggleVisivbleField={ toggleVisivbleField }
+                      toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                       onCancel={ onCancel }
+                      error={ errors.email }
                     >
                       <Input
                         name="email"
                         defaultValue={ values.email }
                         onChange={ handleChange }
+                        error={ errors.email }
                       />
                     </EditProfileItem>
                     : null

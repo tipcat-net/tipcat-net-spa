@@ -193,8 +193,8 @@
         "name": {
           "title": "Name",
           "labels": {
-            "newName": "New name",
-            "newSurname": "New surname"
+            "firstName": "New name",
+            "lastName": "New surname"
           }
         },
         "position": {

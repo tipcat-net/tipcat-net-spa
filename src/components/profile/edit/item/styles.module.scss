@@ -11,8 +11,12 @@
   &Content {
     padding-bottom: 10px;
     width: 100%;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
+
+    &Open {
+      display: flex;
+    }
 
     &File {
       padding-left: 73px;

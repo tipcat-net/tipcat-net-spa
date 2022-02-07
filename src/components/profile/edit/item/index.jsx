@@ -6,8 +6,12 @@ import { Button } from './../../../ui/Button';
 
 import style from './styles.module.scss';
 
-export const EditProfileItem = ({ children, title, name, href, file, onClick, visivbleField, toggleVisivbleField, onCancel }) => {
+export const EditProfileItem = ({
+  children, title, name, href, file, onClick, visivbleField, toggleVisivbleField, onCancel, error,
+}) => {
   const { t } = useTranslation();
+  const classOpen = visivbleField === name ? style.editProfileItemContentOpen : null;
+  const classFile = file ? style.editProfileItemContentFile : null;
 
   return (
     <div className={ style.editProfileItem }>
@@ -17,15 +21,21 @@ export const EditProfileItem = ({ children, title, name, href, file, onClick, vi
             <Button
               borderNone={ true }
               className={ style.editProfileItemToggle }
-              onClick={ () => toggleVisivbleField(name) }
+              onClick={ toggleVisivbleField ? () => toggleVisivbleField(name) : null }
             >{ title }</Button>
             {
-              visivbleField === name && children ?
-                <div className={ cn(style.editProfileItemContent, file ? style.editProfileItemContentFile : null) }>
+              children ?
+                <div className={ cn(style.editProfileItemContent, classFile, classOpen) }>
                   { children }
                   <div className={ style.editProfileItemBtns }>
-                    <Button onClick={ () => onCancel(name) }>{ t('editProfile.editProfileItem.cancel') }</Button>
-                    <Button type='submit' primary={ true }>{ t('editProfile.editProfileItem.save') }</Button>
+                    <Button
+                      onClick={ () => onCancel(name) }
+                    >{ t('editProfile.editProfileItem.cancel') }</Button>
+                    <Button
+                      type='submit'
+                      primary={ true }
+                      disabled={ error }
+                    >{ t('editProfile.editProfileItem.save') }</Button>
                   </div>
                 </div>
                 : null
