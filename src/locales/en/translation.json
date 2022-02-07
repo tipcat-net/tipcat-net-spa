@@ -134,7 +134,7 @@
         "label": "Use account avatar"
       }
     },
-    "formRequiredError": "Please, fill-in required fields",
+    "formRequiredError": "Please, fill-in the required fields",
     "buttons": {
       "back": "Back",
       "submit": "Add"
