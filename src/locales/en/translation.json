@@ -443,8 +443,8 @@
     },
     "success": {
       "btnHome": "Home",
-      "message": "Message sent",
-      "btnAdd": "Send yet message"
+      "message": "Message has been sent",
+      "btnAdd": "Send another message"
     }
   }
 }
