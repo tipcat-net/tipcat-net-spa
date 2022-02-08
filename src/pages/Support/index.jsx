@@ -89,7 +89,7 @@ export const Support = () => {
                         type="submit"
                         primary={ true }
                         disabled={ isDisabled }
-                      >={ t('support.buttons.submit') }</Button>
+                      >{ t('support.buttons.submit') }</Button>
                     </div>
                   </Form>
                   <Success
