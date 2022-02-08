@@ -444,6 +444,11 @@
     "buttons": {
       "cancel": "Cancel",
       "submit": "Send"
+    },
+    "success": {
+      "btnHome": "Home",
+      "message": "Message sent",
+      "btnAdd": "Send yet message"
     }
   }
 }
