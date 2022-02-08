@@ -53,12 +53,11 @@ export const ProfileDiagram = ({ current, max }) => {
       <div className={ style.diagramBottom }>
         <div className={ style.diagramBottomItem }>
           <Text size='small' className={ style.diagramBottomItemNumber }>$ { current }</Text>
-          <Text size='superSmall' className={ style.diagramBottomtItemText }>{ t('profileDiagram.currentText') }</Text>
+          <Text size='superSmall' className={ style.diagramBottomItemText }>{ t('profileDiagram.currentText') }</Text>
         </div>
-        <Button primary={ true }>{ t('profileDiagram.btn') }</Button>
         <div className={ style.diagramBottomItem }>
           <Text size='small' className={ style.diagramBottomItemNumber }>$ { max }</Text>
-          <Text size='small' className={ style.diagramBottomItemText }>{ t('profileDiagram.maxText') }</Text>
+          <Text size='superSmall' className={ style.diagramBottomItemText }>{ t('profileDiagram.maxText') }</Text>
         </div>
       </div>
     </div>

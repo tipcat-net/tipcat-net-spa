@@ -11,7 +11,7 @@
     },
     "memberMenu": {
       "myProfile": "My profile",
-      "myQrCode": "My QR code for payment",
+      "myQrCode": "My QR code to receive payments",
       "myCards": "My cards",
       "transaction": "Transaction",
       "support": "Support",
@@ -35,10 +35,6 @@
       "tradeLicense": {
         "title": "Trade license",
         "text": "9836384"
-      },
-      "iata": {
-        "title": "IATA",
-        "text": "3049753475698346"
       }
     },
     "menu": {
@@ -47,7 +43,7 @@
       "termsConditions": "Terms & Conditions",
       "privacyPolicy": "Privacy Policy"
     },
-    "copyright": "All rights reserved © 2022 <br/> TipCat Finance Systems LLC"
+    "copyright": "All rights reserved © 2022 <br/> TIP CAT L.L.C"
   },
   "home": {
     "headerTitle": "Home"
@@ -57,19 +53,19 @@
       "transactions": "Total transactions",
       "earned": "Total earned"
     },
-    "paymentAccountTitle": "Account for money withdraw"
+    "paymentAccountTitle": "Account to withdraw money"
   },
   "profileDiagram": {
-    "availableTitle": "Available for payment",
+    "availableTitle": "Available for a withdrawal",
     "btn": "Withdraw",
     "currentText": "last 30 days",
-    "maxText": "record"
+    "maxText": "best 30 days"
   },
   "sort": "Sort by",
   "transactions": {
     "headerTitle": "Transactions",
     "sortList": {
-      "createdASC": "First paid",
+      "createdASC": "Early paid",
       "createdDESC": "Last paid",
       "amountASC": "Min amount",
       "amountDESC": "Max amount"
@@ -78,11 +74,11 @@
       "sameDay": "Today"
     },
     "types": {
-      "income": "Income tips",
-      "withdraw" : "Withdraw to card"
+      "income": "Incoming tips",
+      "withdraw" : "Withdrawal"
     },
     "transactionsLast": {
-      "text": "The last {{count}} transactions are shown here",
+      "text": "The last {{count}} transactions are shown here",
       "btn": "All transaction"
     }
   },
@@ -93,9 +89,9 @@
     "btn": "Withdraw"
   },
   "accountPanel": {
-    "btnAccount": "Go to account",
+    "btnAccount": "Go to the account",
     "results": {
-      "transactions": "Transactions today",
+      "transactions": "Today transactions",
       "totalSum": "Total sum",
       "lastWeek": "Last week"
     },
@@ -113,7 +109,7 @@
   },
   "logout": {
     "title": "See you later!",
-    "text": "Уou are successfully signed out",
+    "text": "You are successfully signed out",
     "buttonLogin": "Sign in",
     "LinkAbout": "More about Tip Cat"
   },
@@ -124,7 +120,7 @@
     "form": {
       "member": {
         "title": "Hello!",
-        "underTitle": "Introduce yourself",
+        "underTitle": "Please, introduce yourself",
         "fields": {
           "firstName": {
             "label": "Your first name"
@@ -135,7 +131,7 @@
         }
       },
       "account": {
-        "underTitle": "Introduce your company",
+        "underTitle": "Please, introduce your company",
         "fields": {
           "operatingName": {
             "label": "Operating name"
@@ -193,8 +189,8 @@
         "name": {
           "title": "Name",
           "labels": {
-            "firstName": "New name",
-            "lastName": "New surname"
+            "firstName": "First name",
+            "lastName": "Last name"
           }
         },
         "position": {
@@ -207,7 +203,7 @@
           "title": "Email"
         },
         "transferAccountRights": {
-          "title": "Transfer account rights"
+          "title": "Transfer account permissions"
         },
         "transferTheMemberTo": {
           "title": "Transfer the member to"
@@ -258,7 +254,7 @@
     "headerTitle": "Member profile"
   },
   "qrCode": {
-    "title": "Payment code",
+    "title": "Your code",
     "share": "Share"
   },
   "formItem": {
@@ -330,8 +326,8 @@
     },
     "success": {
       "btnHome": "Home",
-      "message": "The facility have been added",
-      "btnAdd": "Add yet facility"
+      "message": "The facility has been added",
+      "btnAdd": "Add another facility"
     }
   },
   "facilityProfile": {
@@ -359,17 +355,17 @@
   "pay": {
     "payment": {
       "paymentLabelAmount": "Your tip",
-      "paymentSwitch": "Include service comission at once",
+      "paymentSwitch": "Cover service comission",
       "paymentTotalText": "Total",
-      "paymentLabelMessage": "Your message (may be)",
-      "paymentPlaceholderMessage": "Thanks for a great evening)",
+      "paymentLabelMessage": "Your message (optional)",
+      "paymentPlaceholderMessage": "Thanks for a great evening :)",
       "paymentBottom": {
-        "left": "No thanks",
+        "left": "No, thanks",
         "right": "Next"
       }
     },
     "paymentMethod": {
-      "text": "How do you pay?",
+      "text": "How will you prefer to pay?",
       "list": {
         "applePay": {
           "title": "ApplePay",
@@ -396,16 +392,16 @@
       }
     },
     "paymentMessage": {
-      "bottomBtn": "More about servise TipCat.net"
+      "bottomBtn": "More about TipCat.net"
     },
     "paymentSucceeded": {
       "title": "Thank you!",
-      "text": "Nicholas <br/> will get your tip within <br/> 5 minutes",
+      "text": "Nicholas <br/> will get your tip within <br/> 15 minutes",
       "button": "See you later!"
     },
     "paymentCancel": {
       "title": "Have a nice day!",
-      "button": "Return to payment"
+      "button": "Return to the payment"
     }
   },
   "privacyPolicy": {
@@ -424,7 +420,7 @@
   "withdraw": {
     "headerTitle": "Withdraw",
     "labels": {
-      "sum": "Sum for withdraw",
+      "sum": "Amount for a withdrawal",
       "account": "To account",
       "email": "Sent recipe to"
     },
@@ -435,7 +431,7 @@
     "headerTitle": "Support",
     "fields": {
       "message": {
-        "label": "Describe your problem"
+        "label": "Describe your issue"
       },
       "email": {
         "label": "Your e-mail"

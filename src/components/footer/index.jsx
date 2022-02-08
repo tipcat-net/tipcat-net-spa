@@ -28,10 +28,6 @@ export const Footer = () => {
           <span>{ t('footer.contacts.tradeLicense.title') }</span>
           { t('footer.contacts.tradeLicense.text') }
         </li>
-        <li>
-          <span>{ t('footer.contacts.iata.title') }</span>
-          { t('footer.contacts.iata.text') }
-        </li>
       </ul>
       <FooterMenu />
       <div className={ style.footerCopyright }>
