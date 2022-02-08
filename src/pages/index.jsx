@@ -48,6 +48,8 @@ export const Pages = () => {
       <ProtectedRoute { ...ROUTES.MYACCOUNTS } component={ MyAccounts } />
       <ProtectedRoute { ...ROUTES.WITHDRAW } component={ Withdraw } />
 
+      <ProtectedRoute { ...ROUTES.SUPPORT } component={ Support } />
+
       <Route { ...ROUTES.PAY } >
         <Pay />
       </Route>
@@ -62,9 +64,6 @@ export const Pages = () => {
       </Route>
       <Route { ...ROUTES.TERMS_CONDITIONS } >
         <TermsAndConditions />
-      </Route>
-      <Route { ...ROUTES.SUPPORT } >
-        <Support />
       </Route>
       <Route component={ PageNotFound } />
     </Switch>

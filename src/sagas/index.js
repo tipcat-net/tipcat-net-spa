@@ -40,6 +40,9 @@ import { TransactionActionTypes } from '../ducks/transaction/action-types';
 import getTransactionsRequest from './transaction/get-transactions';
 import changeParamsTransactionsRequest from './transaction/change-params-transactions';
 
+import { SupportActionTypes } from '../ducks/support/action-types';
+import requestSupportRequest from './support/request-support';
+
 export default function* sagas() {
   yield all([
     // SignUp
@@ -70,5 +73,7 @@ export default function* sagas() {
     // Transaction
     takeEvery(TransactionActionTypes.GET_TRANSACTIONS_START, getTransactionsRequest),
     takeEvery(TransactionActionTypes.CHANGE_PARAMS_TRANSACTIONS, changeParamsTransactionsRequest),
+    // Support
+    takeEvery(SupportActionTypes.REQUEST_SUPPORT_START, requestSupportRequest),
   ]);
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import cn from 'classnames';
 
+import { Text } from '../ui/Text';
+
 import style from './styles.module.scss';
 
 export const Success = ({ visible, duration, onClose, transparent, actionTop, message, actionBottom, className }) => {
@@ -10,7 +12,9 @@ export const Success = ({ visible, duration, onClose, transparent, actionTop, me
   useEffect(() => {
     if (visible && duration) {
       const timer = setTimeout(() => onClose(), 3000);
+
       timerRef.current = timer;
+
       return () => {
         clearTimeout(timerRef.current);
       };
@@ -24,8 +28,12 @@ export const Success = ({ visible, duration, onClose, transparent, actionTop, me
   return (
     <div className={ cn(style.success, classTransparent, className) }>
       { actionTop ? <div className={ style.successActionTop }>{ actionTop }</div> : null }
-      <div className={ style.successMessage }>{ message }</div>
+      <Text
+        size='small'
+        strong={ true }
+        className={ style.successMessage }
+      >{ message }</Text>
       { actionBottom ? <div className={ style.successActionBottom }>{ actionBottom }</div> : null }
     </div>
-  )
-}
+  );
+};

@@ -34,4 +34,6 @@ export const fetchers = {
   updatePayment: async ({ paymentId, ...data }) => axios.put(`/api/payments/${paymentId}`, data),
 
   getTransactions: async (params) => axios.get('/api/transactions/', config(true, null, params)),
+
+  requestSupport: async (content) => axios.post('/api/support/request', content, config(true)),
 };
