@@ -33,11 +33,11 @@ const ProtectedRoute = ({ component: Component, ...args }) => {
 
   if (!isAuthenticated) {
     loginWithRedirect({
-      appState: { returnTo: args.path },
+      appState: { returnTo: args.location.pathname },
     });
   }
 
-  if (member && !member.accountId && args.path !== ROUTES.REGISTRATION.path) {
+  if (member && !member.accountId && args.location.pathname !== ROUTES.REGISTRATION.path) {
     return (
       <Redirect
         to={ ROUTES.REGISTRATION.path }
