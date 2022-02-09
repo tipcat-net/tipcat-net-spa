@@ -1,6 +1,7 @@
 import { put, call } from 'redux-saga/effects';
 
 import { fetchers } from '../../api';
+import { getAccount } from '../../ducks/account/actions';
 
 import {
   updateAvatarMemberFinish,
@@ -11,8 +12,12 @@ export default function* updateAvatarMemberRequest({ payload, callback }) {
   try {
     const response = yield call(fetchers.updateAvatarMember, payload);
 
-    callback();
     yield put(updateAvatarMemberFinish(response));
+    yield put(getAccount(payload.accountId));
+
+    if (callback) {
+      callback();
+    }
   } catch (error) {
     yield put(updateAvatarMemberError(error));
   }

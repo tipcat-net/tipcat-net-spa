@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import cn from 'classnames';
 
 import { useComponentVisible } from '../../../hooks/useComponentVisible';
+import { Button } from '../../ui/Button';
+import { Edit } from '../../ui/Icons';
 
 import style from './styles.module.scss';
 
@@ -10,20 +12,17 @@ export const Substrate = ({ children, visible, closeVisible }) => {
     ref,
     isComponentVisible,
     setIsComponentVisible,
-  } = useComponentVisible(false);
+  } = useComponentVisible(visible);
 
   useEffect(() => {
-    if (visible) {
-      setIsComponentVisible(true);
-    }
+    setIsComponentVisible(visible);
+  }, [visible]);
+
+  useEffect(() => {
     if (visible && !isComponentVisible) {
       closeVisible();
     }
-  }, [visible, isComponentVisible]);
-
-  if (!visible) {
-    return null;
-  }
+  }, [isComponentVisible]);
 
   return (
     <div
@@ -32,6 +31,12 @@ export const Substrate = ({ children, visible, closeVisible }) => {
     >
       <div className={ style.substrateContent }>
         { children }
+        <Button
+          borderNone={ true }
+          className={ style.substrateBtnEdit }
+          onClick={ closeVisible }
+          icon={ <Edit className={ style.substrateBtnEditIcon } /> }
+        ></Button>
       </div>
     </div>
   );
