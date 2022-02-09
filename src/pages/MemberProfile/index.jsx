@@ -19,7 +19,7 @@ import { MemberPermissions } from '../../constants/MemberPermissions';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
-import { selectAccount } from '../../ducks/account/selectors';
+import { selectAccount, selectAccountLoading } from '../../ducks/account/selectors';
 
 export const MemberProfile = () => {
   const { t } = useTranslation();
@@ -32,6 +32,7 @@ export const MemberProfile = () => {
   const { params: { memberId } } = useRouteMatch();
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
+  const accountLoading = useSelector(selectAccountLoading);
   const delayBeforeClosing = 3000;
   const status = useMemberStatus(memberProfile);
 
@@ -63,7 +64,7 @@ export const MemberProfile = () => {
         if (resultAccountManager) {
           setAccountManager(resultAccountManager);
         }
-        if((resultMember || memberProfile) && (resultAccountManager || accountManager)) {
+        if((resultMember) && (resultAccountManager || accountManager)) {
           break;
         }
       }
@@ -87,7 +88,7 @@ export const MemberProfile = () => {
   return (
     <Layout title={ t('memberProfile.headerTitle') }>
       {
-        memberProfile && (
+        !accountLoading && memberProfile && (
           <Profile>
             <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
               <MemberProfileEdit

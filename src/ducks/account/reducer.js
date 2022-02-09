@@ -61,7 +61,7 @@ export function accountReducer(state = initialState, action) {
         loading: false,
         error: action.error,
       };
-    
+
     case AccountActionTypes.UPDATE_AVATAR_ACCOUNT_START:
       return {
         ...state,
@@ -72,7 +72,7 @@ export function accountReducer(state = initialState, action) {
         ...state,
         data: {
           ...state.data,
-          avatarUrl: `${action.response.data}?${Date.now()}`
+          avatarUrl: `${action.response.data}?${Date.now()}`,
         },
         loading: false,
       };

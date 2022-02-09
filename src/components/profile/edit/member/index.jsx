@@ -75,15 +75,11 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
           ({
             values,
             errors,
-            setValues,
             setFieldValue,
             handleChange,
           }) => {
             const onCancel = (name) => {
-              setValues({
-                ...values,
-                [name]: profile[name],
-              });
+              name.split(',').forEach(item => setFieldValue(item, profile[item]));
               toggleVisivbleField();
             };
 
@@ -108,14 +104,14 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                         <Label>{ t('editProfile.memberProfile.items.name.labels.firstName') }</Label>
                         <Input
                           name="firstName"
-                          defaultValue={ values.firstName }
+                          value={ values.firstName }
                           onChange={ handleChange }
                           error={ errors.firstName }
                         />
                         <Label>{ t('editProfile.memberProfile.items.name.labels.lastName') }</Label>
                         <Input
                           name="lastName"
-                          defaultValue={ values.lastName }
+                          value={ values.lastName }
                           onChange={ handleChange }
                           error={ errors.lastName }
                         />
@@ -130,7 +126,7 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                       >
                         <Input
                           name="position"
-                          defaultValue={ values.position }
+                          value={ values.position }
                           onChange={ handleChange }
                           error={ errors.position }
                         />
@@ -172,7 +168,7 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                     >
                       <Input
                         name="email"
-                        defaultValue={ values.email }
+                        value={ values.email }
                         onChange={ handleChange }
                         error={ errors.email }
                       />
