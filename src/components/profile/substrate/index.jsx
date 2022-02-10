@@ -24,6 +24,10 @@ export const Substrate = ({ children, visible, closeVisible }) => {
     }
   }, [isComponentVisible]);
 
+  if (!visible) {
+    return null;
+  }
+
   return (
     <div
       ref={ ref }
