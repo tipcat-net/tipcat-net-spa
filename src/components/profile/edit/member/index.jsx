@@ -15,9 +15,8 @@ import { MemberPermissions } from '../../../../constants/MemberPermissions';
 
 import { schema } from '../../../../form-helpers/member-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/member-edit/mapping';
-import { updateMember, updateAvatarMember, deleteMember } from '../../../../ducks/member/actions';
+import { updateMember, updateAvatarMember, deleteMember, deactivateMember, activateMember } from '../../../../ducks/member/actions';
 import { selectMember } from '../../../../ducks/member/selectors';
-
 
 export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
@@ -62,6 +61,20 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
       (visivbleField.split(',').filter(item => values[item] !== profile[item]).length > 0)) {
       put(updateMember(data, closeEditProfile));
     }
+  };
+
+  const onDeactivateMember = (profile) => {
+    put(deactivateMember({
+      id: profile.id,
+      accountId: profile.accountId,
+    }, closeEditProfile));
+  };
+
+  const onActivateMember = (profile) => {
+    put(activateMember({
+      id: profile.id,
+      accountId: profile.accountId,
+    }, closeEditProfile));
   };
 
   return (
@@ -184,14 +197,23 @@ export const MemberProfileEdit = ({ profile, toggleVisibleSubstrate, openVisible
                     : null
                 }
                 {
-                  currentMember.permissions !== MemberPermissions.Manager && currentMember.id !== profile.id ?
+                  currentMember.permissions === MemberPermissions.Manager && currentMember.id !== profile.id ?
                     <React.Fragment>
                       <EditProfileItem
                         title={ t('editProfile.memberProfile.items.transferTheMemberTo.title') }
                       ></EditProfileItem>
-                      <EditProfileItem
-                        title={ t('editProfile.memberProfile.items.deactivate.title') }
-                      ></EditProfileItem>
+                      {
+                        profile.isActive ?
+                          <EditProfileItem
+                            title={ t('editProfile.memberProfile.items.deactivate.title') }
+                            onClick={ () => onDeactivateMember(profile) }
+                          ></EditProfileItem>
+                          :
+                          <EditProfileItem
+                            title={ t('editProfile.memberProfile.items.activate.title') }
+                            onClick={ () => onActivateMember(profile) }
+                          ></EditProfileItem>
+                      }
                       <EditProfileItem
                         title={ t('editProfile.memberProfile.items.delete.title') }
                         onClick={ () => {

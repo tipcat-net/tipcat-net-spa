@@ -23,6 +23,8 @@ import addAccountRequest from './account/add-account';
 import getAccountRequest from './account/get-account';
 import updateAccountRequest from './account/update-account';
 import updateAvatarAccountRequest from './account/update-avatar-account';
+import deactivateMemberRequest from './member/deactivate-member';
+import activateMemberRequest from './member/activate-member';
 
 // Facility
 import { FacilityActionTypes } from '../ducks/facility/action-types';
@@ -56,6 +58,8 @@ export default function* sagas() {
     takeEvery(MemberActionTypes.UPDATE_MEMBER_START, updateMemberRequest),
     takeEvery(MemberActionTypes.UPDATE_AVATAR_MEMBER_START, updateAvatarMemberRequest),
     takeEvery(MemberActionTypes.DELETE_MEMBER_START, deleteMemberRequest),
+    takeEvery(MemberActionTypes.DEACTIVATE_MEMBER_START, deactivateMemberRequest),
+    takeEvery(MemberActionTypes.ACTIVATE_MEMBER_START, activateMemberRequest),
     // Accounts
     takeEvery(AccountActionTypes.ADD_ACCOUNT_START, addAccountRequest),
     takeEvery(AccountActionTypes.GET_ACCOUNT_START, getAccountRequest),

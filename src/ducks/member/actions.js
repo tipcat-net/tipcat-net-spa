@@ -106,3 +106,31 @@ export const deleteMemberFinish = (response) => ({
   type: MemberActionTypes.DELETE_MEMBER_FINISH,
   response,
 });
+
+export const deactivateMember = (payload, callback) => ({
+  type: MemberActionTypes.DEACTIVATE_MEMBER_START,
+  payload,
+  callback,
+});
+export const deactivateMemberError = (error) => ({
+  type: MemberActionTypes.DEACTIVATE_MEMBER_FINISH,
+  error,
+});
+export const deactivateMemberFinish = (response) => ({
+  type: MemberActionTypes.DEACTIVATE_MEMBER_FINISH,
+  response,
+});
+
+export const activateMember = (payload, callback) => ({
+  type: MemberActionTypes.ACTIVATE_MEMBER_START,
+  payload,
+  callback,
+});
+export const activateMemberError = (error) => ({
+  type: MemberActionTypes.ACTIVATE_MEMBER_ERROR,
+  error,
+});
+export const activateMemberFinish = (response) => ({
+  type: MemberActionTypes.ACTIVATE_MEMBER_FINISH,
+  response,
+});

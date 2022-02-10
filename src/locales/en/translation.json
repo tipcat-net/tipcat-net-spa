@@ -211,6 +211,9 @@
         "deactivate": {
           "title": "Deactivate"
         },
+        "activate": {
+          "title": "Activate"
+        },
         "delete": {
           "title": "Delete"
         }
