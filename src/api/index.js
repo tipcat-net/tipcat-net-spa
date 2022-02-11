@@ -15,6 +15,8 @@ export const fetchers = {
   updateMember: async ({accountId, id, ...data}) => axios.put(`/api/accounts/${accountId}/members/${id}`, data, config(true)),
   updateAvatarMember: async ({id, accountId, data}) => axios.put(`/api/accounts/${accountId}/members/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
   deleteMember: async ({id, accountId}) => axios.delete(`/api/accounts/${accountId}/members/${id}`, config(true)),
+  activateMember: async ({id, accountId}) => axios.post(`/api/accounts/${accountId}/members/${id}/activate`, null, config(true)),
+  deactivateMember: async ({id, accountId}) => axios.post(`/api/accounts/${accountId}/members/${id}/deactivate`, null, config(true)),
 
   // Accounts
   addAccount: async (data) => axios.post('/api/accounts', data, config(true)),
