@@ -41,11 +41,11 @@ export const MemberMenu = ({ className }) => {
       href: ROUTES.SUPPORT.path,
       text: t('header.memberMenu.support'),
     },
-    {
-      icon: <Search />,
-      href: ROUTES.SEARCH.path,
-      text: t('header.memberMenu.search'),
-    },
+    // {
+    //   icon: <Search />,
+    //   href: ROUTES.SEARCH.path,
+    //   text: t('header.memberMenu.search'),
+    // },
     {
       icon: <LogOut />,
       onClick: () => logout({ returnTo: authConfig.logoutUri }),
