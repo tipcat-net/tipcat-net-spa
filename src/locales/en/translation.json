@@ -13,7 +13,7 @@
       "myProfile": "My profile",
       "myQrCode": "My QR code to receive payments",
       "myCards": "My cards",
-      "transaction": "Transaction",
+      "transaction": "Transactions",
       "support": "Support",
       "search": "Search",
       "logout": "Log out"
@@ -59,7 +59,7 @@
     "availableTitle": "Available for a withdrawal",
     "btn": "Withdraw",
     "currentText": "last 30 days",
-    "maxText": "best 30 days"
+    "maxText": "all-time best"
   },
   "sort": "Sort by",
   "transactions": {
