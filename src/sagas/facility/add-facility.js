@@ -10,15 +10,22 @@ import {
 
 export default function* addFacilityRequest({ payload, callback }) {
   try {
-    const { avatar, ...addFacilityPayload } = payload;
+    const { avatar, useAccountAvatar, ...addFacilityPayload } = payload;
     const response = yield call(fetchers.addFacility, addFacilityPayload);
 
-    if (payload.avatar) {
+    if (useAccountAvatar || avatar) {
       const addAvatarFacilityPayload = {
         id: response.data.id,
         accountId: response.data.accountId,
-        data: { File: avatar },
+        params: {},
+        data: {},
       };
+
+      if (useAccountAvatar) {
+        addAvatarFacilityPayload.params = { useParent: true };
+      } else {
+        addAvatarFacilityPayload.data = { File: avatar };
+      }
 
       yield put(addFacilityFinish(response));
       yield put(addAvatarFacility(addAvatarFacilityPayload, callback));

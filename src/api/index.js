@@ -27,7 +27,7 @@ export const fetchers = {
   // Facility
   getFacilities: async (accountId) => axios.get(`/api/accounts/${accountId}/facilities`, config(true)),
   addFacility: async ({ accountId, ...data }) => axios.post(`/api/accounts/${accountId}/facilities`, data, config(true)),
-  addAvatarFacility: async ({id, accountId, data}) => axios.put(`/api/accounts/${accountId}/facilities/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
+  addAvatarFacility: async ({id, accountId, params, data}) => axios.post(`/api/accounts/${accountId}/facilities/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD, params)),
   updateFacility: async ({ accountId, facilityId, ...data }) => axios.put(`/api/accounts/${accountId}/facilities/${facilityId}`, data, config(true)),
 
   getPayment: async (memberCode) => axios.get(`/api/payments/${memberCode}`),
