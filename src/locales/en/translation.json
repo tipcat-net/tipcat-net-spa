@@ -168,9 +168,11 @@
     "nameDesc": "Name Z to A"
   },
   "memberItemActionBlock": {
-    "editName": "Edit name",
+    "deactivate": "Deactivate",
+    "delete": "Delete",
+    "hide": "Hide",
     "editPosition": "Edit position",
-    "deactivated": "Deactivate"
+    "transferTheMemberTo": "Transfer the member to"
   },
   "memberProfile": {
     "headerTitle": "Member profile",

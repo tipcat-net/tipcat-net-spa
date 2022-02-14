@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { ReactComponent as ActionsSvg } from './svg/actions.svg';
+import { ReactComponent as ActionsSvg } from './svg/basic/actions.svg';
 import { ReactComponent as AddSvg } from './svg/add.svg';
 import { ReactComponent as ArrowDownCircleSvg } from './svg/arrow_down_circle.svg';
 import { ReactComponent as ArrowDownSvg } from './svg/arrow_down.svg';

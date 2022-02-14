@@ -7,14 +7,14 @@ import { Button } from './../../../ui/Button';
 import style from './styles.module.scss';
 
 export const EditProfileItem = ({
-  children, title, name, href, file, onClick, visivbleField, toggleVisivbleField, onCancel, error,
+  children, title, name, href, file, className, onClick, visivbleField, toggleVisivbleField, onCancel, error,
 }) => {
   const { t } = useTranslation();
   const classOpen = visivbleField === name ? style.editProfileItemContentOpen : null;
   const classFile = file ? style.editProfileItemContentFile : null;
 
   return (
-    <div className={ style.editProfileItem }>
+    <div className={ cn(style.editProfileItem, className) }>
       {
         children ?
           <React.Fragment>
