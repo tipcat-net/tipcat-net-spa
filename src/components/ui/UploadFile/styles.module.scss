@@ -14,5 +14,11 @@
     color: $uploadFileButton_color;
     background-color: transparent;
     border: 2px solid $uploadFileButton_border;
+    justify-content: center;
+    align-items: center;
+
+    & &Icon {
+      margin-top: 2px;
+    }
   }
 }

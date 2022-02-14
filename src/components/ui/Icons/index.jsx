@@ -22,12 +22,11 @@ import { ReactComponent as DiaHighSvg } from './svg/diaHigh.svg';
 
 import { ReactComponent as EditSvg } from './svg/basic/edit.svg';
 
+import { ReactComponent as GallerySvg } from './svg/gallery.svg';
 import { ReactComponent as GroupAltSvg } from './svg/user/groupAlt.svg';
 
 import { ReactComponent as HideSvg } from './svg/hide.svg';
 import { ReactComponent as HomeSvg } from './svg/home.svg';
-
-import { ReactComponent as ImageSvg } from './svg/image.svg';
 
 import { ReactComponent as LogoSvg } from './svg/logo.svg';
 import { ReactComponent as LogOutSvg } from './svg/basic/logOut.svg';
@@ -89,12 +88,11 @@ export const DiaHigh = (props) => <Icon { ...props }><DiaHighSvg /></Icon>;
 
 export const Edit = (props) => <Icon { ...props }><EditSvg /></Icon>;
 
+export const Gallery = (props) => <Icon { ...props }><GallerySvg /></Icon>;
 export const GroupAlt = (props) => <Icon { ...props }><GroupAltSvg /></Icon>;
 
 export const Hide = (props) => <Icon { ...props }><HideSvg /></Icon>;
 export const Home = (props) => <Icon { ...props }><HomeSvg /></Icon>;
-
-export const Image = (props) => <Icon { ...props }><ImageSvg /></Icon>;
 
 export const Logo = (props) => <Icon { ...props }><LogoSvg /></Icon>;
 export const LogOut = (props) => <Icon { ...props }><LogOutSvg /></Icon>;

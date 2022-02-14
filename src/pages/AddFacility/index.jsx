@@ -9,7 +9,7 @@ import { FormInput } from '../../components/form/form-input';
 import { FormRequiredError } from '../../components/form/error-required';
 import { FormCheckbox } from '../../components/form/form-checkbox';
 import { Button } from '../../components/ui/Button';
-import { Home, Add } from '../../components/ui/Icons';
+import { Home, PlusSquare } from '../../components/ui/Icons';
 import { AvatarCropper } from '../../components/avatar/cropper';
 import { Success } from '../../components/success';
 
@@ -60,7 +60,7 @@ export const AddFacility = () => {
   return (
     <Layout hiddenHeader={ true }>
       <Formik
-        initialValues={ { ...initialValues, useAccountAddress: false } }
+        initialValues={ { ...initialValues, useAccountAddress: false, useAccountAvatar: false } }
         validationSchema={ schema }
         onSubmit={ onSubmit }
       >
@@ -87,6 +87,10 @@ export const AddFacility = () => {
               toggleCropAvatar(null);
             };
 
+            const handleChangeUseAccountAvatar = (e) => {
+              setFieldValue('useAccountAvatar', e.target.checked);
+            };
+
             const onSuccessBtnAdd = () => {
               resetForm();
               setVisibleSuccess(false);
@@ -106,12 +110,14 @@ export const AddFacility = () => {
                       type="text"
                       value={ values.name }
                       required={ true }
+                      className={ style.createItem }
                     />
                     <FormInput
                       label={ t('addFacility.fields.address.label') }
                       name="address"
                       type="textarea"
                       value={ values.address }
+                      className={ style.createItem }
                     />
                     <FormCheckbox
                       label={ t('addFacility.fields.useAccountAddress.label') }
@@ -132,6 +138,12 @@ export const AddFacility = () => {
                         toggleCropAvatar(null);
                       } }
                       onCrop={ handleChangeAvatar }
+                    />
+                    <FormCheckbox
+                      label={ t('addFacility.fields.useAccountAvatar.label') }
+                      name="useAccountAvatar"
+                      checked={ values.useAccountAvatar }
+                      onChange={ handleChangeUseAccountAvatar }
                     />
                     {
                       errors ?
@@ -154,22 +166,19 @@ export const AddFacility = () => {
                   visible={ visibleSuccess }
                   actionTop={
                     <Button
-                      transparent={ true }
                       className={ style.createSuccessBtnHome }
                       href={ ROUTES.HOME.path }
-                    >
-                      <Home className={ style.createSuccessBtnHomeIcon } />{ t('addFacility.success.btnHome') }
-                    </Button>
+                      icon={ <Home /> }
+                    >{ t('addFacility.success.btnHome') }</Button>
                   }
                   message={ t('addFacility.success.message') }
                   actionBottom={
                     <Button
-                      clear={ true }
+                      borderNone={ true }
                       className={ style.createSuccessBtnAdd }
                       onClick={ onSuccessBtnAdd }
-                    >
-                      <Add className={ style.createSuccessBtnAddIcon } />{ t('addFacility.success.btnAdd') }
-                    </Button>
+                      icon={ <PlusSquare /> }
+                    >{ t('addFacility.success.btnAdd') }</Button>
                   }
                 />
               </React.Fragment>
