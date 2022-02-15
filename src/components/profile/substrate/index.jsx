@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import cn from 'classnames';
 
-import { useComponentVisible } from '../../../hooks/useComponentVisible';
+import { useComponentUnderCursor } from '../../../hooks/useComponentUnderCursor';
 import { Button } from '../../ui/Button';
 import { Edit } from '../../ui/Icons';
 
@@ -10,19 +10,19 @@ import style from './styles.module.scss';
 export const Substrate = ({ children, visible, closeVisible }) => {
   const {
     ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(visible);
+    isComponentUnderCursor,
+    setIsComponentUnderCursor,
+  } = useComponentUnderCursor(visible);
 
   useEffect(() => {
-    setIsComponentVisible(visible);
+    setIsComponentUnderCursor(visible);
   }, [visible]);
 
   useEffect(() => {
-    if (visible && !isComponentVisible) {
+    if (visible && !isComponentUnderCursor) {
       closeVisible();
     }
-  }, [isComponentVisible]);
+  }, [isComponentUnderCursor]);
 
   if (!visible) {
     return null;

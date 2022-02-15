@@ -6,7 +6,7 @@ import { Button } from '../../ui/Button';
 import { AccountMenu } from './account-menu';
 import { MemberMenu } from './member-menu';
 
-import { useComponentVisible } from '../../../hooks/useComponentVisible';
+import { useComponentUnderCursor } from '../../../hooks/useComponentUnderCursor';
 import { ROUTES } from '../../../constants/routes';
 
 import style from './styles.module.scss';
@@ -15,21 +15,21 @@ export const Menu = ({ open, history, onClose }) => {
   const { t } = useTranslation();
   const {
     ref,
-    isComponentVisible,
-    setIsComponentVisible,
-  } = useComponentVisible(false);
+    isComponentUnderCursor,
+    setIsComponentUnderCursor,
+  } = useComponentUnderCursor(false);
 
   useEffect(() => {
     if (open) {
-      setIsComponentVisible(true);
+      setIsComponentUnderCursor(true);
     }
   }, [open]);
 
   useEffect(() => {
-    if (open && !isComponentVisible) {
+    if (open && !isComponentUnderCursor) {
       onClose();
     }
-  }, [isComponentVisible]);
+  }, [isComponentUnderCursor]);
 
   return (
     <div
