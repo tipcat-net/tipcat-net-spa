@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useComponentVisible = (initialIsVisible) => {
-  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible);
+export const useComponentUnderCursor = (initialIsVisible) => {
+  const [isComponentUnderCursor, setIsComponentUnderCursor] = useState(initialIsVisible);
   const ref = useRef(null);
 
   const handleClickOutside = event => {
     if (ref.current && !ref.current.contains(event.target)) {
-      setIsComponentVisible(false);
+      setIsComponentUnderCursor(false);
     }
   };
 
@@ -18,5 +18,5 @@ export const useComponentVisible = (initialIsVisible) => {
     };
   });
 
-  return { ref, isComponentVisible, setIsComponentVisible };
+  return { ref, isComponentUnderCursor, setIsComponentUnderCursor };
 };
