@@ -19,8 +19,12 @@ export const Header = ({ logo, title, className }) => {
 
   const history = useHistory();
 
-  const onMenuToggle = () => {
-    setMenuOpen(!menuOpen);
+  const onMenuOpen = () => {
+    setMenuOpen(true);
+  };
+
+  const onMenuClose = () => {
+    setMenuOpen(false);
   };
 
   if (logo) {
@@ -44,14 +48,17 @@ export const Header = ({ logo, title, className }) => {
             icon={ <ChevronBigLeft className={ style.headerBtnIcon } /> }
           ></Button>
           {
-            member && (
+            member &&
               <Button
                 clear={ true }
-                className={ cn(style.headerBtn, style.headerBtnBurger) }
-                onClick={ onMenuToggle }
+                className={ cn(
+                  style.headerBtn,
+                  style.headerBtnBurger,
+                  menuOpen ? style.headerBtnBurgerOpen : null,
+                ) }
+                onClick={ onMenuOpen }
                 icon={ <Hamburger className={ style.headerBtnIcon } /> }
               ></Button>
-            )
           }
         </div>
         <div className={ style.headerContainerCenter }>
@@ -87,7 +94,7 @@ export const Header = ({ logo, title, className }) => {
           }
         </div>
       </div>
-      { member && <Menu open={ menuOpen } history={ history } onClose={ onMenuToggle } /> }
+      { member && <Menu open={ menuOpen } history={ history } onClose={ onMenuClose } /> }
     </header>
   );
 };

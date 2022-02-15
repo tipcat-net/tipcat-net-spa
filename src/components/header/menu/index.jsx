@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
@@ -6,15 +6,36 @@ import { Button } from '../../ui/Button';
 import { AccountMenu } from './account-menu';
 import { MemberMenu } from './member-menu';
 
+import { useComponentVisible } from '../../../hooks/useComponentVisible';
 import { ROUTES } from '../../../constants/routes';
 
 import style from './styles.module.scss';
 
 export const Menu = ({ open, history, onClose }) => {
   const { t } = useTranslation();
+  const {
+    ref,
+    isComponentVisible,
+    setIsComponentVisible,
+  } = useComponentVisible(false);
+
+  useEffect(() => {
+    if (open) {
+      setIsComponentVisible(true);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (open && !isComponentVisible) {
+      onClose();
+    }
+  }, [isComponentVisible]);
 
   return (
-    <div className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }>
+    <div
+      ref={ ref }
+      className={ cn(style.menuWrapper, open ? style.menuWrapperOpen : null) }
+    >
       {
         history.location.pathname === ROUTES.ACCOUNT.path ?
           <AccountMenu />

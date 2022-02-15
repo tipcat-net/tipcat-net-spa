@@ -61,6 +61,10 @@
 
     &Burger {
       margin-left: 10px;
+
+      &Open {
+        pointer-events: none;
+      }
     }
   }
 
