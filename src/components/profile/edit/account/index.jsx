@@ -3,13 +3,15 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Formik, Form } from 'formik';
 
-import { FormItem } from '../form-item'
 import { EditProfile } from '../';
+import { EditProfileItem } from '../item';
+import { Input, TextArea } from '../../../ui/Input';
+import { UploadFile } from '../../../ui/UploadFile';
+import { AvatarCropper } from '../../../avatar/cropper';
 
 import { schema } from '../../../../form-helpers/account-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/account-edit/mapping';
 import { updateAccount, updateAvatarAccount } from '../../../../ducks/account/actions';
-import { AvatarCropper } from '../../../avatar/cropper';
 
 export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibleSuccess }) => {
   const { t } = useTranslation();
@@ -21,32 +23,36 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
 
   const toggleVisivbleField = (field) => {
     if (!field || field === visivbleField) {
-      setVisivbleField()
+      setVisivbleField();
     } else {
       setVisivbleField(field);
     }
-  }
+  };
 
   const toggleCropAvatar = (e) => {
-    setDataCropAvatar(e)
-  }
+    setDataCropAvatar(e);
+  };
 
   const closeEditProfile = () => {
     toggleVisivbleField();
     toggleVisibleSubstrate();
     openVisibleSuccess();
-  }
+  };
+
+  const isErrors = (errors) => {
+    return Object.keys(errors).length === 0 ? false : true;
+  };
 
   const onSubmit = (values) => {
     if (visivbleField === 'avatarUrl' && (values[visivbleField] !== account[visivbleField])) {
       put(updateAvatarAccount({
         id: values.id,
-        data: { File: values[visivbleField] }
-      }, closeEditProfile))
+        data: { File: values[visivbleField] },
+      }, closeEditProfile));
     } else if (values[visivbleField] !== account[visivbleField]) {
-      put(updateAccount(values, closeEditProfile))
+      put(updateAccount(values, closeEditProfile));
     }
-  }
+  };
 
   return (
     <EditProfile >
@@ -58,87 +64,128 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
         {
           ({
             values,
+            errors,
             setValues,
-            setFieldValue
+            setFieldValue,
+            handleChange,
           }) => {
             const onCancel = (name) => {
               setValues({
                 ...values,
-                [name]: account[name]
+                [name]: account[name],
               });
               toggleVisivbleField();
-            }
+            };
 
             const handleChangeAvatar = (e) => {
               setFieldValue('avatarUrl', e);
               toggleCropAvatar(null);
-            }
+            };
 
             return (
               <Form>
-                <FormItem
-                  label={ t('accountProfile.edit.fields.operatingName.label') }
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.operatingName.label') }
                   name="operatingName"
-                  type="text"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                />
-                <FormItem
-                  label={ t('accountProfile.edit.fields.avatar.label') }
+                  error={ errors.operatingName }
+                >
+                  <Input
+                    name="operatingName"
+                    value={ values.operatingName }
+                    onChange={ handleChange }
+                    error={ errors.operatingName }
+                  />
+                </EditProfileItem>
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.avatar.label') }
                   name="avatarUrl"
-                  type="file"
-                  accept="image/jpeg,image/png,image/jpg"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                  onChange={ toggleCropAvatar }
-                />
+                  file={ true }
+                >
+                  <UploadFile
+                    name="avatarUrl"
+                    accept="image/jpeg,image/png,image/jpg"
+                    onChange={ toggleCropAvatar }
+                  />
+                </EditProfileItem>
                 <AvatarCropper
                   data={ dataCropAvatar }
                   onClose={ () => {
-                    toggleCropAvatar(null)
-                    onCancel('avatarUrl')
+                    toggleCropAvatar(null);
+                    onCancel('avatarUrl');
                   } }
                   onCrop={ handleChangeAvatar }
                 />
-                <FormItem
-                  label={ t('accountProfile.edit.fields.address.label') }
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.address.label') }
                   name="address"
-                  type="textarea"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                />
-                <FormItem
-                  label={ t('accountProfile.edit.fields.email.label') }
+                  error={ errors.address }
+                >
+                  <TextArea
+                    name="address"
+                    value={ values.address }
+                    onChange={ handleChange }
+                    error={ errors.address }
+                  />
+                </EditProfileItem>
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.email.label') }
                   name="email"
-                  type="text"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                />
-                <FormItem
-                  label={ t('accountProfile.edit.fields.phone.label') }
+                  error={ errors.email }
+                >
+                  <Input
+                    name="email"
+                    value={ values.email }
+                    onChange={ handleChange }
+                    error={ errors.email }
+                  />
+                </EditProfileItem>
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.phone.label') }
                   name="phone"
-                  type="text"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                />
-                <FormItem
-                  label={ t('accountProfile.edit.fields.name.label') }
+                  error={ errors.phone }
+                >
+                  <Input
+                    name="phone"
+                    value={ values.phone }
+                    onChange={ handleChange }
+                    error={ errors.phone }
+                  />
+                </EditProfileItem>
+                <EditProfileItem
+                  title={ t('accountProfile.edit.fields.name.label') }
                   name="name"
-                  type="text"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ toggleVisivbleField }
+                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
-                />
+                  error={ errors.name }
+                >
+                  <Input
+                    name="name"
+                    value={ values.name }
+                    onChange={ handleChange }
+                    error={ errors.name }
+                  />
+                </EditProfileItem>
               </Form>
-            )
+            );
           }
         }
       </Formik>
     </EditProfile>
-  )
-}
+  );
+};
