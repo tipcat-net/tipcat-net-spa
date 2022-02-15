@@ -22,11 +22,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
   const [dataCropAvatar, setDataCropAvatar] = useState(null);
 
   const toggleVisivbleField = (field) => {
-    if (!field || field === visivbleField) {
-      setVisivbleField();
-    } else {
-      setVisivbleField(field);
-    }
+    setVisivbleField(field);
   };
 
   const toggleCropAvatar = (e) => {
@@ -39,7 +35,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
     openVisibleSuccess();
   };
 
-  const isErrors = (errors) => {
+  const hasErrors = (errors) => {
     return Object.keys(errors).length === 0 ? false : true;
   };
 
@@ -88,7 +84,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.operatingName.label') }
                   name="operatingName"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   error={ errors.operatingName }
                 >
@@ -103,7 +99,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.avatar.label') }
                   name="avatarUrl"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   file={ true }
                 >
@@ -125,7 +121,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.address.label') }
                   name="address"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   error={ errors.address }
                 >
@@ -140,7 +136,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.email.label') }
                   name="email"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   error={ errors.email }
                 >
@@ -155,7 +151,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.phone.label') }
                   name="phone"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   error={ errors.phone }
                 >
@@ -170,7 +166,7 @@ export const AccountProfileEdit = ({ account, toggleVisibleSubstrate, openVisibl
                   title={ t('accountProfile.edit.fields.name.label') }
                   name="name"
                   visivbleField={ visivbleField }
-                  toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
+                  toggleVisivbleField={ hasErrors(errors) ? null : toggleVisivbleField }
                   onCancel={ onCancel }
                   error={ errors.name }
                 >
