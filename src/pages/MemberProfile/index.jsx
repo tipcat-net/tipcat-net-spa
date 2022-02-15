@@ -58,6 +58,9 @@ export const MemberProfile = () => {
           : null;
 
         if (resultMember) {
+          if (resultMember.avatarUrl) {
+            resultMember.avatarUrl = `${resultMember.avatarUrl}?${Date.now()}`;
+          }
           setMemberProfile(resultMember);
           setFacility(facilitiesItem);
         }
