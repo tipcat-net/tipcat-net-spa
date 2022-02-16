@@ -114,7 +114,10 @@
     "LinkAbout": "More about Tip Cat"
   },
   "members": {
-    "headerTitle": "Members"
+    "headerTitle": "Members",
+    "success": {
+      "message": "Changes saved"
+    }
   },
   "registration": {
     "form": {

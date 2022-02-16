@@ -7,5 +7,5 @@ export const getInitialValues = (initialValues, member) => ({
   firstName: member.firstName,
   lastName: member.lastName,
   permissions: member.permissions,
-  position: member.position,
+  position: member.position ? member.position : '',
 });

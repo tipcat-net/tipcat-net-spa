@@ -17,6 +17,7 @@ export const fetchers = {
   deleteMember: async ({id, accountId}) => axios.delete(`/api/accounts/${accountId}/members/${id}`, config(true)),
   activateMember: async ({id, accountId}) => axios.post(`/api/accounts/${accountId}/members/${id}/activate`, null, config(true)),
   deactivateMember: async ({id, accountId}) => axios.post(`/api/accounts/${accountId}/members/${id}/deactivate`, null, config(true)),
+  transferMember: async ({accountId, memberId, facilityId}) => axios.post(`/api/accounts/${accountId}/members/${memberId}/transfer/facilities/${facilityId}`, null, config(true)),
 
   // Accounts
   addAccount: async (data) => axios.post('/api/accounts', data, config(true)),

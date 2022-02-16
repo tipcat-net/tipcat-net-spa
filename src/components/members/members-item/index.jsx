@@ -6,7 +6,7 @@ import { MembersItemActions } from './actions';
 
 import style from './styles.module.scss';
 
-export const MembersItem = ({ data }) => {
+export const MembersItem = ({ data, openVisibleSuccess }) => {
   const status = useMemberStatus(data);
 
   const avatarData = (data, status) => ({
@@ -22,7 +22,10 @@ export const MembersItem = ({ data }) => {
         <div className={ style.membersItemName }>{ data.firstName } { data.lastName }</div>
         <div className={ style.membersItemPosition }>{ data.position }</div>
       </div>
-      <MembersItemActions member={ data } />
+      <MembersItemActions
+        member={ data }
+        openVisibleSuccess={ openVisibleSuccess }
+      />
     </div>
   );
 };

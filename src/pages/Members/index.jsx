@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Layout } from '../../components/ui/Layout';
 import { Members } from '../../components/members/';
+import { Success } from '../../components/success';
 
 import { selectMember } from '../../ducks/member/selectors';
 import { getAccount } from '../../ducks/account/actions';
@@ -16,6 +17,16 @@ export const AllMembers = () => {
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
   const accountLoading = useSelector(selectAccountLoading);
+  const [visibleSuccess, setVisibleSuccess] = useState(false);
+  const delayBeforeClosing = 3000;
+
+  const closeVisibleSuccess = () => {
+    setVisibleSuccess(false);
+  };
+
+  const openVisibleSuccess = () => {
+    setVisibleSuccess(true);
+  };
 
   useEffect(() => {
     if (member && !accountLoading) {
@@ -27,9 +38,22 @@ export const AllMembers = () => {
     <Layout title={ t('allMembers.headerTitle') }>
       <div className={ style.members }>
         {
-          account && account.facilities.map(item => <Members key={ item.id } members={ item.members } />)
+          account && account.facilities.map(item =>
+            <Members
+              key={ item.id }
+              members={ item.members }
+              openVisibleSuccess={ openVisibleSuccess }
+            />,
+          )
         }
       </div>
+      <Success
+        visible={ visibleSuccess }
+        duration={ delayBeforeClosing }
+        onClose={ closeVisibleSuccess }
+        transparent={ true }
+        message={ t('members.success.message') }
+      />
     </Layout>
   );
 };
