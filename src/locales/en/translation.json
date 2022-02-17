@@ -172,10 +172,10 @@
   },
   "memberItemActionBlock": {
     "deactivate": "Deactivate",
-    "delete": "Delete",
+    "remove": "Remove",
     "hide": "Hide",
     "editPosition": "Edit position",
-    "transferTheMemberTo": "Transfer the member to"
+    "transferMember": "Transfer member"
   },
   "memberProfile": {
     "headerTitle": "Member profile",

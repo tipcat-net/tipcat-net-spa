@@ -168,7 +168,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                         />
                         :
                         <EditProfileItem
-                          title={ t('memberItemActionBlock.delete') }
+                          title={ t('memberItemActionBlock.remove') }
                           className={ style.membersItemActionsItem }
                           onClick={ () => {
                             put(deleteMember({
@@ -200,7 +200,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                       />
                     </EditProfileItem>
                     <EditProfileItem
-                      title={ t('memberItemActionBlock.transferTheMemberTo') }
+                      title={ t('memberItemActionBlock.transferMember') }
                       name="transfer"
                       className={ style.membersItemActionsItem }
                       visivbleField={ visivbleField }
