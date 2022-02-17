@@ -134,3 +134,17 @@ export const activateMemberFinish = (response) => ({
   type: MemberActionTypes.ACTIVATE_MEMBER_FINISH,
   response,
 });
+
+export const transferMember = (payload, callback) => ({
+  type: MemberActionTypes.TRANSFER_MEMBER_START,
+  payload,
+  callback,
+});
+export const transferMemberError = (error) => ({
+  type: MemberActionTypes.TRANSFER_MEMBER_ERROR,
+  error,
+});
+export const transferMemberFinish = (response) => ({
+  type: MemberActionTypes.TRANSFER_MEMBER_FINISH,
+  response,
+});

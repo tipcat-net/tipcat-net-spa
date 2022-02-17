@@ -1,0 +1,73 @@
+@import "../../../../styles/variables.scss";
+
+.membersItemActions {
+  display: flex;
+  align-items: center;
+
+  &Btn {
+    color: $membersItemActionsBtn_color;
+  }
+
+  &Block {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 10px;
+    display: none;
+    min-width: 251px;
+    padding: 20px 24px 20px 10px;
+    background: $membersItemActionsBlock_bg;
+    box-shadow: 0px 4px 6px $membersItemActionsBlock_shadow;
+    border-radius: 20px;
+
+    &Visible {
+      display: block;
+
+      &Field {
+        left: 10px;
+      }
+    }
+  }
+
+  &BlockVisible + &Btn {
+    position: relative;
+    z-index: 1;
+  }
+
+  &Item {
+    & > button {
+      margin-left: auto;
+    }
+
+    & > div > div:last-child {
+      margin-left: 0;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &Facility {
+    position: relative;
+    width: 100%;
+
+    &Arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &Icon {
+        transform: scale(-1);
+      }
+    }
+
+    &List {
+      position: absolute;
+      right: 10px;
+      left: 10px;
+      padding: 20px 10px 17px;
+      background: $membersItemActionsFacilityList_bg;
+      box-shadow: 0px 4px 6px $membersItemActionsFacilityList_shadow;
+    }
+  }
+}
