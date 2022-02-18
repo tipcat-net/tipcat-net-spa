@@ -12,6 +12,14 @@ export const initialState = {
     loading: false,
     error: null,
   },
+  updateFacility: {
+    loading: false,
+    error: null,
+  },
+  updateAvatarFacility: {
+    loading: false,
+    error: null,
+  },
 };
 
 export function facilityReducer(state = initialState, action) {
@@ -81,6 +89,58 @@ export function facilityReducer(state = initialState, action) {
         ...state,
         addAvatarFacility: {
           ...state.addAvatarFacility,
+          loading: false,
+          error: action.error,
+        },
+      };
+
+    case FacilityActionTypes.UPDATE_FACILITY_START:
+      return {
+        ...state,
+        updateFacility: {
+          ...state.updateFacility,
+          loading: true,
+        },
+      };
+    case FacilityActionTypes.UPDATE_FACILITY_FINISH:
+      return {
+        ...state,
+        updateFacility: {
+          ...state.updateFacility,
+          loading: false,
+        },
+      };
+    case FacilityActionTypes.UPDATE_FACILITY_ERROR:
+      return {
+        ...state,
+        updateFacility: {
+          ...state.updateFacility,
+          loading: false,
+          error: action.error,
+        },
+      };
+
+    case FacilityActionTypes.UPDATE_AVATAR_FACILITY_START:
+      return {
+        ...state,
+        updateAvatarFacility: {
+          ...state.updateAvatarFacility,
+          loading: true,
+        },
+      };
+    case FacilityActionTypes.UPDATE_AVATAR_FACILITY_FINISH:
+      return {
+        ...state,
+        updateAvatarFacility: {
+          ...state.updateAvatarFacility,
+          loading: false,
+        },
+      };
+    case FacilityActionTypes.UPDATE_AVATAR_FACILITY_ERROR:
+      return {
+        ...state,
+        updateAvatarFacility: {
+          ...state.updateAvatarFacility,
           loading: false,
           error: action.error,
         },

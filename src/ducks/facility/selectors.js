@@ -7,3 +7,9 @@ export const selectAddFacilityLoading = (state) => state.facility.addFacility.lo
 
 export const selectAddAvatarFacilityError = (state) => state.facility.addAvatarFacility.error;
 export const selectAddAvatarFacilityLoading = (state) => state.facility.addAvatarFacility.loading;
+
+export const selectUpdateFacilityError = (state) => state.facility.updateFacility.error;
+export const selectUpdateFacilityLoading = (state) => state.facility.updateFacility.loading;
+
+export const selectUpdateAvatarFacilityError = (state) => state.facility.updateAvatarFacility.error;
+export const selectUpdateAvatarFacilityLoading = (state) => state.facility.updateAvatarFacility.loading;

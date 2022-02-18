@@ -227,6 +227,31 @@
     "editProfileItem": {
       "cancel": "Cancel",
       "save": "Save"
+    },
+    "facilityProfile": {
+      "items": {
+        "name": {
+          "title": "Name"
+        },
+        "avatar": {
+          "title": "Avatar"
+        },
+        "address": {
+          "title": "Address"
+        },
+        "email": {
+          "title": "Email"
+        },
+        "phone": {
+          "title": "Phone"
+        },
+        "operatingName": {
+          "title": "Commercial name"
+        },
+        "workingSessionEndTime": {
+          "title": "Working session end time"
+        }
+      }
     }
   },
   "status": {
@@ -344,6 +369,9 @@
     "address": "Address",
     "ProfileContentBottom": {
       "rightLink": "Members"
+    },
+    "success": {
+      "message": "Changes have been saved"
     }
   },
   "facilityMembers": {

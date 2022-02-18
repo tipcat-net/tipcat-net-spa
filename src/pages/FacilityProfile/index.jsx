@@ -11,21 +11,31 @@ import { ProfileInfo } from '../../components/profile/info/';
 import { ProfileName } from '../../components/profile/name/';
 import { ProfileAvatar } from '../../components/profile/avatar/';
 import { Substrate } from '../../components/profile/substrate';
-import { EditProfile } from '../../components/profile/edit';
 import { Layout } from '../../components/ui/Layout';
+import { Success } from '../../components/success';
 
 import { getAccount } from '../../ducks/account/actions';
 import { selectMember } from '../../ducks/member/selectors';
 import { selectAccount } from '../../ducks/account/selectors';
+import { FacilityProfileEdit } from '../../components/profile/edit/facility';
 
 export const FacilityProfile = () => {
   const { t } = useTranslation();
   const put = useDispatch();
   const [visibleSubstrate, setVisibleSubstrate] = useState(false);
+  const [visibleSuccess, setVisibleSuccess] = useState(false);
   const [facility, setFacility] = useState(null);
   const { params: { facilityId } } = useRouteMatch();
   const member = useSelector(selectMember);
   const account = useSelector(selectAccount);
+  const delayBeforeClosing = 3000;
+
+  const closeVisibleSuccess = () => {
+    setVisibleSuccess(false);
+  };
+  const openVisibleSuccess = () => {
+    setVisibleSuccess(true);
+  };
 
   const toggleVisibleSubstrate = () => {
     setVisibleSubstrate(!visibleSubstrate);
@@ -46,7 +56,15 @@ export const FacilityProfile = () => {
 
   useEffect(() => {
     if(account) {
-      setFacility(account.facilities.find(item => item.id === parseInt(facilityId)));
+      setFacility(
+        account.facilities.find(item => {
+          if (item.id === parseInt(facilityId)) {
+            item.avatarUrl = `${item.avatarUrl}?${Date.now()}`;
+
+            return item;
+          }
+        }),
+      );
     }
   }, [account]);
 
@@ -56,14 +74,18 @@ export const FacilityProfile = () => {
         facility && (
           <Profile>
             <Substrate visible={ visibleSubstrate } closeVisible={ closeVisibleSubstrate }>
-              <EditProfile />
+              <FacilityProfileEdit
+                profile={ facility }
+                toggleVisibleSubstrate={ toggleVisibleSubstrate }
+                openVisibleSuccess={ openVisibleSuccess }
+              />
             </Substrate>
             <ProfileTop toggleVisibleSubstrate={ toggleVisibleSubstrate } />
             <ProfileContent>
               <ProfileAvatar data={ avatarData() } type='facility' />
               <ProfileName>{ facility.name }</ProfileName>
-              <ProfileInfo top={ true } data={ { title: t('facilityProfile.operatingName'), text: <b>{ account.operatingName }</b> } } />
-              <ProfileInfo data={ { title: t('facilityProfile.address'), text: account.address} } />
+              <ProfileInfo top={ true } data={ { title: t('facilityProfile.operatingName'), text: facility.operatingName } } />
+              <ProfileInfo top={ facility.operatingName ? false : true } data={ { title: t('facilityProfile.address'), text: facility.address} } />
               <ProfileContentBottom
                 rightLink={ {
                   link: `/facility/${facility.id}/members`, text: t('facilityProfile.ProfileContentBottom.rightLink'),
@@ -73,6 +95,13 @@ export const FacilityProfile = () => {
           </Profile>
         )
       }
+      <Success
+        visible={ visibleSuccess }
+        duration={ delayBeforeClosing }
+        onClose={ closeVisibleSuccess }
+        transparent={ true }
+        message={ t('facilityProfile.success.message') }
+      />
     </Layout>
   );
 };
