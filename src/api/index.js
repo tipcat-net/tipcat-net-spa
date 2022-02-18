@@ -24,6 +24,7 @@ export const fetchers = {
   getAccount: async (accountId) => axios.get(`/api/accounts/${accountId}`, config(true)),
   updateAccount: async ({id, ...data}) => axios.put(`/api/accounts/${id}`, data, config(true)),
   updateAvatarAccount: async ({id, data}) => axios.put(`/api/accounts/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD)),
+  getAccountStats: async (accountId) => axios.get(`/api/accounts/${accountId}/stats`, config(true)),
 
   // Facility
   getFacilities: async (accountId) => axios.get(`/api/accounts/${accountId}/facilities`, config(true)),

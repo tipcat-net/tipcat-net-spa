@@ -4,6 +4,11 @@ export const initialState = {
   loading: false,
   data: null,
   error: null,
+  stats: {
+    loading: false,
+    data: null,
+    error: null,
+  },
 };
 
 export function accountReducer(state = initialState, action) {
@@ -81,6 +86,33 @@ export function accountReducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.error,
+      };
+
+    case AccountActionTypes.GET_ACCOUNT_STATS_START:
+      return {
+        ...state,
+        stats: {
+          ...state.stats,
+          loading: true,
+        },
+      };
+    case AccountActionTypes.GET_ACCOUNT_STATS_FINISH:
+      return {
+        ...state,
+        stats: {
+          ...state.stats,
+          data: action.response.data,
+          loading: false,
+        },
+      };
+    case AccountActionTypes.GET_ACCOUNT_STATS_FINISH:
+      return {
+        ...state,
+        stats: {
+          ...state.stats,
+          loading: false,
+          error: action.error,
+        },
       };
 
     default: {

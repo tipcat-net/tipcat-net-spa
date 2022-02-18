@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 
@@ -8,11 +9,17 @@ import { Button } from '../../ui/Button';
 import { Text } from '../../ui/Text';
 
 import { ROUTES } from '../../../constants/routes';
+import { selectMember } from '../../../ducks/member/selectors';
+import { getAccountStats } from '../../../ducks/account/actions';
+import { selectAccountStats } from '../../../ducks/account/selectors';
 
 import style from './styles.module.scss';
 
 export const AccountPanel = ({ className }) => {
   const { t } = useTranslation();
+  const put = useDispatch();
+  const currentMember = useSelector(selectMember);
+  const accountStats = useSelector(selectAccountStats);
 
   const data = {
     transactions: 37,
@@ -23,6 +30,12 @@ export const AccountPanel = ({ className }) => {
       value: '$81',
     },
   };
+
+  useEffect(() => {
+    if (currentMember) {
+      put(getAccountStats(currentMember.accountId));
+    }
+  }, []);
 
   return (
     <div className={ cn(style.accountPanel, className) }>
@@ -70,7 +83,7 @@ export const AccountPanel = ({ className }) => {
           >{ t('accountPanel.buttons.members') }</Button>
         </div>
       </div>
-      <AccountPanelFacilities/>
+      { accountStats && <AccountPanelFacilities facilities={ accountStats.facilities }/> }
     </div>
   );
 };

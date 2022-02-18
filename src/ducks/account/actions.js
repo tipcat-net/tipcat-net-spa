@@ -53,3 +53,16 @@ export const updateAvatarAccountFinish = (response) => ({
   type: AccountActionTypes.UPDATE_AVATAR_ACCOUNT_FINISH,
   response,
 });
+
+export const getAccountStats = (payload) => ({
+  type: AccountActionTypes.GET_ACCOUNT_STATS_START,
+  payload,
+});
+export const getAccountStatsError = (error) => ({
+  type: AccountActionTypes.GET_ACCOUNT_STATS_ERROR,
+  error,
+});
+export const getAccountStatsFinish = (response) => ({
+  type: AccountActionTypes.GET_ACCOUNT_STATS_FINISH,
+  response,
+});
