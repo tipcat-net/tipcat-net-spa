@@ -40,3 +40,31 @@ export const addAvatarFacilityError = (error) => ({
   type: FacilityActionTypes.ADD_AVATAR_FACILITY_ERROR,
   error,
 });
+
+export const updateFacility = (payload, callback) => ({
+  type: FacilityActionTypes.UPDATE_FACILITY_START,
+  payload,
+  callback,
+});
+export const updateFacilityFinish = (response) => ({
+  type: FacilityActionTypes.UPDATE_FACILITY_FINISH,
+  response,
+});
+export const updateFacilityError = (error) => ({
+  type: FacilityActionTypes.UPDATE_FACILITY_ERROR,
+  error,
+});
+
+export const updateAvatarFacility = (payload, callback) => ({
+  type: FacilityActionTypes.UPDATE_AVATAR_FACILITY_START,
+  payload,
+  callback,
+});
+export const updateAvatarFacilityFinish = (response) => ({
+  type: FacilityActionTypes.UPDATE_AVATAR_FACILITY_FINISH,
+  response,
+});
+export const updateAvatarFacilityError = (error) => ({
+  type: FacilityActionTypes.UPDATE_AVATAR_FACILITY_ERROR,
+  error,
+});
