@@ -35,12 +35,6 @@ export const Substrate = ({ children, visible, closeVisible }) => {
     >
       <div className={ style.substrateContent }>
         { children }
-        <Button
-          borderNone={ true }
-          className={ style.substrateBtnEdit }
-          onClick={ closeVisible }
-          icon={ <Edit className={ style.substrateBtnEditIcon } /> }
-        ></Button>
       </div>
     </div>
   );
