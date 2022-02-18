@@ -37,7 +37,10 @@ export const Sort = ({ data, onToggleSelected }) => {
           <ChevronDown className={ style.sortSelectedArrow } />
         </Button>
       </div>
-      <Substrate visible={ visibleSubstrate }>
+      <Substrate
+        visible={ visibleSubstrate }
+        closeVisible={ onToggleVisibleSubstrate }
+      >
         <ul className={ style.sortList } data-text={ t('sort') }>
           {
             data.list.map(item => (

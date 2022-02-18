@@ -64,7 +64,9 @@ export const FacilityProfileEdit = ({ profile, toggleVisibleSubstrate, openVisib
   };
 
   return (
-    <EditProfile >
+    <EditProfile
+      closeVisible={ toggleVisibleSubstrate }
+    >
       <Formik
         initialValues={ getInitialValues(initialValues, profile) }
         validationSchema={ schema }
