@@ -24,6 +24,7 @@ export const Support = () => {
   const { t } = useTranslation();
   const currentMember = useSelector(selectMember);
   const [visibleSuccess, setVisibleSuccess] = useState(false);
+  const [requestSupportLoading, setRequestSupportLoading] = useState(false);
   const delayBeforeClosing = 3000;
 
   const closeVisibleSuccess = () => {
@@ -34,11 +35,13 @@ export const Support = () => {
   };
 
   const onSubmit = (values, actions) => {
+    setRequestSupportLoading(true);
     put(requestSupport(
       { content: values.message },
       () => {
         openVisibleSuccess(),
         actions.resetForm();
+        setRequestSupportLoading(false);
       },
     ));
   };
@@ -58,7 +61,7 @@ export const Support = () => {
               errors,
               resetForm,
             }) => {
-              const isDisabled = values.message.length === 0 || errors.message;
+              const isDisabled = values.message.length === 0 || errors.message || requestSupportLoading;
 
               const onSuccessBtnAdd = () => {
                 resetForm();
