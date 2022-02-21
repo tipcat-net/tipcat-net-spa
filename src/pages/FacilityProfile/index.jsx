@@ -59,7 +59,9 @@ export const FacilityProfile = () => {
       setFacility(
         account.facilities.find(item => {
           if (item.id === parseInt(facilityId)) {
-            item.avatarUrl = `${item.avatarUrl}?${Date.now()}`;
+            if (item.avatarUrl) {
+              item.avatarUrl = `${item.avatarUrl}?${Date.now()}`;
+            }
 
             return item;
           }
@@ -84,8 +86,13 @@ export const FacilityProfile = () => {
             <ProfileContent>
               <ProfileAvatar data={ avatarData() } type='facility' />
               <ProfileName>{ facility.name }</ProfileName>
-              <ProfileInfo top={ true } data={ { title: t('facilityProfile.operatingName'), text: facility.operatingName } } />
-              <ProfileInfo top={ facility.operatingName ? false : true } data={ { title: t('facilityProfile.address'), text: facility.address} } />
+              <ProfileInfo
+                top={ true }
+                data={ {
+                  title: t('facilityProfile.operatingName'),
+                  text: facility.operatingName ? facility.operatingName : account.operatingName,
+                } } />
+              <ProfileInfo data={ { title: t('facilityProfile.address'), text: facility.address} } />
               <ProfileContentBottom
                 rightLink={ {
                   link: `/facility/${facility.id}/members`, text: t('facilityProfile.ProfileContentBottom.rightLink'),
