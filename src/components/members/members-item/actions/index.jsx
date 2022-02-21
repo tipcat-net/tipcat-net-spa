@@ -14,7 +14,7 @@ import { useComponentUnderCursor } from '../../../../hooks/useComponentUnderCurs
 import { schema } from '../../../../form-helpers/member-edit/schema';
 import { getInitialValues } from '../../../../form-helpers/member-edit/mapping';
 import { selectAccount } from '../../../../ducks/account/selectors';
-import { updateMember, deleteMember, deactivateMember, transferMember } from '../../../../ducks/member/actions';
+import { updateMember, deleteMember, deactivateMember, transferMember, activateMember } from '../../../../ducks/member/actions';
 
 import style from './styles.module.scss';
 
@@ -23,6 +23,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
   const put = useDispatch();
   const account = useSelector(selectAccount);
   const initialValues = schema.cast({});
+  const [sending, setSending] = useState(false);
   const [visibleActions, setVisibleActions] = useState(false);
   const [visivbleField, setVisivbleField] = useState();
   const {ref,
@@ -50,11 +51,13 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
     toggleVisibleActions();
     toggleVisivbleField();
     openVisibleSuccess();
+    setSending(false);
   };
 
   const onSubmit = (values) => {
     const { transfer, ...data } = values;
 
+    setSending(true);
     if (values.transfer.selected) {
       put(transferMember(transfer.selected, closeEditProfile));
     } else {
@@ -96,7 +99,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                 handleChange,
               }) => {
                 const onCancel = (name) => {
-                  name.split(',').forEach(item => setFieldValue(item, profile[item]));
+                  setFieldValue(name, member[name]);
                   toggleVisivbleField();
                 };
 
@@ -167,16 +170,28 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                           } }
                         />
                         :
-                        <EditProfileItem
-                          title={ t('memberItemActionBlock.remove') }
-                          className={ style.membersItemActionsItem }
-                          onClick={ () => {
-                            put(deleteMember({
-                              id: member.id,
-                              accountId: member.accountId,
-                            }, closeEditProfile));
-                          } }
-                        />
+                        <React.Fragment>
+                          <EditProfileItem
+                            title={ t('memberItemActionBlock.activate') }
+                            className={ style.membersItemActionsItem }
+                            onClick={ () => {
+                              put(activateMember({
+                                id: member.id,
+                                accountId: member.accountId,
+                              }, closeEditProfile));
+                            } }
+                          />
+                          <EditProfileItem
+                            title={ t('memberItemActionBlock.remove') }
+                            className={ style.membersItemActionsItem }
+                            onClick={ () => {
+                              put(deleteMember({
+                                id: member.id,
+                                accountId: member.accountId,
+                              }, closeEditProfile));
+                            } }
+                          />
+                        </React.Fragment>
                     }
                     <EditProfileItem
                       title={ t('memberItemActionBlock.hide') }
@@ -189,7 +204,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                       visivbleField={ visivbleField }
                       toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                       onCancel={ onCancel }
-                      error={ errors.position }
+                      error={ errors.position || sending }
                     >
                       <Input
                         name="position"
@@ -206,6 +221,7 @@ export const MembersItemActions = ({ member, openVisibleSuccess }) => {
                       visivbleField={ visivbleField }
                       toggleVisivbleField={ isErrors(errors) ? null : toggleVisivbleField }
                       onCancel={ onCancelTransfer }
+                      error={ !values.transfer.selected || sending }
                     >
                       <div
                         className={ style.membersItemActionsFacility }

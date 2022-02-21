@@ -172,6 +172,7 @@
   },
   "memberItemActionBlock": {
     "deactivate": "Deactivate",
+    "activate": "Activate",
     "remove": "Remove",
     "hide": "Hide",
     "editPosition": "Edit position",
