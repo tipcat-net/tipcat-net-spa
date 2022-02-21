@@ -6,15 +6,18 @@ export const schema = yup.object().shape({
   name: yup.string().required('Required').default(''),
   email: yup.string().email().test('or', 'or', function validate(value) {
     if (this.parent.phone || value) {
-      return true
+      return true;
     }
+
     return false;
   }).default(''),
   phone: yup.string().test('or', 'or', function validate(value) {
     if (this.parent.email || value) {
-      return true
+      return true;
     }
+
     return false;
   }).default(''),
-  avatar: yup.mixed()
+  avatar: yup.mixed(),
+  currency: yup.string().default(''),
 });
