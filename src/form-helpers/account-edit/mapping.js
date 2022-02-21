@@ -6,5 +6,6 @@ export const getInitialValues = (initialValues, account) => ({
   name: account.name,
   email: account.email,
   phone: account.phone,
-  avatarUrl: account.avatarUrl
+  avatarUrl: account.avatarUrl,
+  currency: account.currency,
 });
