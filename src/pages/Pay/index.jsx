@@ -13,6 +13,7 @@ import { PaymentMessage } from '../../components/payment/message';
 
 import { getPayment } from '../../ducks/payment/actions';
 import { selectPayment } from '../../ducks/payment/selectors';
+import { PaymentRequestButton } from '../../components/payment/requestButton';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
@@ -22,6 +23,11 @@ export const Pay = () => {
   const { params: { memberCode } } = useRouteMatch();
   const payment = useSelector(selectPayment);
   const [currentDisplay, setCurrentDisplay] = useState('payment');
+  const [paymentRequest, setPaymentRequest] = useState(null);
+  const [availablePaymentMethods, setAvailablePaymentMethods] = useState({
+    card: true,
+  });
+
   const display = [
     {
       key: 'payment',
@@ -51,6 +57,13 @@ export const Pay = () => {
     setCurrentDisplay(value);
   };
 
+  const addPaymentMethod = (value) => {
+    setAvailablePaymentMethods({
+      ...availablePaymentMethods,
+      ...value,
+    });
+  };
+
   if (!payment.member) {
     return null;
   }
@@ -73,12 +86,36 @@ export const Pay = () => {
 
       return (
         <Layout logo={ true } footer={ true }>
-          <PaymentMethod
-            payment={ payment }
-            onChangeDisplay={ onChangeDisplay }
-            currentDisplay={ currentDisplay }
-            display={ display }
-          />
+          <Elements stripe={ stripePromise }>
+            <PaymentMethod
+              payment={ payment }
+              setPaymentRequest={ setPaymentRequest }
+              availablePaymentMethods={ availablePaymentMethods }
+              addPaymentMethod={ addPaymentMethod }
+              onChangeDisplay={ onChangeDisplay }
+              currentDisplay={ currentDisplay }
+              display={ display }
+            />
+          </Elements>
+        </Layout>
+      );
+
+    case 'applePay':
+    case 'googlePay':
+      window.scrollTo(0, 0);
+
+      return (
+        <Layout logo={ true } footer={ true }>
+          <Elements stripe={ stripePromise }
+          >
+            <PaymentRequestButton
+              payment={ payment }
+              paymentRequest={ paymentRequest }
+              onChangeDisplay={ onChangeDisplay }
+              currentDisplay={ currentDisplay }
+              display={ display }
+            />
+          </Elements>
         </Layout>
       );
 
@@ -87,16 +124,14 @@ export const Pay = () => {
 
       return (
         <Layout logo={ true } footer={ true }>
-          { payment.clientSecret && (
-            <Elements stripe={ stripePromise }>
-              <PaymentCard
-                payment={ payment }
-                onChangeDisplay={ onChangeDisplay }
-                currentDisplay={ currentDisplay }
-                display={ display }
-              />
-            </Elements>
-          ) }
+          <Elements stripe={ stripePromise }>
+            <PaymentCard
+              payment={ payment }
+              onChangeDisplay={ onChangeDisplay }
+              currentDisplay={ currentDisplay }
+              display={ display }
+            />
+          </Elements>
         </Layout>
       );
 

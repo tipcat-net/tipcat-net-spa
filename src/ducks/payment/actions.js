@@ -13,16 +13,16 @@ export const getPaymentError = (error) => ({
   error,
 });
 
-export const createPayment = (payload) => ({
-  type: PaymentActionTypes.CREATE_PAYMENT_START,
+export const createPaymentIntent = (payload) => ({
+  type: PaymentActionTypes.CREATE_PAYMENT_INTENT_START,
   payload,
 });
-export const createPaymentFinish = (response) => ({
-  type: PaymentActionTypes.CREATE_PAYMENT_FINISH,
+export const createPaymentIntentFinish = (response) => ({
+  type: PaymentActionTypes.CREATE_PAYMENT_INTENT_FINISH,
   response,
 });
-export const createPaymentError = (error) => ({
-  type: PaymentActionTypes.CREATE_PAYMENT_ERROR,
+export const createPaymentIntentError = (error) => ({
+  type: PaymentActionTypes.CREATE_PAYMENT_INTENT_ERROR,
   error,
 });
 
@@ -41,14 +41,19 @@ export const capturePaymentError = (error) => ({
 });
 
 export const updatePayment = (payload) => ({
-  type: PaymentActionTypes.UPDATE_PAYMENT_START,
+  type: PaymentActionTypes.UPDATE_PAYMENT,
   payload,
 });
-export const updatePaymentFinish = (response) => ({
-  type: PaymentActionTypes.UPDATE_PAYMENT_FINISH,
+
+export const updatePaymentIntent = (payload) => ({
+  type: PaymentActionTypes.UPDATE_PAYMENT_INTENT_START,
+  payload,
+});
+export const updatePaymentIntentFinish = (response) => ({
+  type: PaymentActionTypes.UPDATE_PAYMENT_INTENT_FINISH,
   response,
 });
-export const updatePaymentError = (error) => ({
-  type: PaymentActionTypes.UPDATE_PAYMENT_ERROR,
+export const updatePaymentIntentError = (error) => ({
+  type: PaymentActionTypes.UPDATE_PAYMENT_INTENT_ERROR,
   error,
 });

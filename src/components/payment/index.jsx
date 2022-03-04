@@ -16,7 +16,7 @@ import { Title } from '../ui/Title';
 import { Button } from '../ui/Button';
 import { PaymentBottom } from './bottom';
 
-import { createPayment, updatePayment } from '../../ducks/payment/actions';
+import { updatePayment } from '../../ducks/payment/actions';
 
 import style from './styles.module.scss';
 
@@ -56,30 +56,12 @@ export const Payment = ({ payment, onChangeDisplay, currentDisplay, display }) =
   };
 
   const onNext = () => {
-    if(payment.paymentIntentId) {
-      put(updatePayment({
-        memberId: payment.member.id,
-        paymentId: payment.paymentIntentId,
-        amount: amount,
-        message: message,
-        isServiceFee: isServiceFee,
-        tipsAmount: {
-          amount: totalAmount(),
-          currency: payment.proFormaInvoice.serviceFee.currency,
-        },
-      }));
-    } else {
-      put(createPayment({
-        memberId: payment.member.id,
-        amount: amount,
-        message: message,
-        isServiceFee: isServiceFee,
-        tipsAmount: {
-          amount: totalAmount(),
-          currency: payment.proFormaInvoice.serviceFee.currency,
-        },
-      }));
-    }
+    put(updatePayment({
+      ...payment,
+      amount: amount,
+      message: message,
+      isServiceFee: isServiceFee,
+    }));
     onChangeDisplay('paymentMethod');
   };
 

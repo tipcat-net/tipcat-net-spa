@@ -33,9 +33,9 @@ export const fetchers = {
   updateAvatarFacility: async ({id, accountId, params, data}) => axios.put(`/api/accounts/${accountId}/facilities/${id}/avatar`, getBody(data, ContentTypes.MPFD), config(true, ContentTypes.MPFD, params)),
 
   getPayment: async (memberCode) => axios.get(`/api/payments/${memberCode}`),
-  createPayment: async (data) => axios.post('/api/payments', data),
+  createPaymentIntent: async (data) => axios.post('/api/payments', data),
   capturePayment: async (paymentId) => axios.post(`/api/payments/${paymentId}/capture`),
-  updatePayment: async ({ paymentId, ...data }) => axios.put(`/api/payments/${paymentId}`, data),
+  updatePaymentIntent: async ({ paymentId, ...data }) => axios.put(`/api/payments/${paymentId}`, data),
 
   getTransactions: async (params) => axios.get('/api/transactions/', config(true, null, params)),
 

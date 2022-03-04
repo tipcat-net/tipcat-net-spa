@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useTranslation } from 'react-i18next';
@@ -7,7 +7,7 @@ import { ProfileContent } from '../../profile/content';
 import { PaymentBottom } from '../bottom';
 import { Button } from '../../ui/Button';
 
-import { capturePayment } from '../../../ducks/payment/actions';
+import { capturePayment, createPaymentIntent, updatePaymentIntent } from '../../../ducks/payment/actions';
 
 import style from './styles.module.scss';
 
@@ -21,6 +21,39 @@ export const PaymentCard = ({ payment, onChangeDisplay, currentDisplay, display 
   const handleComplete = (e) => {
     setIsComplete(e.complete);
   };
+
+  const totalAmount = () => {
+    if (payment.isServiceFee && parseFloat(payment.amount)) {
+      return parseFloat(payment.amount) + payment.proFormaInvoice.serviceFee.amount;
+    } else if (payment.isServiceFee && !parseFloat(payment.amount)) {
+      return payment.proFormaInvoice.serviceFee.amount;
+    } else {
+      return payment.amount;
+    }
+  };
+
+  useEffect(() => {
+    if(payment.paymentIntentId) {
+      put(updatePaymentIntent({
+        memberId: payment.member.id,
+        paymentId: payment.paymentIntentId,
+        message: payment.message,
+        tipsAmount: {
+          amount: totalAmount(),
+          currency: payment.proFormaInvoice.serviceFee.currency,
+        },
+      }));
+    } else {
+      put(createPaymentIntent({
+        memberId: payment.member.id,
+        message: payment.message,
+        tipsAmount: {
+          amount: totalAmount(),
+          currency: payment.proFormaInvoice.serviceFee.currency,
+        },
+      }));
+    }
+  }, []);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -42,9 +75,13 @@ export const PaymentCard = ({ payment, onChangeDisplay, currentDisplay, display 
 
   return (
     <ProfileContent className={ style.paymentCard }>
-      <CardElement
-        onChange={ handleComplete }
-      />
+      {
+        payment.clientSecret && (
+          <CardElement
+            onChange={ handleComplete }
+          />
+        )
+      }
       <PaymentBottom
         currentDisplay={ currentDisplay }
         display={ display }

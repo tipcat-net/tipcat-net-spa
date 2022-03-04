@@ -405,7 +405,7 @@
       "text": "How will you prefer to pay?",
       "list": {
         "applePay": {
-          "title": "ApplePay",
+          "title": "Apple Pay",
           "description": ""
         },
         "card": {
@@ -413,7 +413,11 @@
           "description": "Secure processing payment ensured <br> <strong>Rapid payment system</strong>"
         },
         "googlePay": {
-          "title": "GooglePay",
+          "title": "Google Pay",
+          "description": ""
+        },
+        "samsungPay": {
+          "title": "Samsung Pay",
           "description": ""
         }
       },

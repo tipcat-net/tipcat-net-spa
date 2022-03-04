@@ -37,18 +37,15 @@ export function paymentReducer(state = initialState, action) {
         error: action.error,
       };
 
-    case PaymentActionTypes.CREATE_PAYMENT_START:
+    case PaymentActionTypes.CREATE_PAYMENT_INTENT_START:
       return {
         ...state,
         loading: true,
         data: {
           ...state.data,
-          amount: action.payload.amount,
-          message: action.payload.message,
-          isServiceFee: action.payload.isServiceFee,
         },
       };
-    case PaymentActionTypes.CREATE_PAYMENT_FINISH:
+    case PaymentActionTypes.CREATE_PAYMENT_INTENT_FINISH:
       return {
         ...state,
         loading: false,
@@ -57,25 +54,31 @@ export function paymentReducer(state = initialState, action) {
           ...action.response.data,
         },
       };
-    case PaymentActionTypes.CREATE_PAYMENT_ERROR:
+    case PaymentActionTypes.CREATE_PAYMENT_INTENT_ERROR:
       return {
         ...state,
         loading: false,
         error: action.error,
       };
 
-    case PaymentActionTypes.UPDATE_PAYMENT_START:
+    case PaymentActionTypes.UPDATE_PAYMENT:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          ...action.payload,
+        },
+      };
+
+    case PaymentActionTypes.UPDATE_PAYMENT_INTENT_START:
       return {
         ...state,
         loading: true,
         data: {
           ...state.data,
-          amount: action.payload.amount,
-          message: action.payload.message,
-          isServiceFee: action.payload.isServiceFee,
         },
       };
-    case PaymentActionTypes.UPDATE_PAYMENT_FINISH:
+    case PaymentActionTypes.UPDATE_PAYMENT_INTENT_FINISH:
       return {
         ...state,
         loading: false,
@@ -84,7 +87,7 @@ export function paymentReducer(state = initialState, action) {
           ...action.response.data,
         },
       };
-    case PaymentActionTypes.UPDATE_PAYMENT_ERROR:
+    case PaymentActionTypes.UPDATE_PAYMENT_INTENT_ERROR:
       return {
         ...state,
         loading: false,

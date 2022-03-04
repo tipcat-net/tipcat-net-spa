@@ -22,15 +22,23 @@ export const PaymentMethotList = ({ data, onChangeMethod, paymentMethodSelected 
           ) }
           onClick={ () => onChangeMethod(item) }
           disabled={ item.disabled }
+          data-method={ item.method }
         >
           <span className={ style.paymentMethotListItemIcon }>
             { item.icon }
           </span>
           {
-            item.disabled ?
-              <Text size='small' className={ style.paymentMethotListItemText }>{ item.title }</Text>
+            paymentMethodSelected && paymentMethodSelected.method === item.method ?
+              <Text
+                size='big'
+                strong={ true }
+                className={ style.paymentMethotListItemText }
+              >{ item.title }</Text>
               :
-              <Text size='big' strong={ true } className={ style.paymentMethotListItemText }>{ item.title }</Text>
+              <Text
+                size='small'
+                className={ style.paymentMethotListItemText }
+              >{ item.title }</Text>
           }
         </Button>
       ))
