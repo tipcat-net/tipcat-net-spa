@@ -7,46 +7,88 @@
   flex-wrap: wrap;
 
   &Item {
-    margin: 0 12px;
+    margin: 0 10px;
     flex: 0 0 86px;
+    width: 86px;
+    max-width: 86px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    padding: 5px 5px 0;
 
     &Icon {
+      position: relative;
       width: 100%;
-      height: 86px;
+      height: 76px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid $paymentMethotListItemIcon_border;
+      background: $paymentMethotListItemIcon_bg;
+      box-shadow: 1px 1px 6px $paymentMethotListItemIcon_shadow;
       border-radius: 10px;
       color: $paymentMethotListItemIcon_color;
     }
 
     &Text {
-      margin-top: 11px;
+      margin-top: 14px;
       width: 100%;
       text-align: center;
+      min-height: 42px;
     }
 
-    &:disabled {
-      flex: 0 0 76px;
+    &[data-method=applePay] &Icon {
+      color: $paymentMethotListItem_dataMethod_applePay_paymentMethotListItemIcon_color;
     }
 
-    &:disabled &Icon {
-      height: 76px;
-      border-color: $paymentMethotListItem_disabled_Icon_border;
-      color: $paymentMethotListItem_disabled_Icon_color;
+    &[data-method=card] &Icon {
+      color: $paymentMethotListItem_dataMethod_card_paymentMethotListItemIcon_color;
     }
-    
-    &:disabled &Text {
-      margin-top: 16px;
+
+    &[data-method=googlePay]:not(&Active) &Icon {
+      svg > path {
+        fill: $paymentMethotListItem_dataMethod_googlePay_not_paymentMethotListItemActive_paymentMethotListItemIcon_fill;
+      }
+    }
+
+    &[data-method=samsungPay] &Icon {
+      color: $paymentMethotListItem_dataMethod_samsungPay_paymentMethotListItemIcon_color;
+    }
+
+    &Active {
+      padding: 0;
     }
 
     &Active &Icon {
-      background-color: $paymentMethotListItemActiveIcon_bg;
-      color: $paymentMethotListItemActiveIcon_color;
+      height: 86px;
+      box-shadow: 0px 1px 10px $paymentMethotListItemActive_paymentMethotListItemIcon_shadow;
+    }
+
+    &Active[data-method=applePay] &Icon {
+      color: $paymentMethotListItemActive_dataMethod_applePay_paymentMethotListItemIcon_color;
+    }
+    
+    &Active[data-method=card] &Icon {
+      color: $paymentMethotListItemActive_dataMethod_card_paymentMethotListItemIcon_color;
+    }
+    
+    &Active[data-method=samsungPay] &Icon {
+      color: $paymentMethotListItemActive_dataMethod_samsungPay_paymentMethotListItemIcon_color;
+    }
+
+    &Active &Text {
+      margin-top: 9px;
+    }
+
+    &:disabled &Icon {
+      color: $paymentMethotListItem_disabled_paymentMethotListItemIcon_color;
+    }
+
+    &:disabled[data-method=googlePay] &Icon svg > path {
+      fill: $paymentMethotListItem_disabled_dataMethod_googlePay_paymentMethotListItemIcon_fill;
+    }
+
+    &:disabled &Text {
+      color: $paymentMethotListItem_disabled_paymentMethotListItemText_color;
     }
   }
 }

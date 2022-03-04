@@ -37,9 +37,9 @@ import updateAvatarFacilityRequest from './facility/update-avatar-facility';
 
 import { PaymentActionTypes } from '../ducks/payment/action-types';
 import getPaymentRequest from './payment/get-payment';
-import createPaymentRequest from './payment/create-payment';
+import createPaymentIntentRequest from './payment/create-payment-intent';
 import capturePaymentRequest from './payment/capture-payment';
-import updatePaymentRequest from './payment/update-payment';
+import updatePaymentIntentRequest from './payment/update-payment-intent';
 
 import { TransactionActionTypes } from '../ducks/transaction/action-types';
 import getTransactionsRequest from './transaction/get-transactions';
@@ -77,9 +77,9 @@ export default function* sagas() {
     takeEvery(FacilityActionTypes.UPDATE_AVATAR_FACILITY_START, updateAvatarFacilityRequest),
     // Payment
     takeEvery(PaymentActionTypes.GET_PAYMENT_START, getPaymentRequest),
-    takeEvery(PaymentActionTypes.CREATE_PAYMENT_START, createPaymentRequest),
+    takeEvery(PaymentActionTypes.CREATE_PAYMENT_INTENT_START, createPaymentIntentRequest),
     takeEvery(PaymentActionTypes.CAPTURE_PAYMENT_START, capturePaymentRequest),
-    takeEvery(PaymentActionTypes.UPDATE_PAYMENT_START, updatePaymentRequest),
+    takeEvery(PaymentActionTypes.UPDATE_PAYMENT_INTENT_START, updatePaymentIntentRequest),
     // Transaction
     takeEvery(TransactionActionTypes.GET_TRANSACTIONS_START, getTransactionsRequest),
     takeEvery(TransactionActionTypes.CHANGE_PARAMS_TRANSACTIONS, changeParamsTransactionsRequest),
