@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: clean
-        uses: beatlabs/delete-old-branches-action@v0.0.6
+        uses: beatlabs/delete-old-branches-action@v0.0.10
         with:
           repo_token: ${{ secrets.GITTOKEN }}
           date: '12 month ago'
