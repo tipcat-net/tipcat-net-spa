@@ -18,4 +18,4 @@ jobs:
           delete_tags: false
           minimum_tags: 5
           exclude_open_pr_branches: true
-          extra_protected_branch_regex: master.*|main|feature|^release.*|.*_p$
+          extra_protected_branch_regex: master.*|main|^release.*|.*_p$
