@@ -1,8 +1,7 @@
 name: CLEAR OLD BRANCHES
 
 on:
-  schedule:
-    - cron: "0 0 * * 6"
+  workflow_dispatch:
 jobs:
   cleaning:
     name: Cleanup old branches
